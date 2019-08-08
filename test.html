@@ -1,0 +1,1181 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="../include/js/jquery.js"></script><!--j쿼리-->
+    <script src="hangul.js" type="text/javascript"></script> <!--한글변환-->
+</head>
+<body>
+
+
+    <!-- 세로형 안내 키오스크 메인 시작 -->
+    <div class="vertical_kiosk_main vertical_pages">
+
+    <!-- 상단 컨텐츠 시작 -->
+    <div class="main_top_div">
+        
+        <!-- 상단 로고, 시간 시작 -->
+        <div class="banner">
+            <div class="banner_left">
+                <img src="http://192.168.0.113:8031/stadmin/lotte_test/lotte_logo.png"/>
+            </div>
+
+            <div class="banner_right">
+                <div class="time_div" id="time_div">
+                    
+                </div>
+                <div class="date_div" id="date_div">
+                    
+                </div>
+            </div>
+        </div>
+        <!-- 상단 로고, 시간 끝 -->
+
+        <!-- 상단 광고 이미지 시작 -->
+        <div class="banner_image">
+            <img class="banner_image_btn" data-direction="left" id="id_banner_image_left_btn" src="http://192.168.0.113:8031/stadmin/lotte_test/left.svg" height="60" width="60">
+            <img id="id_banner_image" src="http://192.168.0.113:8031/stadmin/lotte_test/lotte.jpg"/>
+            <img class="banner_image_btn" data-direction="right" id="id_banner_image_right_btn" src="http://192.168.0.113:8031/stadmin/lotte_test/right.svg" height="60" width="60">
+        </div>
+        <!-- 상단 광고 이미지 끝 -->
+
+    </div>
+    <!-- 상단 컨텐츠 끝 -->
+    
+
+    <!-- 하단 컨텐츠 시작 -->
+    <div class="main_bot_div">
+
+        <!-- 하단 상단 텍스트 시작 -->
+        <div class="search_text">
+
+            <div class="search_text_left">
+            
+            </div>
+
+            <div class="search_text_center">
+            
+            </div>
+
+            <div class="search_text_right">
+            
+            </div>
+
+        </div>
+        <!-- 하단 상단 텍스트 끝 -->
+
+        <!-- 하단 맵 시작 -->
+        <div class="map_preview">
+
+            <!-- 서치바 시작 -->
+            <div class="searchbar">
+                <div class="searchbar_text">검색어를 입력하세요</div>
+                <div class="searchbar_icon">검색</div>
+                <div class="searchbar_close">닫기</div>
+            </div>
+            <!-- 서치바 끝 -->
+
+            <!-- 키보드 시작 -->
+            <div class="keyboard">
+
+                <div class="keyboard_line">
+                    <div class="keyboard_key" data-eng="1" data-kor="1" data-eng-shift="1" data-kor-shift="1">1</div>
+                    <div class="keyboard_key" data-eng="2" data-kor="2" data-eng-shift="2" data-kor-shift="2">2</div>
+                    <div class="keyboard_key" data-eng="3" data-kor="3" data-eng-shift="3" data-kor-shift="3">3</div>
+                    <div class="keyboard_key" data-eng="4" data-kor="4" data-eng-shift="4" data-kor-shift="4">4</div>
+                    <div class="keyboard_key" data-eng="5" data-kor="5" data-eng-shift="5" data-kor-shift="5">5</div>
+                    <div class="keyboard_key" data-eng="6" data-kor="6" data-eng-shift="6" data-kor-shift="6">6</div>
+                    <div class="keyboard_key" data-eng="7" data-kor="7" data-eng-shift="7" data-kor-shift="7">7</div>
+                    <div class="keyboard_key" data-eng="8" data-kor="8" data-eng-shift="8" data-kor-shift="8">8</div>
+                    <div class="keyboard_key" data-eng="9" data-kor="9" data-eng-shift="9" data-kor-shift="9">9</div>
+                    <div class="keyboard_key" data-eng="0" data-kor="0" data-eng-shift="0" data-kor-shift="0">0</div>
+                    <div class="keyboard_key function_key_short keyboard_black" data-eng="del" data-kor="del">del</div>
+                </div>
+
+                <div class="keyboard_line">
+                    
+                    <div class="keyboard_key" data-eng="q" data-kor="ㅂ" data-eng-shift="Q" data-kor-shift="ㅃ">q</div>
+                    <div class="keyboard_key" data-eng="w" data-kor="ㅈ" data-eng-shift="W" data-kor-shift="ㅉ">w</div>
+                    <div class="keyboard_key" data-eng="e" data-kor="ㄷ" data-eng-shift="E" data-kor-shift="ㄸ">e</div>
+                    <div class="keyboard_key" data-eng="r" data-kor="ㄱ" data-eng-shift="R" data-kor-shift="ㄲ">r</div>
+                    <div class="keyboard_key" data-eng="t" data-kor="ㅅ" data-eng-shift="T" data-kor-shift="ㅆ">t</div>
+                    <div class="keyboard_key" data-eng="y" data-kor="ㅛ" data-eng-shift="Y" data-kor-shift="ㅛ">y</div>
+                    <div class="keyboard_key" data-eng="u" data-kor="ㅕ" data-eng-shift="U" data-kor-shift="ㅕ">u</div>
+                    <div class="keyboard_key" data-eng="i" data-kor="ㅑ" data-eng-shift="I" data-kor-shift="ㅑ">i</div>
+                    <div class="keyboard_key" data-eng="o" data-kor="ㅐ" data-eng-shift="O" data-kor-shift="ㅒ">o</div>
+                    <div class="keyboard_key" data-eng="p" data-kor="ㅔ" data-eng-shift="P" data-kor-shift="ㅖ">p</div>         
+                                
+                </div>
+
+                <div class="keyboard_line">
+                    
+                    <div class="keyboard_key" data-eng="a" data-kor="ㅁ" data-eng-shift="A" data-kor-shift="ㅁ">a</div>
+                    <div class="keyboard_key" data-eng="s" data-kor="ㄴ" data-eng-shift="S" data-kor-shift="ㄴ">s</div>
+                    <div class="keyboard_key" data-eng="d" data-kor="ㅇ" data-eng-shift="D" data-kor-shift="ㅇ">d</div>
+                    <div class="keyboard_key" data-eng="f" data-kor="ㄹ" data-eng-shift="F" data-kor-shift="ㄹ">f</div>
+                    <div class="keyboard_key" data-eng="g" data-kor="ㅎ" data-eng-shift="G" data-kor-shift="ㅎ">g</div>
+                    <div class="keyboard_key" data-eng="h" data-kor="ㅗ" data-eng-shift="H" data-kor-shift="ㅗ">h</div>
+                    <div class="keyboard_key" data-eng="j" data-kor="ㅓ" data-eng-shift="J" data-kor-shift="ㅓ">j</div>
+                    <div class="keyboard_key" data-eng="k" data-kor="ㅏ" data-eng-shift="K" data-kor-shift="ㅏ">k</div>
+                    <div class="keyboard_key" data-eng="l" data-kor="ㅣ" data-eng-shift="L" data-kor-shift="ㅣ">l</div>
+                    <div class="keyboard_key function_key_middle keyboard_black" data-eng="shift" data-kor="shift">shift</div>
+                </div>
+
+                <div class="keyboard_line">
+                    <div class="keyboard_key function_key_short keyboard_black" data-eng="change" data-kor="change">한영</div>
+                    <div class="keyboard_key" data-eng="z" data-kor="ㅋ" data-eng-shift="Z" data-kor-shift="ㅋ">z</div>
+                    <div class="keyboard_key" data-eng="x" data-kor="ㅌ" data-eng-shift="X" data-kor-shift="ㅌ">x</div>
+                    <div class="keyboard_key" data-eng="c" data-kor="ㅊ" data-eng-shift="C" data-kor-shift="ㅊ">c</div>
+                    <div class="keyboard_key" data-eng="v" data-kor="ㅍ" data-eng-shift="V" data-kor-shift="ㅍ">v</div>
+                    <div class="keyboard_key" data-eng="b" data-kor="ㅠ" data-eng-shift="B" data-kor-shift="ㅠ">b</div>
+                    <div class="keyboard_key" data-eng="n" data-kor="ㅜ" data-eng-shift="N" data-kor-shift="ㅜ">n</div>
+                    <div class="keyboard_key" data-eng="m" data-kor="ㅡ" data-eng-shift="M" data-kor-shift="ㅡ">m</div>
+                    <div class="keyboard_key function_key_long keyboard_white" data-eng="space" data-kor="space">space</div>
+                </div>
+
+
+
+            </div>
+            <!-- 키보드 끝 -->
+
+            <div class="map">
+
+                <div class="map_stores">
+
+                    <!-- 상점 팝업 시작 -->
+                    <div class="store_popup">
+                        
+                    </div>
+                    <!-- 상점 팝업 끝 -->
+                </div>
+                <img id="id_map_image" src="http://192.168.0.113:8031/stadmin/lotte_test/map/1F.png"/>
+                
+            </div>
+
+            <div class="map_floor_btn">
+
+            </div>
+
+        </div>
+        <!-- 하단 맵 끝 -->
+        
+    </div>
+    <!-- 하단 컨텐츠 끝 -->
+    </div>
+    <!-- 세로형 안내 키오스크 메인 끝 -->
+
+    <!-- 세로형 안내 키오스크 스크린세이버 시작 -->
+    <div class="vertical_kiosk_screen vertical_pages">
+            <img id="id_screen_image" src="http://192.168.0.113:8031/stadmin/lotte_test/screensaver.jpg"/>
+    </div>
+    <!-- 세로형 안내 키오스크 스크린세이버 끝 -->
+
+    
+
+
+
+    <!-- 가로형 시작 -->
+    <div class="main_top_div horizontal_pages">
+        
+    </div>
+
+    <div class="main_bot_div horizontal_pages">
+    </div>
+    <!-- 가로형 끝 -->
+
+    
+
+</body>
+</html>
+
+<style>
+
+    @font-face{
+        font-family:'NotoSansCJKkr-Light';
+        src:url(font/NotoSansCJKkr-Light.otf) format('truetype');
+    }
+
+    html,body{
+        margin:0px;
+        padding:0px;
+        width:100%;
+        height:100%;
+        overflow: hidden;
+        font-family:NotoSansCJKkr-Light;
+    }
+
+    
+    
+
+/*
+    @media all and(min-width:1080px){
+        background-color: 
+    }
+*/
+
+
+    /*
+    ##Device = Desktops
+    ##Screen = 1281px to higher resolution desktops
+    ##Device = 데스크탑
+    ##Screen = 1281px 이상 해상도 데스크탑
+    */
+
+    @media (min-width: 1281px) {
+        body{
+            background-color: aqua;
+        }
+        .vertical_pages{
+            display: none;
+        }
+       
+    }
+
+    /*
+    ##Device = Laptops, Desktops
+    ##Screen = B/w 1025px to 1280px
+    ##Device = 랩탑, 데스크탑
+    ##Screen = 1025px에서 1280px 사이
+    */
+
+    @media (min-width: 1025px) and (max-width: 1280px) {
+   
+        .horizontal_pages{
+            display: none;
+        }
+
+        .vertical_kiosk_main{
+            margin:0px;
+            padding:0px;
+            width:100%;
+            height:100%;
+        }
+
+        .vertical_kiosk_screen{
+            margin:0px;
+            padding:0px;
+            width:100%;
+            height:100%;
+        }
+
+        .vertical_kiosk_home{
+            margin:0px;
+            padding:0px;
+            width:100%;
+            height:100%;
+            display:none;
+        }
+
+        /*
+        세로형 상단 CSS 시작
+        */
+        .main_top_div{
+            margin:0px;
+            padding:0px;
+            width:100%;
+            height:40%;
+            /*
+            background-color: cadetblue;
+            */
+        }
+
+        .main_bot_div{
+            margin:0px;
+            padding:0px;
+            width:100%;
+            height:60%;
+            /*
+            background-color:burlywood;
+            */
+        }
+
+        .banner{
+            margin:0px;
+            padding:0px;
+            width:100%;
+            height:20%;
+            /*
+            background-color:tomato;
+            */
+        }
+
+        .banner_left{
+            width:20%;
+            height:100%;
+            float:left;
+        }
+
+        .banner_right{
+            width:20%;
+            height:100%;
+            float:right;
+        }
+
+        .banner_left img{
+            width:100%;
+            height:100%;
+        }
+        
+        .time_div{
+            width:100%;
+            height:70%;
+            text-align: center;
+            font-size: 26px;
+        }
+
+        .date_div{
+            width:100%;
+            height:30%;
+            text-align: center;
+            font-size: 16px;
+        }
+
+        .banner_image{
+            margin:0px;
+            padding:0px;
+            width:100%;
+            height:80%;
+            float:left;
+            position: relative;
+            /*
+            background-color:springgreen;
+            */
+        }
+
+        #id_banner_image{
+            width:100%;
+            height:100%;
+            position:absolute;
+        }
+
+        #id_banner_image_left_btn{
+            width:10%;
+            height:50%;
+            top:25%;
+            left:1%;
+            display: block;
+            position: absolute;
+            float:left;
+            z-index: 1;
+        }
+
+        #id_banner_image_right_btn{
+            width:10%;
+            height:50%;
+            top:25%;
+            left:89%;
+            display: block;
+            position: absolute;
+            float:right;
+            z-index: 1;
+        }
+        /*
+        세로형 상단 CSS 끝
+        */
+
+        /*
+        세로형 하단 CSS 시작
+        */
+        .search_text{
+            margin:0px;
+            padding:0px;
+            width:100%;
+            height:20%;
+        }
+
+        .map_preview{
+            margin:0px;
+            padding:0px;
+            width:100%;
+            height:80%;
+        }
+
+        .map{
+            margin:0px;
+            padding:0px;
+            width:100%;
+            height:70%;
+            position: relative;
+            overflow: hidden;
+        }
+
+        #id_map_image{
+            position: absolute;
+        }
+
+        .map_stores{
+            width:100%;
+            height:100%;
+            position: absolute;
+        }
+        .map_store{
+            position: absolute;
+            width:50px;
+            height:50px;
+            z-index: 2;
+        }
+
+        .map_floor_btn{
+            margin:0px;
+            padding:0px;
+            width:100%;
+            height:10%;
+        }
+
+        .store_popup{
+            position: absolute;
+            background-color: aquamarine;
+            border-radius: 80px;
+            width:100px;
+            height:100px;
+            border: 1px;
+            display: none;
+            z-index: 2;
+            
+        }
+
+        /* 키보드 시작 */
+        .keyboard{
+            margin-top:11%;
+            width:100%;
+            height:18%;
+            position: absolute;
+            background-color:#2b2a26;
+            z-index: 3;
+        }
+
+        .searchbar{
+            width:100%;
+            height:6%;
+            position: absolute;
+            background-color:#2b2a26;
+            z-index: 3;
+            padding-top:2%;
+            
+        }
+
+        .searchbar_text{
+            width:70%;
+            height:40%;
+            background-color: white;
+            margin-left:10%;
+            margin-top:2%;
+            text-align: center;
+            font-size: 32px;
+            border-top-left-radius:40px;
+            border-bottom-left-radius:40px;
+            float:left;
+            
+            
+        }
+
+        .searchbar_icon{
+            width:10%;
+            height:40%;
+            background-color: brown;
+            margin-top:2%;
+            text-align: center;
+            font-size: 32px;
+            border-top-right-radius:40px;
+            border-bottom-right-radius:40px;
+            color:white;
+            float:left;
+            
+        }
+        
+        .searchbar_close{
+            width:10%;
+            height:60%;
+            border-radius:30px;
+            text-align: center;
+            color: white;
+            float:left;
+            margin-top:14px;
+        }
+
+        .keyboard_line{
+            width:100%;
+            height:12%;
+            margin-top:2%;
+            text-align: center;
+        }
+
+        .keyboard_key{
+            
+            width:4%;
+            height:100%;
+            position: relative;
+            border-radius: 70px;
+            background-color: white;
+            margin: 10px;
+            text-align: center;
+            display: inline-block;          
+            font-size: 24px;
+        }
+
+        .function_key_long{
+            width:10%;
+        }
+
+        .function_key_middle{
+            width:8%;
+        }
+
+        .function_key_short{
+            width:6%;
+        }
+
+        .keyboard_black{
+            background-color:#5f6773;
+        }
+
+        .keyboard_white{
+            background-color:white;
+        }
+        /* 키보드 끝 */
+
+        /*
+        세로형 하단 CSS 끝
+        */
+
+    }
+
+    /*
+    ##Device = Tablets, Ipads (portrait),
+    ##Screen = B/w 768px to 1024px
+    ##Device = 태블릿, 아이패드(세로),
+    ##Screen = 768px에서 1024px 사이
+    */
+
+    @media (min-width: 768px) and (max-width: 1024px) {
+        .horizontal_pages{
+            display: none;
+        }
+    }
+
+    /*
+    ##Device = Tablets, Ipads (landscape)
+    ##Screen = B/w 768px to 1024px
+    ##Device = 태블릿, 아이패드(가로)
+    ##Screen = 768px에서 1024px 사이
+    */
+
+    @media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
+        .horizontal_pages{
+            display: none;
+        }
+    }
+
+    /*
+    ##Device = Low Resolution Tablets, Mobiles (Landscape)
+    ##Screen = B/w 481px to 767px
+    ##Device = 저해상도 태블릿, 모바일(가로)
+    ##Screen = 481px에서 767px 사이
+    */
+
+    @media (min-width: 481px) and (max-width: 767px) {
+        .horizontal_pages{
+            display: none;
+        }
+    }
+
+    /*
+    ##Device = Most of the Smartphones Mobiles (Portrait)
+    ##Screen = B/w 320px to 479px
+    ##Device = 대부분의 스마트폰 모바일 기기(세로)
+    ##Screen = 320px에서 479px 사이
+    */
+
+    @media (min-width: 320px) and (max-width: 480px) {
+        .horizontal_pages{
+            display: none;
+        }
+    }
+
+</style>
+
+<script>
+
+    var gl_arr_banner_image = ["http://192.168.0.113:8031/stadmin/lotte_test/lotte.jpg",
+                            "http://192.168.0.113:8031/stadmin/lotte_test/lotte1.jpg",
+                            "http://192.168.0.113:8031/stadmin/lotte_test/lotte2.jpg",
+                            "http://192.168.0.113:8031/stadmin/lotte_test/lotte3.jpg",
+                            "http://192.168.0.113:8031/stadmin/lotte_test/lotte4.jpg"];
+    
+    
+    var gl_arr_map_image = ["http://192.168.0.113:8031/stadmin/lotte_test/map/B3.png",
+                            "http://192.168.0.113:8031/stadmin/lotte_test/map/B2.png",
+                            "http://192.168.0.113:8031/stadmin/lotte_test/map/B1.png",
+                            "http://192.168.0.113:8031/stadmin/lotte_test/map/1F.png",
+                            "http://192.168.0.113:8031/stadmin/lotte_test/map/2F.png"];
+                    
+
+    var gl_map_width = 3000;
+    var gl_map_height = 3000;
+    var gl_map_scale = 0.25;
+
+
+    // 시계 기능
+    (function showClock(){
+        var currentDate = new Date();
+        var divClock = document.getElementById("time_div");
+        var divDate = document.getElementById("date_div");
+         
+        var msg = currentDate.getHours()+":";
+
+        if(currentDate.getMinutes() < 10){
+            msg += "0"+currentDate.getMinutes()+"";
+        }else{
+            msg += currentDate.getMinutes()+"";
+        }
+        
+        //msg += currentDate.getSeconds()+"초";
+        divClock.innerText = msg;
+
+        var date = currentDate.getFullYear() + "년 " + ( currentDate.getMonth() + 1 ) + "월 " + currentDate.getDate() + "일";
+        divDate.innerText = date;
+
+        setTimeout(showClock,1000);
+        
+    }());
+    
+    // 상단 이미지 슬라이드 기능 시작
+
+    var banner_obj = $("#id_banner_image");
+    var button_obj = $(".banner_image_btn");
+
+    var image_objs = {
+                        image_obj:banner_obj,
+                        button_obj:button_obj,
+                        gl_arr_banner_image:gl_arr_banner_image
+                     };
+
+    setSlideImage(gl_arr_banner_image,image_objs);
+
+    function setSlideImage(gl_arr_banner_image,json_obj){
+
+        var button_obj = json_obj.button_obj;
+        var image_obj = json_obj.image_obj;
+        var gl_arr_banner_image = json_obj.gl_arr_banner_image;
+
+        function slideTopImage(){
+
+            var banner_image = $(image_obj);
+            var direction = "right";
+            var target_uri = getNextImageUri(direction,gl_arr_banner_image);
+            banner_image.attr("src",target_uri);  
+
+        };
+
+        var timerId = setInterval(function () {
+        slideTopImage();
+        }, 5000);    
+
+        $(button_obj).on("click",function(e){
+
+            var direction = $(this).data("direction");
+            var target_uri = getNextImageUri(direction,gl_arr_banner_image);
+            var banner_image = $(image_obj);
+            banner_image.attr("src",target_uri);  
+
+            clearInterval(timerId);
+
+            timerId = setInterval(function () {
+                slideTopImage();
+            }, 5000);   
+
+        });
+
+        function getNextImageUri(direction,gl_arr_banner_image){
+
+            var banner_image = $(image_obj);
+            var current_arr_src = banner_image.attr("src").split("/");
+            var ret_str = "";
+
+            for (var index = 0; index < gl_arr_banner_image.length; index++) {
+                var target_arr_src = gl_arr_banner_image[index].split("/");
+                
+                if(current_arr_src[current_arr_src.length - 1] === target_arr_src[target_arr_src.length - 1]){ // 이미지 이름이 같으면
+                    
+                    if(direction === "left"){
+                        if(index - 1 === -1){
+                            ret_str = gl_arr_banner_image[gl_arr_banner_image.length - 1];
+                        }else{
+                            ret_str = gl_arr_banner_image[index - 1];
+                        }
+                    }else if(direction === "right"){
+                        if(index  + 1 >= gl_arr_banner_image.length){
+                            ret_str = gl_arr_banner_image[0];
+                        }else{
+                            ret_str = gl_arr_banner_image[index + 1];
+                        }
+                    }
+                    
+                    return ret_str;
+                }
+            }
+        }
+    }    
+    // 상단 이미지 슬라이드 기능 끝
+    
+
+    //지도 드래그 기능 설정 시작
+    var map_image_obj = $('#id_map_image');
+    var map_stores_obj = $('.map_stores');
+    var map_div_obj = $('.map');
+
+    var image_objs = {
+                        map_div_obj:map_div_obj,
+                        map_image_obj:map_image_obj,
+                        map_stores_obj:map_stores_obj,
+                        gl_map_width:gl_map_width,
+                        gl_map_height:gl_map_height
+                     };
+
+    setMapDrag(image_objs);
+
+    function setMapDrag(json_obj){
+
+        var gl_map_width = json_obj.gl_map_width;
+        var gl_map_height = json_obj.gl_map_height;
+        var map_image_obj = json_obj.map_image_obj;
+        var map_stores_obj = json_obj.map_stores_obj;
+        var map_div_obj = json_obj.map_div_obj;
+
+        var gl_first_moveTouchX; 
+        var gl_first_moveTouchY; 
+
+        $(map_div_obj).bind('touchstart', function(e) {
+            
+            var event = e.originalEvent;    
+
+            //전역 변수에 현재 클릭 위치에서 현재 이미지 left 위치, top 위치를 뺀 값을 저장
+            gl_first_moveTouchX = event.targetTouches[0].pageX - parseInt($(map_image_obj).css("left").replace("px","")); 
+            gl_first_moveTouchY = event.targetTouches[0].pageY - parseInt($(map_image_obj).css("top").replace("px","")); 
+
+        });
+
+        $(map_div_obj).bind('touchmove', function(e) {
+
+            e.preventDefault();
+
+            var event = e.originalEvent;    
+
+            var moveTouchX = event.targetTouches[0].pageX; 
+            var moveTouchY = event.targetTouches[0].pageY; 
+
+            // 지도 드래그 상하좌우 제한
+            if(moveTouchY - gl_first_moveTouchY < -(gl_map_width - 200) || moveTouchY - gl_first_moveTouchY > 400){
+                return;
+            }
+            if(moveTouchX - gl_first_moveTouchX < -(gl_map_height - 300) || moveTouchX - gl_first_moveTouchX > 400){
+                return;
+            }        
+
+            $(map_image_obj).css(
+
+                //터치를 시작한 x,y위치에서 드래그 하며 움직이는 x,y 값을 뺀 위치를 top,left 값으로 지정
+                {top:moveTouchY - gl_first_moveTouchY,
+                left:moveTouchX - gl_first_moveTouchX
+
+            });
+
+            $(map_stores_obj).css( // 상점들을 올려둔 DIV도 지도와 항상 같은 포지션으로 이동
+
+                //터치를 시작한 x,y위치에서 드래그 하며 움직이는 x,y 값을 뺀 위치를 top,left 값으로 지정
+                {top:moveTouchY - gl_first_moveTouchY,
+                left:moveTouchX - gl_first_moveTouchX
+
+            });
+
+        });
+
+        $(map_div_obj).bind('touchend', function(e) {
+
+        });
+        //지도 드래그 기능 설정 끝
+
+    }
+
+    //상점 팝업 기능 설정 시작
+    function setStorePopEvent(){
+        /*
+        $.ajax({
+            url : "frame_action_ajax.jsp",
+            method : "GET",
+            dataType : "text",
+            data : {'mode':'DELETE_GROUP','intro_group_name':$va,'group_id':$g_id},
+            success : function(data){
+                if($.trim(data)!= '' && $.trim(data) != 'FAIL'){
+                    $group_id = $.trim(data);
+                    console.log($group_id);
+                    alert('Complete');
+                    $('#id_intro_change').modal('hide');
+                    $('.midDropper').each(function(){
+                        if($(this).attr('group_id') == $g_id){
+                            $(this).fadeOut();
+                            $(this).next().fadeOut();
+                            setKioskUpd($g_id,'');
+                        }
+                    });
+                }
+            },
+            error:function(e){
+                alert('Fail.');
+            }
+        });
+        */
+
+
+        var arr_data = [
+                        {store_name:"상점1",store_id:"1",left:1500,top:1200,font_size:"20"},
+                        {store_name:"상점2",store_id:"2",left:1000,top:1800,font_size:"20"},
+                        {store_name:"상점3",store_id:"3",left:1600,top:900,font_size:"20"},
+                        {store_name:"상점4",store_id:"4",left:2900,top:2900,font_size:"20"},
+                        {store_name:"상점5",store_id:"5",left:140,top:690,font_size:"20"}
+                        ];
+
+        //ajax로 받아온 상점 데이터 지도에 설정
+        for (var index = 0; index < arr_data.length; index++) {
+            var tmp_json = arr_data[index];
+            
+            var str_append = "<div class=\"map_store\" id=\"id_store_" + index + "\"";
+                str_append += "data-store_name=\"" + tmp_json.store_name + "\"";
+                str_append += "data-store_id=\"" + tmp_json.store_id + "\"";
+                str_append += "data-left=\"" + tmp_json.left + "\"";
+                str_append += "data-top=\"" + tmp_json.top + "\"";
+                str_append += ">";
+                str_append += tmp_json.store_name;
+                str_append += "</div>";
+            
+            $('.map_stores').append(str_append);
+
+            $('#id_store_' + index).css( 
+
+                {'font-size': parseInt(tmp_json.font_size),
+                top:parseInt(tmp_json.top),
+                left:parseInt(tmp_json.left)
+
+            });
+
+            
+        }
+
+        //상점 클릭시 팝업 이벤트 설정
+        var arr_stores = $('.map_store');
+
+        for (index = 0; index < arr_stores.length; index++) {
+            var element = arr_stores[index];
+            
+            $(element).on('click',function(e){
+                
+                
+                $('.store_popup').css( 
+
+                    {display:"block",
+                    top:parseInt($(this).css("top").replace("px","")) - 100,
+                    left:parseInt($(this).css("left").replace("px","")) - 30
+
+                });
+            });
+        }
+    };
+
+    setStorePopEvent();
+    //상점 팝업 기능 설정 끝
+
+
+
+    //키보드 검색 기능 시작
+    var keyboard_key_obj = $('.keyboard_key');
+    var searchbar_text_obj = $('.searchbar_text');
+    var searchbar_icon_obj = $('.searchbar_icon');
+    var map_store_obj = $('.map_store');
+    var store_popup_obj = $('.store_popup');
+    var map_stores_obj = $('.map_stores');
+    var map_image_obj = $('#id_map_image');
+    var keyboard_obj = $('.keyboard');
+    var searchbar_obj = $('.searchbar');
+    var searchbar_close_obj = $('.searchbar_close');
+
+    var keyboard_objs = {
+                        keyboard_key_obj:keyboard_key_obj,
+                        searchbar_text_obj:searchbar_text_obj,
+                        searchbar_icon_obj:searchbar_icon_obj,
+                        map_store_obj:map_store_obj,
+                        store_popup_obj:store_popup_obj,
+                        map_stores_obj:map_stores_obj,
+                        map_image_obj:map_image_obj,
+                        keyboard_obj:keyboard_obj,
+                        searchbar_obj:searchbar_obj,
+                        searchbar_close_obj:searchbar_close_obj
+                        }
+
+    setKeyboard(keyboard_objs);
+
+    function setKeyboard(json_obj){
+
+        var gl_check_shift = "off";
+        var gl_check_lang = "eng";
+        
+        var keyboard_key_obj = json_obj.keyboard_key_obj;
+        var searchbar_text_obj = json_obj.searchbar_text_obj;
+        var searchbar_icon_obj = json_obj.searchbar_icon_obj;
+        var map_store_obj = json_obj.map_store_obj;
+        var store_popup_obj = json_obj.store_popup_obj;
+        var map_stores_obj = json_obj.map_stores_obj;
+        var map_image_obj = json_obj.map_image_obj;
+        var keyboard_obj = json_obj.keyboard_obj;
+        var searchbar_obj = json_obj.searchbar_obj;
+        var searchbar_close_obj = json_obj.searchbar_close_obj;
+
+        function setClickKeyboardKey(){
+
+            $(keyboard_key_obj).on('click',function(e){
+                
+                var tmp_word = getCurrentWord($(this));
+
+                var final_text = getLastKeyboardText(tmp_word,$(searchbar_text_obj));
+                $(searchbar_text_obj).text(Hangul.assemble(final_text));
+                            
+            });
+
+        }
+        setClickKeyboardKey();
+
+        function getCurrentWord(obj){
+
+            var tmp_word = "";
+
+            if($(obj).data("eng") === "shift" || $(obj).data("eng") === "del" || $(obj).data("eng") === "change" || $(obj).data("eng") === "space"){
+                tmp_word = $(obj).data("eng");
+            }else{
+                if(gl_check_lang === "eng"){
+                    if(gl_check_shift === "off"){
+                        tmp_word = $(obj).data("eng");
+                    }else{
+                        tmp_word = $(obj).data("eng-shift");
+                    }
+                }else{
+                    if(gl_check_shift === "off"){
+                        tmp_word = $(obj).data("kor");
+                    }else{
+                        tmp_word = $(obj).data("kor-shift");
+                    }
+                }
+            }
+
+            return tmp_word;
+
+        }
+
+        function getLastKeyboardText(word,obj){
+
+            var check_str = $(obj).text();
+
+            if(check_str === "검색어를 입력하세요"){
+                $(searchbar_text_obj).text("");
+                check_str = "";
+            }
+
+            if(word === "space"){
+                check_str += " ";
+                return check_str;
+            }else if(word === "shift"){
+                
+                if(gl_check_shift === "off"){
+                    gl_check_shift = "on";
+                }else{
+                    gl_check_shift = "off";
+                }
+                setChangeLangAndShiftText(obj);
+                return check_str;
+            }else if(word === "change"){
+                
+                if(gl_check_lang === "eng"){
+                    gl_check_lang = "kor";
+                }else{
+                    gl_check_lang = "eng";
+                }
+                setChangeLangAndShiftText(obj);
+                return check_str;
+            }else if(word === "del"){
+                var str_change_text = "";
+                for (var index = 0; index < check_str.length - 1; index++) {
+                    var element = check_str[index];
+                    str_change_text += element;
+                }
+                return str_change_text;
+
+            }else{
+                var str_change_text = "";
+
+                str_change_text = check_str + word;
+
+                return str_change_text;
+            }
+        }
+
+        //한영키,shift 누르면 텍스트 바꾸는 기능
+        function setChangeLangAndShiftText(element){
+
+            var arr_keys = $(keyboard_key_obj);
+
+            for (var index = 0; index < arr_keys.length; index++) {
+                var element = arr_keys[index];
+                
+                if($(element).data("eng") === "shift" || $(element).data("eng") === "del" || $(element).data("eng") === "change" || $(element).data("eng") === "space"){
+                    continue;
+                }
+
+                if(gl_check_lang === "eng"){
+                    if(gl_check_shift === "off"){
+                        $(element).text($(element).data("eng"));
+                    }else{
+                        $(element).text($(element).data("eng-shift"));
+                        
+                    }
+                }else{
+                    if(gl_check_shift === "off"){
+                        $(element).text($(element).data("kor"));
+                    }else{
+                        $(element).text($(element).data("kor-shift"));
+                    }
+                }
+                
+            }
+            
+        }
+
+        //상품 검색 기능
+        $(searchbar_icon_obj).on('click',function(e){
+            var search_text = $(searchbar_text_obj).text();
+
+            /*
+            $.ajax({
+                url : "frame_action_ajax.jsp",
+                method : "GET",
+                dataType : "text",
+                data : {'mode':'DELETE_GROUP','intro_group_name':$va,'group_id':$g_id},
+                success : function(data){
+                    if($.trim(data)!= '' && $.trim(data) != 'FAIL'){
+                        $group_id = $.trim(data);
+                        console.log($group_id);
+                        alert('Complete');
+                        $('#id_intro_change').modal('hide');
+                        $('.midDropper').each(function(){
+                            if($(this).attr('group_id') == $g_id){
+                                $(this).fadeOut();
+                                $(this).next().fadeOut();
+                                setKioskUpd($g_id,'');
+                            }
+                        });
+                    }
+                },
+                error:function(e){
+                    alert('Fail.');
+                }
+            });
+            */
+
+            var store_id = 4;
+
+            var arr_stores = $(map_store_obj);
+
+            for (index = 0; index < arr_stores.length; index++) {
+                var element = arr_stores[index];
+
+                if(store_id === $(element).data("store_id")){
+
+                    $(store_popup_obj).css( 
+
+                        {display:"block",
+                        top:parseInt($(element).css("top").replace("px","")) - 100,
+                        left:parseInt($(element).css("left").replace("px","")) - 30
+
+                    });
+                    
+                    var map_preview_div_width = parseInt($('.map').css("width").replace("px",""));
+                    var map_preview_div_height = parseInt($('.map').css("height").replace("px",""));
+
+                    var map_image_width = parseInt($(map_image_obj).css("width").replace("px",""));
+                    var map_image_height = parseInt($(map_image_obj).css("height").replace("px",""));
+                    
+                    // -(left위치-(맵프리뷰 WIDTH / 2))
+                    var map_left_value = -( parseInt($(element).css("left").replace("px","")) - (map_preview_div_width / 2) );
+                    // -(top위치-(맵프리뷰 HEIGHT / 2))
+                    var map_top_value = -( parseInt($(element).css("top").replace("px","")) - (map_preview_div_height / 2) );
+                    
+                    //테두리측 상점 좌표 제한
+                    if(map_left_value > 0){
+                        map_left_value = 0;
+                    }
+                    if(map_top_value > 0){
+                        map_top_value = 0;
+                    }
+
+                    if(map_left_value < -2000){
+                        map_left_value = -(map_image_width - 900);
+                    }
+                    if(map_top_value < -2000){
+                        map_top_value = -(map_image_height - 500);
+                    }
+                    
+                    $(map_image_obj).css(
+                        {
+                        top:map_top_value,
+                        left:map_left_value
+                    });
+
+                    $(map_stores_obj).css( 
+                        {
+                        top:map_top_value,
+                        left:map_left_value
+                    });
+
+
+                    hideKeyboard();
+                }
+            }        
+
+        })
+
+        $(searchbar_close_obj).on('click',function(e){
+            hideKeyboard();
+        });
+
+        function hideKeyboard(){
+            $(keyboard_obj).css("display","none");
+            $(searchbar_obj).css("display","none");
+        }
+
+    }
+    //키보드 검색 기능 끝  
+
+    
+
+    function setHideNotUsePage(target_class_name){
+
+        var arr_vertical_pages = $('.vertical_pages');
+
+        for (var index = 0; index < arr_vertical_pages.length; index++) {
+            var element = arr_vertical_pages[index];
+            var tmp_class = $(element).hasClass(target_class_name);
+            if(tmp_class){
+                $(element).css("display","show");
+            }else{
+                $(element).css("display","none");
+            }
+        }
+    }
+
+    //setHideNotUsePage('vertical_kiosk_screen');
+    setHideNotUsePage('vertical_kiosk_main');
+
+    
+
+
+    
+</script>
