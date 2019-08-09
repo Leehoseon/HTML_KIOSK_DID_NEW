@@ -1,0 +1,64 @@
+@font-face {
+    font-family: '';
+    src: url('THEJung130A.woff2') format('woff2'),
+        url('THEJung130A.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: '';
+    src: url('THEJung170A.woff2') format('woff2'),
+        url('THEJung170A.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: '';
+    src: url('THEJung160A.woff2') format('woff2'),
+        url('THEJung160A.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: '';
+    src: url('THEJung110A.woff2') format('woff2'),
+        url('THEJung110A.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: '';
+    src: url('THEJung140A.woff2') format('woff2'),
+        url('THEJung140A.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: '';
+    src: url('THEJung150A.woff2') format('woff2'),
+        url('THEJung150A.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: '';
+    src: url('THEJung120A.woff2') format('woff2'),
+        url('THEJung120A.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'TheJung130';
+    src: url('TheJung130.woff2') format('woff2'),
+        url('TheJung130.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
