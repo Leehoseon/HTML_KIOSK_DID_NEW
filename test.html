@@ -5,8 +5,8 @@
     <title>Page Title</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <script src="../include/js/jquery.js"></script><!--j쿼리-->
-    <script src="hangul.js" type="text/javascript"></script> <!--한글변환-->
-    <script src="hammer.js" type="text/javascript"></script> <!--hammer.js-->
+    <script src="js/hangul.js" type="text/javascript"></script> <!--한글변환-->
+    <script src="js/hammer.js" type="text/javascript"></script> <!--hammer.js-->
     
 </head>
 <!--
@@ -14,35 +14,27 @@
     -->
 <body>
 
+    <!-- 우측 중앙 네비게이션 바 시작 -->
+    <div class="right_navigation">
+        <img class="nav_move_btn nav_right_btn" data-menu="main" src="http://192.168.0.113:8031/stadmin/lotte_test/image/navigation_bt_01.png"/>
+        <img class="nav_move_btn nav_right_btn" data-menu="event" src="http://192.168.0.113:8031/stadmin/lotte_test/image/navigation_bt_02.png"/>
+        <img class="nav_move_btn nav_right_btn" data-menu="brand" src="http://192.168.0.113:8031/stadmin/lotte_test/image/navigation_bt_03.png"/>
+        <img class="nav_move_btn nav_right_btn" data-menu="coupon" src="http://192.168.0.113:8031/stadmin/lotte_test/image/navigation_bt_04.png"/>
+    </div>
+    <!-- 우측 중앙 네비게이션 바 끝 -->
 
     <!-- 세로형 안내 키오스크 메인 시작 -->
     <div class="vertical_kiosk_main vertical_pages">
 
     <!-- 상단 컨텐츠 시작 -->
     <div class="main_top_div">
-        
-        <!-- 상단 로고, 시간 시작 -->
-        <div class="banner">
-            <div class="banner_left">
-                <img src="http://192.168.0.113:8031/stadmin/lotte_test/lotte_logo.png"/>
-            </div>
-
-            <div class="banner_right">
-                <div class="time_div" id="time_div">
-                    
-                </div>
-                <div class="date_div" id="date_div">
-                    
-                </div>
-            </div>
-        </div>
-        <!-- 상단 로고, 시간 끝 -->
 
         <!-- 상단 광고 이미지 시작 -->
         <div class="banner_image">
-            <img class="banner_image_btn" data-direction="left" id="id_banner_image_left_btn" src="http://192.168.0.113:8031/stadmin/lotte_test/left.svg" height="60" width="60">
-            <img id="id_banner_image" src="http://192.168.0.113:8031/stadmin/lotte_test/lotte.jpg"/>
-            <img class="banner_image_btn" data-direction="right" id="id_banner_image_right_btn" src="http://192.168.0.113:8031/stadmin/lotte_test/right.svg" height="60" width="60">
+            <img class="banner_image_btn" data-direction="left" id="id_banner_image_left_btn" src="http://192.168.0.113:8031/stadmin/lotte_test/image/left.svg" height="60" width="60">
+            <img id="id_banner_image" src="http://192.168.0.113:8031/stadmin/lotte_test/image/lotte.jpg"/>
+            <video class="banner_video" id="id_banner_video"  oncontextmenu="false" autoplay></video>
+            <img class="banner_image_btn" data-direction="right" id="id_banner_image_right_btn" src="http://192.168.0.113:8031/stadmin/lotte_test/image/right.svg" height="60" width="60">
         </div>
         <!-- 상단 광고 이미지 끝 -->
 
@@ -54,20 +46,23 @@
     <div class="main_bot_div">
 
         <!-- 하단 상단 텍스트 시작 -->
-        <div class="search_text">
-
-            <div class="search_text_left">
-            
+        <div class="search_information">
+            <div class="search_information_top">
+                <div class="search_information_left">
+                    <div></div>
+                </div>
+                <div class="search_information_text">찾고자 하시는 층을 눌러주세요</div>
+                <div class="search_information_right">
+                    <div></div>
+                </div>
             </div>
-
-            <div class="search_text_center">
-            
+            <div class="search_information_button">
+                <!--
+                <div>B1F</div>
+                <div>1F</div>
+                <div>2F</div>
+-->
             </div>
-
-            <div class="search_text_right">
-            
-            </div>
-
         </div>
         <!-- 하단 상단 텍스트 끝 -->
 
@@ -151,7 +146,7 @@
 
                     <!-- 상점 팝업 시작 -->
                     <div class="store_popup">
-                        
+                        <img src="http://192.168.0.113:8031/stadmin/lotte_test/image/main_ic_destination.png">
                     </div>
                     <!-- 상점 팝업 끝 -->
                 </div>
@@ -159,15 +154,25 @@
                 
             </div>
 
-            <div class="map_floor_btn">
-
-            </div>
-
         </div>
         <!-- 하단 맵 끝 -->
+
+        <!-- 하단 여백 -->
+        <div class="bot_foot">
+            <img src="http://192.168.0.113:8031/stadmin/lotte_test/image/main_bg.png"/>
+        </div>
+        <!-- 하단 여백 -->
         
     </div>
     <!-- 하단 컨텐츠 끝 -->
+
+    <!-- 브랜드 소개 시작 -->
+    <div class="main_bot_brand">
+        <div class="main_bot_brand_list">
+            <img class="main_bot_brand_list_brand">
+        </div>
+    </div>
+    <!-- 브랜드 소개 끝 -->
     </div>
     <!-- 세로형 안내 키오스크 메인 끝 -->
 
@@ -175,8 +180,220 @@
     <div class="vertical_kiosk_screen vertical_pages">
         <div class="touch_div">터치 해주세요</div>
         <img id="id_screen_image"/>
+        <video class="screen_video" id="id_screen_video" oncontextmenu="false" autoplay></video>
     </div>
     <!-- 세로형 안내 키오스크 스크린세이버 끝 -->    
+
+    <!-- 세로형 안내 키오스크 네비게이션 시작 -->
+    <div class="vertical_kiosk_navigation vertical_pages">
+
+        <!-- 상단 색깔 포인트 시작 -->
+        <div class="nav_top_point">
+            <div class="nav_top_point_left"></div>
+            <div class="nav_top_point_right"></div>
+        </div>
+        <!-- 상단 색깔 포인트 끝 -->
+
+        <!-- 상단 안내 텍스트 시작 -->
+        <div class="nav_top">
+            <div class="nav_top_text">찾으시고자 하는 버튼을 선택해 주세요</div>
+        </div>
+        <!-- 상단 안내 텍스트 끝 -->
+
+        <!-- 중단 메뉴 리스트 시작 -->
+        <div class="nav_middle">
+
+            <div class="nav_middle_menu">
+                <div class="nav_middle_menu_img">
+                    <img id="id_nav_menu_image1" class="nav_move_btn" data-menu="main" src="http://192.168.0.113:8031/stadmin/lotte_test/image/main_bt_01.png">
+                </div>
+                <div class="nav_middle_menu_icon_left">
+                    <img src="http://192.168.0.113:8031/stadmin/lotte_test/image/main_ic_01.png">
+                </div>
+                <div class="nav_middle_menu_text">
+                    상품위치
+                </div>
+                <div class="nav_middle_menu_icon_right">
+                    <img src="http://192.168.0.113:8031/stadmin/lotte_test/image/main_bt_arrow_o.png">
+                </div>
+            </div>
+
+            <div class="nav_middle_menu">
+                <div class="nav_middle_menu_img">
+                    <img id="id_nav_menu_image2" class="nav_move_btn" data-menu="event" src="http://192.168.0.113:8031/stadmin/lotte_test/image/main_bt_02.png">
+                </div>
+                <div class="nav_middle_menu_icon_left">
+                    <img src="http://192.168.0.113:8031/stadmin/lotte_test/image/main_ic_02.png">
+                </div>
+                <div class="nav_middle_menu_text">
+                    상품안내
+                </div>
+                <div class="nav_middle_menu_icon_right">
+                    <img src="http://192.168.0.113:8031/stadmin/lotte_test/image/main_bt_arrow_o.png">
+                </div>
+            </div>
+
+            <div class="nav_middle_menu">
+                <div class="nav_middle_menu_img">
+                    <img id="id_nav_menu_image3" class="nav_move_btn" data-menu="brand" src="http://192.168.0.113:8031/stadmin/lotte_test/image/main_bt_03.png">
+                </div>
+                <div class="nav_middle_menu_icon_left">
+                    <img src="http://192.168.0.113:8031/stadmin/lotte_test/image/main_ic_03.png">
+                </div>
+                <div class="nav_middle_menu_text">
+                    브랜드 소개
+                </div>
+                <div class="nav_middle_menu_icon_right">
+                    <img src="http://192.168.0.113:8031/stadmin/lotte_test/image/main_bt_arrow_o.png">
+                </div>
+            </div>
+
+            <div class="nav_middle_menu">
+                <div class="nav_middle_menu_img">
+                    <img id="id_nav_menu_image4" class="nav_move_btn" data-menu="coupon" src="http://192.168.0.113:8031/stadmin/lotte_test/image/main_bt_04.png">
+                </div>
+                <div class="nav_middle_menu_icon_left">
+                    <img src="http://192.168.0.113:8031/stadmin/lotte_test/image/main_ic_04.png">
+                </div>
+                <div class="nav_middle_menu_text">
+                    M쿠폰
+                </div>
+                <div class="nav_middle_menu_icon_right">
+                    <img src="http://192.168.0.113:8031/stadmin/lotte_test/image/main_bt_arrow_o.png">
+                </div>
+            </div>
+        </div>
+        <!-- 중단 메뉴 리스트 끝 -->
+
+        <!-- 하단 시작-->
+        <div class="nav_foot"><img src="http://192.168.0.113:8031/stadmin/lotte_test/image/main_bg_text.png"/></div>
+        <!-- 하단 끝-->
+
+    </div>
+    <!-- 세로형 안내 키오스크 네비게이션 끝 -->    
+
+    <!-- 세로형 안내 키오스크 행사 시작 -->
+    <div class="vertical_kiosk_event vertical_pages">
+
+        <img class="top_event_image" src="http://192.168.0.113:8031/stadmin/lotte_test/image/product_img_topsample.png" />
+
+        <div class="top_event_information">
+            <div class="top_event_information_left">
+                <div></div>
+            </div>
+            <div class="top_event_information_text">
+                제품을 터치시 자세한 내용을 볼 수 있습니다.
+            </div>
+            <div class="top_event_information_right">
+                <div></div>
+            </div>
+        </div>
+
+        <div class="middle_event">
+            <!--
+
+            <div class="middle_event_product">
+                <img class="middle_event_product_left" src="http://192.168.0.113:8031/stadmin/lotte_test/image/product/detail_01.jpg"/>
+                <div class="middle_event_product_right">
+                    <div class="middle_event_product_right_top">
+                        Only Price 미네랄 워터
+                    </div>
+                    <div class="middle_event_product_right_middle">
+                        <div class="middle_event_product_right_middle_number">25,000</div>
+                        <div class="middle_event_product_right_middle_text">원</div>
+                    </div>
+                    <div class="middle_event_product_right_bot">
+                        <img class="middle_event_product_right_bot_icon" src="http://192.168.0.113:8031/stadmin/lotte_test/image/main_ic_01.png"/>
+                        <div class="middle_event_product_right_bot_text">상품 위치안내</div>
+                    </div>
+                </div>
+            </div>
+           
+            -->
+        </div>
+
+        <div class="event_foot">
+            <img src="http://192.168.0.113:8031/stadmin/lotte_test/image/main_bg_text.png"/>
+        </div>
+
+    </div>
+    <!-- 세로형 안내 키오스크 행사 끝 -->
+
+    <!-- 세로형 안내 키오스크 브랜드 정보 시작 -->
+    <div class="vertical_kiosk_brand vertical_pages">
+        <img class="vertical_kiosk_brand_img">
+        <div class="vertical_kiosk_brand_menu">
+            <div class="vertical_kiosk_brand_menu_btn" id="id_brand_menu_back_btn">
+                돌아가기
+            </div>
+            <div class="vertical_kiosk_brand_menu_btn" id="id_brand_menu_pop_btn">
+                대표상품
+            </div>
+        </div>
+    </div>
+    <!-- 세로형 안내 키오스크 브랜드 정보 끝 -->
+
+    <!-- 세로형 안내 키오스크 쿠폰 시작 -->
+    <div class="vertical_kiosk_coupon vertical_pages">
+        
+    </div>
+    <!-- 세로형 안내 키오스크 쿠폰 끝 -->
+
+    <!-- 세로형 안내 키오스크 행사 팝업 시작 -->
+    <div class="vertical_kiosk_event_popup">
+        <div class="event_popup">
+            <div class="event_popup_top_text">맥심 믹스 카카오 기획 (각260입)</div>
+            <div class="event_popup_top">
+                <img class="event_popup_top_image" src="http://192.168.0.113:8031/stadmin/lotte_test/image/product/detail_01.jpg"/>
+            </div>
+            <div class="event_popup_middle">
+                <div class="event_popup_middle_top"></div>
+                <div class="event_popup_middle_information">
+                    <div class="event_popup_middle_information_text">점포매가</div>
+                    <div class="event_popup_middle_information_data" id="id_information_data_normal_price"></div>
+                </div>
+                <div class="event_popup_middle_information_left"></div>
+                <div class="event_popup_middle_information">
+                    <div class="event_popup_middle_information_text">행사가</div>
+                    <div class="event_popup_middle_information_data" id="id_information_data_special_price">원</div>
+                    <div class="event_popup_special_price_text">원</div>
+                </div>
+                <div class="event_popup_middle_information">
+                    <div class="event_popup_middle_information_text">시작일자</div>
+                    <div class="event_popup_middle_information_data" id="id_information_data_start_date"></div>
+                </div>
+                <div class="event_popup_middle_information_left"></div>
+                <div class="event_popup_middle_information">
+                    <div class="event_popup_middle_information_text">종료일자</div>
+                    <div class="event_popup_middle_information_data" id="id_information_data_end_date"></div>
+                </div>
+            </div>
+            <div class="event_popup_bot">
+                <div class="event_popup_bot_left"></div>
+                <img class="event_popup_bot_right" src="http://192.168.0.113:8031/stadmin/lotte_test/image/main_bt_wayfinding_o.png">
+                <!--
+                <div class="event_popup_bot_right">
+                    <img class="event_popup_bot_right_icon" src="http://192.168.0.113:8031/stadmin/lotte_test/image/main_ic_01.png">
+                    <img class="event_popup_bot_right_text" src="http://192.168.0.113:8031/stadmin/lotte_test/image/main_bt_wayfinding_o.png">
+                </div>
+                -->
+            </div>
+        </div>
+        <img class="event_popup_close" src="http://192.168.0.113:8031/stadmin/lotte_test/image/main_bt_x.png">
+    </div>
+    <!-- 세로형 안내 키오스크 행사 팝업 끝 -->
+
+    <!-- 세로형 안내 키오스크 행사 팝업 시작 -->
+    <div class="vertical_kiosk_brand_popup">
+        <div class="brand_popup">
+           
+        </div>
+        <img class="brand_popup_close" src="http://192.168.0.113:8031/stadmin/lotte_test/image/main_bt_x.png">
+    </div>
+    <!-- 세로형 안내 키오스크 행사 팝업 끝 -->
+
+
+    
 
 </body>
 </html>
@@ -268,6 +485,7 @@
         height:100%;
         overflow: hidden;
         font-family: 'THEJung130A';
+        
     }
 
     
@@ -306,6 +524,31 @@
 
     @media (min-width: 1025px) and (max-width: 1280px) {
 
+        /*
+        우측 중앙 네비게이션 시작
+        */
+        .right_navigation{
+            position: fixed;
+            width:6%;
+            height:20%;
+            left:94%;
+            top:40%;
+
+        }
+
+        .right_navigation img{
+
+            width:100%;
+            height:25%;
+        }
+        /*
+        우측 중앙 네비게이션 끝
+        */
+
+        /*
+        메인 세로형 상단 CSS 시작
+        */
+
         .vertical_kiosk_main{
             margin:0px;
             padding:0px;
@@ -313,95 +556,35 @@
             height:100%;
         }
 
-        .vertical_kiosk_screen{
-            margin:0px;
-            padding:0px;
-            width:100%;
-            height:100%;
-        }
 
-        .vertical_kiosk_home{
-            margin:0px;
-            padding:0px;
-            width:100%;
-            height:100%;
-            display:none;
-        }
-
-        /*
-        세로형 상단 CSS 시작
-        */
         .main_top_div{
             margin:0px;
             padding:0px;
             width:100%;
-            height:40%;
+            height:30%;
             /*
             background-color: cadetblue;
             */
-        }
-
-        .main_bot_div{
-            margin:0px;
-            padding:0px;
-            width:100%;
-            height:60%;
-            /*
-            background-color:burlywood;
-            */
-        }
-
-        .banner{
-            margin:0px;
-            padding:0px;
-            width:100%;
-            height:20%;
-            /*
-            background-color:tomato;
-            */
-        }
-
-        .banner_left{
-            width:20%;
-            height:100%;
-            float:left;
-        }
-
-        .banner_right{
-            width:20%;
-            height:100%;
-            float:right;
-        }
-
-        .banner_left img{
-            width:100%;
-            height:100%;
-        }
-        
-        .time_div{
-            width:100%;
-            height:70%;
-            text-align: center;
-            font-size: 26px;
-        }
-
-        .date_div{
-            width:100%;
-            height:30%;
-            text-align: center;
-            font-size: 16px;
         }
 
         .banner_image{
             margin:0px;
             padding:0px;
             width:100%;
-            height:80%;
+            height:100%;
             float:left;
             position: relative;
             /*
             background-color:springgreen;
             */
+        }
+
+        .banner_video{
+            margin:0px;
+            padding:0px;
+            width:100% !important;
+            height:100%!important;
+            
         }
 
         #id_banner_image{
@@ -438,27 +621,148 @@
         /*
         세로형 하단 CSS 시작
         */
-        .search_text{
+
+        .main_bot_div{
             margin:0px;
             padding:0px;
             width:100%;
+            height:70%;
+            display:none;
+            /*
+            background-color:burlywood;
+            */
+        }
+
+        .main_bot_brand{
+            margin:0px;
+            padding:0px;
+            width:100%;
+            height:70%;
+        }
+
+        .main_bot_brand_list{
+            width:80%;
+            height:100%;
+            margin-top: 6%;
+            margin-left:10%;
+        }
+
+        .main_bot_brand_list img{
+            width:40%;
             height:20%;
+            margin-left:6.8%;
+            margin-bottom: 2%;
+            background-color:#bcbcbc;
+            box-shadow: 5px 5px #e0e0e0;
+        }
+
+        .search_information{
+            margin:0px;
+            padding:0px;
+            width:100%;
+            height:25%;
+        }
+
+        .search_information_top{
+            width:100%;
+            height:40%;
+        }
+
+        .search_information_text{
+            text-align: center;
+            font-size:28px;
+            padding-top:50px;
+            font-weight: 600;
+            width:80%;
+            height:40%;
+        }
+
+        .search_information_left{
+            width:18%;
+            height:100%;
+            float:left;
+            margin-left:2%;
+       
+        }
+
+        .search_information_left div{
+            width:50%;
+            height:3%;
+            background-color:#bcbcbc;
+            margin-left:30%;
+            margin-top:30%;
+       
+        }
+
+        .search_information_right{
+            width:18%;
+            height:100%;
+            float:right;
+            margin-top:-4.2%;
+
+        }
+
+        .search_information_right div{
+            width:50%;
+            height:3%;
+            background-color:#bcbcbc;
+            margin-bottom: 20%;
+
+        }
+
+        .search_information_button{
+
+            width:100%;
+            height:60%;
+            margin-left:33%;
+
+        }
+
+        .search_information_button div{
+            width:10%;
+            height: 39%;
+            text-align: center;
+            font-size:45px;
+            font-weight: 600;
+            background-color:#bcbcbc;
+            float:left;
+            margin-right:2%;
+            border-radius: 1000px;
+            padding-top:2.8%;
+            
+
         }
 
         .map_preview{
             margin:0px;
             padding:0px;
             width:100%;
-            height:80%;
+            height:55%;
         }
 
         .map{
             margin:0px;
             padding:0px;
-            width:100%;
-            height:70%;
+            width:80%;
+            height:90%;
             position: relative;
             overflow: hidden;
+            margin-left:10%;
+            margin-top:10%;
+        }
+
+        .bot_foot{
+            margin:0px;
+            padding:0px;
+            width:100%;
+            height:20%;
+     
+        }
+
+        .bot_foot img{
+            position: absolute;
+            top:1478px;
+            z-index: -1;
         }
 
         #id_map_image{
@@ -480,19 +784,12 @@
             text-align: center;
         }
 
-        .map_floor_btn{
-            margin:0px;
-            padding:0px;
-            width:100%;
-            height:10%;
-        }
+        
 
         .store_popup{
             position: absolute;
-            background-color: aquamarine;
-            border-radius: 80px;
-            width:100px;
-            height:100px;
+            width:45px;
+            height:70px;
             border: 1px;
             display: none;
             z-index: 2;
@@ -507,6 +804,7 @@
             position: absolute;
             background-color:#2b2a26;
             z-index: 3;
+            display:none;
         }
 
         .searchbar{
@@ -516,7 +814,7 @@
             background-color:#2b2a26;
             z-index: 3;
             padding-top:2%;
-            
+            display:none;
         }
 
         .searchbar_text{
@@ -604,10 +902,18 @@
         /* 키보드 끝 */
 
         /*
-        세로형 하단 CSS 끝
+        메인 세로형 하단 CSS 끝
         */
 
         /* 스크린 세이버 시작 */
+
+        .vertical_kiosk_screen{
+            margin:0px;
+            padding:0px;
+            width:100%;
+            height:100%;
+        }
+
         .touch_div{
             top:50%;
             left:50%;
@@ -616,8 +922,529 @@
             position: absolute;
             font-size:30px;
             color:red;
+            display: none;
         }
-        /* 스크린 세이버 시작 */
+        /* 스크린 세이버 끝 */
+
+        /* 네비게이션 시작 */
+
+        .vertical_kiosk_navigation{
+            margin:0px;
+            padding:0px;
+            width:100%;
+            height:100%;
+            background-color: #f1f1f3;
+        }
+
+        .nav_top_point{
+            width:100%;
+            height:1%;
+        }
+
+        .nav_top_point_left{
+            width:20%;
+            height:100%;
+            background-color:#d90000;
+            float:left;
+        }
+
+        .nav_top_point_right{
+            width:80%;
+            height:100%;
+            background-color: #363636;
+            float:left;
+        }  
+
+        .nav_top{
+            width:100%;
+            height:19%;
+        }
+
+        .nav_top_text{
+            text-align: center;
+            padding-top:12%;
+            width:60%;
+            height:100%;
+            margin-left:20%;
+            font-weight: 400;
+            font-size:60px;
+            color:#000000;
+        }
+
+        .nav_middle{
+            width:80%;
+            height:60%;
+            margin-left:8%;
+        }
+
+        .nav_middle_menu{
+            width:50%;
+            height:50%;
+            /*
+            border: 1px dashed #bcbcbc;
+            */
+            float:left;
+            position: relative;
+            
+        }        
+
+        .nav_middle_menu_img{
+            height:100%;
+            width:100%;
+            left:16%;
+            position:absolute;
+  
+        }
+
+        .nav_middle_menu_icon_left{
+            position:absolute;
+            left:31%;
+            top:67.5%;
+
+        }
+
+        .nav_middle_menu_icon_right{
+            position:absolute;
+            z-index: 1;
+            left:86%;
+            top:67.5%;
+        }
+
+        .nav_middle_menu_text{
+            position:absolute;
+            font-size:28px;
+            font-weight: 600;
+            z-index: 1;
+            left:42%;
+            top:68%;
+            color:#000000;
+            
+        }
+
+        .nav_foot img{
+            position: absolute;
+            top:1478px;
+        }
+
+        /* 네비게이션 끝 */
+
+        /* 이벤트 시작 */
+
+        .vertical_kiosk_event{
+            margin:0px;
+            padding:0px;
+            width:100%;
+            height:100%;
+        }
+
+        .top_event_image{
+            width:100%;
+            height:18%;
+            
+        }
+
+        .top_event_information{
+            width:100%;
+            height:12%;
+        }
+
+        .top_event_information_left{
+            width:20%;
+            height:100%;
+            float:left;
+       
+        }
+
+        .top_event_information_left div{
+            width:50%;
+            height:1%;
+            background-color:#bcbcbc;
+            margin-left:30%;
+            margin-top:48%;
+       
+        }
+
+        .top_event_information_text{
+            width:60%;
+            height:8%;
+            float:left;
+            text-align: center;
+            font-weight: 600;
+            font-size:30px;
+            padding-top:8%;
+            
+           
+        }
+
+        .top_event_information_right{
+            width:20%;
+            height:100%;
+            float:left;
+
+        }
+
+        .top_event_information_right div{
+            width:50%;
+            height:1%;
+            background-color:#bcbcbc;
+            margin-left:20%;
+            margin-top:48%;
+
+        }
+
+        .middle_event{
+            height:54%;
+            width:84%;
+            margin-left:8%;
+            
+        }
+
+        .middle_event_product{
+            border: 0.8px solid #bcbcbc;
+            box-shadow: 5px 5px #e0e0e0;
+            margin-left:2%;
+            height:22%;
+            width:47.7%;
+            float:left;
+            margin-bottom:3%;
+            
+        }
+
+        .middle_event_product_left{
+            height:99%;
+            width:50%;
+            float:left;
+            margin-top:0.1%;
+            margin-bottom:0.1%;
+        }
+
+        .middle_event_product_right{
+            height:100%;
+            width:45%;
+            float:left;
+            padding-left:5%;
+        }
+
+        .middle_event_product_right_top{
+            width:90%;
+            height:36%;
+            padding-top:10%;
+            font-weight: 600;
+            font-size:18px;
+        
+        }
+
+        .middle_event_product_right_middle{
+            width:100%;
+            height:26%;
+
+        }
+
+        .middle_event_product_right_middle_number{
+            width:auto;
+            height:30%;
+            font-size:24px;
+            float:left;
+            font-family: 'IMPACT';
+
+        }
+
+        .middle_event_product_right_middle_text{
+
+            width:10%;
+            height:30%;
+            font-size:20px;
+            float:left;
+            padding-top:1%;
+
+        }
+
+        .middle_event_product_right_bot{
+
+            width:90%;
+            height:20%;
+            border: 2px solid #bcbcbc;
+  
+        }
+
+        .middle_event_product_right_bot_icon{
+
+            width:12%;
+            height:72%;
+            float:left;
+            margin-top:4%;
+            margin-left:10%;
+
+        }
+
+        .middle_event_product_right_bot_text{
+
+            width:70%;
+            height:100%;
+            float:left;
+            font-weight: 800;
+            font-size:16px;
+            padding-top:7%;
+            padding-left:2%;
+
+        }
+
+        .event_foot{
+            width:100%;
+            height:30%;
+            
+        }
+
+        .event_foot img{
+            position: absolute;
+            top:1478px;
+            z-index:-1
+        }
+
+        /* 이벤트 끝 */
+
+        /* 이벤트 팝업 시작 */
+
+        .vertical_kiosk_event_popup{
+            margin:0px;
+            padding:0px;
+            width:100% !important;
+            height:100% !important;
+            background-color: rgba( 158, 158, 158, 0.9 );
+            position: absolute;
+            display: block;
+            top:0;
+            left:0;
+            display:none;
+        }
+
+        .event_popup_close{
+            width:9%;
+            height:5%;
+            position: absolute;
+            z-index: 1;
+            top:64%;
+            left:76%;
+        }
+
+        .event_popup{
+
+            width:50%;
+            height:50%;
+            position: absolute;
+            z-index: 1;
+            background-color: white;
+            top:20%;
+            left:25%;
+            border-radius: 10px;            
+        }
+
+        .event_popup_top_text{
+            width:60%;
+            height:12%;
+            margin-left: 20%;
+            margin-top:10%;
+            text-align: center;
+            font-weight: 600;
+            font-size:32px;
+        }
+
+        .event_popup_top{
+            width:80%;
+            height:45%;
+            margin-left: 10%;
+            border: 1px solid #bcbcbc;
+        }
+
+        .event_popup_top_image{
+            width:100%;
+            height:100%;
+        }
+
+        .event_popup_middle{
+            width:80%;
+            height:16%;
+            margin-left: 10%;
+            margin-top:5%;
+
+        }
+        
+        .event_popup_middle_top{
+            width:100%;
+            height:34%;
+            font-weight: 400;
+            font-size:24px;
+            text-align: center;
+            background-color: #f1f1f3;
+            padding-top: 5%;
+        }
+
+        .event_popup_middle_information{
+            width:49%;
+            height:32%;
+            float:left;
+            border-color: #bcbcbc;
+            border-style: solid;
+            border-width: 0px 0px .8px 0px;
+        }
+
+        .event_popup_middle_information_left{
+            background-color: #bcbcbc;        
+            width:0.3%;    
+            height:32%;
+            float:left;
+            
+            
+        }
+
+        .event_popup_middle_information_text{
+            width:30%;
+            height:100%;
+            float:left;
+            text-align: left;
+            color:#d90000;
+            margin-top:8%;
+            margin-left:4%;
+            font-weight: 400;
+            font-size:16px;
+        }
+
+        .event_popup_middle_information_data{
+            margin-top:8%;
+            width:54%;
+            height:100%;
+            float:left;
+            text-align: right;
+            font-weight: 600;
+            margin-right:1%;
+        }
+
+        #id_information_data_special_price{
+            font-size:24px;
+            margin-top:6%;
+            font-weight: 800;
+        }
+
+        .event_popup_special_price_text{
+            margin-top:8%;
+        }
+
+        .event_popup_bot{
+            width:80%;
+            margin-left:10%;
+            height:12%;
+            margin-top:2%;
+        }
+
+        .event_popup_bot_left{
+            width:18%;
+            height:42%;
+            font-weight: 800;
+            font-size:34px;
+            text-align: center;
+            background-color: #f1f1f3;
+            margin-top:12%;
+            padding-top:3%;
+            float:left;
+        }
+
+        .event_popup_bot_right{
+            width:81%;
+            height:52%;
+            margin-top:12%;
+            float:left;
+        }
+
+        .event_popup_bot_right_icon{
+            width:10%;
+            height:38%;
+            float:left;
+            
+        }
+
+        .event_popup_bot_right_text{
+            width:82%;
+            height:38%;
+            font-weight: 400;
+            font-size:24px;
+            text-align: center;
+            float:left;
+        }
+
+
+        /* 이벤트 팝업 끝 */
+
+        /* 브랜드 정보 페이지 시작 */
+
+        .vertical_kiosk_brand{
+            margin:0px;
+            padding:0px;
+            width:100%;
+            height:100%;
+        }
+
+        .vertical_kiosk_brand img{
+            position: absolute;
+            width:100%;
+            height:100%;
+        }
+
+        .vertical_kiosk_brand_menu{
+            position:absolute;
+            width:40%;
+            height:10%;
+            top:50%;
+            left:30%;
+        }
+
+        .vertical_kiosk_brand_menu_btn{
+            margin-left:10%;
+            width:40%;
+            height:100%;
+            float:left;
+            background-color: #363636;
+        }
+
+        /* 브랜드 정보 페이지 끝 */
+
+        /* 브랜드 팝업 시작 */
+
+        .vertical_kiosk_brand_popup{
+            margin:0px;
+            padding:0px;
+            width:100% !important;
+            height:100% !important;
+            background-color: rgba( 158, 158, 158, 0.9 );
+            position: absolute;
+            display: block;
+            top:0;
+            left:0;
+            display:none;
+        }
+
+        .brand_popup_close{
+            width:9%;
+            height:5%;
+            position: absolute;
+            z-index: 1;
+            top:64%;
+            left:76%;
+        }
+
+        .brand_popup{
+
+            width:50%;
+            height:50%;
+            position: absolute;
+            z-index: 1;
+            background-color: white;
+            top:20%;
+            left:25%;
+            border-radius: 10px;            
+        }
+
+        /* 브랜드 팝업 끝 */
+
 
     }
 
@@ -669,11 +1496,114 @@
 
 <script>
     
-    var gl_map_width = 3000;
-    var gl_map_height = 3000;
+    //CONFIG
+    var gl_map_width = 1760;
+    var gl_map_height = 1320;
     var gl_map_scale = 0.25;
+    var gl_kiosk_floor = "1F";
 
     var gl_arr_map_image = getMapList();
+
+
+    function setFloorButtonColor(target_floor){
+
+        var floor_btn = $('.floor_btn');
+
+        for (var index = 0; index < floor_btn.length; index++) {
+
+            var element = floor_btn[index];
+            var floor = $(element).data("floor");
+            
+            if(target_floor === floor){
+                $(element).css("background-color","#d90000");
+                $(element).css("color","white");
+            }else{
+                $(element).css("background-color","#bcbcbc");
+                $(element).css("color","black");
+            }
+        }
+    }
+
+    function setFloorButton(arr_map_image,map_img,kiosk_floor){
+
+        //현재 리스트 초기화 
+        var tmp_list = $('.floor_btn');
+
+        for (var index = 0; index < tmp_list.length; index++) {
+            var element = tmp_list[index];
+
+            $(element).remove();
+            
+        }
+        
+        var tmp_str = "";
+        
+        for (var index = 0; index < arr_map_image.length; index++) {
+            var element = arr_map_image[index];
+
+            var arr_split = element.split("\/");
+            var str_split = arr_split[arr_split.length-1]
+            arr_split = str_split.split("\.");
+            
+            tmp_str += "<div class=\"floor_btn\"";
+
+            /*
+            if(kiosk_floor === arr_split[0]){
+                tmp_str += "style=\"background-color:#d90000;color:white;\"";
+            }
+            */
+            
+            tmp_str += "data-map_url=\"" + element + "\"";
+            tmp_str += "data-floor=\"" + arr_split[0] + "\"";
+            tmp_str += ">";
+            tmp_str += arr_split[0];
+            tmp_str += "</div>";
+            
+        }
+
+        $('.search_information_button').append(tmp_str);
+
+        var floor_btn = $('.floor_btn');
+
+        for (var index = 0; index < floor_btn.length; index++) {
+            var element = floor_btn[index];
+            
+            $(element).on('click',function(e){    
+                
+                $(map_img).attr("src",$(this).data("map_url"));
+                setStoreDrawingToMap($(this).data("floor"));
+                setFloorButtonColor($(this).data("floor"));
+
+            })
+        }
+
+        setFloorButtonColor(kiosk_floor);
+    }
+
+    //우측 네비게이션바 색깔변경 기능 설정
+    function setRightNavColor(obj){
+        
+        var menu = $(obj).data("menu");
+        var arr_right_nav_btn = $('.nav_right_btn');
+
+        for (var index = 0; index < arr_right_nav_btn.length; index++) {
+            var element = arr_right_nav_btn[index];
+            var tmp_menu = $(element).data("menu");
+            var tmp_src = $(element).attr("src");
+            var arr_src = tmp_src.split("\/");
+            var target_src = arr_src[arr_src.length-1];
+            target_src = target_src.split("\.");
+            var remove_src = target_src[0].replace("_o","");
+
+            if(menu === tmp_menu){
+                target_src = tmp_src.replace(target_src[0],remove_src + "_o");
+                $(element).attr("src",target_src);
+            }else{
+                target_src = tmp_src.replace(target_src[0],remove_src + "");
+                $(element).attr("src",target_src);
+            }
+        }
+    }
 
     // 시계 기능
     function showClock(){
@@ -704,48 +1634,110 @@
 
         var button_obj = json_obj.button_obj;
         var image_obj = json_obj.image_obj;
+        var video_obj = json_obj.video_obj;
         var arr_image = json_obj.arr_image;
         var slide_time = json_obj.slide_time;
 
-        function slideTopImage(){
+        var img_timer_id;
+        var init_timer_id;
+
+        //첫번째 이미지로 초기화
+        $(image_obj).attr("src",arr_image[0]);
+        $(video_obj).attr("src",arr_image[0]);
+
+        function setInitSlide(){
+
+            var video_duration = video_obj.duration;
+            //video_duration = 1000 * Math.floor(video_duration);
+
+            if(isNaN(video_duration)){
+                target_slide_time = slide_time;
+            }else{
+                target_slide_time = 1000 * (Math.floor(video_duration))
+            }
+
+             //동영상이 아니면
+             if(isNaN(video_duration)){
+                //console.log("1");
+                img_timer_id = setTimeout(function() {
+                    
+                    slideTopImage("right");                    
+                }, target_slide_time);
+                
+            }else{
+                //console.log("2");
+                img_timer_id = setTimeout(function() {
+                    
+                    slideTopImage("right");
+                    
+                }, target_slide_time);   
+            }
+        }  
+
+        window.setTimeout(function(t){
+            setInitSlide();
+        },1500);
+
+        
+    
+        function slideTopImage(direction){
 
             var target_image = $(image_obj);
-            var direction = "right";
+            var target_video = $(video_obj);
+            
+            var video_duration = video_obj.duration;
             var target_uri = getNextImageUri(direction,arr_image);
-            target_image.attr("src",target_uri);  
+
+            var arr_target = target_uri.split("\/");
+            var file_name = arr_target[6];
+            var target_ext = file_name.split("\.");
+            var target_slide_time = 5;
+
+            if(target_ext[1] === "jpg" || target_ext[1] === "png"){
+
+                target_image.attr("src",target_uri);  
+                target_video.attr("src",target_uri);
+                target_video.css("display","none");
+                target_image.css("display","block");
+
+            }else{
+
+                target_video.attr("src",target_uri);
+                target_image.attr("src",target_uri);  
+                target_image.css("display","none");
+                target_video.css("display","block");
+
+            }
+
+            clearTimeout(init_timer_id); //타이머 클리어
+            init_timer_id = setTimeout(function(t){
+                clearTimeout(img_timer_id); //타이머 클리어
+                
+                setInitSlide();
+            },1500);           
 
         };
-
-        var timerId = setInterval(function () {
-            slideTopImage();
-        }, slide_time);    
 
         $(button_obj).on("click",function(e){
 
             var direction = $(this).data("direction");
-            var target_uri = getNextImageUri(direction,arr_image);
-            var target_image = $(image_obj);
-            target_image.attr("src",target_uri);  
-
-            clearInterval(timerId);
-
-            timerId = setInterval(function () {
-                slideTopImage();
-            }, slide_time);   
+            slideTopImage(direction);   
 
         });
 
         function getNextImageUri(direction,arr_image){
 
-            var target_image = $(image_obj);
-            var current_arr_src = target_image.attr("src").split("/");
-            var ret_str = "";
+            var target = $(image_obj);
+            var video_target = $(video_obj);
+
+            var current_arr_src = target.attr("src").split("/");
+            var ret_str = "";            
 
             for (var index = 0; index < arr_image.length; index++) {
                 var target_arr_src = arr_image[index].split("/");
                 
                 if(current_arr_src[current_arr_src.length - 1] === target_arr_src[target_arr_src.length - 1]){ // 이미지 이름이 같으면
-
+                    
                     if(direction === "left"){
                         if(index - 1 === -1){
                             ret_str = arr_image[arr_image.length - 1];
@@ -834,8 +1826,8 @@
 
     }
 
-    //상점 팝업 기능 설정 시작
-    function setStorePopEvent(){
+    //상점 지도에 그리는 기능 시작
+    function setStoreDrawingToMap(floor){
         /*
         $.ajax({
             url : "frame_action_ajax.jsp",
@@ -865,12 +1857,21 @@
 
 
         var arr_data = [
-                        {store_name:"상점1",store_id:"1",left:1500,top:1300,font_size:"20"},
-                        {store_name:"상점2",store_id:"2",left:1000,top:1800,font_size:"20"},
-                        {store_name:"상점3",store_id:"3",left:1600,top:900,font_size:"20"},
-                        {store_name:"상점4",store_id:"4",left:2900,top:2900,font_size:"20"},
-                        {store_name:"상점5",store_id:"5",left:140,top:690,font_size:"20"}
+                        {store_name:"상점1",store_id:"1",left:500,top:1000,font_size:"20"},
+                        {store_name:"상점2",store_id:"2",left:600,top:400,font_size:"20"},
+                        {store_name:"상점3",store_id:"3",left:700,top:900,font_size:"20"},
+                        {store_name:"상점4",store_id:"4",left:1000,top:1200,font_size:"20"},
+                        {store_name:"상점5",store_id:"5",left:300,top:690,font_size:"20"}
                         ];
+
+
+        //현재 상점 지우기 
+        var tmp_stores = $('.map_store');
+
+        for (var index = 0; index < tmp_stores.length; index++) {
+            var element = tmp_stores[index];
+            $(element).remove();
+        }
 
         //ajax로 받아온 상점 데이터 지도에 설정
         for (var index = 0; index < arr_data.length; index++) {
@@ -894,27 +1895,31 @@
                 left:parseInt(tmp_json.left)
 
             });
-
-            
         }
+        //setStorePopup();
+    };
+    //상점 지도에 그리는 기능 끝
+
+    //상점 팝업 기능 설정 시작
+    function setStorePopup(){
 
         //상점 클릭시 팝업 이벤트 설정
         var arr_stores = $('.map_store');
-
+    
         for (index = 0; index < arr_stores.length; index++) {
             var element = arr_stores[index];
             
-            $(element).on('click',function(e){       
+            $(element).on('click',function(e){      
                 $('.store_popup').css( 
 
                     {display:"block",
-                    top:parseInt($(this).css("top").replace("px","")) - 100,
-                    left:parseInt($(this).css("left").replace("px",""))
+                    top:parseInt($(this).css("top").replace("px","")) - 80,
+                    left:parseInt($(this).css("left").replace("px","")) + 30
 
                 });
             });
         }
-    };
+    }
     //상점 팝업 기능 설정 끝
 
 
@@ -1094,65 +2099,12 @@
             });
             */
 
-            var store_id = 4;
+            var store_id = 3;
+            
+            moveMapToStore(store_id,json_obj);
 
-            var arr_stores = $(map_store_obj);
-
-            for (index = 0; index < arr_stores.length; index++) {
-                var element = arr_stores[index];
-
-                if(store_id === $(element).data("store_id")){
-
-                    $(store_popup_obj).css( 
-
-                        {display:"block",
-                        top:parseInt($(element).css("top").replace("px","")) - 100,
-                        left:parseInt($(element).css("left").replace("px",""))
-
-                    });
-                    
-                    var map_preview_div_width = parseInt($('.map').css("width").replace("px",""));
-                    var map_preview_div_height = parseInt($('.map').css("height").replace("px",""));
-
-                    var map_image_width = parseInt($(map_image_obj).css("width").replace("px",""));
-                    var map_image_height = parseInt($(map_image_obj).css("height").replace("px",""));
-                    
-                    // -(left위치-(맵프리뷰 WIDTH / 2))
-                    var map_left_value = -( parseInt($(element).css("left").replace("px","")) - (map_preview_div_width / 2) );
-                    // -(top위치-(맵프리뷰 HEIGHT / 2))
-                    var map_top_value = -( parseInt($(element).css("top").replace("px","")) - (map_preview_div_height / 2) );
-                    
-                    //테두리측 상점 좌표 제한
-                    if(map_left_value > 0){
-                        map_left_value = 0;
-                    }
-                    if(map_top_value > 0){
-                        map_top_value = 0;
-                    }
-
-                    if(map_left_value < -2000){
-                        map_left_value = -(map_image_width - 900);
-                    }
-                    if(map_top_value < -2000){
-                        map_top_value = -(map_image_height - 500);
-                    }
-                    
-                    $(map_image_obj).css(
-                        {
-                        top:map_top_value,
-                        left:map_left_value
-                    });
-
-                    $(map_stores_obj).css( 
-                        {
-                        top:map_top_value,
-                        left:map_left_value
-                    });
-
-                    hideKeyboard();
-                }
-            }        
-
+            
+            hideKeyboard();
         })
 
         $(searchbar_close_obj).on('click',function(e){
@@ -1166,7 +2118,71 @@
 
     }
     //키보드 검색 기능 끝  
-    
+
+    //해당 상점으로 줌 이동 기능 시작
+    function moveMapToStore(store_id,json_obj){
+
+        var map_store_obj = json_obj.map_store_obj;
+        var store_popup_obj = json_obj.store_popup_obj;
+        var map_stores_obj = json_obj.map_stores_obj;
+        var map_image_obj = json_obj.map_image_obj;
+
+        var arr_stores = $(map_store_obj);
+
+        for (index = 0; index < arr_stores.length; index++) {
+            var element = arr_stores[index];
+
+            if(store_id === $(element).data("store_id")){
+
+                $(store_popup_obj).css( 
+
+                    {display:"block",
+                    top:parseInt($(element).css("top").replace("px","")) - 80,
+                    left:parseInt($(element).css("left").replace("px","")) + 30
+
+                });
+                
+                var map_preview_div_width = parseInt($(map_stores_obj).css("width").replace("px",""));
+                var map_preview_div_height = parseInt($(map_stores_obj).css("height").replace("px",""));
+
+                var map_image_width = parseInt($(map_image_obj).css("width").replace("px",""));
+                var map_image_height = parseInt($(map_image_obj).css("height").replace("px",""));
+                
+                // -(left위치-(맵프리뷰 WIDTH / 2))
+                var map_left_value = -( parseInt($(element).css("left").replace("px","")) - (map_preview_div_width / 2) );
+                // -(top위치-(맵프리뷰 HEIGHT / 2))
+                var map_top_value = -( parseInt($(element).css("top").replace("px","")) - (map_preview_div_height / 2) );
+                
+                //테두리측 상점 좌표 제한
+                if(map_left_value > 0){
+                    map_left_value = 0;
+                }
+                if(map_top_value > 0){
+                    map_top_value = 0;
+                }
+
+                if(map_left_value < -2000){
+                    map_left_value = -(map_image_width - 900);
+                }
+                if(map_top_value < -2000){
+                    map_top_value = -(map_image_height - 500);
+                }
+                
+                $(map_image_obj).css(
+                    {
+                    top:map_top_value,
+                    left:map_left_value
+                });
+
+                $(map_stores_obj).css( 
+                    {
+                    top:map_top_value,
+                    left:map_left_value
+                });
+            }
+        }
+    }
+    //해당 상점으로 줌 이동 기능 끝
 
     //타겟 페이지 외 다른 페이지 숨김 
     function setHideNotUsePage(target_class_name){
@@ -1183,6 +2199,12 @@
             }else{
                 $(element).css("display","none");
             }
+        }
+
+        if(target_class_name === "vertical_kiosk_screen" || target_class_name === "vertical_kiosk_navigation"){
+            $('.right_navigation').css("display","none");
+        }else{
+            $('.right_navigation').css("display","block");
         }
         
     }
@@ -1253,11 +2275,14 @@
         });
         */
 
-        arr_banner_image = ["http://192.168.0.113:8031/stadmin/lotte_test/lotte.jpg",
-                            "http://192.168.0.113:8031/stadmin/lotte_test/lotte1.jpg",
-                            "http://192.168.0.113:8031/stadmin/lotte_test/lotte2.jpg",
-                            "http://192.168.0.113:8031/stadmin/lotte_test/lotte3.jpg",
-                            "http://192.168.0.113:8031/stadmin/lotte_test/lotte4.jpg"];
+        arr_banner_image = ["http://192.168.0.113:8031/stadmin/lotte_test/image/test.mp4",
+                            "http://192.168.0.113:8031/stadmin/lotte_test/image/lotte.jpg",
+                            "http://192.168.0.113:8031/stadmin/lotte_test/image/lotte1.jpg",
+                            "http://192.168.0.113:8031/stadmin/lotte_test/image/minion.mp4",
+                            "http://192.168.0.113:8031/stadmin/lotte_test/image/lotte2.jpg",        
+                            "http://192.168.0.113:8031/stadmin/lotte_test/image/lotte3.jpg",
+                            "http://192.168.0.113:8031/stadmin/lotte_test/image/lotte4.jpg",
+                            ];
 
         return arr_banner_image;
 
@@ -1269,6 +2294,7 @@
         // 상단 이미지 슬라이드 기능 시작
         var image_obj = $("#id_banner_image");
         var button_obj = $(".banner_image_btn");
+        var video_obj = document.getElementById('id_banner_video');
         var slide_time = 5000;
         var arr_image = getBannerImageList();
 
@@ -1277,10 +2303,11 @@
         var image_objs = {
                             image_obj:image_obj,
                             button_obj:button_obj,
+                            video_obj:video_obj,
                             arr_image:arr_image,
                             slide_time:slide_time
                         };
-
+     
         setSlideImage(image_objs);
     
     }
@@ -1317,8 +2344,8 @@
         });
         */
 
-        arr_screen_image = ["http://192.168.0.113:8031/stadmin/lotte_test/screensaver1.jpg",
-                            "http://192.168.0.113:8031/stadmin/lotte_test/screensaver2.jpg"];
+        arr_screen_image = ["http://192.168.0.113:8031/stadmin/lotte_test/image/screensaver1.jpg",
+                            "http://192.168.0.113:8031/stadmin/lotte_test/image/screensaver2.jpg"];
 
         return arr_screen_image;
 
@@ -1330,6 +2357,7 @@
         // 상단 이미지 슬라이드 기능 시작
         var image_obj = $("#id_screen_image");
         var button_obj = $(".banner_image_btn");
+        var video_obj = document.getElementById('id_screen_video');
         var slide_time = 5000;
         var arr_image = getScreenImageList();
 
@@ -1338,11 +2366,12 @@
         var image_objs = {
                             image_obj:image_obj,
                             button_obj:button_obj,
+                            video_obj:video_obj,
                             arr_image:arr_image,
                             slide_time:slide_time
                         };
-
-        setSlideImage(image_objs);
+        
+        //setSlideImage(image_objs);
 
     }
 
@@ -1377,121 +2406,22 @@
             }
         });
         */
-        arr_map_image = ["http://192.168.0.113:8031/stadmin/lotte_test/map/B3.png",
-                        "http://192.168.0.113:8031/stadmin/lotte_test/map/B2.png",
-                        "http://192.168.0.113:8031/stadmin/lotte_test/map/B1.png",
+
+        arr_map_image = [
+                        "http://192.168.0.113:8031/stadmin/lotte_test/map/B1F.png",
                         "http://192.168.0.113:8031/stadmin/lotte_test/map/1F.png",
                         "http://192.168.0.113:8031/stadmin/lotte_test/map/2F.png"];
 
 
         return arr_map_image;
     }
-    
-    /* 페이지 별 초기화 시작 */
-    function setInitMain(){
-
-        //시계 기능 시작
-        showClock();
-
-        //데이터 받아 온 후 슬라이드 이미지 기능 시작
-        setBannerImageList();
-
-        //지도 드래그 기능 설정 시작
-        var map_image_obj = $('#id_map_image');
-        var map_stores_obj = $('.map_stores');
-        var map_div_obj = $('.map');
-
-        var image_objs = {
-                            map_div_obj:map_div_obj,
-                            map_image_obj:map_image_obj,
-                            map_stores_obj:map_stores_obj,
-                            gl_map_width:gl_map_width,
-                            gl_map_height:gl_map_height
-                        };
-
-        setMapDrag(image_objs);
-
-        //상점 팝업 기능 시작
-        setStorePopEvent();
-
-        //키보드 검색 기능 시작
-        var keyboard_key_obj = $('.keyboard_key');
-        var searchbar_text_obj = $('.searchbar_text');
-        var searchbar_icon_obj = $('.searchbar_icon');
-        var map_store_obj = $('.map_store');
-        var store_popup_obj = $('.store_popup');
-        var map_stores_obj = $('.map_stores');
-        var map_image_obj = $('#id_map_image');
-        var keyboard_obj = $('.keyboard');
-        var searchbar_obj = $('.searchbar');
-        var searchbar_close_obj = $('.searchbar_close');
-
-        var keyboard_objs = {
-                            keyboard_key_obj:keyboard_key_obj,
-                            searchbar_text_obj:searchbar_text_obj,
-                            searchbar_icon_obj:searchbar_icon_obj,
-                            map_store_obj:map_store_obj,
-                            store_popup_obj:store_popup_obj,
-                            map_stores_obj:map_stores_obj,
-                            map_image_obj:map_image_obj,
-                            keyboard_obj:keyboard_obj,
-                            searchbar_obj:searchbar_obj,
-                            searchbar_close_obj:searchbar_close_obj
-                            }
-
-        setKeyboard(keyboard_objs);
-
-        //타겟 페이지 외 다른 페이지 숨김 
-        setHideNotUsePage('vertical_kiosk_main');
 
 
-
-    }
-
-    function setInitScreen(){
-
-        //스크린세이버 터치 문구 애니메이션 효과 
-        var timer_time = 3000;
-        setScreenTouchTimer(timer_time);
-
-        //타겟 페이지 외 다른 페이지 숨김 
-        setHideNotUsePage('vertical_kiosk_screen');
-
-        //데이터 받아 온 후 슬라이드 이미지 기능 시작
-        setScreenImageList();
-
-    }
-    /* 페이지 별 초기화 끝 */
-
-    setInitMain();
-    //setInitScreen();
-
-
-    //키보드 검색 기능 시작
-    var keyboard_key_obj = $('.keyboard_key');
-    var searchbar_text_obj = $('.searchbar_text');
-    var searchbar_icon_obj = $('.searchbar_icon');
-
-
-    //맵 줌 기능 설정
-    var map_div = document.querySelector(".map");
-    var arr_stores = document.querySelectorAll('.map_store');
-
-    var pinch_objs = {
-                    map_div:map_div,
-                    width:gl_map_width,
-                    height:gl_map_height,
-                    left:0,
-                    top:0,
-                    arr_stores:arr_stores
-                    };
-
-    setPinch(pinch_objs);
-
+    //맵 줌 기능 설정 시작
     function setPinch(pinch_objs){
 
         var el = pinch_objs.map_div;
-        
+
         var ham = new Hammer( el, {
             domEvents: true
         } );
@@ -1501,6 +2431,8 @@
         var left = pinch_objs.left;
         var top = pinch_objs.top;
         var arr_stores = pinch_objs.arr_stores;
+        var store_popup_obj = pinch_objs.store_popup_obj;
+        var map_div = pinch_objs.map_div;
 
         var target_scale = 1;
 
@@ -1511,22 +2443,22 @@
 
         });
         */
-        
+
         ham.on( "pinchin", function( e ) {
 
             //console.log("pinchin");
             //console.log(target_scale * width);
 
-            target_scale = 1.02;
+            target_scale = 1.01;
             var sect = "pinchin";
 
-            var ret_obj = setMapZoom(el,arr_stores,target_scale,width,height,gl_map_height,gl_map_width,sect);
+            var ret_obj = setMapZoom(el,arr_stores,target_scale,width,height,gl_map_height,gl_map_width,sect,e);
 
             width = ret_obj.width;
             height = ret_obj.height;
             left = ret_obj.left;
             top = ret_obj.top; 
-        
+
 
         });
 
@@ -1535,9 +2467,9 @@
             //console.log("pinchout");
             //console.log(target_scale * width);
 
-            target_scale = 0.98;
+            target_scale = 0.99;
             var sect = "pinchout";
-            var ret_obj = setMapZoom(el,arr_stores,target_scale,width,height,gl_map_height,gl_map_width,sect);
+            var ret_obj = setMapZoom(el,arr_stores,target_scale,width,height,gl_map_height,gl_map_width,sect,e);
 
             width = ret_obj.width;
             height = ret_obj.height;
@@ -1545,14 +2477,13 @@
             top = ret_obj.top; 
             
         });
-        
+
 
         ham.on( "pinchend", function( e ) {
             
-            //console.log( width );
         });
 
-        function setMapZoom(el,arr_stores,scale,width,height,gl_map_height,gl_map_width,sect){
+        function setMapZoom(el,arr_stores,scale,width,height,gl_map_height,gl_map_width,sect,event){
 
             var stores_div = el.childNodes[1];
             var img_div = el.childNodes[3];
@@ -1566,8 +2497,11 @@
                 img_div.style.width = (total_width) + 'px';
                 img_div.style.height = (total_height) + 'px';
 
-                stores_div.style.width = (total_width) + 'px';
-                stores_div.style.height = (total_height) + 'px';
+                //img_div.style.marginLeft = (img_div.style.left.replace("px","") - (event.center.x * scales)) + 'px';
+                //img_div.style.marginTop = (img_div.style.top.replace("px","") - (event.center.y * scales)) + 'px';
+                //img_div.style.marginLeft = 0 + 'px';
+                //img_div.style.marginTop  = 0 + 'px';
+                //console.log((img_div.style.left.replace("px","") - (total_width - width)));
 
                 for (var index = 0; index < arr_stores.length; index++) {
                     var element = arr_stores[index];
@@ -1600,12 +2534,55 @@
 
                 }
 
-                $(img_div).css(
-                    {
-                    top:-(scale * width) / 2,
-                    left:-(scale * width) / 2
+                $(store_popup_obj).css( 
+
+                    {display:"none",
+                    //top:parseInt($(store_popup_obj).css("top").replace("px","")) * scale,
+                    //left:parseInt($(store_popup_obj).css("left").replace("px","")) * scale
+
                 });
 
+                var map_preview_div_width = parseInt($(map_div).css("width").replace("px",""));
+                var map_preview_div_height = parseInt($(map_div).css("height").replace("px",""));
+
+                var center = event.center;
+
+                var map_left_value;
+                var map_top_value;
+
+                console.log(center);
+                console.dir(img_div.x);
+                console.dir(img_div.y);
+                
+                if(sect ==="pinchin"){
+                    // -(left위치-(맵프리뷰 WIDTH / 2))
+                    //map_left_value =  (parseInt($(img_div).css("left").replace("px",""))) - (center.x); //+ ((total_width - width) * scale);
+                    // -(top위치-(맵프리뷰 HEIGHT / 2))
+                    //map_top_value =  (parseInt($(img_div).css("top").replace("px",""))) - (center.y);// + ((total_height - height) * scale);
+                    map_left_value = -(center.x + img_div.x * scale) / total_width;
+                    map_top_value = (center.y + img_div.y * scale) / total_height;
+                }else{
+                    // -(left위치-(맵프리뷰 WIDTH / 2))
+                    //map_left_value =  (parseInt($(img_div).css("left").replace("px",""))) + (center.x);// + ((total_width - width) * scale);
+                    // -(top위치-(맵프리뷰 HEIGHT / 2))
+                    //map_top_value =  (parseInt($(img_div).css("top").replace("px",""))) + (center.y);// + ((total_height - height) * scale);
+                    map_left_value = -(center.x + img_div.x * scale) / total_width;
+                    map_top_value = (center.y + img_div.y * scale) / total_height;
+                }
+
+                console.log(map_left_value);
+                console.log(map_top_value);
+
+            
+            
+        
+                $(img_div).css(
+                    {
+                    top:map_left_value + "px",
+                    left:map_top_value + "px"
+                });
+                
+        
                 ret_obj = {
                     width:width * scale,
                     height:height * scale,
@@ -1624,16 +2601,499 @@
 
             return ret_obj;
             
+            
         }
 
     };
+    //맵 줌 기능 설정 끝
 
+    //네비게이션 페이지 이동 기능 시작
+    function setNavMenuBtnMove(json_obj){
+        var arr_icon = json_obj.arr_icon;
+
+        for (var index = 0; index < arr_icon.length; index++) {
+            var element = arr_icon[index];
+        
+            $(element).on("click",function(e){
+                
+                var menu = $(this).data("menu");
+
+                if(menu === "main"){
+                    setHideNotUsePage('vertical_kiosk_main');
+                    $('.main_bot_brand').css("display","none");
+                    $('.main_bot_div').css("display","block");
+                    setRightNavColor($(this));
+                }else if(menu === "event"){
+                    setHideNotUsePage('vertical_kiosk_event');
+                    setRightNavColor($(this));
+                }else if(menu === "brand"){
+                    setHideNotUsePage('vertical_kiosk_main');
+                    $('.main_bot_brand').css("display","block");
+                    $('.main_bot_div').css("display","none");
+                    setRightNavColor($(this));
+                }else if(menu === "coupon"){
+                    setHideNotUsePage('vertical_kiosk_coupon');
+                    setRightNavColor($(this));
+                }else if(menu === "screen"){
+                    setHideNotUsePage('vertical_kiosk_screen');
+                }else if(menu === "navigation"){
+                    setHideNotUsePage('vertical_kiosk_navigation');
+                }
+
+            });            
+        }
+
+    }
+    //네비게이션 페이지 이동 기능 끝
+
+    //이벤트 페이지 시작
+
+    //이벤트 팝업 설정
+    function setPopupEvent(json_objs){
+
+        var arr_event_button = json_objs.arr_event_button;
+
+        for (var index = 0; index < arr_event_button.length; index++) {
+            var element = arr_event_button[index];
+            
+            $(element).on('click',function(e){       
+                var data = $(this).parent().parent().data();
+                
+                $('.event_popup_top_text').text(data.event_name);
+                $('.event_popup_top_image').attr("src",data.img_url);
+                $('.event_popup_middle_top').text(data.position_name);
+                $('#id_information_data_normal_price').text(data.normal_price);
+                $('#id_information_data_special_price').text(data.special_price);
+                $('#id_information_data_start_date').text(data.start_date);
+                $('#id_information_data_end_date').text(data.end_date);
+                $('.event_popup_bot_left').text(data.floor);
+                $('.event_popup_bot_right').data("top",data.top);
+                $('.event_popup_bot_right').data("left",data.left);
+                $('.event_popup_bot').data("store_id",data.store_id);
+                $('.event_popup_bot').data("floor",data.floor);
+
+                $('.vertical_kiosk_event_popup').css( 
+                    {display:"block"
+                });
+
+            });
+        }
+    }
+
+    //이벤트 상점 위치 찾기 설정
+    function setEventPopMoveToStore(){
+        $('.event_popup_bot').on('click',function(e){
+
+            //메인 화면 돌아가기
+            setHideNotUsePage('vertical_kiosk_main');
+
+            var store_id = $(this).data("store_id");
+            var floor = $(this).data("floor");
+
+            var map_store_obj = $('.map_store');
+            var store_popup_obj = $('.store_popup');
+            var map_stores_obj = $('.map_stores');
+            var map_image_obj = $('#id_map_image');
+
+
+            var movemap_objs = {
+                                map_store_obj:map_store_obj,
+                                store_popup_obj:store_popup_obj,
+                                map_stores_obj:map_stores_obj,
+                                map_image_obj:map_image_obj
+                                }
+
+            $('.vertical_kiosk_event_popup').css( 
+                {display:"none"
+            });
+
+            $('.main_bot_brand').css("display","none");
+            $('.main_bot_div').css("display","block");
+
+            moveMapToStore(store_id,movemap_objs);
+
+        })
+    }
     
 
+    function getEventList(){
+
+        /*
+        $.ajax({
+            url : "frame_action_ajax.jsp",
+            method : "GET",
+            dataType : "text",
+            data : {'mode':'DELETE_GROUP','intro_group_name':$va,'group_id':$g_id},
+            success : function(data){
+                if($.trim(data)!= '' && $.trim(data) != 'FAIL'){
+                    $group_id = $.trim(data);
+                    console.log($group_id);
+                    alert('Complete');
+                    $('#id_intro_change').modal('hide');
+                    $('.midDropper').each(function(){
+                        if($(this).attr('group_id') == $g_id){
+                            $(this).fadeOut();
+                            $(this).next().fadeOut();
+                            setKioskUpd($g_id,'');
+                        }
+                    });
+                }
+            },
+            error:function(e){
+                alert('Fail.');
+            }
+        });
+        */
+
+        var arr_data = [
+                        {event_name:"Only Price 미네랄 워터",event_id:"1",floor:"1F",event_price:"25,000",img_url:"http://192.168.0.113:8031/stadmin/lotte_test/image/product/detail_01.jpg",position_name:"19번스낵류,음료수 매대",normal_price:"1,153.300원",special_price:"1,152.200",start_date:"2019.06.19",end_date:"2019.06.26",store_id:"1"},
+                        {event_name:"트레비 (라임)",event_id:"2",floor:"1F",event_price:"8,800",img_url:"http://192.168.0.113:8031/stadmin/lotte_test/image/product/detail_02.jpg",position_name:"19번스낵류,음료수 매대",normal_price:"1,153.300원",special_price:"1,152.200",start_date:"2019.06.19",end_date:"2019.06.26",store_id:"2"},
+                        {event_name:"농심 신라면 큰사발",event_id:"3",floor:"1F",event_price:"950",img_url:"http://192.168.0.113:8031/stadmin/lotte_test/image/product/detail_03.jpg",position_name:"19번스낵류,음료수 매대",normal_price:"1,153.300원",special_price:"1,152.200",start_date:"2019.06.19",end_date:"2019.06.26",store_id:"3"},
+                        {event_name:"프리미엄 스위티오 바나나",event_id:"4",floor:"1F",event_price:"3,900",img_url:"http://192.168.0.113:8031/stadmin/lotte_test/image/product/detail_04.jpg",position_name:"19번스낵류,음료수 매대",normal_price:"1,153.300원",special_price:"1,152.200",start_date:"2019.06.19",end_date:"2019.06.26",store_id:"4"},
+                        {event_name:"서울 흰우유",event_id:"5",floor:"1F",event_price:"5,950",img_url:"http://192.168.0.113:8031/stadmin/lotte_test/image/product/detail_05.jpg",position_name:"19번스낵류,음료수 매대",normal_price:"1,153.300원",special_price:"1,152.200",start_date:"2019.06.19",end_date:"2019.06.26",store_id:"1"},
+                        {event_name:"맥심 모카믹스 카카오 기획",event_id:"6",floor:"1F",event_price:"22,970",img_url:"http://192.168.0.113:8031/stadmin/lotte_test/image/product/detail_06.jpg",position_name:"19번스낵류,음료수 매대",normal_price:"1,153.300원",special_price:"1,152.200",start_date:"2019.06.19",end_date:"2019.06.26",store_id:"2"},
+                        {event_name:"인기 수입맥주35종 맥주8캔 골라담기",event_id:"7",floor:"1F",event_price:"25,000",img_url:"http://192.168.0.113:8031/stadmin/lotte_test/image/product/detail_07.jpg",position_name:"19번스낵류,음료수 매대",normal_price:"1,153.300원",special_price:"1,152.200",start_date:"2019.06.19",end_date:"2019.06.26",store_id:"3"},
+                        {event_name:"오뚜기 스낵면",event_id:"8",floor:"1F",event_price:"2,000",img_url:"http://192.168.0.113:8031/stadmin/lotte_test/image/product/detail_08.jpg",position_name:"19번스낵류,음료수 매대",normal_price:"1,153.300원",special_price:"1,152.200",start_date:"2019.06.19",end_date:"2019.06.26",store_id:"4"}
+                        ];
+
+        return arr_data;
 
 
+    }
+
+    function setEventList(arr_data){
+
+        var arr_data = getEventList();
+
+
+        //현재 리스트 초기화 
+        var tmp_list = $('.middle_event_product');
+
+        for (var index = 0; index < tmp_list.length; index++) {
+            var element = tmp_list[index];
+
+            $(element).remove();
+            
+        }
+
+        //ajax로 받아온 이벤트 데이터 설정
+        for (var index = 0; index < arr_data.length; index++) {
+            var tmp_json = arr_data[index];
+            
+            var str_append = "<div class=\"middle_event_product\" id=\"id_event_" + index + "\"";
+                str_append += "data-event_name=\"" + tmp_json.event_name + "\"";
+                str_append += "data-event_id=\"" + tmp_json.event_id + "\"";
+                str_append += "data-floor=\"" + tmp_json.floor + "\"";
+                str_append += "data-position_name=\"" + tmp_json.position_name + "\"";
+                str_append += "data-event_price=\"" + tmp_json.event_price + "\"";
+                str_append += "data-normal_price=\"" + tmp_json.normal_price + "\"";
+                str_append += "data-special_price=\"" + tmp_json.special_price + "\"";
+                str_append += "data-start_date=\"" + tmp_json.start_date + "\"";
+                str_append += "data-img_url=\"" + tmp_json.img_url + "\"";
+                str_append += "data-store_id=\"" + tmp_json.store_id + "\"";
+                str_append += "data-end_date=\"" + tmp_json.end_date + "\">";
+
+                str_append += "  <img class=\"middle_event_product_left\" src=\"http://192.168.0.113:8031/stadmin/lotte_test/image/product/detail_0" + (index + 1) + ".jpg\"/>";
+                str_append += "  <div class=\"middle_event_product_right\">";
+                str_append += "    <div class=\"middle_event_product_right_top\">";
+                str_append += "      " + tmp_json.event_name;
+                str_append += "    </div>";
+                str_append += "    <div class=\"middle_event_product_right_middle\">";
+                str_append += "      <div class=\"middle_event_product_right_middle_number\">" + tmp_json.event_price + "</div>";
+                str_append += "      <div class=\"middle_event_product_right_middle_text\">원</div>";
+                str_append += "    </div>";
+                str_append += "    <div class=\"middle_event_product_right_bot\">";
+                str_append += "      <img class=\"middle_event_product_right_bot_icon\" src=\"http://192.168.0.113:8031/stadmin/lotte_test/image/main_ic_01.png\"/>";
+                str_append += "      <div class=\"middle_event_product_right_bot_text\">상품 위치안내</div>";
+                str_append += "    </div>";
+                str_append += "  <div>";
+
+                str_append += "</div>";
+            
+            $('.middle_event').append(str_append);
+        }
+    }
+
+    $('.event_popup_close').on('click',function(e){
+        $('.vertical_kiosk_event_popup').css("display","none");
+    })
+    //이벤트 페이지 끝
+
+    //브랜드 페이지 시작
+    function getBrandList(){
+
+        /*
+        $.ajax({
+            url : "frame_action_ajax.jsp",
+            method : "GET",
+            dataType : "text",
+            data : {'mode':'DELETE_GROUP','intro_group_name':$va,'group_id':$g_id},
+            success : function(data){
+                if($.trim(data)!= '' && $.trim(data) != 'FAIL'){
+                    $group_id = $.trim(data);
+                    console.log($group_id);
+                    alert('Complete');
+                    $('#id_intro_change').modal('hide');
+                    $('.midDropper').each(function(){
+                        if($(this).attr('group_id') == $g_id){
+                            $(this).fadeOut();
+                            $(this).next().fadeOut();
+                            setKioskUpd($g_id,'');
+                        }
+                    });
+                }
+            },
+            error:function(e){
+                alert('Fail.');
+            }
+        });
+        */
+
+        var arr_data = [
+                        {brand_name:"Only Price 미네랄 워터",brand_id:"1",floor:"1F",event_price:"25,000",img_url:"http://192.168.0.113:8031/stadmin/lotte_test/image/product/detail_01.jpg",store_id:"1",main_img:"http://192.168.0.113:8031/stadmin/lotte_test/image/product/detail_01.jpg"},
+                        {brand_name:"트레비 (라임)",brand_id:"2",floor:"1F",event_price:"8,800",img_url:"http://192.168.0.113:8031/stadmin/lotte_test/image/product/detail_02.jpg",store_id:"2",main_img:"http://192.168.0.113:8031/stadmin/lotte_test/image/product/detail_02.jpg"},
+                        {brand_name:"농심 신라면 큰사발",brand_id:"3",floor:"1F",event_price:"950",img_url:"http://192.168.0.113:8031/stadmin/lotte_test/image/product/detail_03.jpg",store_id:"3",main_img:"http://192.168.0.113:8031/stadmin/lotte_test/image/product/detail_03.jpg"},
+                        {brand_name:"프리미엄 스위티오 바나나",brand_id:"4",floor:"1F",event_price:"3,900",img_url:"http://192.168.0.113:8031/stadmin/lotte_test/image/product/detail_04.jpg",store_id:"4",main_img:"http://192.168.0.113:8031/stadmin/lotte_test/image/product/detail_04.jpg"},
+                        {brand_name:"서울 흰우유",brand_id:"5",floor:"1F",event_price:"5,950",img_url:"http://192.168.0.113:8031/stadmin/lotte_test/image/product/detail_05.jpg",store_id:"1",main_img:"http://192.168.0.113:8031/stadmin/lotte_test/image/product/detail_05.jpg"},
+                        {brand_name:"맥심 모카믹스 카카오 기획",brand_id:"6",floor:"1F",event_price:"22,970",img_url:"http://192.168.0.113:8031/stadmin/lotte_test/image/product/detail_06.jpg",store_id:"2",main_img:"http://192.168.0.113:8031/stadmin/lotte_test/image/product/detail_06.jpg"},
+                        {brand_name:"인기 수입맥주35종 맥주8캔 골라담기",brand_id:"7",floor:"1F",event_price:"25,000",img_url:"http://192.168.0.113:8031/stadmin/lotte_test/image/product/detail_07.jpg",store_id:"3",main_img:"http://192.168.0.113:8031/stadmin/lotte_test/image/product/detail_07.jpg"},
+                        {brand_name:"오뚜기 스낵면",brand_id:"8",floor:"1F",event_price:"2,000",img_url:"http://192.168.0.113:8031/stadmin/lotte_test/image/product/detail_08.jpg",store_id:"4",main_img:"http://192.168.0.113:8031/stadmin/lotte_test/image/product/detail_08.jpg"}
+                        ];
+
+        return arr_data;
+
+
+    }
+
+    function setBrandList(arr_data){
+
+        var arr_data = getBrandList();
+
+
+        //현재 리스트 초기화 
+        var tmp_list = $('.main_bot_brand_list_brand');
+
+        for (var index = 0; index < tmp_list.length; index++) {
+            var element = tmp_list[index];
+
+            $(element).remove();
+            
+        }
+
+        //ajax로 받아온 브랜드 데이터 설정
+        for (var index = 0; index < arr_data.length; index++) {
+            var tmp_json = arr_data[index];
+            
+            var str_append = "<img class=\"main_bot_brand_list_brand\" id=\"id_brand_" + index + "\"";
+                str_append += "data-brand_name=\"" + tmp_json.brand_name + "\"";
+                str_append += "data-main_img=\"" + tmp_json.main_img + "\"";
+                str_append += "src=\"" + tmp_json.img_url + "\" />";
+                
+            
+            $('.main_bot_brand_list').append(str_append);
+            
+        }
+    }
+
+    function setMoveBrandInfoPage(){
+        $('.main_bot_brand_list_brand').on('click',function(e){
+            var img_url = $(this).data("main_img");
+
+            $('.vertical_kiosk_brand_img').attr("src",img_url);
+            setHideNotUsePage('vertical_kiosk_brand');
+
+        })
+    };
+
+    function setMoveBrandListPage(){
+        $('#id_brand_menu_back_btn').on('click',function(e){
+
+            setHideNotUsePage('vertical_kiosk_main');
+
+        })
+    };
+
+    function setBrandPopup(json_objs){
+
+        var arr_brand_button = json_objs.arr_brand_button;
+
+        for (var index = 0; index < arr_brand_button.length; index++) {
+            var element = arr_brand_button[index];
+
+            $(element).on('click',function(e){       
+                //var data = $(this).parent().parent().data();
+
+                $('.vertical_kiosk_brand_popup').css( 
+                    {display:"block"
+                });
+
+            });
+        }
+    };
+
+    $('.brand_popup_close').on('click',function(e){
+        $('.vertical_kiosk_brand_popup').css("display","none");
+    })
+    
+    //브랜드 페이지 끝
     
 
+    /* 페이지 별 초기화 시작 */
+    function setInitMain(){
 
+        //시계 기능 시작
+        //showClock();
+
+        //지도 데이터 가져온 후 버튼 설정
+        var map_img = $('#id_map_image');
+        
+        setFloorButton(gl_arr_map_image,map_img,gl_kiosk_floor);
+
+        //데이터 받아 온 후 슬라이드 이미지 기능 시작
+        setBannerImageList();
+
+        //지도 드래그 기능 설정 시작
+        var map_image_obj = $('#id_map_image');
+        var map_stores_obj = $('.map_stores');
+        var map_div_obj = $('.map');
+
+        var image_objs = {
+                            map_div_obj:map_div_obj,
+                            map_image_obj:map_image_obj,
+                            map_stores_obj:map_stores_obj,
+                            gl_map_width:gl_map_width,
+                            gl_map_height:gl_map_height
+                        };
+
+        setMapDrag(image_objs);
+        
+        var floor = "1F";
+        //상점 지도에 그리는 기능 시작
+        setStoreDrawingToMap(floor);
+
+        //키보드 검색 기능 시작
+        var keyboard_key_obj = $('.keyboard_key');
+        var searchbar_text_obj = $('.searchbar_text');
+        var searchbar_icon_obj = $('.searchbar_icon');
+        var map_store_obj = $('.map_store');
+        var store_popup_obj = $('.store_popup');
+        var map_stores_obj = $('.map_stores');
+        var map_image_obj = $('#id_map_image');
+        var keyboard_obj = $('.keyboard');
+        var searchbar_obj = $('.searchbar');
+        var searchbar_close_obj = $('.searchbar_close');
+
+        var keyboard_objs = {
+                            keyboard_key_obj:keyboard_key_obj,
+                            searchbar_text_obj:searchbar_text_obj,
+                            searchbar_icon_obj:searchbar_icon_obj,
+                            map_store_obj:map_store_obj,
+                            store_popup_obj:store_popup_obj,
+                            map_stores_obj:map_stores_obj,
+                            map_image_obj:map_image_obj,
+                            keyboard_obj:keyboard_obj,
+                            searchbar_obj:searchbar_obj,
+                            searchbar_close_obj:searchbar_close_obj
+                            }
+
+        setKeyboard(keyboard_objs);
+
+        //맵 줌 기능 설정
+        var map_div = document.querySelector(".map");
+        var arr_stores = document.querySelectorAll('.map_store');
+        var store_popup_obj = $('.store_popup');
     
+        var pinch_objs = {
+                        map_div:map_div,
+                        width:gl_map_width,
+                        height:gl_map_height,
+                        left:0,
+                        top:0,
+                        arr_stores:arr_stores,
+                        store_popup_obj:store_popup_obj
+                        };
+
+        setPinch(pinch_objs);        
+
+    }
+
+    function setInitScreen(){
+
+        //스크린세이버 터치 문구 애니메이션 효과 
+        var timer_time = 3000;
+        //setScreenTouchTimer(timer_time);
+
+        //데이터 받아 온 후 슬라이드 이미지 기능 시작
+        setScreenImageList();
+
+    }
+
+    function setInitNavigation(){
+
+    }
+
+    function setInitBrand(){
+        //브랜드 리스트 설정
+        setBrandList();
+
+        //브랜드 상세 페이지 이동 설정
+        setMoveBrandInfoPage();
+
+        //브랜드 상세 페이지에서 브랜드 리스트로 가는 설정
+        setMoveBrandListPage();
+
+        //브랜드 팝업 페이지 설정
+        var arr_brand_button = $("#id_brand_menu_pop_btn");
+    
+        var json_objs = {
+                        arr_brand_button:arr_brand_button
+                        };
+
+        setBrandPopup(json_objs);     
+    }
+
+    function setInitEvent(){
+
+        //이벤트 리스트 설정
+        setEventList();
+
+        //팝업 이벤트 설정 시작
+        var arr_event_button = $(".middle_event_product_right_bot");
+    
+        var json_objs = {
+                        arr_event_button:arr_event_button
+                        };
+
+        setPopupEvent(json_objs);       
+        
+        //이벤트 상품 길찾기 설정
+        setEventPopMoveToStore()
+
+    }
+
+    function setInit(){
+
+        //네비게이션 메뉴 이동 기능 설정
+        var arr_icon = $('.nav_move_btn');
+
+        var json_obj = {
+                        arr_icon:arr_icon,
+                        };
+
+        setNavMenuBtnMove(json_obj);
+        setInitMain();
+        setInitScreen();
+        setInitNavigation();
+        setInitEvent();
+        setInitBrand();
+        //setInitCoupon();
+
+        setHideNotUsePage('vertical_kiosk_navigation');
+
+    }
+    setInit();
+
+    /* 페이지 별 초기화 끝 */
+
+
 </script>
