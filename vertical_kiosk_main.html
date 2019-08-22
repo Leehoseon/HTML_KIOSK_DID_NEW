@@ -818,8 +818,6 @@
             text-align: center;
         }
 
-        
-
         .store_popup{
             position: absolute;
             width:45px;
@@ -827,6 +825,12 @@
             border: 1px;
             display: none;
             z-index: 1;
+            
+        }
+
+        .store_popup img{
+            width:100%;
+            height:100%;
             
         }
 
@@ -1691,8 +1695,9 @@
             $(element).on('click',function(e){    
                 
                 $(map_img).attr("src",$(this).data("map_url"));
-                setStoreDrawingToMap($(this).data("floor"));
+                setHideAnotherFloorStore($(this).data("floor"));
                 setFloorButtonColor($(this).data("floor"));
+                $('.store_popup').css("display","none");
 
             })
         }
@@ -1946,8 +1951,24 @@
 
     }
 
+    function setHideAnotherFloorStore(target_floor){
+
+        var tmp_stores = $('.map_store');
+
+        for (var index = 0; index < tmp_stores.length; index++) {
+            var element = tmp_stores[index];
+            var tmp_floor = $(element).data("floor");
+         
+            if(target_floor === tmp_floor){       
+                $(element).css("display","block");
+            }else{
+                $(element).css("display","none");
+            }
+        }
+    }
+
     //상점 지도에 그리는 기능 시작
-    function setStoreDrawingToMap(floor){
+    function setStoreDrawingToMap(){
         /*
         $.ajax({
             url : "frame_action_ajax.jsp",
@@ -1977,11 +1998,11 @@
 
 
         var arr_data = [
-                        {store_name:"상점1",store_id:"1",left:500,top:1000,font_size:"20"},
-                        {store_name:"상점2",store_id:"2",left:600,top:400,font_size:"20"},
-                        {store_name:"상점3",store_id:"3",left:700,top:900,font_size:"20"},
-                        {store_name:"상점4",store_id:"4",left:1000,top:1200,font_size:"20"},
-                        {store_name:"상점5",store_id:"5",left:300,top:690,font_size:"20"}
+                        {store_name:"상점1",store_id:"1",left:500,top:1000,font_size:"20",floor:"B1F"},
+                        {store_name:"상점2",store_id:"2",left:600,top:400,font_size:"20",floor:"B1F"},
+                        {store_name:"상점3",store_id:"3",left:700,top:900,font_size:"20",floor:"2F"},
+                        {store_name:"상점4",store_id:"4",left:1000,top:1200,font_size:"20",floor:"2F"},
+                        {store_name:"상점5",store_id:"5",left:300,top:690,font_size:"20",floor:"1F"}
                         ];
 
 
@@ -1998,12 +2019,13 @@
             var tmp_json = arr_data[index];
             
             var str_append = "<div class=\"map_store\" id=\"id_store_" + index + "\"";
+                str_append += "data-floor=\"" + tmp_json.floor + "\"";
                 str_append += "data-store_name=\"" + tmp_json.store_name + "\"";
                 str_append += "data-store_id=\"" + tmp_json.store_id + "\"";
                 str_append += "data-left=\"" + tmp_json.left + "\"";
                 str_append += "data-top=\"" + tmp_json.top + "\"";
                 str_append += ">";
-                str_append += tmp_json.store_name;
+                //str_append += tmp_json.store_name;
                 str_append += "</div>";
             
             $('.map_stores').append(str_append);
@@ -2219,9 +2241,27 @@
             });
             */
 
-            var store_id = 3;
+            var store_id = 2;
+            var floor = "B1F";
+            var map_url = "http://192.168.0.113:8031/stadmin/lotte_test/map/B1F.png";
+
+            var map_store_obj = $('.map_store');
+            var store_popup_obj = $('.store_popup');
+            var map_stores_obj = $('.map_stores');
+            var map_image_obj = $('#id_map_image');
+
+
+            var movemap_objs = {
+                                map_store_obj:map_store_obj,
+                                store_popup_obj:store_popup_obj,
+                                map_stores_obj:map_stores_obj,
+                                map_image_obj:map_image_obj,
+                                store_id:store_id,
+                                floor:floor,
+                                map_url:map_url
+                                }
             
-            moveMapToStore(store_id,json_obj);
+            moveMapToStore(json_obj);
 
             
             hideKeyboard();
@@ -2240,12 +2280,15 @@
     //키보드 검색 기능 끝  
 
     //해당 상점으로 줌 이동 기능 시작
-    function moveMapToStore(store_id,json_obj){
+    function moveMapToStore(json_obj){
 
         var map_store_obj = json_obj.map_store_obj;
         var store_popup_obj = json_obj.store_popup_obj;
         var map_stores_obj = json_obj.map_stores_obj;
         var map_image_obj = json_obj.map_image_obj;
+        var store_id = json_obj.store_id;
+        var floor = json_obj.floor;
+        var map_url = json_obj.map_url;
 
         var arr_stores = $(map_store_obj);
 
@@ -2301,6 +2344,10 @@
                 });
             }
         }
+        setHideAnotherFloorStore(floor);
+        setFloorButtonColor(floor);
+        $(map_image_obj).attr("src",map_url);
+        
     }
     //해당 상점으로 줌 이동 기능 끝
 
@@ -2654,13 +2701,47 @@
 
                 }
 
+                var store_popup_top = Math.round(parseInt($(store_popup_obj).css('top').replace("px","")) * scale) + "px";
+                var store_popup_left =  Math.round(parseInt($(store_popup_obj).css('left').replace("px","")) * scale) + "px";
+                var store_pop_width = Math.round(parseInt($(store_popup_obj).css('width').replace("px","")) * scale) + "px";;
+                var store_pop_height = Math.round(parseInt($(store_popup_obj).css('height').replace("px","")) * scale) + "px";;;
+
+                if(sect ==="pinchin"){
+                    store_pop_width = parseInt($(store_popup_obj).css('width').replace("px","")) + scale;
+                    store_pop_height = parseInt($(store_popup_obj).css('height').replace("px","")) + scale;
+                }else{
+                    store_pop_width = parseInt($(store_popup_obj).css('width').replace("px","")) - scale;
+                    store_pop_height = parseInt($(store_popup_obj).css('height').replace("px","")) - scale;
+                }
+
+                if(store_pop_width <= 25){
+                    store_pop_width = 25;
+                }
+                if(store_pop_height <= 55){
+                    store_pop_height = 55;
+                }
+
+                if(store_pop_width <= 45){
+                    store_pop_width = 45;
+                }
+                if(store_pop_height <= 75){
+                    store_pop_height = 75;
+                }
+
+                store_pop_width += "px";
+                store_pop_height += "px";
+
                 $(store_popup_obj).css( 
 
-                    {display:"none",
-                    //top:parseInt($(store_popup_obj).css("top").replace("px","")) * scale,
-                    //left:parseInt($(store_popup_obj).css("left").replace("px","")) * scale
+                    {
+                    top:store_popup_top,
+                    left:store_popup_left
 
                 });
+
+                $(store_popup_obj).css("width",store_pop_width);
+                $(store_popup_obj).css("height",store_pop_height);
+                
 
                 var map_preview_div_width = parseInt($(map_div).css("width").replace("px",""));
                 var map_preview_div_height = parseInt($(map_div).css("height").replace("px",""));
@@ -2689,19 +2770,16 @@
                     map_left_value = -(center.x + img_div.x * scale) / total_width;
                     map_top_value = (center.y + img_div.y * scale) / total_height;
                 }
-
+/*
                 console.log(map_left_value);
                 console.log(map_top_value);
-
-            
-            
-        
+  */      
                 $(img_div).css(
                     {
-                    top:map_left_value + "px",
-                    left:map_top_value + "px"
+                    top:map_top_value + "px",
+                    left:map_left_value + "px"
                 });
-                
+             
         
                 ret_obj = {
                     width:width * scale,
@@ -2791,6 +2869,7 @@
                 $('.event_popup_bot_right').data("left",data.left);
                 $('.event_popup_bot').data("store_id",data.store_id);
                 $('.event_popup_bot').data("floor",data.floor);
+                $('.event_popup_bot').data("map_url",data.map_url);
 
                 $('.vertical_kiosk_event_popup').css( 
                     {display:"block"
@@ -2809,6 +2888,7 @@
 
             var store_id = $(this).data("store_id");
             var floor = $(this).data("floor");
+            var map_url = $(this).data("map_url");
 
             var map_store_obj = $('.map_store');
             var store_popup_obj = $('.store_popup');
@@ -2820,7 +2900,10 @@
                                 map_store_obj:map_store_obj,
                                 store_popup_obj:store_popup_obj,
                                 map_stores_obj:map_stores_obj,
-                                map_image_obj:map_image_obj
+                                map_image_obj:map_image_obj,
+                                store_id:store_id,
+                                floor:floor,
+                                map_url:map_url
                                 }
 
             $('.vertical_kiosk_event_popup').css( 
@@ -2830,7 +2913,7 @@
             $('.main_bot_brand').css("display","none");
             $('.main_bot_div').css("display","block");
 
-            moveMapToStore(store_id,movemap_objs);
+            moveMapToStore(movemap_objs);
 
             //네비게이션 메인으로 이동
             var main_icon = $('#id_nav_right_btn_main');
@@ -2871,14 +2954,14 @@
         */
 
         var arr_data = [
-                        {event_name:"Only Price 미네랄 워터",event_id:"1",floor:"1F",event_price:"25,000",img_url:"http://192.168.0.113:8031/stadmin/lotte_test/image/product/detail_01.jpg",position_name:"19번스낵류,음료수 매대",normal_price:"1,153.300원",special_price:"1,152.200",start_date:"2019.06.19",end_date:"2019.06.26",store_id:"1"},
-                        {event_name:"트레비 (라임)",event_id:"2",floor:"1F",event_price:"8,800",img_url:"http://192.168.0.113:8031/stadmin/lotte_test/image/product/detail_02.jpg",position_name:"19번스낵류,음료수 매대",normal_price:"1,153.300원",special_price:"1,152.200",start_date:"2019.06.19",end_date:"2019.06.26",store_id:"2"},
-                        {event_name:"농심 신라면 큰사발",event_id:"3",floor:"1F",event_price:"950",img_url:"http://192.168.0.113:8031/stadmin/lotte_test/image/product/detail_03.jpg",position_name:"19번스낵류,음료수 매대",normal_price:"1,153.300원",special_price:"1,152.200",start_date:"2019.06.19",end_date:"2019.06.26",store_id:"3"},
-                        {event_name:"프리미엄 스위티오 바나나",event_id:"4",floor:"1F",event_price:"3,900",img_url:"http://192.168.0.113:8031/stadmin/lotte_test/image/product/detail_04.jpg",position_name:"19번스낵류,음료수 매대",normal_price:"1,153.300원",special_price:"1,152.200",start_date:"2019.06.19",end_date:"2019.06.26",store_id:"4"},
-                        {event_name:"서울 흰우유",event_id:"5",floor:"1F",event_price:"5,950",img_url:"http://192.168.0.113:8031/stadmin/lotte_test/image/product/detail_05.jpg",position_name:"19번스낵류,음료수 매대",normal_price:"1,153.300원",special_price:"1,152.200",start_date:"2019.06.19",end_date:"2019.06.26",store_id:"1"},
-                        {event_name:"맥심 모카믹스 카카오 기획",event_id:"6",floor:"1F",event_price:"22,970",img_url:"http://192.168.0.113:8031/stadmin/lotte_test/image/product/detail_06.jpg",position_name:"19번스낵류,음료수 매대",normal_price:"1,153.300원",special_price:"1,152.200",start_date:"2019.06.19",end_date:"2019.06.26",store_id:"2"},
-                        {event_name:"인기 수입맥주35종 맥주8캔 골라담기",event_id:"7",floor:"1F",event_price:"25,000",img_url:"http://192.168.0.113:8031/stadmin/lotte_test/image/product/detail_07.jpg",position_name:"19번스낵류,음료수 매대",normal_price:"1,153.300원",special_price:"1,152.200",start_date:"2019.06.19",end_date:"2019.06.26",store_id:"3"},
-                        {event_name:"오뚜기 스낵면",event_id:"8",floor:"1F",event_price:"2,000",img_url:"http://192.168.0.113:8031/stadmin/lotte_test/image/product/detail_08.jpg",position_name:"19번스낵류,음료수 매대",normal_price:"1,153.300원",special_price:"1,152.200",start_date:"2019.06.19",end_date:"2019.06.26",store_id:"4"}
+                        {event_name:"Only Price 미네랄 워터",event_id:"1",floor:"B1F",event_price:"25,000",img_url:"http://192.168.0.113:8031/stadmin/lotte_test/image/product/detail_01.jpg",position_name:"19번스낵류,음료수 매대",normal_price:"1,153.300원",special_price:"1,152.200",start_date:"2019.06.19",end_date:"2019.06.26",store_id:"1",map_url:"http://192.168.0.113:8031/stadmin/lotte_test/map/B1F.png"},
+                        {event_name:"트레비 (라임)",event_id:"2",floor:"B1F",event_price:"8,800",img_url:"http://192.168.0.113:8031/stadmin/lotte_test/image/product/detail_02.jpg",position_name:"19번스낵류,음료수 매대",normal_price:"1,153.300원",special_price:"1,152.200",start_date:"2019.06.19",end_date:"2019.06.26",store_id:"2",map_url:"http://192.168.0.113:8031/stadmin/lotte_test/map/B1F.png"},
+                        {event_name:"농심 신라면 큰사발",event_id:"3",floor:"2F",event_price:"950",img_url:"http://192.168.0.113:8031/stadmin/lotte_test/image/product/detail_03.jpg",position_name:"19번스낵류,음료수 매대",normal_price:"1,153.300원",special_price:"1,152.200",start_date:"2019.06.19",end_date:"2019.06.26",store_id:"3",map_url:"http://192.168.0.113:8031/stadmin/lotte_test/map/2F.png"},
+                        {event_name:"프리미엄 스위티오 바나나",event_id:"4",floor:"2F",event_price:"3,900",img_url:"http://192.168.0.113:8031/stadmin/lotte_test/image/product/detail_04.jpg",position_name:"19번스낵류,음료수 매대",normal_price:"1,153.300원",special_price:"1,152.200",start_date:"2019.06.19",end_date:"2019.06.26",store_id:"4",map_url:"http://192.168.0.113:8031/stadmin/lotte_test/map/2F.png"},
+                        {event_name:"서울 흰우유",event_id:"5",floor:"B1F",event_price:"5,950",img_url:"http://192.168.0.113:8031/stadmin/lotte_test/image/product/detail_05.jpg",position_name:"19번스낵류,음료수 매대",normal_price:"1,153.300원",special_price:"1,152.200",start_date:"2019.06.19",end_date:"2019.06.26",store_id:"1",map_url:"http://192.168.0.113:8031/stadmin/lotte_test/map/B1F.png"},
+                        {event_name:"맥심 모카믹스 카카오 기획",event_id:"6",floor:"B1F",event_price:"22,970",img_url:"http://192.168.0.113:8031/stadmin/lotte_test/image/product/detail_06.jpg",position_name:"19번스낵류,음료수 매대",normal_price:"1,153.300원",special_price:"1,152.200",start_date:"2019.06.19",end_date:"2019.06.26",store_id:"2",map_url:"http://192.168.0.113:8031/stadmin/lotte_test/map/B1F.png"},
+                        {event_name:"인기 수입맥주35종 맥주8캔 골라담기",event_id:"7",floor:"2F",event_price:"25,000",img_url:"http://192.168.0.113:8031/stadmin/lotte_test/image/product/detail_07.jpg",position_name:"19번스낵류,음료수 매대",normal_price:"1,153.300원",special_price:"1,152.200",start_date:"2019.06.19",end_date:"2019.06.26",store_id:"3",map_url:"http://192.168.0.113:8031/stadmin/lotte_test/map/2F.png"},
+                        {event_name:"오뚜기 스낵면",event_id:"8",floor:"2F",event_price:"2,000",img_url:"http://192.168.0.113:8031/stadmin/lotte_test/image/product/detail_08.jpg",position_name:"19번스낵류,음료수 매대",normal_price:"1,153.300원",special_price:"1,152.200",start_date:"2019.06.19",end_date:"2019.06.26",store_id:"4",map_url:"http://192.168.0.113:8031/stadmin/lotte_test/map/2F.png"}
                         ];
 
         return arr_data;
@@ -2915,6 +2998,7 @@
                 str_append += "data-special_price=\"" + tmp_json.special_price + "\"";
                 str_append += "data-start_date=\"" + tmp_json.start_date + "\"";
                 str_append += "data-img_url=\"" + tmp_json.img_url + "\"";
+                str_append += "data-map_url=\"" + tmp_json.map_url + "\"";
                 str_append += "data-store_id=\"" + tmp_json.store_id + "\"";
                 str_append += "data-end_date=\"" + tmp_json.end_date + "\">";
 
@@ -2975,14 +3059,14 @@
         */
 
         var arr_data = [
-                        {brand_name:"Only Price 미네랄 워터",brand_id:"1",floor:"1F",event_price:"25,000",img_url:"http://192.168.0.113:8031/stadmin/lotte_test/image/product/detail_01.jpg",store_id:"1",main_img:"http://192.168.0.113:8031/stadmin/lotte_test/image/product/detail_01.jpg"},
-                        {brand_name:"트레비 (라임)",brand_id:"2",floor:"1F",event_price:"8,800",img_url:"http://192.168.0.113:8031/stadmin/lotte_test/image/product/detail_02.jpg",store_id:"2",main_img:"http://192.168.0.113:8031/stadmin/lotte_test/image/product/detail_02.jpg"},
-                        {brand_name:"농심 신라면 큰사발",brand_id:"3",floor:"1F",event_price:"950",img_url:"http://192.168.0.113:8031/stadmin/lotte_test/image/product/detail_03.jpg",store_id:"3",main_img:"http://192.168.0.113:8031/stadmin/lotte_test/image/product/detail_03.jpg"},
-                        {brand_name:"프리미엄 스위티오 바나나",brand_id:"4",floor:"1F",event_price:"3,900",img_url:"http://192.168.0.113:8031/stadmin/lotte_test/image/product/detail_04.jpg",store_id:"4",main_img:"http://192.168.0.113:8031/stadmin/lotte_test/image/product/detail_04.jpg"},
-                        {brand_name:"서울 흰우유",brand_id:"5",floor:"1F",event_price:"5,950",img_url:"http://192.168.0.113:8031/stadmin/lotte_test/image/product/detail_05.jpg",store_id:"1",main_img:"http://192.168.0.113:8031/stadmin/lotte_test/image/product/detail_05.jpg"},
-                        {brand_name:"맥심 모카믹스 카카오 기획",brand_id:"6",floor:"1F",event_price:"22,970",img_url:"http://192.168.0.113:8031/stadmin/lotte_test/image/product/detail_06.jpg",store_id:"2",main_img:"http://192.168.0.113:8031/stadmin/lotte_test/image/product/detail_06.jpg"},
-                        {brand_name:"인기 수입맥주35종 맥주8캔 골라담기",brand_id:"7",floor:"1F",event_price:"25,000",img_url:"http://192.168.0.113:8031/stadmin/lotte_test/image/product/detail_07.jpg",store_id:"3",main_img:"http://192.168.0.113:8031/stadmin/lotte_test/image/product/detail_07.jpg"},
-                        {brand_name:"오뚜기 스낵면",brand_id:"8",floor:"1F",event_price:"2,000",img_url:"http://192.168.0.113:8031/stadmin/lotte_test/image/product/detail_08.jpg",store_id:"4",main_img:"http://192.168.0.113:8031/stadmin/lotte_test/image/product/detail_08.jpg"}
+                        {brand_name:"Only Price 미네랄 워터",brand_id:"1",floor:"B1F",event_price:"25,000",img_url:"http://192.168.0.113:8031/stadmin/lotte_test/image/product/detail_01.jpg",store_id:"1",main_img:"http://192.168.0.113:8031/stadmin/lotte_test/image/product/detail_01.jpg",map_url:"http://192.168.0.113:8031/stadmin/lotte_test/map/B1F.png"},
+                        {brand_name:"트레비 (라임)",brand_id:"2",floor:"B1F",event_price:"8,800",img_url:"http://192.168.0.113:8031/stadmin/lotte_test/image/product/detail_02.jpg",store_id:"2",main_img:"http://192.168.0.113:8031/stadmin/lotte_test/image/product/detail_02.jpg",map_url:"http://192.168.0.113:8031/stadmin/lotte_test/map/B1F.png"},
+                        {brand_name:"농심 신라면 큰사발",brand_id:"3",floor:"2F",event_price:"950",img_url:"http://192.168.0.113:8031/stadmin/lotte_test/image/product/detail_03.jpg",store_id:"3",main_img:"http://192.168.0.113:8031/stadmin/lotte_test/image/product/detail_03.jpg",map_url:"http://192.168.0.113:8031/stadmin/lotte_test/map/2F.png"},
+                        {brand_name:"프리미엄 스위티오 바나나",brand_id:"4",floor:"2F",event_price:"3,900",img_url:"http://192.168.0.113:8031/stadmin/lotte_test/image/product/detail_04.jpg",store_id:"4",main_img:"http://192.168.0.113:8031/stadmin/lotte_test/image/product/detail_04.jpg",map_url:"http://192.168.0.113:8031/stadmin/lotte_test/map/2F.png"},
+                        {brand_name:"서울 흰우유",brand_id:"5",floor:"B1F",event_price:"5,950",img_url:"http://192.168.0.113:8031/stadmin/lotte_test/image/product/detail_05.jpg",store_id:"1",main_img:"http://192.168.0.113:8031/stadmin/lotte_test/image/product/detail_05.jpg",map_url:"http://192.168.0.113:8031/stadmin/lotte_test/map/B1F.png"},
+                        {brand_name:"맥심 모카믹스 카카오 기획",brand_id:"6",floor:"B1F",event_price:"22,970",img_url:"http://192.168.0.113:8031/stadmin/lotte_test/image/product/detail_06.jpg",store_id:"2",main_img:"http://192.168.0.113:8031/stadmin/lotte_test/image/product/detail_06.jpg",map_url:"http://192.168.0.113:8031/stadmin/lotte_test/map/B1F.png"},
+                        {brand_name:"인기 수입맥주35종 맥주8캔 골라담기",brand_id:"7",floor:"2F",event_price:"25,000",img_url:"http://192.168.0.113:8031/stadmin/lotte_test/image/product/detail_07.jpg",store_id:"3",main_img:"http://192.168.0.113:8031/stadmin/lotte_test/image/product/detail_07.jpg",map_url:"http://192.168.0.113:8031/stadmin/lotte_test/map/2F.png"},
+                        {brand_name:"오뚜기 스낵면",brand_id:"8",floor:"2F",event_price:"2,000",img_url:"http://192.168.0.113:8031/stadmin/lotte_test/image/product/detail_08.jpg",store_id:"4",main_img:"http://192.168.0.113:8031/stadmin/lotte_test/image/product/detail_08.jpg",map_url:"http://192.168.0.113:8031/stadmin/lotte_test/map/2F.png"}
                         ];
 
         return arr_data;
@@ -3071,7 +3155,6 @@
 
         //지도 데이터 가져온 후 버튼 설정
         var map_img = $('#id_map_image');
-        
         setFloorButton(gl_arr_map_image,map_img,gl_kiosk_floor);
 
         //데이터 받아 온 후 슬라이드 이미지 기능 시작
@@ -3092,9 +3175,12 @@
 
         setMapDrag(image_objs);
         
-        var floor = "1F";
+        
         //상점 지도에 그리는 기능 시작
-        setStoreDrawingToMap(floor);
+        setStoreDrawingToMap();
+
+        //지도에 그린 상점 중 해당 층이 아닌 상점 숨기기
+        setHideAnotherFloorStore(gl_kiosk_floor);
 
         //키보드 검색 기능 시작
         var keyboard_key_obj = $('.keyboard_key');
