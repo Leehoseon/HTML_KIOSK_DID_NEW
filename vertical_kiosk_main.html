@@ -16,10 +16,10 @@
 
     <!-- 우측 중앙 네비게이션 바 시작 -->
     <div class="right_navigation">
-        <img class="nav_move_btn nav_right_btn" data-menu="main" src="http://192.168.0.113:8031/stadmin/lotte_test/image/navigation_bt_01.png"/>
-        <img class="nav_move_btn nav_right_btn" data-menu="event" src="http://192.168.0.113:8031/stadmin/lotte_test/image/navigation_bt_02.png"/>
-        <img class="nav_move_btn nav_right_btn" data-menu="brand" src="http://192.168.0.113:8031/stadmin/lotte_test/image/navigation_bt_03.png"/>
-        <img class="nav_move_btn nav_right_btn" data-menu="coupon" src="http://192.168.0.113:8031/stadmin/lotte_test/image/navigation_bt_04.png"/>
+        <img class="nav_move_btn nav_right_btn" id="id_nav_right_btn_main" data-menu="main" src="http://192.168.0.113:8031/stadmin/lotte_test/image/navigation_bt_01.png"/>
+        <img class="nav_move_btn nav_right_btn" id="id_nav_right_btn_event" data-menu="event" src="http://192.168.0.113:8031/stadmin/lotte_test/image/navigation_bt_02.png"/>
+        <img class="nav_move_btn nav_right_btn" id="id_nav_right_btn_brand" data-menu="brand" src="http://192.168.0.113:8031/stadmin/lotte_test/image/navigation_bt_03.png"/>
+        <img class="nav_move_btn nav_right_btn" id="id_nav_right_btn_coupon" data-menu="coupon" src="http://192.168.0.113:8031/stadmin/lotte_test/image/navigation_bt_04.png"/>
     </div>
     <!-- 우측 중앙 네비게이션 바 끝 -->
 
@@ -33,18 +33,17 @@
         <div class="banner_image">
             <img class="banner_image_btn" data-direction="left" id="id_banner_image_left_btn" src="http://192.168.0.113:8031/stadmin/lotte_test/image/left.svg" height="60" width="60">
             <img id="id_banner_image" src="http://192.168.0.113:8031/stadmin/lotte_test/image/lotte.jpg"/>
-            <video class="banner_video" id="id_banner_video"  oncontextmenu="false" autoplay></video>
+            <video class="banner_video" id="id_banner_video" muted="muted" oncontextmenu="false" autoplay></video>
             <img class="banner_image_btn" data-direction="right" id="id_banner_image_right_btn" src="http://192.168.0.113:8031/stadmin/lotte_test/image/right.svg" height="60" width="60">
         </div>
         <!-- 상단 광고 이미지 끝 -->
-
+        
     </div>
     <!-- 상단 컨텐츠 끝 -->
     
 
     <!-- 하단 컨텐츠 시작 -->
     <div class="main_bot_div">
-
         <!-- 하단 상단 텍스트 시작 -->
         <div class="search_information">
             <div class="search_information_top">
@@ -56,6 +55,8 @@
                     <div></div>
                 </div>
             </div>
+            <img class="search_information_all_floor" src="http://192.168.0.113:8031/stadmin/lotte_test/image/main_bt_allfloor.png">
+            <div class="search_information_all_floor_right"></div>
             <div class="search_information_button">
                 <!--
                 <div>B1F</div>
@@ -180,7 +181,7 @@
     <div class="vertical_kiosk_screen vertical_pages">
         <div class="touch_div">터치 해주세요</div>
         <img id="id_screen_image"/>
-        <video class="screen_video" id="id_screen_video" oncontextmenu="false" autoplay></video>
+        <video class="screen_video" id="id_screen_video" muted="muted" oncontextmenu="false" autoplay></video>
     </div>
     <!-- 세로형 안내 키오스크 스크린세이버 끝 -->    
 
@@ -196,7 +197,7 @@
 
         <!-- 상단 안내 텍스트 시작 -->
         <div class="nav_top">
-            <div class="nav_top_text">찾으시고자 하는 버튼을 선택해 주세요</div>
+            <div class="nav_top_text">원하시는 서비스를 선택해 주세요</div>
         </div>
         <!-- 상단 안내 텍스트 끝 -->
 
@@ -210,8 +211,8 @@
                 <div class="nav_middle_menu_icon_left">
                     <img src="http://192.168.0.113:8031/stadmin/lotte_test/image/main_ic_01.png">
                 </div>
-                <div class="nav_middle_menu_text">
-                    상품위치
+                <div class="nav_middle_menu_text nav_middle_menu_text_line_1">
+                    위치찾기
                 </div>
                 <div class="nav_middle_menu_icon_right">
                     <img src="http://192.168.0.113:8031/stadmin/lotte_test/image/main_bt_arrow_o.png">
@@ -225,8 +226,8 @@
                 <div class="nav_middle_menu_icon_left">
                     <img src="http://192.168.0.113:8031/stadmin/lotte_test/image/main_ic_02.png">
                 </div>
-                <div class="nav_middle_menu_text">
-                    상품안내
+                <div class="nav_middle_menu_text nav_middle_menu_text_line_2">
+                    금주의<br>행사상품
                 </div>
                 <div class="nav_middle_menu_icon_right">
                     <img src="http://192.168.0.113:8031/stadmin/lotte_test/image/main_bt_arrow_o.png">
@@ -240,8 +241,8 @@
                 <div class="nav_middle_menu_icon_left">
                     <img src="http://192.168.0.113:8031/stadmin/lotte_test/image/main_ic_03.png">
                 </div>
-                <div class="nav_middle_menu_text">
-                    브랜드 소개
+                <div class="nav_middle_menu_text nav_middle_menu_text_line_2">
+                    롯데마트<br>브랜드소개
                 </div>
                 <div class="nav_middle_menu_icon_right">
                     <img src="http://192.168.0.113:8031/stadmin/lotte_test/image/main_bt_arrow_o.png">
@@ -255,7 +256,7 @@
                 <div class="nav_middle_menu_icon_left">
                     <img src="http://192.168.0.113:8031/stadmin/lotte_test/image/main_ic_04.png">
                 </div>
-                <div class="nav_middle_menu_text">
+                <div class="nav_middle_menu_text nav_middle_menu_text_line_1">
                     M쿠폰
                 </div>
                 <div class="nav_middle_menu_icon_right">
@@ -383,14 +384,23 @@
     </div>
     <!-- 세로형 안내 키오스크 행사 팝업 끝 -->
 
-    <!-- 세로형 안내 키오스크 행사 팝업 시작 -->
+    <!-- 세로형 안내 키오스크 브랜드 팝업 시작 -->
     <div class="vertical_kiosk_brand_popup">
         <div class="brand_popup">
            
         </div>
         <img class="brand_popup_close" src="http://192.168.0.113:8031/stadmin/lotte_test/image/main_bt_x.png">
     </div>
-    <!-- 세로형 안내 키오스크 행사 팝업 끝 -->
+    <!-- 세로형 안내 키오스크 브랜드 팝업 끝 -->
+
+    <!-- 세로형 안내 키오스크 전층안내 팝업 시작 -->
+    <div class="vertical_kiosk_floor_popup">
+        <div class="floor_popup">
+            <img src="http://192.168.0.113:8031/stadmin/lotte_test/image/main_img_popup.jpg">
+        </div>
+        <img class="floor_popup_close" src="http://192.168.0.113:8031/stadmin/lotte_test/image/main_bt_x.png">
+    </div>
+    <!-- 세로형 안내 키오스크 전층안내 팝업 끝 -->
 
 
     
@@ -579,18 +589,18 @@
             */
         }
 
-        .banner_video{
-            margin:0px;
-            padding:0px;
-            width:100% !important;
-            height:100%!important;
-            
-        }
-
         #id_banner_image{
             width:100%;
-            height:100%;
+            
             position:absolute;
+        }
+
+        #id_banner_video{
+            width:100% !important;
+            position:absolute;
+            float:left;
+            padding:0px;
+            margin:0px;
         }
 
         #id_banner_image_left_btn{
@@ -657,15 +667,35 @@
         }
 
         .search_information{
+            
             margin:0px;
             padding:0px;
             width:100%;
             height:25%;
+            margin-top:5%;
+
         }
 
         .search_information_top{
             width:100%;
             height:40%;
+        }
+
+        .search_information_all_floor{
+            margin-top:2%;
+            margin-left:18%;
+            float:left;
+            display:absolute;
+        }
+
+        .search_information_all_floor_right{
+            width:0.1%;
+            height:14%;
+            margin-top:3%;
+            margin-left:4%;
+            float:left;
+            display:absolute;
+            background-color:#5f6773;
         }
 
         .search_information_text{
@@ -730,7 +760,11 @@
             border-radius: 1000px;
             padding-top:2.8%;
             
+        }
 
+        .floor_current_text{
+            margin-top:40px !important;
+            margin-left:-4px !important;
         }
 
         .map_preview{
@@ -780,7 +814,7 @@
             min-height: 100px;
             width:auto;
             height:auto;
-            z-index: 2;
+            z-index: 1;
             text-align: center;
         }
 
@@ -792,7 +826,7 @@
             height:70px;
             border: 1px;
             display: none;
-            z-index: 2;
+            z-index: 1;
             
         }
 
@@ -963,9 +997,9 @@
         .nav_top_text{
             text-align: center;
             padding-top:12%;
-            width:60%;
+            width:50%;
             height:100%;
-            margin-left:20%;
+            margin-left:25%;
             font-weight: 400;
             font-size:60px;
             color:#000000;
@@ -1018,6 +1052,19 @@
             left:42%;
             top:68%;
             color:#000000;
+            
+        }
+
+        .nav_middle_menu_text_line_1{
+       
+            width:32%;
+            
+        }
+
+        .nav_middle_menu_text_line_2{
+       
+            width:32%;
+            top:65%;
             
         }
 
@@ -1216,6 +1263,7 @@
             top:0;
             left:0;
             display:none;
+            z-index:10;
         }
 
         .event_popup_close{
@@ -1420,6 +1468,7 @@
             top:0;
             left:0;
             display:none;
+            z-index:10;
         }
 
         .brand_popup_close{
@@ -1444,6 +1493,52 @@
         }
 
         /* 브랜드 팝업 끝 */
+
+        /* 전층안내 팝업 시작 */
+
+        .vertical_kiosk_floor_popup{
+            margin:0px;
+            padding:0px;
+            width:100% !important;
+            height:100% !important;
+            background-color: rgba( 158, 158, 158, 0.9 );
+            position: absolute;
+            display: block;
+            top:0;
+            left:0;
+            display:none;
+            z-index:10;
+        }
+
+        .floor_popup_close{
+            width:9%;
+            height:5%;
+            position: absolute;
+            z-index: 1;
+            top:64%;
+            left:76%;
+        }
+
+        .floor_popup{
+
+            width:50%;
+            height:50%;
+            position: absolute;
+            z-index: 1;
+            background-color: white;
+            top:20%;
+            left:25%;
+            border-radius: 10px;            
+        }
+
+        .floor_popup img{
+
+            width:100% !important;
+            height:100% !important;
+                   
+        }
+
+        /* 전층안내 팝업 끝 */
 
 
     }
@@ -1500,7 +1595,7 @@
     var gl_map_width = 1760;
     var gl_map_height = 1320;
     var gl_map_scale = 0.25;
-    var gl_kiosk_floor = "1F";
+    var gl_kiosk_floor = "B1F";
 
     var gl_arr_map_image = getMapList();
 
@@ -1524,11 +1619,33 @@
         }
     }
 
+    function setAllFloorPopup(json_objs){
+
+        var arr_floor_button = json_objs.arr_floor_button;
+
+        for (var index = 0; index < arr_floor_button.length; index++) {
+            var element = arr_floor_button[index];
+
+            $(element).on('click',function(e){       
+                //var data = $(this).parent().parent().data();
+
+                $('.vertical_kiosk_floor_popup').css( 
+                    {display:"block"
+                });
+
+            });
+        }
+        };
+
+    $('.floor_popup_close').on('click',function(e){
+        $('.vertical_kiosk_floor_popup').css("display","none");
+    })
+
     function setFloorButton(arr_map_image,map_img,kiosk_floor){
 
         //현재 리스트 초기화 
         var tmp_list = $('.floor_btn');
-
+        
         for (var index = 0; index < tmp_list.length; index++) {
             var element = tmp_list[index];
 
@@ -1557,6 +1674,9 @@
             tmp_str += "data-floor=\"" + arr_split[0] + "\"";
             tmp_str += ">";
             tmp_str += arr_split[0];
+            if(kiosk_floor === arr_split[0]){
+                tmp_str += "<img class=\"floor_current_text\" src=\"http://192.168.0.113:8031/stadmin/lotte_test/image/main_ic_location.png\"/>"
+            }
             tmp_str += "</div>";
             
         }
@@ -2344,8 +2464,8 @@
         });
         */
 
-        arr_screen_image = ["http://192.168.0.113:8031/stadmin/lotte_test/image/screensaver1.jpg",
-                            "http://192.168.0.113:8031/stadmin/lotte_test/image/screensaver2.jpg"];
+        arr_screen_image = ["http://192.168.0.113:8031/stadmin/lotte_test/image/minion.mp4",
+                            "http://192.168.0.113:8031/stadmin/lotte_test/image/test.mp4"];
 
         return arr_screen_image;
 
@@ -2371,7 +2491,7 @@
                             slide_time:slide_time
                         };
         
-        //setSlideImage(image_objs);
+        setSlideImage(image_objs);
 
     }
 
@@ -2712,6 +2832,11 @@
 
             moveMapToStore(store_id,movemap_objs);
 
+            //네비게이션 메인으로 이동
+            var main_icon = $('#id_nav_right_btn_main');
+            setHideNotUsePage('vertical_kiosk_main');
+            setRightNavColor($(main_icon));
+
         })
     }
     
@@ -3014,6 +3139,15 @@
                         };
 
         setPinch(pinch_objs);        
+
+        //브랜드 팝업 페이지 설정
+        var arr_floor_button = $(".search_information_all_floor");
+    
+        var json_objs = {
+                        arr_floor_button:arr_floor_button
+                        };
+
+        setAllFloorPopup(json_objs);   
 
     }
 
