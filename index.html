@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta content="BlendTrans(Duration=0.2)" http-equiv="Page-Enter">
+    <meta content="BlendTrans(Duration=0.2)" http-equiv="Page-exit">   
+
+</head>
+<body>
+    
+</body>
+</html>
+
+<script>
+
+    function getQuerystring(paramName){
+        try{
+            var _tempUrl = window.location.search.substring(1);
+            //url에서 처음부터 '?'까지 삭제 
+            var _tempArray = _tempUrl.split('&'); 
+            // '&'을 기준으로 분리하기 
+            for(var i = 0; _tempArray.length; i++) {
+                var _keyValuePair = _tempArray[i].split('='); // '=' 을 기준으로 분리하기 
+                if(_keyValuePair[0] == paramName){ // _keyValuePair[0] : 파라미터 명 
+                    // _keyValuePair[1] : 파라미터 값 
+                    return _keyValuePair[1]; 
+                } 
+            } 
+        }catch{
+            return "";
+        }
+    }
+
+    var mode = getQuerystring('mode');
+
+    if(mode === "ON"){
+        document.location.href = "vertical_kiosk_main.html";
+    }else if(mode === "OFF"){
+        document.location.href = "vertical_kiosk_screen.html";
+    }
+
+
+</script>

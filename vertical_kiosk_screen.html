@@ -5,235 +5,239 @@
     <title>Page Title</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <script src="../include/js/jquery.js"></script><!--j쿼리-->
+
+
+    <style>
+
+            /* https://transfonter.org/ */
+            /* 웹폰트 decode error 발생시 위 사이트에서 변환 후 사용 */
+            
+            @font-face{
+                font-family:'IMPACT';
+                src:url('font/IMPACT.TTF') format('truetype');
+            }
+        
+            @font-face{
+                font-family:'NotoSansCJKkr-Light';
+                src:url('font/NotoSansCJKkr-Light.otf') format('truetype');
+                
+            }
+        
+            @font-face {
+                font-family: 'THEJung130A';
+                src: url('font/THEJung130A.woff2') format('woff2'),
+                    url('font/THEJung130A.woff') format('woff');
+                font-weight: normal;
+                font-style: normal;
+            }
+        
+            @font-face {
+                font-family: 'THEJung170A';
+                src: url('font/THEJung170A.woff2') format('woff2'),
+                    url('font/THEJung170A.woff') format('woff');
+                font-weight: normal;
+                font-style: normal;
+            }
+        
+            @font-face {
+                font-family: 'THEJung160A';
+                src: url('font/THEJung160A.woff2') format('woff2'),
+                    url('font/THEJung160A.woff') format('woff');
+                font-weight: normal;
+                font-style: normal;
+            }
+        
+            @font-face {
+                font-family: 'THEJung110A';
+                src: url('font/THEJung110A.woff2') format('woff2'),
+                    url('font/THEJung110A.woff') format('woff');
+                font-weight: normal;
+                font-style: normal;
+            }
+        
+            @font-face {
+                font-family: 'THEJung140A';
+                src: url('font/THEJung140A.woff2') format('woff2'),
+                    url('font/THEJung140A.woff') format('woff');
+                font-weight: normal;
+                font-style: normal;
+            }
+        
+            @font-face {
+                font-family: 'THEJung150A';
+                src: url('font/THEJung150A.woff2') format('woff2'),
+                    url('font/THEJung150A.woff') format('woff');
+                font-weight: normal;
+                font-style: normal;
+            }
+        
+            @font-face {
+                font-family: 'THEJung120A';
+                src: url('font/THEJung120A.woff2') format('woff2'),
+                    url('font/THEJung120A.woff') format('woff');
+                font-weight: normal;
+                font-style: normal;
+            }
+        
+            @font-face {
+                font-family: 'TheJung130';
+                src: url('font/TheJung130.woff2') format('woff2'),
+                    url('font/TheJung130.woff') format('woff');
+                font-weight: normal;
+                font-style: normal;
+            }
+        
+            html,body{
+                margin:0px;
+                padding:0px;
+                width:100%;
+                height:100%;
+                overflow: hidden;
+                font-family: 'THEJung130A';
+                
+                
+            }
+        
+            .cover_loading_main{position:fixed;width:100%;height:100%;left:0;right:0;top:0;bottom:0;background:#ffffff;z-index:100000;}
+            
+            
+        
+        /*
+            @media all and(min-width:1080px){
+                background-color: 
+            }
+        */
+        
+        
+            /*
+            ##Device = Desktops
+            ##Screen = 1281px to higher resolution desktops
+            ##Device = 데스크탑
+            ##Screen = 1281px 이상 해상도 데스크탑
+            */
+        
+            @media (min-width: 1281px) {
+                body{
+                    background-color: aqua;
+                }
+                .vertical_pages{
+                    display: none;
+                }
+               
+            }
+        
+            /*
+            ##Device = Laptops, Desktops
+            ##Screen = B/w 1025px to 1280px
+            ##Device = 랩탑, 데스크탑
+            ##Screen = 1025px에서 1280px 사이
+            */
+        
+            @media (min-width: 1025px) and (max-width: 1280px) {
+        
+                
+        
+                /* 스크린 세이버 시작 */
+        
+                .vertical_kiosk_screen{
+                    margin:0px;
+                    padding:0px;
+                    width:100%;
+                    height:100%;
+                }
+        
+                .touch_div{
+                    top:50%;
+                    left:50%;
+                    width:20%;
+                    height:20%;
+                    position: absolute;
+                    font-size:30px;
+                    color:red;
+                    display: none;
+                }
+        
+                #id_screen_image{
+                    width:100%;
+                    position:absolute;
+                }
+        
+                #id_screen_video{
+                    width:100% !important;
+                    position:absolute;
+                    float:left;
+                    padding:0px;
+                    margin:0px;
+                }
+                /* 스크린 세이버 끝 */
+        
+            }
+        
+            /*
+            ##Device = Tablets, Ipads (portrait),
+            ##Screen = B/w 768px to 1024px
+            ##Device = 태블릿, 아이패드(세로),
+            ##Screen = 768px에서 1024px 사이
+            */
+        
+            @media (min-width: 768px) and (max-width: 1024px) {
+        
+            }
+        
+            /*
+            ##Device = Tablets, Ipads (landscape)
+            ##Screen = B/w 768px to 1024px
+            ##Device = 태블릿, 아이패드(가로)
+            ##Screen = 768px에서 1024px 사이
+            */
+        
+            @media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
+        
+            }
+        
+            /*
+            ##Device = Low Resolution Tablets, Mobiles (Landscape)
+            ##Screen = B/w 481px to 767px
+            ##Device = 저해상도 태블릿, 모바일(가로)
+            ##Screen = 481px에서 767px 사이
+            */
+        
+            @media (min-width: 481px) and (max-width: 767px) {
+        
+            }
+        
+            /*
+            ##Device = Most of the Smartphones Mobiles (Portrait)
+            ##Screen = B/w 320px to 479px
+            ##Device = 대부분의 스마트폰 모바일 기기(세로)
+            ##Screen = 320px에서 479px 사이
+            */
+        
+            @media (min-width: 320px) and (max-width: 480px) {
+               
+            }
+        
+        </style>
     
 </head>
 <!--
 <body oncontextmenu="return false">
     -->
 <body>
+    <div class="cover_loading_main"></div>
 
     <!-- 세로형 안내 키오스크 스크린세이버 시작 -->
     <div class="vertical_kiosk_screen vertical_pages">
         <img id="id_screen_image"/>
-        <video class="screen_video" id="id_screen_video" muted="muted" oncontextmenu="false" autoplay></video>
+        <video class="screen_video" id="id_screen_video" muted="muted" oncontextmenu="false" autoplay>
+        </video>
     </div>
-    <!-- 세로형 안내 키오스크 스크린세이버 끝 -->    
-
-
-    
+    <!-- 세로형 안내 키오스크 스크린세이버 끝 -->        
 
 </body>
 </html>
 
-<style>
 
-    /* https://transfonter.org/ */
-    /* 웹폰트 decode error 발생시 위 사이트에서 변환 후 사용 */
-    
-    @font-face{
-        font-family:'IMPACT';
-        src:url('font/IMPACT.TTF') format('truetype');
-    }
-
-    @font-face{
-        font-family:'NotoSansCJKkr-Light';
-        src:url('font/NotoSansCJKkr-Light.otf') format('truetype');
-        
-    }
-
-    @font-face {
-        font-family: 'THEJung130A';
-        src: url('font/THEJung130A.woff2') format('woff2'),
-            url('font/THEJung130A.woff') format('woff');
-        font-weight: normal;
-        font-style: normal;
-    }
-
-    @font-face {
-        font-family: 'THEJung170A';
-        src: url('font/THEJung170A.woff2') format('woff2'),
-            url('font/THEJung170A.woff') format('woff');
-        font-weight: normal;
-        font-style: normal;
-    }
-
-    @font-face {
-        font-family: 'THEJung160A';
-        src: url('font/THEJung160A.woff2') format('woff2'),
-            url('font/THEJung160A.woff') format('woff');
-        font-weight: normal;
-        font-style: normal;
-    }
-
-    @font-face {
-        font-family: 'THEJung110A';
-        src: url('font/THEJung110A.woff2') format('woff2'),
-            url('font/THEJung110A.woff') format('woff');
-        font-weight: normal;
-        font-style: normal;
-    }
-
-    @font-face {
-        font-family: 'THEJung140A';
-        src: url('font/THEJung140A.woff2') format('woff2'),
-            url('font/THEJung140A.woff') format('woff');
-        font-weight: normal;
-        font-style: normal;
-    }
-
-    @font-face {
-        font-family: 'THEJung150A';
-        src: url('font/THEJung150A.woff2') format('woff2'),
-            url('font/THEJung150A.woff') format('woff');
-        font-weight: normal;
-        font-style: normal;
-    }
-
-    @font-face {
-        font-family: 'THEJung120A';
-        src: url('font/THEJung120A.woff2') format('woff2'),
-            url('font/THEJung120A.woff') format('woff');
-        font-weight: normal;
-        font-style: normal;
-    }
-
-    @font-face {
-        font-family: 'TheJung130';
-        src: url('font/TheJung130.woff2') format('woff2'),
-            url('font/TheJung130.woff') format('woff');
-        font-weight: normal;
-        font-style: normal;
-    }
-
-    html,body{
-        margin:0px;
-        padding:0px;
-        width:100%;
-        height:100%;
-        overflow: hidden;
-        font-family: 'THEJung130A';
-        
-    }
-
-    
-    
-
-/*
-    @media all and(min-width:1080px){
-        background-color: 
-    }
-*/
-
-
-    /*
-    ##Device = Desktops
-    ##Screen = 1281px to higher resolution desktops
-    ##Device = 데스크탑
-    ##Screen = 1281px 이상 해상도 데스크탑
-    */
-
-    @media (min-width: 1281px) {
-        body{
-            background-color: aqua;
-        }
-        .vertical_pages{
-            display: none;
-        }
-       
-    }
-
-    /*
-    ##Device = Laptops, Desktops
-    ##Screen = B/w 1025px to 1280px
-    ##Device = 랩탑, 데스크탑
-    ##Screen = 1025px에서 1280px 사이
-    */
-
-    @media (min-width: 1025px) and (max-width: 1280px) {
-
-        
-
-        /* 스크린 세이버 시작 */
-
-        .vertical_kiosk_screen{
-            margin:0px;
-            padding:0px;
-            width:100%;
-            height:100%;
-        }
-
-        .touch_div{
-            top:50%;
-            left:50%;
-            width:20%;
-            height:20%;
-            position: absolute;
-            font-size:30px;
-            color:red;
-            display: none;
-        }
-
-        #id_screen_image{
-            width:100%;
-            position:absolute;
-        }
-
-        #id_screen_video{
-            width:100% !important;
-            position:absolute;
-            float:left;
-            padding:0px;
-            margin:0px;
-        }
-        /* 스크린 세이버 끝 */
-
-    }
-
-    /*
-    ##Device = Tablets, Ipads (portrait),
-    ##Screen = B/w 768px to 1024px
-    ##Device = 태블릿, 아이패드(세로),
-    ##Screen = 768px에서 1024px 사이
-    */
-
-    @media (min-width: 768px) and (max-width: 1024px) {
-
-    }
-
-    /*
-    ##Device = Tablets, Ipads (landscape)
-    ##Screen = B/w 768px to 1024px
-    ##Device = 태블릿, 아이패드(가로)
-    ##Screen = 768px에서 1024px 사이
-    */
-
-    @media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
-
-    }
-
-    /*
-    ##Device = Low Resolution Tablets, Mobiles (Landscape)
-    ##Screen = B/w 481px to 767px
-    ##Device = 저해상도 태블릿, 모바일(가로)
-    ##Screen = 481px에서 767px 사이
-    */
-
-    @media (min-width: 481px) and (max-width: 767px) {
-
-    }
-
-    /*
-    ##Device = Most of the Smartphones Mobiles (Portrait)
-    ##Screen = B/w 320px to 479px
-    ##Device = 대부분의 스마트폰 모바일 기기(세로)
-    ##Screen = 320px에서 479px 사이
-    */
-
-    @media (min-width: 320px) and (max-width: 480px) {
-       
-    }
-
-</style>
 
 <script>
     
@@ -298,7 +302,7 @@
             var target_uri = getNextImageUri(direction,arr_image);
 
             var arr_target = target_uri.split("\/");
-            var file_name = arr_target[6];
+            var file_name = arr_target[arr_target.length-1];
             var target_ext = file_name.split("\.");
             var target_slide_time = 5;
 
@@ -400,8 +404,15 @@
         });
         */
 
-        arr_screen_image = ["http://192.168.0.113:8031/stadmin/lotte_test/image/minion.mp4",
-                            "http://192.168.0.113:8031/stadmin/lotte_test/image/test.mp4"];
+        arr_screen_image = ["http://192.168.0.113:8031/stadmin/lotte_test/image/screen_1.mp4",
+                            "http://192.168.0.113:8031/stadmin/lotte_test/image/screen_2.png"
+                            ];
+/*
+        arr_screen_image = ["http://192.168.0.113:8031/stadmin/lotte_test/image/screen/screen1.jpg",
+                            "http://192.168.0.113:8031/stadmin/lotte_test/image/screen/screen2.jpg",
+                            "http://192.168.0.113:8031/stadmin/lotte_test/image/screen/screen3.jpg"
+                            ];
+                            */
 
         return arr_screen_image;
 
@@ -435,8 +446,30 @@
     setScreenImageList();
 
     $('body').on('click',function(e){
-        document.location.href = "vertical_kiosk_main.html";
+        //document.location.href = "vertical_kiosk_main.html?page=main";
     })
+
+    $(".cover_loading_main").fadeOut(500);
+
+    $(document).bind('keydown',function(e){
+        console.log(e.keyCode);
+        
+        if ( e.keyCode == 17 ) {// ctrl 
+            e.preventDefault();
+            e.returnValue = false;
+//            alert("ctrl");
+            document.location.href = "index.html?mode=ON";
+        }
+
+        if ( e.keyCode == 18 ) { //alt
+            e.preventDefault();
+            e.returnValue = false;
+//            alert("alt");
+            document.location.href = "index.html?mode=OFF";
+        }
+        
+    });
+    
 
 
 </script>

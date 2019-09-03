@@ -3,23 +3,1368 @@
 <head>
     <meta charset="utf-8">
     <title>Page Title</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta content="BlendTrans(Duration=0.2)" http-equiv="Page-Enter">
+    <meta content="BlendTrans(Duration=0.2)" http-equiv="Page-exit">
     <script src="../include/js/jquery.js"></script><!--j쿼리-->
     <script src="js/hangul.js" type="text/javascript"></script> <!--한글변환-->
     <script src="js/hammer.js" type="text/javascript"></script> <!--hammer.js-->
+
+    <style>
+
+            /* https://transfonter.org/ */
+            /* 웹폰트 decode error 발생시 위 사이트에서 변환 후 사용 */
+            
+            @font-face{
+                font-family:'IMPACT';
+                src:url('font/IMPACT.TTF') format('truetype');
+            }
+        
+            @font-face{
+                font-family:'NotoSansCJKkr-Light';
+                src:url('font/NotoSansCJKkr-Light.otf') format('truetype');
+                
+            }
+        
+            @font-face {
+                font-family: 'THEJung130A';
+                src: url('font/THEJung130A.woff2') format('woff2'),
+                    url('font/THEJung130A.woff') format('woff');
+                font-weight: normal;
+                font-style: normal;
+            }
+        
+            @font-face {
+                font-family: 'THEJung170A';
+                src: url('font/THEJung170A.woff2') format('woff2'),
+                    url('font/THEJung170A.woff') format('woff');
+                font-weight: normal;
+                font-style: normal;
+            }
+        
+            @font-face {
+                font-family: 'THEJung160A';
+                src: url('font/THEJung160A.woff2') format('woff2'),
+                    url('font/THEJung160A.woff') format('woff');
+                font-weight: normal;
+                font-style: normal;
+            }
+        
+            @font-face {
+                font-family: 'THEJung110A';
+                src: url('font/THEJung110A.woff2') format('woff2'),
+                    url('font/THEJung110A.woff') format('woff');
+                font-weight: normal;
+                font-style: normal;
+            }
+        
+            @font-face {
+                font-family: 'THEJung140A';
+                src: url('font/THEJung140A.woff2') format('woff2'),
+                    url('font/THEJung140A.woff') format('woff');
+                font-weight: normal;
+                font-style: normal;
+            }
+        
+            @font-face {
+                font-family: 'THEJung150A';
+                src: url('font/THEJung150A.woff2') format('woff2'),
+                    url('font/THEJung150A.woff') format('woff');
+                font-weight: normal;
+                font-style: normal;
+            }
+        
+            @font-face {
+                font-family: 'THEJung120A';
+                src: url('font/THEJung120A.woff2') format('woff2'),
+                    url('font/THEJung120A.woff') format('woff');
+                font-weight: normal;
+                font-style: normal;
+            }
+        
+            @font-face {
+                font-family: 'TheJung130';
+                src: url('font/TheJung130.woff2') format('woff2'),
+                    url('font/TheJung130.woff') format('woff');
+                font-weight: normal;
+                font-style: normal;
+            }
+        
+            html,body{
+                margin:0px;
+                padding:0px;
+                width:100%;
+                height:100%;
+                overflow: hidden;
+                font-family: 'THEJung130A';
+                touch-action: none;
+                        
+            }
+        
+            .cover_loading_main{position:fixed;width:100%;height:100%;left:0;right:0;top:0;bottom:0;background:#ffffff;z-index:100000;}
+        
+            
+            
+        
+        /*
+            @media all and(min-width:1080px){
+                background-color: 
+            }
+        */
+        
+        
+            /*
+            ##Device = Desktops
+            ##Screen = 1281px to higher resolution desktops
+            ##Device = 데스크탑
+            ##Screen = 1281px 이상 해상도 데스크탑
+            */
+        
+            @media (min-width: 1281px) {
+                body{
+                    background-color: aqua;
+                }
+                .vertical_pages{
+                    display: none;
+                }
+               
+            }
+        
+            /*
+            ##Device = Laptops, Desktops
+            ##Screen = B/w 1025px to 1280px
+            ##Device = 랩탑, 데스크탑
+            ##Screen = 1025px에서 1280px 사이
+            */
+        
+            @media (min-width: 1025px) and (max-width: 1280px) {
+        
+                /*
+                우측 중앙 네비게이션 시작
+                */
+                .right_navigation{
+                    position: fixed;
+                    width:6.5%;
+                    height:20%;
+                    left:93%;
+                    top:40%;
+                    z-index: 10;
+        
+                }
+        
+                .right_navigation img{
+        
+                    width:74px;
+                    height:108px;
+                }
+        
+                .nav_right_btn_long{
+                    width:74px !important;
+                    height:140px !important;
+                }
+                /*
+                우측 중앙 네비게이션 끝
+                */
+        
+                /*
+                메인 세로형 상단 CSS 시작
+                */
+        
+                .vertical_kiosk_main{
+                    margin:0px;
+                    padding:0px;
+                    width:100%;
+                    height:100%;
+                }
+        
+        
+                .main_top_div{
+                    margin:0px;
+                    padding:0px;
+                    width:100%;
+                    height:30%;
+                    /*
+                    background-color: cadetblue;
+                    */
+                }
+        
+                .banner_image{
+                    margin:0px;
+                    padding:0px;
+                    width:100%;
+                    height:100%;
+                    float:left;
+                    position: relative;
+                    /*
+                    background-color:springgreen;
+                    */
+                }
+        
+                #id_banner_image{
+                    width:100%;
+                    
+                    position:absolute;
+                }
+        
+                #id_banner_video{
+                    width:100% !important;
+                    position:absolute;
+                    float:left;
+                    padding:0px;
+                    margin:0px;
+                }
+        
+                #id_banner_image_left_btn{
+                    width:10%;
+                    height:50%;
+                    top:25%;
+                    left:1%;
+                    display: block;
+                    position: absolute;
+                    float:left;
+                    z-index: 1;
+                }
+        
+                #id_banner_image_right_btn{
+                    width:10%;
+                    height:50%;
+                    top:25%;
+                    left:89%;
+                    display: block;
+                    position: absolute;
+                    float:right;
+                    z-index: 1;
+                }
+        
+        
+        
+                .brand_image{
+                    margin:0px;
+                    padding:0px;
+                    width:100%;
+                    height:100%;
+                    float:left;
+                    position: relative;
+                    /*
+                    background-color:springgreen;
+                    */
+                }
+        
+                #id_brand_image{
+                    width:100%;
+                    
+                    position:absolute;
+                }
+        
+                #id_brand_video{
+                    width:100% !important;
+                    position:absolute;
+                    float:left;
+                    padding:0px;
+                    margin:0px;
+                }
+        
+                #id_brand_image_left_btn{
+                    width:10%;
+                    height:50%;
+                    top:25%;
+                    left:1%;
+                    display: block;
+                    position: absolute;
+                    float:left;
+                    z-index: 1;
+                }
+        
+                #id_brand_image_right_btn{
+                    width:10%;
+                    height:50%;
+                    top:25%;
+                    left:89%;
+                    display: block;
+                    position: absolute;
+                    float:right;
+                    z-index: 1;
+                }
+        
+        
+                /*
+                세로형 상단 CSS 끝
+                */
+        
+                /*
+                세로형 하단 CSS 시작
+                */
+        
+                .main_bot_div{
+                    margin:0px;
+                    padding:0px;
+                    width:100%;
+                    height:70%;
+                    display:none;
+                    /*
+                    background-color:burlywood;
+                    */
+                }
+        
+                .main_bot_brand{
+                    margin:0px;
+                    padding:0px;
+                    width:100%;
+                    height:70%;
+        
+                }
+        
+                .main_bg{
+                    position: absolute;
+                    width:100%;
+                    height:100%;
+                    top:0;
+                    left:0;
+                    background-color: #f1f1f3;
+                    z-index: -1;
+                }
+        
+                .main_bot_brand_list{
+                    width:80%;
+                    height:100%;
+                    margin-top: 12%;
+                    margin-left:10%;
+                }
+        
+                .main_bot_brand_list_information{
+                    width:28%;
+                    height:24%;
+                    margin-left:4%;
+                    margin-bottom: 2%;
+                    float:left;
+                }
+        
+                .main_bot_brand_list_information_top{
+                    width:100%;
+                    height:70%;
+                    font-size:58px;
+                    font-weight: 400;
+                    margin-top:5%;
+                }
+        
+                .main_bot_brand_list_information_top_bold{
+                    font-size:58px;
+                    font-weight: 800;
+                }
+        
+                .main_bot_brand_list_information_bot{
+                    width:100%;
+                    height:30%;
+                    font-size:22px;
+                    font-weight: 400;
+                }
+        
+                .main_bot_brand_list img{
+                    width:242px;
+                    height:326px;
+                    margin-left:4%;
+                    margin-bottom: 2%;
+                    /*
+                    box-shadow: 5px 5px #e0e0e0;
+                    */
+                    border-radius: 10px;
+                }
+        
+                .search_information{
+                    
+                    margin:0px;
+                    padding:0px;
+                    width:100%;
+                    height:25%;
+                    margin-top:5%;
+        
+                }
+        
+                .search_information_top{
+                    width:100%;
+                    height:40%;
+                }
+        
+                .search_information_current_floor{
+                    margin-top:4%;
+                    margin-left:12%;
+                    float:left;
+                    font-size:82px;
+                    font-weight: 600;
+                }
+        
+                .search_information_current_floor_img{
+                    padding-top:9%;
+                    margin-left: -7%;
+                    position: absolute;
+                }
+        
+                .search_information_current_floor div{
+        
+                    font-size:16px;
+                    font-weight: 600;
+                    position: absolute;
+                    margin-left:2%;
+                }
+        
+                .search_information_button_bot{
+                    width:3%;
+                    height:0.5%;
+                    float:left;
+                    background-color:#5f6773;
+                    margin-top:8.5%;
+                    margin-left:-12%;
+                }
+        
+                .search_information_button_bot_text{
+                    width:12%;
+                    height:1%;
+                    float:left;
+                    margin-top:10%;
+                    margin-left:-16%;
+                    text-align: center;
+                    font-size:16px;
+                    font-weight: 600;
+                    
+                }
+        
+                .search_information_text_top{
+                    text-align: center;
+                    font-size:42px;
+                    padding-top:38px;
+                    font-weight: 600;
+                    width:100%;
+                    height:40%;
+                }
+        
+                .search_information_text_bot{
+                    text-align: center;
+                    font-size:28px;
+                    padding-top:10px;
+                    font-weight: 600;
+                    width:100%;
+                    height:40%;
+                }
+        
+                .search_information_button{
+                    margin-top:4%;
+                    width:100%;
+                    height:60%;
+                    margin-left:33%;
+        
+                }
+        
+                .floor_btn{
+                    width:6.2%;
+                    height: 25%;
+                    text-align: center;
+                    font-size:34px;
+                    font-weight: 600;
+                    background-color:white;
+                    float:left;
+                    margin-right:7%;
+                    border-radius: 1000px;
+                    padding-top:1.5%;
+                    border:3px solid #2b2a26;
+                    
+                }
+        
+                .all_floor_btn{
+                    width:6.2%;
+                    height: 25%;
+                    text-align: center;
+                    font-size:21px !important;
+                    font-weight: 600;
+                    background-color:white;
+                    float:left;
+                    margin-right:7%;
+                    border-radius: 1000px;
+                    padding-top:1%;
+                    padding-bottom: 0.5%;
+                    border:3px solid #2b2a26;
+                    
+                }
+        
+                
+        
+                .map_preview{
+                    margin:0px;
+                    padding:0px;
+                    width:100%;
+                    height:55%;
+                }
+        
+                .map_information{
+                    margin-top:1%;
+                    width:100%;
+                    height:6%;
+                    position:absolute;
+                }
+        
+                .map_information_line{
+                    position:absolute;
+                    width:80%;
+                    height:1px;
+                    float:left;
+                    background-color:#5f6773;
+                    top:52%;
+                    left:10%;
+                }
+        
+                .map_information_public{
+                    width:100%;
+                    height:10%;
+                    margin-left:12%;
+                    margin-top:4.5%;
+                    
+                }
+        
+                .map_information_zoom_btn{
+                    width:100%;
+                    height:10%;
+                    margin-left:66%;
+                    margin-top: -1.3%;
+                }
+        
+                .map_information_zoom_btn{
+                    width:100%;
+                    height:6%;
+                }
+        
+                .map_outer_line{
+                    position: absolute;
+                    margin-top:12%;
+                    margin-bottom: 10%;
+                    left:10%;
+                    width:80%;
+                    height:34%;
+                    float:left;
+                    border:1px solid #5f6773;
+        
+                }
+        
+                .map{
+                    margin:0px;
+                    padding:0px;
+                    width:70%;
+                    height:80%;
+                    position: relative;
+                    overflow: hidden;
+                    margin-left:15%;
+                    margin-top:15%;
+                }
+        
+                .bot_foot{
+                    margin:0px;
+                    padding:0px;
+                    width:100%;
+                    height:20%;
+             
+                }
+        
+                .bot_foot_text{
+                    position: absolute;
+                    top:1478px;
+                    z-index: -1;
+                    left:30%;
+                    top:95%;
+                    font-size:20px;
+                    font-weight: 400;
+                    text-align: center;
+                }
+        
+                .bot_foot img{
+                    position: absolute;
+                    top:1478px;
+                    z-index: -1;
+                }
+        
+                #id_map_image{
+                    position: absolute;
+                }
+        
+                .map_stores{
+                    width:100%;
+                    height:100%;
+                    position: absolute;
+                }
+                .map_store{
+                    position: absolute;
+                    min-width: 100px;
+                    min-height: 100px;
+                    width:auto;
+                    height:auto;
+                    z-index: 1;
+                    text-align: center;
+                }
+        
+                .store_popup{
+                    position: absolute;
+                    width:45px;
+                    height:70px;
+                    border: 1px;
+                    display: none;
+                    z-index: 1;
+                    margin-left:-22px;
+                    margin-top:-70px;
+                    
+                }
+        
+                .store_popup img{
+                    width:100%;
+                    height:100%;
+                    
+                }
+        
+                .kiosk_popup{
+                    position: absolute;
+                    width:34px;
+                    height:53px;
+                    display: none;
+                    z-index: 1;
+                    
+                }
+        
+                .kiosk_popup_text{
+                    position: absolute;
+                    width:74px;
+                    height:22px;
+                    display: none;
+                    z-index: 1;
+                    
+                }
+        
+                .kiosk_popup img{
+                    width:100%;
+                    height:100%;
+                    
+                }
+        
+            
+        
+                /* 키보드 시작 */
+                .keyboard{
+                    margin-top:11%;
+                    width:100%;
+                    height:18%;
+                    position: absolute;
+                    background-color:#2b2a26;
+                    z-index: 3;
+                    display:none;
+                }
+        
+                .searchbar{
+                    width:100%;
+                    height:6%;
+                    position: absolute;
+                    background-color:#2b2a26;
+                    z-index: 3;
+                    padding-top:2%;
+                    display:none;
+                }
+        
+                .searchbar_text{
+                    width:70%;
+                    height:40%;
+                    background-color: white;
+                    margin-left:10%;
+                    margin-top:2%;
+                    text-align: center;
+                    font-size: 32px;
+                    border-top-left-radius:40px;
+                    border-bottom-left-radius:40px;
+                    float:left;
+                    padding-top:1%;
+                    
+                    
+                }
+        
+                .searchbar_icon{
+                    width:10%;
+                    height:40%;
+                    background-color: brown;
+                    margin-top:2%;
+                    text-align: center;
+                    font-size: 32px;
+                    border-top-right-radius:40px;
+                    border-bottom-right-radius:40px;
+                    color:white;
+                    float:left;
+                    padding-top:1%;
+                    
+                }
+                
+                .searchbar_close{
+                    width:10%;
+                    height:60%;
+                    border-radius:30px;
+                    text-align: center;
+                    color: white;
+                    float:left;
+                    margin-top:14px;
+                }
+        
+                .keyboard_line{
+                    width:100%;
+                    height:12%;
+                    margin-top:2%;
+                    text-align: center;
+                }
+        
+                .keyboard_key{
+                    
+                    width:4.5%;
+                    height:100%;
+                    position: relative;
+                    border-radius: 70px;
+                    background-color: white;
+                    margin: 10px;
+                    text-align: center;
+                    display: inline-block;          
+                    font-size: 28px;
+                    padding-top:0.7%;
+                    
+                }
+        
+                .function_key_long{
+                    width:10%;
+                }
+        
+                .function_key_middle{
+                    width:8%;
+                }
+        
+                .function_key_short{
+                    width:6%;
+                }
+        
+                .keyboard_black{
+                    background-color:#5f6773;
+                }
+        
+                .keyboard_white{
+                    background-color:white;
+                }
+                /* 키보드 끝 */
+        
+                /*
+                메인 세로형 하단 CSS 끝
+                */
+        
+                /* 스크린 세이버 시작 */
+        
+                .vertical_kiosk_screen{
+                    margin:0px;
+                    padding:0px;
+                    width:100%;
+                    height:100%;
+                }
+        
+                .touch_div{
+                    top:50%;
+                    left:50%;
+                    width:20%;
+                    height:20%;
+                    position: absolute;
+                    font-size:30px;
+                    color:red;
+                    display: none;
+                }
+                /* 스크린 세이버 끝 */
+        
+                /* 네비게이션 시작 */
+        
+                .vertical_kiosk_navigation{
+                    margin:0px;
+                    padding:0px;
+                    width:100%;
+                    height:100%;
+                    background-color: #f1f1f3;
+                }
+        
+                .nav_top_point{
+                    width:100%;
+                    height:0.8%;
+                }
+        
+                .nav_top_point_left{
+                    width:20%;
+                    height:100%;
+                    background-color:#d90000;
+                    float:left;
+                }
+        
+                .nav_top_point_right{
+                    width:80%;
+                    height:100%;
+                    background-color: #363636;
+                    float:left;
+                }  
+        
+                .nav_top{
+                    width:100%;
+                    height:19%;
+                    margin-top:14%;
+                    margin-left:14%;
+                }
+        
+                .nav_top_text{
+                    text-align: center;
+                    padding-top:12%;
+                    width:50%;
+                    height:100%;
+                    margin-left:25%;
+                    font-weight: 400;
+                    font-size:60px;
+                    color:#000000;
+                }
+        
+                .nav_middle{
+                    width:80%;
+                    height:60%;
+                    margin-left:8%;
+                    margin-top:5%;
+                }
+        
+                .nav_middle_menu{
+                    width:50%;
+                    height:50%;
+                    /*
+                    border: 1px dashed #bcbcbc;
+                    */
+                    float:left;
+                    position: relative;
+                    
+                }        
+        
+                .nav_middle_menu_img{
+                    height:100%;
+                    width:100%;
+                    left:16%;
+                    position:absolute;
+          
+                }
+        
+                .nav_middle_menu_icon_left{
+                    position:absolute;
+                    left:31%;
+                    top:67.5%;
+        
+                }
+        
+                .nav_middle_menu_icon_right{
+                    position:absolute;
+                    z-index: 1;
+                    left:86%;
+                    top:67.5%;
+                }
+        
+                .nav_middle_menu_text{
+                    position:absolute;
+                    font-size:32px;
+                    font-weight: 600;
+                    z-index: 1;
+                    left:24%;
+                    top:68%;
+                    color:#000000;
+                    width:100%;
+                    
+                }
+        
+                .nav_middle_menu_sub_text{
+                    position:absolute;
+                    font-size:16px;
+                    font-weight: 600;
+                    z-index: 1;
+                    left:24%;
+                    top:77%;
+                    color:#000000;
+                    width:70%;
+                    line-height:1.5em;
+                }
+        
+                .nav_foot img{
+                    position: absolute;
+                    top:1478px;
+                    z-index: -1;
+                }
+        
+                /* 네비게이션 끝 */
+        
+                /* 이벤트 시작 */
+        
+                .vertical_kiosk_event{
+                    margin:0px;
+                    padding:0px;
+                    width:100%;
+                    height:100%;
+                }
+        
+                .top_event_image{
+                    width:1080px;
+                    height:320px;
+                    
+                }
+        
+                .top_event_information{
+                    width:100%;
+                    height:10%;
+                    margin-left:29%;
+                    margin-top:7%;
+                    margin-bottom: -3%;
+                    
+                }
+        
+                .middle_event{
+                    height:54%;
+                    width:84%;
+                    margin-left:8%;
+                    
+                }
+        
+                .middle_event_product{
+                    border: 0.8px solid #bcbcbc;
+                    box-shadow: 5px 5px #e0e0e0;
+                    margin-left:4%;
+                    margin-top:2%;
+                    height:20%;
+                    width:45%;
+                    float:left;
+                    margin-bottom:3%;
+                    
+                }
+        
+                .middle_event_product_left{
+                    height:99%;
+                    width:49.9%;
+                    float:left;
+                    margin-top:0.1%;
+                    margin-bottom:0.1%;
+                    margin-left:0.1%;
+                }
+        
+                .middle_event_product_right{
+                    height:99%;
+                    width:45%;
+                    float:left;
+                    padding-left:5%;
+                    margin-top:0.1%;
+                    margin-bottom:0.1%;
+                    background-color: white;
+                }
+        
+                .middle_event_product_right_top{
+                    width:90%;
+                    height:36%;
+                    padding-top:10%;
+                    font-weight: 600;
+                    font-size:16px;
+                
+                }
+        
+                .middle_event_product_right_middle{
+                    width:100%;
+                    height:26%;
+        
+                }
+        
+                .middle_event_product_right_middle_number{
+                    width:auto;
+                    height:30%;
+                    font-size:24px;
+                    float:left;
+                    font-family: 'IMPACT';
+        
+                }
+        
+                .middle_event_product_right_middle_text{
+        
+                    width:10%;
+                    height:30%;
+                    font-size:20px;
+                    float:left;
+                    padding-top:1%;
+        
+                }
+        
+                .middle_event_product_right_bot{
+        
+                    width:160px;
+                    height:38px;
+                      
+                }
+        
+                .event_foot{
+                    width:100%;
+                    height:30%;
+                    
+                }
+        
+                .event_foot img{
+                    position: absolute;
+                    top:1535px;
+                    left:653px;
+                    z-index:-1
+                }
+        
+                /* 이벤트 끝 */
+        
+                /* 이벤트 팝업 시작 */
+        
+                .vertical_kiosk_event_popup{
+                    margin:0px;
+                    padding:0px;
+                    width:100% !important;
+                    height:100% !important;
+                    background-color: rgba( 158, 158, 158, 0.9 );
+                    position: absolute;
+                    display: block;
+                    top:0;
+                    left:0;
+                    display:none;
+                    z-index:10;
+                }
+        
+                .event_popup_close{
+                    width:9%;
+                    height:5%;
+                    position: absolute;
+                    z-index: 1;
+                    top:70%;
+                    left:82%;
+                }
+        
+                .event_popup{
+        
+                    width:595px;
+                    height:61.1%;
+                    position: absolute;
+                    z-index: 1;
+                    background-color: white;
+                    top:14%;
+                    left:23%;
+                    border-radius: 10px 10px 10px 10px;        
+                }
+        
+                .event_popup_top{
+                    width:595px;
+                    height:595px;
+                    margin:0;
+                    padding:0;
+                }
+        
+                .event_popup_top_image{
+                    width:595px;
+                    height:595px;
+                    border-radius: 10px 10px 0px 0px; 
+                }
+        
+                .event_popup_middle{
+                    width:100%;
+                    height:37%;
+                }
+        
+                .event_popup_middle_title{
+                    width:90%;
+                    height:30%;
+                    font-weight: 600;
+                    font-size:36px;
+                    text-align: center;
+                    padding-top:8%;
+                    margin-left:5%;
+                    font-family: 'THEJung150A';
+                    padding-bottom:12%;
+                }
+        
+                .event_popup_middle_price{
+                    width:90%;
+                    height:20%;
+                    margin-left:5%;
+                }
+        
+                .event_popup_middle_price_text{
+                    width:5%;
+                    height:5%;
+                    float:left;
+                    font-weight: 600;
+                    font-size:20px;
+                    position: absolute;
+                    left:86%;
+                    margin-top:10%;
+                }
+        
+                .event_popup_middle_price_normal{
+                    width:20%;
+                    height:100%;
+                    font-weight: 1000;
+                    font-size:42px;
+                    text-align: center;
+                    margin-left:5%;
+                    float: left;
+                    margin-top:6%;
+                }
+        
+                .event_popup_middle_price_normal_text{
+                    width:100%;
+                    height:30%;
+                    font-weight: 800;
+                    font-size:22px;
+                    color:#d90000;
+                    text-align: right;
+                    float:right;
+                    margin-bottom: 3%;
+                }
+        
+                .event_popup_middle_price_normal_number{
+                    width:100%;
+                    height:70%;
+                    font-weight: 600;
+                    font-size:24px;
+                    text-align: left;
+                    float: left;
+                }
+        
+                .event_popup_middle_price_arrow{
+                    width:2%;
+                    height:100%;
+                    float:left;
+                    position: absolute;
+                }
+        
+                .event_popup_middle_price_special{
+                    width:54%;
+                    height:100%;
+                    float: left;
+                    text-align: center;
+                }
+        
+                .event_popup_middle_price_special_number{
+                    width:100%;
+                    height:80%;
+                    font-weight: 400;
+                    font-size:62px;
+                    text-align: right;
+                    font-family: 'IMPACT';
+                    float:right;
+                }
+        
+                .event_popup_middle_price_special_text{
+                    width:100%;
+                    height:20%;
+                    font-weight: 800;
+                    font-size:22px;
+                    color:#d90000;
+                    text-align: right;
+                    float:right;
+                    padding-right:20%;
+                    margin-bottom: 3%;
+        
+                }
+        
+                .event_popup_middle_information{
+                    margin-left:10%;
+                    margin-top:2%;
+                    width:80%;
+                    height:18%;
+                    background-color: #f1f1f3;
+                    float: left;
+                    
+                }
+        
+                .event_popup_middle_information_text{
+                    width:100%;
+                    height:100%;
+                    font-weight: 600;
+                    font-size:18px;
+                    text-align: left;
+                    margin:3%;
+                    line-height:1.5em;
+                }
+        
+                .event_popup_bot{
+        
+                    width:595px;
+                    height:85px;
+                    margin-top:10%;
+                    
+                }
+                
+                .event_popup_bot img{
+        
+                    width:100%;
+                    height:100%;
+                    border-radius: 0px 0px 10px 10px;
+        
+                }
+        
+                
+        
+             
+        
+                /* 이벤트 팝업 끝 */
+        
+                /* 브랜드 정보 페이지 시작 */
+        
+                .vertical_kiosk_brand{
+                    margin:0px;
+                    padding:0px;
+                    width:100%;
+                    height:100%;
+                }
+        
+                .vertical_kiosk_brand img{
+                    position: absolute;
+                    width:100%;
+                    height:100%;
+                }
+        
+                .vertical_kiosk_brand_menu{
+                    position:absolute;
+                    width:40%;
+                    height:10%;
+                    top:50%;
+                    left:30%;
+                }
+        
+                .vertical_kiosk_brand_menu_btn{
+                    margin-left:10%;
+                    width:40%;
+                    height:100%;
+                    float:left;
+                    background-color: #363636;
+                }
+        
+                #id_brand_image{
+                    width:100%;
+                    
+                    position:absolute;
+                }
+        
+                #id_brand_video{
+                    width:100% !important;
+                    position:absolute;
+                    float:left;
+                    padding:0px;
+                    margin:0px;
+                }
+        
+                /* 브랜드 정보 페이지 끝 */
+        
+                /* 전층안내 팝업 시작 */
+                
+        
+                .vertical_kiosk_floor_popup{
+                    margin:0px;
+                    padding:0px;
+                    width:100% !important;
+                    height:100% !important;
+                    background-color: rgba( 158, 158, 158, 0.9 );
+                    position: absolute;
+                    display: block;
+                    top:0;
+                    left:0;
+                    display:none;
+                    z-index:10;
+                }
+        
+                .floor_popup_close{
+                    width:9%;
+                    height:5%;
+                    position: absolute;
+                    z-index: 1;
+                    top:67%;
+                    left:84%;
+                }
+        
+                .floor_popup{
+        
+                    width:60%;
+                    height:60%;
+                    position: absolute;
+                    z-index: 1;
+                    background-color: white;
+                    top:12%;
+                    left:20%;
+                    border-radius: 10px;            
+                }
+        
+                .floor_popup img{
+        
+                    width:100% !important;
+                    height:100% !important;
+                    border-radius: 10px;    
+                           
+                }
+        
+                /* 전층안내 팝업 끝 */
+        
+        
+            }
+        
+            /*
+            ##Device = Tablets, Ipads (portrait),
+            ##Screen = B/w 768px to 1024px
+            ##Device = 태블릿, 아이패드(세로),
+            ##Screen = 768px에서 1024px 사이
+            */
+        
+            @media (min-width: 768px) and (max-width: 1024px) {
+        
+            }
+        
+            /*
+            ##Device = Tablets, Ipads (landscape)
+            ##Screen = B/w 768px to 1024px
+            ##Device = 태블릿, 아이패드(가로)
+            ##Screen = 768px에서 1024px 사이
+            */
+        
+            @media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
+        
+            }
+        
+            /*
+            ##Device = Low Resolution Tablets, Mobiles (Landscape)
+            ##Screen = B/w 481px to 767px
+            ##Device = 저해상도 태블릿, 모바일(가로)
+            ##Screen = 481px에서 767px 사이
+            */
+        
+            @media (min-width: 481px) and (max-width: 767px) {
+        
+            }
+        
+            /*
+            ##Device = Most of the Smartphones Mobiles (Portrait)
+            ##Screen = B/w 320px to 479px
+            ##Device = 대부분의 스마트폰 모바일 기기(세로)
+            ##Screen = 320px에서 479px 사이
+            */
+        
+            @media (min-width: 320px) and (max-width: 480px) {
+               
+            }
+        
+        </style>
     
 </head>
 <!--
 <body oncontextmenu="return false">
-    -->
+-->
 <body>
+    <!--
+    <div class="cover_loading_main"></div>
+    -->
+    <!-- 전 페이지 배경화면 색깔 지정 -->
+    <div class="main_bg"></div>
+    <!-- 전 페이지 배경화면 색깔 지정 -->
 
     <!-- 우측 중앙 네비게이션 바 시작 -->
     <div class="right_navigation">
         <img class="nav_move_btn nav_right_btn" id="id_nav_right_btn_main" data-menu="main" src="http://192.168.0.113:8031/stadmin/lotte_test/image/navigation_bt_01.png"/>
         <img class="nav_move_btn nav_right_btn" id="id_nav_right_btn_event" data-menu="event" src="http://192.168.0.113:8031/stadmin/lotte_test/image/navigation_bt_02.png"/>
         <img class="nav_move_btn nav_right_btn" id="id_nav_right_btn_brand" data-menu="brand" src="http://192.168.0.113:8031/stadmin/lotte_test/image/navigation_bt_03.png"/>
-        <img class="nav_move_btn nav_right_btn" id="id_nav_right_btn_coupon" data-menu="coupon" src="http://192.168.0.113:8031/stadmin/lotte_test/image/navigation_bt_04.png"/>
+        <img class="nav_move_btn nav_right_btn nav_right_btn_long" id="id_nav_right_btn_coupon" data-menu="coupon" src="http://192.168.0.113:8031/stadmin/lotte_test/image/navigation_bt_04.png"/>
     </div>
     <!-- 우측 중앙 네비게이션 바 끝 -->
 
@@ -29,14 +1374,23 @@
     <!-- 상단 컨텐츠 시작 -->
     <div class="main_top_div">
 
-        <!-- 상단 광고 이미지 시작 -->
+        <!-- 상단 메인 광고 이미지 시작 -->
         <div class="banner_image">
             <img class="banner_image_btn" data-direction="left" id="id_banner_image_left_btn" src="http://192.168.0.113:8031/stadmin/lotte_test/image/left.svg" height="60" width="60">
-            <img id="id_banner_image" src="http://192.168.0.113:8031/stadmin/lotte_test/image/lotte.jpg"/>
+            <img id="id_banner_image"/>
             <video class="banner_video" id="id_banner_video" muted="muted" oncontextmenu="false" autoplay></video>
             <img class="banner_image_btn" data-direction="right" id="id_banner_image_right_btn" src="http://192.168.0.113:8031/stadmin/lotte_test/image/right.svg" height="60" width="60">
         </div>
-        <!-- 상단 광고 이미지 끝 -->
+        <!-- 상단 메인 광고 이미지 끝 -->
+
+        <!-- 상단 브랜드 광고 이미지 시작 -->
+        <div class="brand_image">
+            <img class="brand_image_btn" data-direction="left" id="id_brand_image_left_btn" src="http://192.168.0.113:8031/stadmin/lotte_test/image/left.svg" height="60" width="60">
+            <img id="id_brand_image"/>
+            <video class="brand_video" id="id_brand_video" muted="muted" oncontextmenu="false" autoplay></video>
+            <img class="brand_image_btn" data-direction="right" id="id_brand_image_right_btn" src="http://192.168.0.113:8031/stadmin/lotte_test/image/right.svg" height="60" width="60">
+        </div>
+        <!-- 상단 브랜드 광고 이미지 끝 -->
         
     </div>
     <!-- 상단 컨텐츠 끝 -->
@@ -46,29 +1400,40 @@
     <div class="main_bot_div">
         <!-- 하단 상단 텍스트 시작 -->
         <div class="search_information">
-            <div class="search_information_top">
-                <div class="search_information_left">
-                    <div></div>
-                </div>
-                <div class="search_information_text">찾고자 하시는 층을 눌러주세요</div>
-                <div class="search_information_right">
-                    <div></div>
-                </div>
+            <div class="search_information_top">    
+                <div class="search_information_text_top">위치찾기</div>
+                <div class="search_information_text_bot">찾고자 하는 층을 눌러주세요</div>
             </div>
-            <img class="search_information_all_floor" src="http://192.168.0.113:8031/stadmin/lotte_test/image/main_bt_allfloor.png">
-            <div class="search_information_all_floor_right"></div>
+            <div class="search_information_current_floor"><img class="search_information_current_floor_img" src="http://192.168.0.113:8031/stadmin/lotte_test/image/main_ic_current.png">현재위치</div>
             <div class="search_information_button">
                 <!--
-                <div>B1F</div>
+                <div>B1</div>
                 <div>1F</div>
                 <div>2F</div>
--->
+                -->
             </div>
         </div>
         <!-- 하단 상단 텍스트 끝 -->
 
+        <!--공용시설 안내, 맵확대,축소 버튼 시작-->
+        <div class="map_information_line"></div>
+        <div class="map_information">
+            <div class="map_information_public">
+                <img src="http://192.168.0.113:8031/stadmin/lotte_test/image/main_img_public.png" />
+            </div>
+            <div class="map_information_zoom_btn">
+                <img class="map_zoom_plus map_zoom_btn" src="http://192.168.0.113:8031/stadmin/lotte_test/image/main_bt_map_plus.png" />
+                <img class="map_zoom_minus map_zoom_btn" src="http://192.168.0.113:8031/stadmin/lotte_test/image/main_bt_map_minus.png"  id="id_btn_img01" />
+            </div>
+        </div>
+        <!--공용시설 안내, 맵확대,축소 버튼 끝-->
+
+
         <!-- 하단 맵 시작 -->
+        <div class="map_outer_line"></div>
         <div class="map_preview">
+
+            
 
             <!-- 서치바 시작 -->
             <div class="searchbar">
@@ -140,7 +1505,7 @@
 
             </div>
             <!-- 키보드 끝 -->
-
+            
             <div class="map">
 
                 <div class="map_stores">
@@ -150,6 +1515,15 @@
                         <img src="http://192.168.0.113:8031/stadmin/lotte_test/image/main_ic_destination.png">
                     </div>
                     <!-- 상점 팝업 끝 -->
+
+                    <!-- 키오스크 위치 팝업 시작 -->
+                    <div class="kiosk_popup">
+                        <img src="http://192.168.0.113:8031/stadmin/lotte_test/image/main_ic_departure.png">
+                    </div>
+                    <!--
+                    <img class="kiosk_popup_text" src="http://192.168.0.113:8031/stadmin/lotte_test/image/main_ic_location.png">
+                    -->
+                    <!-- 키오스크 위치 팝업 끝 -->
                 </div>
                 <img id="id_map_image" src="http://192.168.0.113:8031/stadmin/lotte_test/map/1F.png"/>
                 
@@ -160,7 +1534,10 @@
 
         <!-- 하단 여백 -->
         <div class="bot_foot">
+            <!--
             <img src="http://192.168.0.113:8031/stadmin/lotte_test/image/main_bg.png"/>
+            -->
+            <div class="bot_foot_text">* 점포사정에 따라 일부 상품위치가 상이 할 수 있습니다.</div>
         </div>
         <!-- 하단 여백 -->
         
@@ -170,7 +1547,10 @@
     <!-- 브랜드 소개 시작 -->
     <div class="main_bot_brand">
         <div class="main_bot_brand_list">
-            <img class="main_bot_brand_list_brand">
+            <div class="main_bot_brand_list_information">
+                <div class="main_bot_brand_list_information_top">롯데마트 <div class="main_bot_brand_list_information_top_bold">브랜드 소개</div></div>
+                <div class="main_bot_brand_list_information_bot">이미지를 터치시 자세한 내용을 볼 수 있습니다.</div>
+            </div>
         </div>
     </div>
     <!-- 브랜드 소개 끝 -->
@@ -197,7 +1577,7 @@
 
         <!-- 상단 안내 텍스트 시작 -->
         <div class="nav_top">
-            <div class="nav_top_text">원하시는 서비스를 선택해 주세요</div>
+            <img src="http://192.168.0.113:8031/stadmin/lotte_test/image/main_img_title.png" />
         </div>
         <!-- 상단 안내 텍스트 끝 -->
 
@@ -208,14 +1588,11 @@
                 <div class="nav_middle_menu_img">
                     <img id="id_nav_menu_image1" class="nav_move_btn" data-menu="main" src="http://192.168.0.113:8031/stadmin/lotte_test/image/main_bt_01.png">
                 </div>
-                <div class="nav_middle_menu_icon_left">
-                    <img src="http://192.168.0.113:8031/stadmin/lotte_test/image/main_ic_01.png">
-                </div>
-                <div class="nav_middle_menu_text nav_middle_menu_text_line_1">
+                <div class="nav_middle_menu_text ">
                     위치찾기
                 </div>
-                <div class="nav_middle_menu_icon_right">
-                    <img src="http://192.168.0.113:8031/stadmin/lotte_test/image/main_bt_arrow_o.png">
+                <div class="nav_middle_menu_sub_text ">
+                    진열되어 있는 상품을 위치안내 버튼 <br>하나로 안내를 받아 보세요
                 </div>
             </div>
 
@@ -223,51 +1600,51 @@
                 <div class="nav_middle_menu_img">
                     <img id="id_nav_menu_image2" class="nav_move_btn" data-menu="event" src="http://192.168.0.113:8031/stadmin/lotte_test/image/main_bt_02.png">
                 </div>
-                <div class="nav_middle_menu_icon_left">
-                    <img src="http://192.168.0.113:8031/stadmin/lotte_test/image/main_ic_02.png">
+                <div class="nav_middle_menu_text ">
+                    금주의행사상품
                 </div>
-                <div class="nav_middle_menu_text nav_middle_menu_text_line_2">
-                    금주의<br>행사상품
+                <div class="nav_middle_menu_sub_text ">
+                    이번주 할인 상품을 한 번에 받아보세요
                 </div>
-                <div class="nav_middle_menu_icon_right">
-                    <img src="http://192.168.0.113:8031/stadmin/lotte_test/image/main_bt_arrow_o.png">
-                </div>
+
             </div>
 
             <div class="nav_middle_menu">
                 <div class="nav_middle_menu_img">
                     <img id="id_nav_menu_image3" class="nav_move_btn" data-menu="brand" src="http://192.168.0.113:8031/stadmin/lotte_test/image/main_bt_03.png">
                 </div>
-                <div class="nav_middle_menu_icon_left">
-                    <img src="http://192.168.0.113:8031/stadmin/lotte_test/image/main_ic_03.png">
+
+                <div class="nav_middle_menu_text ">
+                    롯데마트 브랜드 소개
                 </div>
-                <div class="nav_middle_menu_text nav_middle_menu_text_line_2">
-                    롯데마트<br>브랜드소개
+                <div class="nav_middle_menu_sub_text ">
+                    롯데마트만의 실생활에 필요한 브랜드를 <br>안내 받아 보세요
                 </div>
-                <div class="nav_middle_menu_icon_right">
-                    <img src="http://192.168.0.113:8031/stadmin/lotte_test/image/main_bt_arrow_o.png">
-                </div>
+
             </div>
 
             <div class="nav_middle_menu">
                 <div class="nav_middle_menu_img">
                     <img id="id_nav_menu_image4" class="nav_move_btn" data-menu="coupon" src="http://192.168.0.113:8031/stadmin/lotte_test/image/main_bt_04.png">
                 </div>
-                <div class="nav_middle_menu_icon_left">
-                    <img src="http://192.168.0.113:8031/stadmin/lotte_test/image/main_ic_04.png">
-                </div>
-                <div class="nav_middle_menu_text nav_middle_menu_text_line_1">
+
+                <div class="nav_middle_menu_text ">
                     M쿠폰
                 </div>
-                <div class="nav_middle_menu_icon_right">
-                    <img src="http://192.168.0.113:8031/stadmin/lotte_test/image/main_bt_arrow_o.png">
+                <div class="nav_middle_menu_sub_text ">
+                    M쿠폰 스캔후 롯데마트 쿠폰을 한번에 <br>받아보세요
                 </div>
+  
             </div>
         </div>
         <!-- 중단 메뉴 리스트 끝 -->
 
         <!-- 하단 시작-->
-        <div class="nav_foot"><img src="http://192.168.0.113:8031/stadmin/lotte_test/image/main_bg_text.png"/></div>
+        <div class="nav_foot">
+            <!--
+            <img src="http://192.168.0.113:8031/stadmin/lotte_test/image/main_bg_text.png"/>
+            -->
+        </div>
         <!-- 하단 끝-->
 
     </div>
@@ -279,6 +1656,8 @@
         <img class="top_event_image" src="http://192.168.0.113:8031/stadmin/lotte_test/image/product_img_topsample.png" />
 
         <div class="top_event_information">
+            <img src="http://192.168.0.113:8031/stadmin/lotte_test/image/product_img_text.png" />
+            <!--
             <div class="top_event_information_left">
                 <div></div>
             </div>
@@ -288,6 +1667,7 @@
             <div class="top_event_information_right">
                 <div></div>
             </div>
+            -->
         </div>
 
         <div class="middle_event">
@@ -314,7 +1694,7 @@
         </div>
 
         <div class="event_foot">
-            <img src="http://192.168.0.113:8031/stadmin/lotte_test/image/main_bg_text.png"/>
+            <img src="http://192.168.0.113:8031/stadmin/lotte_test/image/product_img_bg_acc.png"/>
         </div>
 
     </div>
@@ -322,6 +1702,13 @@
 
     <!-- 세로형 안내 키오스크 브랜드 정보 시작 -->
     <div class="vertical_kiosk_brand vertical_pages">
+        <img id="id_brand_image" />
+        <video class="brand_video" id="id_brand_video" muted="muted" oncontextmenu="false" autoplay></video>
+        <!--
+        <img class="brand_image_btn" data-direction="left" id="id_brand_image_left_btn" src="http://192.168.0.113:8031/stadmin/lotte_test/image/left.svg" height="60" width="60">
+        <img class="brand_image_btn" data-direction="right" id="id_brand_image_right_btn" src="http://192.168.0.113:8031/stadmin/lotte_test/image/right.svg" height="60" width="60">
+        -->
+        <!--
         <img class="vertical_kiosk_brand_img">
         <div class="vertical_kiosk_brand_menu">
             <div class="vertical_kiosk_brand_menu_btn" id="id_brand_menu_back_btn">
@@ -331,72 +1718,55 @@
                 대표상품
             </div>
         </div>
+        -->
     </div>
     <!-- 세로형 안내 키오스크 브랜드 정보 끝 -->
 
     <!-- 세로형 안내 키오스크 쿠폰 시작 -->
     <div class="vertical_kiosk_coupon vertical_pages">
-        
+        <img src="http://192.168.0.113:8031/stadmin/lotte_test/image/mcoupon.jpg"/> 
     </div>
     <!-- 세로형 안내 키오스크 쿠폰 끝 -->
 
     <!-- 세로형 안내 키오스크 행사 팝업 시작 -->
     <div class="vertical_kiosk_event_popup">
         <div class="event_popup">
-            <div class="event_popup_top_text">맥심 믹스 카카오 기획 (각260입)</div>
             <div class="event_popup_top">
                 <img class="event_popup_top_image" src="http://192.168.0.113:8031/stadmin/lotte_test/image/product/detail_01.jpg"/>
             </div>
             <div class="event_popup_middle">
-                <div class="event_popup_middle_top"></div>
-                <div class="event_popup_middle_information">
-                    <div class="event_popup_middle_information_text">점포매가</div>
-                    <div class="event_popup_middle_information_data" id="id_information_data_normal_price"></div>
+
+                <div class="event_popup_middle_title">
                 </div>
-                <div class="event_popup_middle_information_left"></div>
-                <div class="event_popup_middle_information">
-                    <div class="event_popup_middle_information_text">행사가</div>
-                    <div class="event_popup_middle_information_data" id="id_information_data_special_price">원</div>
-                    <div class="event_popup_special_price_text">원</div>
+                <div class="event_popup_middle_price">
+                    <div class="event_popup_middle_price_normal">
+                        <div class="event_popup_middle_price_normal_text">점포매가</div>
+                        <div class="event_popup_middle_price_normal_number"></div>
+                    </div>
+                    <div class="event_popup_middle_price_arrow"></div>
+                    <div class="event_popup_middle_price_special">
+                        <div class="event_popup_middle_price_special_text">행사가</div>
+                        <div class="event_popup_middle_price_special_number"></div>
+                    </div>
+                    <div class="event_popup_middle_price_text">원</div>
                 </div>
                 <div class="event_popup_middle_information">
-                    <div class="event_popup_middle_information_text">시작일자</div>
-                    <div class="event_popup_middle_information_data" id="id_information_data_start_date"></div>
-                </div>
-                <div class="event_popup_middle_information_left"></div>
-                <div class="event_popup_middle_information">
-                    <div class="event_popup_middle_information_text">종료일자</div>
-                    <div class="event_popup_middle_information_data" id="id_information_data_end_date"></div>
+                    <div class="event_popup_middle_information_text"></div>
                 </div>
             </div>
             <div class="event_popup_bot">
-                <div class="event_popup_bot_left"></div>
-                <img class="event_popup_bot_right" src="http://192.168.0.113:8031/stadmin/lotte_test/image/main_bt_wayfinding_o.png">
-                <!--
-                <div class="event_popup_bot_right">
-                    <img class="event_popup_bot_right_icon" src="http://192.168.0.113:8031/stadmin/lotte_test/image/main_ic_01.png">
-                    <img class="event_popup_bot_right_text" src="http://192.168.0.113:8031/stadmin/lotte_test/image/main_bt_wayfinding_o.png">
-                </div>
-                -->
+                <img src="http://192.168.0.113:8031/stadmin/lotte_test/image/main_bt_wayfinding.png"/>
             </div>
+            
         </div>
         <img class="event_popup_close" src="http://192.168.0.113:8031/stadmin/lotte_test/image/main_bt_x.png">
     </div>
     <!-- 세로형 안내 키오스크 행사 팝업 끝 -->
 
-    <!-- 세로형 안내 키오스크 브랜드 팝업 시작 -->
-    <div class="vertical_kiosk_brand_popup">
-        <div class="brand_popup">
-           
-        </div>
-        <img class="brand_popup_close" src="http://192.168.0.113:8031/stadmin/lotte_test/image/main_bt_x.png">
-    </div>
-    <!-- 세로형 안내 키오스크 브랜드 팝업 끝 -->
-
     <!-- 세로형 안내 키오스크 전층안내 팝업 시작 -->
     <div class="vertical_kiosk_floor_popup">
         <div class="floor_popup">
-            <img src="http://192.168.0.113:8031/stadmin/lotte_test/image/main_img_popup.jpg">
+            <img src="http://192.168.0.113:8031/stadmin/lotte_test/image/main_img_popup.png">
         </div>
         <img class="floor_popup_close" src="http://192.168.0.113:8031/stadmin/lotte_test/image/main_bt_x.png">
     </div>
@@ -408,1204 +1778,41 @@
 </body>
 </html>
 
-<style>
-
-    /* https://transfonter.org/ */
-    /* 웹폰트 decode error 발생시 위 사이트에서 변환 후 사용 */
-    
-    @font-face{
-        font-family:'IMPACT';
-        src:url('font/IMPACT.TTF') format('truetype');
-    }
-
-    @font-face{
-        font-family:'NotoSansCJKkr-Light';
-        src:url('font/NotoSansCJKkr-Light.otf') format('truetype');
-        
-    }
-
-    @font-face {
-        font-family: 'THEJung130A';
-        src: url('font/THEJung130A.woff2') format('woff2'),
-            url('font/THEJung130A.woff') format('woff');
-        font-weight: normal;
-        font-style: normal;
-    }
-
-    @font-face {
-        font-family: 'THEJung170A';
-        src: url('font/THEJung170A.woff2') format('woff2'),
-            url('font/THEJung170A.woff') format('woff');
-        font-weight: normal;
-        font-style: normal;
-    }
-
-    @font-face {
-        font-family: 'THEJung160A';
-        src: url('font/THEJung160A.woff2') format('woff2'),
-            url('font/THEJung160A.woff') format('woff');
-        font-weight: normal;
-        font-style: normal;
-    }
-
-    @font-face {
-        font-family: 'THEJung110A';
-        src: url('font/THEJung110A.woff2') format('woff2'),
-            url('font/THEJung110A.woff') format('woff');
-        font-weight: normal;
-        font-style: normal;
-    }
-
-    @font-face {
-        font-family: 'THEJung140A';
-        src: url('font/THEJung140A.woff2') format('woff2'),
-            url('font/THEJung140A.woff') format('woff');
-        font-weight: normal;
-        font-style: normal;
-    }
-
-    @font-face {
-        font-family: 'THEJung150A';
-        src: url('font/THEJung150A.woff2') format('woff2'),
-            url('font/THEJung150A.woff') format('woff');
-        font-weight: normal;
-        font-style: normal;
-    }
-
-    @font-face {
-        font-family: 'THEJung120A';
-        src: url('font/THEJung120A.woff2') format('woff2'),
-            url('font/THEJung120A.woff') format('woff');
-        font-weight: normal;
-        font-style: normal;
-    }
-
-    @font-face {
-        font-family: 'TheJung130';
-        src: url('font/TheJung130.woff2') format('woff2'),
-            url('font/TheJung130.woff') format('woff');
-        font-weight: normal;
-        font-style: normal;
-    }
-
-    html,body{
-        margin:0px;
-        padding:0px;
-        width:100%;
-        height:100%;
-        overflow: hidden;
-        font-family: 'THEJung130A';
-        
-    }
-
-    
-    
-
-/*
-    @media all and(min-width:1080px){
-        background-color: 
-    }
-*/
-
-
-    /*
-    ##Device = Desktops
-    ##Screen = 1281px to higher resolution desktops
-    ##Device = 데스크탑
-    ##Screen = 1281px 이상 해상도 데스크탑
-    */
-
-    @media (min-width: 1281px) {
-        body{
-            background-color: aqua;
-        }
-        .vertical_pages{
-            display: none;
-        }
-       
-    }
-
-    /*
-    ##Device = Laptops, Desktops
-    ##Screen = B/w 1025px to 1280px
-    ##Device = 랩탑, 데스크탑
-    ##Screen = 1025px에서 1280px 사이
-    */
-
-    @media (min-width: 1025px) and (max-width: 1280px) {
-
-        /*
-        우측 중앙 네비게이션 시작
-        */
-        .right_navigation{
-            position: fixed;
-            width:6%;
-            height:20%;
-            left:94%;
-            top:40%;
-
-        }
-
-        .right_navigation img{
-
-            width:100%;
-            height:25%;
-        }
-        /*
-        우측 중앙 네비게이션 끝
-        */
-
-        /*
-        메인 세로형 상단 CSS 시작
-        */
-
-        .vertical_kiosk_main{
-            margin:0px;
-            padding:0px;
-            width:100%;
-            height:100%;
-        }
-
-
-        .main_top_div{
-            margin:0px;
-            padding:0px;
-            width:100%;
-            height:30%;
-            /*
-            background-color: cadetblue;
-            */
-        }
-
-        .banner_image{
-            margin:0px;
-            padding:0px;
-            width:100%;
-            height:100%;
-            float:left;
-            position: relative;
-            /*
-            background-color:springgreen;
-            */
-        }
-
-        #id_banner_image{
-            width:100%;
-            
-            position:absolute;
-        }
-
-        #id_banner_video{
-            width:100% !important;
-            position:absolute;
-            float:left;
-            padding:0px;
-            margin:0px;
-        }
-
-        #id_banner_image_left_btn{
-            width:10%;
-            height:50%;
-            top:25%;
-            left:1%;
-            display: block;
-            position: absolute;
-            float:left;
-            z-index: 1;
-        }
-
-        #id_banner_image_right_btn{
-            width:10%;
-            height:50%;
-            top:25%;
-            left:89%;
-            display: block;
-            position: absolute;
-            float:right;
-            z-index: 1;
-        }
-        /*
-        세로형 상단 CSS 끝
-        */
-
-        /*
-        세로형 하단 CSS 시작
-        */
-
-        .main_bot_div{
-            margin:0px;
-            padding:0px;
-            width:100%;
-            height:70%;
-            display:none;
-            /*
-            background-color:burlywood;
-            */
-        }
-
-        .main_bot_brand{
-            margin:0px;
-            padding:0px;
-            width:100%;
-            height:70%;
-        }
-
-        .main_bot_brand_list{
-            width:80%;
-            height:100%;
-            margin-top: 6%;
-            margin-left:10%;
-        }
-
-        .main_bot_brand_list img{
-            width:40%;
-            height:20%;
-            margin-left:6.8%;
-            margin-bottom: 2%;
-            background-color:#bcbcbc;
-            box-shadow: 5px 5px #e0e0e0;
-        }
-
-        .search_information{
-            
-            margin:0px;
-            padding:0px;
-            width:100%;
-            height:25%;
-            margin-top:5%;
-
-        }
-
-        .search_information_top{
-            width:100%;
-            height:40%;
-        }
-
-        .search_information_all_floor{
-            margin-top:2%;
-            margin-left:18%;
-            float:left;
-            display:absolute;
-        }
-
-        .search_information_all_floor_right{
-            width:0.1%;
-            height:14%;
-            margin-top:3%;
-            margin-left:4%;
-            float:left;
-            display:absolute;
-            background-color:#5f6773;
-        }
-
-        .search_information_text{
-            text-align: center;
-            font-size:28px;
-            padding-top:50px;
-            font-weight: 600;
-            width:80%;
-            height:40%;
-        }
-
-        .search_information_left{
-            width:18%;
-            height:100%;
-            float:left;
-            margin-left:2%;
-       
-        }
-
-        .search_information_left div{
-            width:50%;
-            height:3%;
-            background-color:#bcbcbc;
-            margin-left:30%;
-            margin-top:30%;
-       
-        }
-
-        .search_information_right{
-            width:18%;
-            height:100%;
-            float:right;
-            margin-top:-4.2%;
-
-        }
-
-        .search_information_right div{
-            width:50%;
-            height:3%;
-            background-color:#bcbcbc;
-            margin-bottom: 20%;
-
-        }
-
-        .search_information_button{
-
-            width:100%;
-            height:60%;
-            margin-left:33%;
-
-        }
-
-        .search_information_button div{
-            width:10%;
-            height: 39%;
-            text-align: center;
-            font-size:45px;
-            font-weight: 600;
-            background-color:#bcbcbc;
-            float:left;
-            margin-right:2%;
-            border-radius: 1000px;
-            padding-top:2.8%;
-            
-        }
-
-        .floor_current_text{
-            margin-top:40px !important;
-            margin-left:-4px !important;
-        }
-
-        .map_preview{
-            margin:0px;
-            padding:0px;
-            width:100%;
-            height:55%;
-        }
-
-        .map{
-            margin:0px;
-            padding:0px;
-            width:80%;
-            height:90%;
-            position: relative;
-            overflow: hidden;
-            margin-left:10%;
-            margin-top:10%;
-        }
-
-        .bot_foot{
-            margin:0px;
-            padding:0px;
-            width:100%;
-            height:20%;
-     
-        }
-
-        .bot_foot img{
-            position: absolute;
-            top:1478px;
-            z-index: -1;
-        }
-
-        #id_map_image{
-            position: absolute;
-        }
-
-        .map_stores{
-            width:100%;
-            height:100%;
-            position: absolute;
-        }
-        .map_store{
-            position: absolute;
-            min-width: 100px;
-            min-height: 100px;
-            width:auto;
-            height:auto;
-            z-index: 1;
-            text-align: center;
-        }
-
-        .store_popup{
-            position: absolute;
-            width:45px;
-            height:70px;
-            border: 1px;
-            display: none;
-            z-index: 1;
-            
-        }
-
-        .store_popup img{
-            width:100%;
-            height:100%;
-            
-        }
-
-        /* 키보드 시작 */
-        .keyboard{
-            margin-top:11%;
-            width:100%;
-            height:18%;
-            position: absolute;
-            background-color:#2b2a26;
-            z-index: 3;
-            display:none;
-        }
-
-        .searchbar{
-            width:100%;
-            height:6%;
-            position: absolute;
-            background-color:#2b2a26;
-            z-index: 3;
-            padding-top:2%;
-            display:none;
-        }
-
-        .searchbar_text{
-            width:70%;
-            height:40%;
-            background-color: white;
-            margin-left:10%;
-            margin-top:2%;
-            text-align: center;
-            font-size: 32px;
-            border-top-left-radius:40px;
-            border-bottom-left-radius:40px;
-            float:left;
-            padding-top:1%;
-            
-            
-        }
-
-        .searchbar_icon{
-            width:10%;
-            height:40%;
-            background-color: brown;
-            margin-top:2%;
-            text-align: center;
-            font-size: 32px;
-            border-top-right-radius:40px;
-            border-bottom-right-radius:40px;
-            color:white;
-            float:left;
-            padding-top:1%;
-            
-        }
-        
-        .searchbar_close{
-            width:10%;
-            height:60%;
-            border-radius:30px;
-            text-align: center;
-            color: white;
-            float:left;
-            margin-top:14px;
-        }
-
-        .keyboard_line{
-            width:100%;
-            height:12%;
-            margin-top:2%;
-            text-align: center;
-        }
-
-        .keyboard_key{
-            
-            width:4.5%;
-            height:100%;
-            position: relative;
-            border-radius: 70px;
-            background-color: white;
-            margin: 10px;
-            text-align: center;
-            display: inline-block;          
-            font-size: 28px;
-            padding-top:0.7%;
-            
-        }
-
-        .function_key_long{
-            width:10%;
-        }
-
-        .function_key_middle{
-            width:8%;
-        }
-
-        .function_key_short{
-            width:6%;
-        }
-
-        .keyboard_black{
-            background-color:#5f6773;
-        }
-
-        .keyboard_white{
-            background-color:white;
-        }
-        /* 키보드 끝 */
-
-        /*
-        메인 세로형 하단 CSS 끝
-        */
-
-        /* 스크린 세이버 시작 */
-
-        .vertical_kiosk_screen{
-            margin:0px;
-            padding:0px;
-            width:100%;
-            height:100%;
-        }
-
-        .touch_div{
-            top:50%;
-            left:50%;
-            width:20%;
-            height:20%;
-            position: absolute;
-            font-size:30px;
-            color:red;
-            display: none;
-        }
-        /* 스크린 세이버 끝 */
-
-        /* 네비게이션 시작 */
-
-        .vertical_kiosk_navigation{
-            margin:0px;
-            padding:0px;
-            width:100%;
-            height:100%;
-            background-color: #f1f1f3;
-        }
-
-        .nav_top_point{
-            width:100%;
-            height:1%;
-        }
-
-        .nav_top_point_left{
-            width:20%;
-            height:100%;
-            background-color:#d90000;
-            float:left;
-        }
-
-        .nav_top_point_right{
-            width:80%;
-            height:100%;
-            background-color: #363636;
-            float:left;
-        }  
-
-        .nav_top{
-            width:100%;
-            height:19%;
-        }
-
-        .nav_top_text{
-            text-align: center;
-            padding-top:12%;
-            width:50%;
-            height:100%;
-            margin-left:25%;
-            font-weight: 400;
-            font-size:60px;
-            color:#000000;
-        }
-
-        .nav_middle{
-            width:80%;
-            height:60%;
-            margin-left:8%;
-        }
-
-        .nav_middle_menu{
-            width:50%;
-            height:50%;
-            /*
-            border: 1px dashed #bcbcbc;
-            */
-            float:left;
-            position: relative;
-            
-        }        
-
-        .nav_middle_menu_img{
-            height:100%;
-            width:100%;
-            left:16%;
-            position:absolute;
-  
-        }
-
-        .nav_middle_menu_icon_left{
-            position:absolute;
-            left:31%;
-            top:67.5%;
-
-        }
-
-        .nav_middle_menu_icon_right{
-            position:absolute;
-            z-index: 1;
-            left:86%;
-            top:67.5%;
-        }
-
-        .nav_middle_menu_text{
-            position:absolute;
-            font-size:28px;
-            font-weight: 600;
-            z-index: 1;
-            left:42%;
-            top:68%;
-            color:#000000;
-            
-        }
-
-        .nav_middle_menu_text_line_1{
-       
-            width:32%;
-            
-        }
-
-        .nav_middle_menu_text_line_2{
-       
-            width:32%;
-            top:65%;
-            
-        }
-
-        .nav_foot img{
-            position: absolute;
-            top:1478px;
-        }
-
-        /* 네비게이션 끝 */
-
-        /* 이벤트 시작 */
-
-        .vertical_kiosk_event{
-            margin:0px;
-            padding:0px;
-            width:100%;
-            height:100%;
-        }
-
-        .top_event_image{
-            width:100%;
-            height:18%;
-            
-        }
-
-        .top_event_information{
-            width:100%;
-            height:12%;
-        }
-
-        .top_event_information_left{
-            width:20%;
-            height:100%;
-            float:left;
-       
-        }
-
-        .top_event_information_left div{
-            width:50%;
-            height:1%;
-            background-color:#bcbcbc;
-            margin-left:30%;
-            margin-top:48%;
-       
-        }
-
-        .top_event_information_text{
-            width:60%;
-            height:8%;
-            float:left;
-            text-align: center;
-            font-weight: 600;
-            font-size:30px;
-            padding-top:8%;
-            
-           
-        }
-
-        .top_event_information_right{
-            width:20%;
-            height:100%;
-            float:left;
-
-        }
-
-        .top_event_information_right div{
-            width:50%;
-            height:1%;
-            background-color:#bcbcbc;
-            margin-left:20%;
-            margin-top:48%;
-
-        }
-
-        .middle_event{
-            height:54%;
-            width:84%;
-            margin-left:8%;
-            
-        }
-
-        .middle_event_product{
-            border: 0.8px solid #bcbcbc;
-            box-shadow: 5px 5px #e0e0e0;
-            margin-left:2%;
-            height:22%;
-            width:47.7%;
-            float:left;
-            margin-bottom:3%;
-            
-        }
-
-        .middle_event_product_left{
-            height:99%;
-            width:50%;
-            float:left;
-            margin-top:0.1%;
-            margin-bottom:0.1%;
-        }
-
-        .middle_event_product_right{
-            height:100%;
-            width:45%;
-            float:left;
-            padding-left:5%;
-        }
-
-        .middle_event_product_right_top{
-            width:90%;
-            height:36%;
-            padding-top:10%;
-            font-weight: 600;
-            font-size:18px;
-        
-        }
-
-        .middle_event_product_right_middle{
-            width:100%;
-            height:26%;
-
-        }
-
-        .middle_event_product_right_middle_number{
-            width:auto;
-            height:30%;
-            font-size:24px;
-            float:left;
-            font-family: 'IMPACT';
-
-        }
-
-        .middle_event_product_right_middle_text{
-
-            width:10%;
-            height:30%;
-            font-size:20px;
-            float:left;
-            padding-top:1%;
-
-        }
-
-        .middle_event_product_right_bot{
-
-            width:90%;
-            height:20%;
-            border: 2px solid #bcbcbc;
-  
-        }
-
-        .middle_event_product_right_bot_icon{
-
-            width:12%;
-            height:72%;
-            float:left;
-            margin-top:4%;
-            margin-left:10%;
-
-        }
-
-        .middle_event_product_right_bot_text{
-
-            width:70%;
-            height:100%;
-            float:left;
-            font-weight: 800;
-            font-size:16px;
-            padding-top:7%;
-            padding-left:2%;
-
-        }
-
-        .event_foot{
-            width:100%;
-            height:30%;
-            
-        }
-
-        .event_foot img{
-            position: absolute;
-            top:1478px;
-            z-index:-1
-        }
-
-        /* 이벤트 끝 */
-
-        /* 이벤트 팝업 시작 */
-
-        .vertical_kiosk_event_popup{
-            margin:0px;
-            padding:0px;
-            width:100% !important;
-            height:100% !important;
-            background-color: rgba( 158, 158, 158, 0.9 );
-            position: absolute;
-            display: block;
-            top:0;
-            left:0;
-            display:none;
-            z-index:10;
-        }
-
-        .event_popup_close{
-            width:9%;
-            height:5%;
-            position: absolute;
-            z-index: 1;
-            top:64%;
-            left:76%;
-        }
-
-        .event_popup{
-
-            width:50%;
-            height:50%;
-            position: absolute;
-            z-index: 1;
-            background-color: white;
-            top:20%;
-            left:25%;
-            border-radius: 10px;            
-        }
-
-        .event_popup_top_text{
-            width:60%;
-            height:12%;
-            margin-left: 20%;
-            margin-top:10%;
-            text-align: center;
-            font-weight: 600;
-            font-size:32px;
-        }
-
-        .event_popup_top{
-            width:80%;
-            height:45%;
-            margin-left: 10%;
-            border: 1px solid #bcbcbc;
-        }
-
-        .event_popup_top_image{
-            width:100%;
-            height:100%;
-        }
-
-        .event_popup_middle{
-            width:80%;
-            height:16%;
-            margin-left: 10%;
-            margin-top:5%;
-
-        }
-        
-        .event_popup_middle_top{
-            width:100%;
-            height:34%;
-            font-weight: 400;
-            font-size:24px;
-            text-align: center;
-            background-color: #f1f1f3;
-            padding-top: 5%;
-        }
-
-        .event_popup_middle_information{
-            width:49%;
-            height:32%;
-            float:left;
-            border-color: #bcbcbc;
-            border-style: solid;
-            border-width: 0px 0px .8px 0px;
-        }
-
-        .event_popup_middle_information_left{
-            background-color: #bcbcbc;        
-            width:0.3%;    
-            height:32%;
-            float:left;
-            
-            
-        }
-
-        .event_popup_middle_information_text{
-            width:30%;
-            height:100%;
-            float:left;
-            text-align: left;
-            color:#d90000;
-            margin-top:8%;
-            margin-left:4%;
-            font-weight: 400;
-            font-size:16px;
-        }
-
-        .event_popup_middle_information_data{
-            margin-top:8%;
-            width:54%;
-            height:100%;
-            float:left;
-            text-align: right;
-            font-weight: 600;
-            margin-right:1%;
-        }
-
-        #id_information_data_special_price{
-            font-size:24px;
-            margin-top:6%;
-            font-weight: 800;
-        }
-
-        .event_popup_special_price_text{
-            margin-top:8%;
-        }
-
-        .event_popup_bot{
-            width:80%;
-            margin-left:10%;
-            height:12%;
-            margin-top:2%;
-        }
-
-        .event_popup_bot_left{
-            width:18%;
-            height:42%;
-            font-weight: 800;
-            font-size:34px;
-            text-align: center;
-            background-color: #f1f1f3;
-            margin-top:12%;
-            padding-top:3%;
-            float:left;
-        }
-
-        .event_popup_bot_right{
-            width:81%;
-            height:52%;
-            margin-top:12%;
-            float:left;
-        }
-
-        .event_popup_bot_right_icon{
-            width:10%;
-            height:38%;
-            float:left;
-            
-        }
-
-        .event_popup_bot_right_text{
-            width:82%;
-            height:38%;
-            font-weight: 400;
-            font-size:24px;
-            text-align: center;
-            float:left;
-        }
-
-
-        /* 이벤트 팝업 끝 */
-
-        /* 브랜드 정보 페이지 시작 */
-
-        .vertical_kiosk_brand{
-            margin:0px;
-            padding:0px;
-            width:100%;
-            height:100%;
-        }
-
-        .vertical_kiosk_brand img{
-            position: absolute;
-            width:100%;
-            height:100%;
-        }
-
-        .vertical_kiosk_brand_menu{
-            position:absolute;
-            width:40%;
-            height:10%;
-            top:50%;
-            left:30%;
-        }
-
-        .vertical_kiosk_brand_menu_btn{
-            margin-left:10%;
-            width:40%;
-            height:100%;
-            float:left;
-            background-color: #363636;
-        }
-
-        /* 브랜드 정보 페이지 끝 */
-
-        /* 브랜드 팝업 시작 */
-
-        .vertical_kiosk_brand_popup{
-            margin:0px;
-            padding:0px;
-            width:100% !important;
-            height:100% !important;
-            background-color: rgba( 158, 158, 158, 0.9 );
-            position: absolute;
-            display: block;
-            top:0;
-            left:0;
-            display:none;
-            z-index:10;
-        }
-
-        .brand_popup_close{
-            width:9%;
-            height:5%;
-            position: absolute;
-            z-index: 1;
-            top:64%;
-            left:76%;
-        }
-
-        .brand_popup{
-
-            width:50%;
-            height:50%;
-            position: absolute;
-            z-index: 1;
-            background-color: white;
-            top:20%;
-            left:25%;
-            border-radius: 10px;            
-        }
-
-        /* 브랜드 팝업 끝 */
-
-        /* 전층안내 팝업 시작 */
-
-        .vertical_kiosk_floor_popup{
-            margin:0px;
-            padding:0px;
-            width:100% !important;
-            height:100% !important;
-            background-color: rgba( 158, 158, 158, 0.9 );
-            position: absolute;
-            display: block;
-            top:0;
-            left:0;
-            display:none;
-            z-index:10;
-        }
-
-        .floor_popup_close{
-            width:9%;
-            height:5%;
-            position: absolute;
-            z-index: 1;
-            top:64%;
-            left:76%;
-        }
-
-        .floor_popup{
-
-            width:50%;
-            height:50%;
-            position: absolute;
-            z-index: 1;
-            background-color: white;
-            top:20%;
-            left:25%;
-            border-radius: 10px;            
-        }
-
-        .floor_popup img{
-
-            width:100% !important;
-            height:100% !important;
-                   
-        }
-
-        /* 전층안내 팝업 끝 */
-
-
-    }
-
-    /*
-    ##Device = Tablets, Ipads (portrait),
-    ##Screen = B/w 768px to 1024px
-    ##Device = 태블릿, 아이패드(세로),
-    ##Screen = 768px에서 1024px 사이
-    */
-
-    @media (min-width: 768px) and (max-width: 1024px) {
-
-    }
-
-    /*
-    ##Device = Tablets, Ipads (landscape)
-    ##Screen = B/w 768px to 1024px
-    ##Device = 태블릿, 아이패드(가로)
-    ##Screen = 768px에서 1024px 사이
-    */
-
-    @media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
-
-    }
-
-    /*
-    ##Device = Low Resolution Tablets, Mobiles (Landscape)
-    ##Screen = B/w 481px to 767px
-    ##Device = 저해상도 태블릿, 모바일(가로)
-    ##Screen = 481px에서 767px 사이
-    */
-
-    @media (min-width: 481px) and (max-width: 767px) {
-
-    }
-
-    /*
-    ##Device = Most of the Smartphones Mobiles (Portrait)
-    ##Screen = B/w 320px to 479px
-    ##Device = 대부분의 스마트폰 모바일 기기(세로)
-    ##Screen = 320px에서 479px 사이
-    */
-
-    @media (min-width: 320px) and (max-width: 480px) {
-       
-    }
-
-</style>
-
 <script>
     
     //CONFIG
     var gl_map_width = 1760;
     var gl_map_height = 1320;
-    var gl_map_scale = 0.25;
-    var gl_kiosk_floor = "B1F";
+    var gl_map_scale = 0.5;
+    var gl_kiosk_floor = "B1";
+    var gl_kiosk_pos = [505,829];
+
+    var gl_kiosk_touch_time = 15;
+    var gl_kiosk_touch_timer_id;
+
+    //파라미터 파싱
+    function getQuerystring(paramName){
+        try{
+            var _tempUrl = window.location.search.substring(1);
+            //url에서 처음부터 '?'까지 삭제 
+            var _tempArray = _tempUrl.split('&'); 
+            // '&'을 기준으로 분리하기 
+            for(var i = 0; _tempArray.length; i++) {
+                var _keyValuePair = _tempArray[i].split('='); // '=' 을 기준으로 분리하기 
+                if(_keyValuePair[0] == paramName){ // _keyValuePair[0] : 파라미터 명 
+                    // _keyValuePair[1] : 파라미터 값 
+                    return _keyValuePair[1]; 
+                } 
+            } 
+        }catch{
+            return "";
+        }
+    }
 
     var gl_arr_map_image = getMapList();
 
-
     function setFloorButtonColor(target_floor){
-
+        
         var floor_btn = $('.floor_btn');
 
         for (var index = 0; index < floor_btn.length; index++) {
@@ -1616,9 +1823,11 @@
             if(target_floor === floor){
                 $(element).css("background-color","#d90000");
                 $(element).css("color","white");
+                $(element).css("border", "#d90000 solid 3px"); 
             }else{
-                $(element).css("background-color","#bcbcbc");
+                $(element).css("background-color","white");
                 $(element).css("color","black");
+                $(element).css("border", "black solid 3px"); 
             }
         }
     }
@@ -1658,6 +1867,17 @@
         }
         
         var tmp_str = "";
+        var all_floor_str = "";
+        all_floor_str += "<div class=\"all_floor_btn\"";                
+        all_floor_str += ">";
+        all_floor_str += "전층 안내";
+        all_floor_str += "</div>";
+        all_floor_str += "<div class=\"search_information_button_bot\"></div>";
+        all_floor_str += "<div class=\"search_information_button_bot_text\">전체층 안내</div>";
+
+        tmp_str += all_floor_str;
+
+        var information_text = "";
         
         for (var index = 0; index < arr_map_image.length; index++) {
             var element = arr_map_image[index];
@@ -1665,6 +1885,13 @@
             var arr_split = element.split("\/");
             var str_split = arr_split[arr_split.length-1]
             arr_split = str_split.split("\.");
+
+            
+            if(kiosk_floor === arr_split[0]){
+
+                $('.search_information_current_floor').html(arr_split[0] + "");
+                $('.search_information_current_floor').append("<img class=\"search_information_current_floor_img\" src=\"http://192.168.0.113:8031/stadmin/lotte_test/image/main_ic_current.png\"><div>현재위치</div>");
+            }
             
             tmp_str += "<div class=\"floor_btn\"";
 
@@ -1678,10 +1905,21 @@
             tmp_str += "data-floor=\"" + arr_split[0] + "\"";
             tmp_str += ">";
             tmp_str += arr_split[0];
-            if(kiosk_floor === arr_split[0]){
-                tmp_str += "<img class=\"floor_current_text\" src=\"http://192.168.0.113:8031/stadmin/lotte_test/image/main_ic_location.png\"/>"
-            }
+            
+            
+            
             tmp_str += "</div>";
+            tmp_str += "<div class=\"search_information_button_bot\"></div>";
+
+            if(arr_split[0] === "B1"){
+                information_text = "식품 베이커리<br> 생활용품 홈퍼니싱";
+            }else if(arr_split[0] === "1F"){
+                information_text = "의류 패션잡화<br> 화장품";
+            }else if(arr_split[0] === "2F"){
+                information_text = "유아용의류 완구 문화센터 먹리단길";
+            }
+
+            tmp_str += "<div class=\"search_information_button_bot_text\">" + information_text + "</div>";
             
         }
 
@@ -1697,7 +1935,10 @@
                 $(map_img).attr("src",$(this).data("map_url"));
                 setHideAnotherFloorStore($(this).data("floor"));
                 setFloorButtonColor($(this).data("floor"));
+
                 $('.store_popup').css("display","none");
+
+                setInitMap();
 
             })
         }
@@ -1705,14 +1946,32 @@
         setFloorButtonColor(kiosk_floor);
     }
 
+    function setInitMap(){
+
+        $('#id_map_image').css("width",gl_map_width * gl_map_scale + "px");
+        $('#id_map_image').css("height",gl_map_height * gl_map_scale + "px");
+        $('#id_map_image').css("top","0px");
+        $('#id_map_image').css("left","0px");
+
+        $('.map_stores').css("top","0px");
+        $('.map_stores').css("left","0px");
+
+    }
+    
+
     //우측 네비게이션바 색깔변경 기능 설정
     function setRightNavColor(obj){
         
         var menu = $(obj).data("menu");
         var arr_right_nav_btn = $('.nav_right_btn');
 
-        for (var index = 0; index < arr_right_nav_btn.length; index++) {
-            var element = arr_right_nav_btn[index];
+        setChangeImageButtonColor(arr_right_nav_btn,menu);
+    }
+
+    function setChangeImageButtonColor(arr,menu){
+
+        for (var index = 0; index < arr.length; index++) {
+            var element = arr[index];
             var tmp_menu = $(element).data("menu");
             var tmp_src = $(element).attr("src");
             var arr_src = tmp_src.split("\/");
@@ -1727,6 +1986,25 @@
                 target_src = tmp_src.replace(target_src[0],remove_src + "");
                 $(element).attr("src",target_src);
             }
+        }
+    }
+
+    function setInitImageButtonColor(arr){
+        //초기화
+        for (var index = 0; index < arr.length; index++) {
+            
+            var element = arr[index];
+            var tmp_menu = $(element).data("menu");
+            var tmp_src = $(element).attr("src");
+            var arr_src = tmp_src.split("\/");
+            var target_src = arr_src[arr_src.length-1];
+            target_src = target_src.split("\.");
+            var remove_src = target_src[0].replace("_o","");
+            
+            $(element).data("menu","off");
+
+            target_src = tmp_src.replace(target_src[0],remove_src + "");
+            $(element).attr("src",target_src);
         }
     }
 
@@ -1814,7 +2092,7 @@
             var target_uri = getNextImageUri(direction,arr_image);
 
             var arr_target = target_uri.split("\/");
-            var file_name = arr_target[6];
+            var file_name = arr_target[arr_target.length-1];
             var target_ext = file_name.split("\.");
             var target_slide_time = 5;
 
@@ -1967,9 +2245,9 @@
         }
     }
 
-    //상점 지도에 그리는 기능 시작
-    function setStoreDrawingToMap(){
-        /*
+    function getStoreList(){
+
+         /*
         $.ajax({
             url : "frame_action_ajax.jsp",
             method : "GET",
@@ -1996,15 +2274,43 @@
         });
         */
 
-
         var arr_data = [
-                        {store_name:"상점1",store_id:"1",left:500,top:1000,font_size:"20",floor:"B1F"},
-                        {store_name:"상점2",store_id:"2",left:600,top:400,font_size:"20",floor:"B1F"},
-                        {store_name:"상점3",store_id:"3",left:700,top:900,font_size:"20",floor:"2F"},
-                        {store_name:"상점4",store_id:"4",left:1000,top:1200,font_size:"20",floor:"2F"},
-                        {store_name:"상점5",store_id:"5",left:300,top:690,font_size:"20",floor:"1F"}
+                        {store_name:"상점1",store_id:"1",left:924,top:517,font_size:"20",floor:"B1"},
+                        {store_name:"상점2",store_id:"2",left:684,top:745,font_size:"20",floor:"B1"},
+                        {store_name:"상점3",store_id:"3",left:1489,top:866,font_size:"20",floor:"B1"},
+                        {store_name:"상점4",store_id:"4",left:329,top:604,font_size:"20",floor:"B1"},
+                        {store_name:"상점5",store_id:"5",left:847,top:370,font_size:"20",floor:"B1"},
+                        {store_name:"상점6",store_id:"6",left:1413,top:619,font_size:"20",floor:"B1"},
+                        {store_name:"상점7",store_id:"7",left:1485,top:450,font_size:"20",floor:"B1"},
+                        {store_name:"상점8",store_id:"8",left:545,top:885,font_size:"20",floor:"B1"},
+                        {store_name:"상점9",store_id:"9",left:545,top:973,font_size:"20",floor:"B1"},
+                        {store_name:"상점10",store_id:"10",left:1047,top:709,font_size:"20",floor:"B1"},
+                        {store_name:"상점11",store_id:"11",left:1048,top:579,font_size:"20",floor:"B1"},
+                        {store_name:"상점12",store_id:"12",left:377,top:534,font_size:"20",floor:"B1"},
+                        {store_name:"상점13",store_id:"13",left:1065,top:677,font_size:"20",floor:"B1"},
+                        {store_name:"상점14",store_id:"14",left:923,top:939,font_size:"20",floor:"B1"},
+                        {store_name:"상점15",store_id:"15",left:923,top:921,font_size:"20",floor:"B1"},
+                        {store_name:"상점16",store_id:"16",left:429,top:293,font_size:"20",floor:"B1"},
+                        {store_name:"상점17",store_id:"17",left:247,top:432,font_size:"20",floor:"B1"},
+                        {store_name:"상점18",store_id:"18",left:1064,top:771,font_size:"20",floor:"B1"},
+                        {store_name:"상점19",store_id:"19",left:1064,top:771,font_size:"20",floor:"B1"},
+                        {store_name:"상점20",store_id:"20",left:788,top:213,font_size:"20",floor:"B1"},
+                        {store_name:"상점21",store_id:"21",left:1344,top:755,font_size:"20",floor:"B1"},
+                        {store_name:"상점22",store_id:"22",left:865,top:562,font_size:"20",floor:"B1"},
+                        {store_name:"상점23",store_id:"23",left:375,top:744,font_size:"20",floor:"B1"},
+                        {store_name:"상점24",store_id:"24",left:375,top:744,font_size:"20",floor:"B1"},
+                        {store_name:"상점25",store_id:"25",left:934,top:746,font_size:"20",floor:"B1"},
+                        {store_name:"상점26",store_id:"26",left:932,top:748,font_size:"20",floor:"B1"},
+                        {store_name:"상점27",store_id:"27",left:847,top:355,font_size:"20",floor:"B1"}
                         ];
 
+        return arr_data;
+    }
+
+    //상점 지도에 그리는 기능 시작
+    function setStoreDrawingToMap(){
+       
+        var arr_data = getStoreList();
 
         //현재 상점 지우기 
         var tmp_stores = $('.map_store');
@@ -2031,13 +2337,21 @@
             $('.map_stores').append(str_append);
 
             $('#id_store_' + index).css( 
-
+/*
                 {'font-size': parseInt(tmp_json.font_size),
                 top:parseInt(tmp_json.top),
                 left:parseInt(tmp_json.left)
+  */  
+                {'font-size': parseInt(tmp_json.font_size),
+                top:parseInt(Math.round(tmp_json.top * gl_map_scale)),
+                left:parseInt(Math.round(tmp_json.left * gl_map_scale))
 
             });
         }
+
+        $('#id_map_image').css("width",Math.round(gl_map_width * gl_map_scale));
+        $('#id_map_image').css("height",Math.round(gl_map_height * gl_map_scale));
+       
         //setStorePopup();
     };
     //상점 지도에 그리는 기능 끝
@@ -2055,8 +2369,8 @@
                 $('.store_popup').css( 
 
                     {display:"block",
-                    top:parseInt($(this).css("top").replace("px","")) - 80,
-                    left:parseInt($(this).css("left").replace("px","")) + 30
+                    top:parseInt($(element).css("top").replace("px","")),
+                    left:parseInt($(element).css("left").replace("px",""))
 
                 });
             });
@@ -2241,9 +2555,11 @@
             });
             */
 
+            var json_data = {store_id:"2",floor:"B1",map_url:"http://192.168.0.113:8031/stadmin/lotte_test/map/B1.png"};
+
             var store_id = 2;
-            var floor = "B1F";
-            var map_url = "http://192.168.0.113:8031/stadmin/lotte_test/map/B1F.png";
+            var floor = "B1";
+            var map_url = "http://192.168.0.113:8031/stadmin/lotte_test/map/B1.png";
 
             var map_store_obj = $('.map_store');
             var store_popup_obj = $('.store_popup');
@@ -2279,6 +2595,40 @@
     }
     //키보드 검색 기능 끝  
 
+    function setStorePopupPosition(top,left,sect){
+        
+        if(sect === "block"){
+            $('.store_popup').css( 
+                {display:"block",
+                top:parseInt(top),
+                left:parseInt(left)
+            });
+        }else{
+            $('.store_popup').css( 
+                {
+                top:parseInt(top),
+                left:parseInt(left)
+            });
+        }
+    }
+
+    function setKioskPopupPosition(top,left){
+        /*
+        $('.kiosk_popup').css( 
+            {display:"block",
+            top:parseInt(top),
+            left:parseInt(left)
+        });
+        */
+        /*
+        $('.kiosk_popup_text').css( 
+            {display:"block",
+            top:parseInt(top + 45),
+            left:parseInt(left - 20)
+        });
+        */
+    }
+
     //해당 상점으로 줌 이동 기능 시작
     function moveMapToStore(json_obj){
 
@@ -2297,13 +2647,7 @@
 
             if(store_id === $(element).data("store_id")){
 
-                $(store_popup_obj).css( 
-
-                    {display:"block",
-                    top:parseInt($(element).css("top").replace("px","")) - 80,
-                    left:parseInt($(element).css("left").replace("px","")) + 30
-
-                });
+                setStorePopupPosition(parseInt($(element).css("top").replace("px","")),parseInt($(element).css("left").replace("px","")),"block");
                 
                 var map_preview_div_width = parseInt($(map_stores_obj).css("width").replace("px",""));
                 var map_preview_div_height = parseInt($(map_stores_obj).css("height").replace("px",""));
@@ -2442,13 +2786,15 @@
         });
         */
 
-        arr_banner_image = ["http://192.168.0.113:8031/stadmin/lotte_test/image/test.mp4",
-                            "http://192.168.0.113:8031/stadmin/lotte_test/image/lotte.jpg",
-                            "http://192.168.0.113:8031/stadmin/lotte_test/image/lotte1.jpg",
-                            "http://192.168.0.113:8031/stadmin/lotte_test/image/minion.mp4",
-                            "http://192.168.0.113:8031/stadmin/lotte_test/image/lotte2.jpg",        
-                            "http://192.168.0.113:8031/stadmin/lotte_test/image/lotte3.jpg",
-                            "http://192.168.0.113:8031/stadmin/lotte_test/image/lotte4.jpg",
+        arr_banner_image = [
+                            "http://192.168.0.113:8031/stadmin/lotte_test/image/banner/banner1.mp4",
+                            "http://192.168.0.113:8031/stadmin/lotte_test/image/banner/banner2.mp4",
+                            "http://192.168.0.113:8031/stadmin/lotte_test/image/banner/banner3.jpg",
+                            "http://192.168.0.113:8031/stadmin/lotte_test/image/banner/banner4.jpg",
+                            "http://192.168.0.113:8031/stadmin/lotte_test/image/banner/1_같이가요(가로).jpg",
+                            "http://192.168.0.113:8031/stadmin/lotte_test/image/banner/2_같이가요(가로).jpg",
+                            "http://192.168.0.113:8031/stadmin/lotte_test/image/banner/3_같이가요(가로).jpg",
+                            "http://192.168.0.113:8031/stadmin/lotte_test/image/banner/M쿠폰.jpg"
                             ];
 
         return arr_banner_image;
@@ -2458,7 +2804,7 @@
     //배너 이미지 슬라이드 기능 설정
     function setBannerImageList(){
 
-        // 상단 이미지 슬라이드 기능 시작
+        // 상단 광고 이미지 슬라이드 기능 시작
         var image_obj = $("#id_banner_image");
         var button_obj = $(".banner_image_btn");
         var video_obj = document.getElementById('id_banner_video');
@@ -2477,6 +2823,78 @@
      
         setSlideImage(image_objs);
     
+    }
+
+
+    //ajax로 배너 이미지 데이터 받아오기
+    function getBrandImageList(){
+
+    var arr_banner_image = [];
+
+        /*
+        $.ajax({
+            url : "frame_action_ajax.jsp",
+            method : "GET",
+            dataType : "text",
+            data : {'mode':'DELETE_GROUP','intro_group_name':$va,'group_id':$g_id},
+            success : function(data){
+                if($.trim(data)!= '' && $.trim(data) != 'FAIL'){
+                    $group_id = $.trim(data);
+                    console.log($group_id);
+                    alert('Complete');
+                    $('#id_intro_change').modal('hide');
+                    $('.midDropper').each(function(){
+                        if($(this).attr('group_id') == $g_id){
+                            $(this).fadeOut();
+                            $(this).next().fadeOut();
+                            setKioskUpd($g_id,'');
+                        }
+                    });
+                }
+            },
+            error:function(e){
+                alert('Fail.');
+            }
+        });
+        */
+
+        arr_banner_image = [
+                            "http://192.168.0.113:8031/stadmin/lotte_test/image/banner/1_PB브랜드_룸바이홈(가로).jpg",
+                            "http://192.168.0.113:8031/stadmin/lotte_test/image/banner/2_PB브랜드_온리프라이스(가로).jpg",
+                            "http://192.168.0.113:8031/stadmin/lotte_test/image/banner/3_PB브랜드_초이스엘(가로).jpg",
+                            "http://192.168.0.113:8031/stadmin/lotte_test/image/banner/4_PB브랜드_산지뚝심_가자미(가로).jpg",
+                            "http://192.168.0.113:8031/stadmin/lotte_test/image/banner/5_PB브랜드_황금당도(가로).jpg",
+                            "http://192.168.0.113:8031/stadmin/lotte_test/image/banner/6_PB브랜드_요리하다(가로).jpg",
+                            "http://192.168.0.113:8031/stadmin/lotte_test/image/banner/7_PB브랜드_스위허그(가로).jpg",
+                            "http://192.168.0.113:8031/stadmin/lotte_test/image/banner/8_PB브랜드_해빗(가로).jpg"
+                            ];
+
+        return arr_banner_image;
+
+    }
+
+    //배너 이미지 슬라이드 기능 설정
+    function setBrandImageList(){
+
+        // 상단 브랜드 이미지 슬라이드 기능 시작
+        var image_obj = $("#id_brand_image");
+        var button_obj = $(".brand_image_btn");
+        var video_obj = document.getElementById('id_brand_video');
+        var slide_time = 5000;
+        var arr_image = getBrandImageList();
+
+        image_obj.attr("src",arr_image[0]);  
+
+        var image_objs = {
+                            image_obj:image_obj,
+                            button_obj:button_obj,
+                            video_obj:video_obj,
+                            arr_image:arr_image,
+                            slide_time:slide_time
+                        };
+
+        setSlideImage(image_objs);
+
     }
 
     //ajax로 스크린 이미지 데이터 받아오기
@@ -2575,7 +2993,7 @@
         */
 
         arr_map_image = [
-                        "http://192.168.0.113:8031/stadmin/lotte_test/map/B1F.png",
+                        "http://192.168.0.113:8031/stadmin/lotte_test/map/B1.png",
                         "http://192.168.0.113:8031/stadmin/lotte_test/map/1F.png",
                         "http://192.168.0.113:8031/stadmin/lotte_test/map/2F.png"];
 
@@ -2602,14 +3020,21 @@
         var map_div = pinch_objs.map_div;
 
         var target_scale = 1;
+        var first_width;
+        var first_height;
+
+        var stores_div = el.childNodes[1];
+        var img_div = el.childNodes[3];
+
 
         ham.get('pinch').set({ enable: true });
 
-        /*
-        ham.on( "pinch", function( e ) {
-
+        
+        ham.on( "pinchstart", function( e ) {
+            first_width = parseInt($(img_div).css("width").replace("px",""));
+            console.log(first_width);
         });
-        */
+        
 
         ham.on( "pinchin", function( e ) {
 
@@ -2619,7 +3044,7 @@
             target_scale = 1.01;
             var sect = "pinchin";
 
-            var ret_obj = setMapZoom(el,arr_stores,target_scale,width,height,gl_map_height,gl_map_width,sect,e);
+            //var ret_obj = setPinchMapZoom(el,arr_stores,target_scale,width,height,gl_map_height,gl_map_width,sect,e);
 
             width = ret_obj.width;
             height = ret_obj.height;
@@ -2636,7 +3061,7 @@
 
             target_scale = 0.99;
             var sect = "pinchout";
-            var ret_obj = setMapZoom(el,arr_stores,target_scale,width,height,gl_map_height,gl_map_width,sect,e);
+           // var ret_obj = setPinchMapZoom(el,arr_stores,target_scale,width,height,gl_map_height,gl_map_width,sect,e);
 
             width = ret_obj.width;
             height = ret_obj.height;
@@ -2650,7 +3075,7 @@
             
         });
 
-        function setMapZoom(el,arr_stores,scale,width,height,gl_map_height,gl_map_width,sect,event){
+        function setPinchMapZoom(el,arr_stores,scale,width,height,gl_map_height,gl_map_width,sect,event){
 
             var stores_div = el.childNodes[1];
             var img_div = el.childNodes[3];
@@ -2659,11 +3084,21 @@
             var total_height = height * scale;
             var ret_obj;
 
-            if(scale * width <= (gl_map_height + 1000) && scale * width >= (gl_map_height - 500)){
+            if(scale * width <= (gl_map_width + 300) && scale * width >= (gl_map_width - 300)){
 
                 img_div.style.width = (total_width) + 'px';
                 img_div.style.height = (total_height) + 'px';
-
+/*
+                $(img_div).css({
+                '-webkit-transform' : 'scale(' + event.scale + ')',
+                '-moz-transform'    : 'scale(' + event.scale + ')',
+                '-ms-transform'     : 'scale(' + event.scale + ')',
+                '-o-transform'      : 'scale(' + event.scale + ')',
+                'transform'         : 'scale(' + event.scale + ')',
+                '-webkit-transform-origin' : 'center center'
+                });
+*/
+            
                 //img_div.style.marginLeft = (img_div.style.left.replace("px","") - (event.center.x * scales)) + 'px';
                 //img_div.style.marginTop = (img_div.style.top.replace("px","") - (event.center.y * scales)) + 'px';
                 //img_div.style.marginLeft = 0 + 'px';
@@ -2691,7 +3126,7 @@
                         tmp_font_size = 40;
                     }
 
-                    $(element).css( 
+                    $(element).css(
 
                         {'font-size': tmp_font_size,
                         top:tmp_top,
@@ -2747,38 +3182,67 @@
                 var map_preview_div_height = parseInt($(map_div).css("height").replace("px",""));
 
                 var center = event.center;
+                //console.dir(event);
 
                 var map_left_value;
                 var map_top_value;
 
-                console.log(center);
-                console.dir(img_div.x);
-                console.dir(img_div.y);
+                //console.log(center.x);
+                //console.dir( center.x -(parseInt($(img_div).css("left").replace("px",""))));
+                //var test = -(center.x -(parseInt($(img_div).css("left").replace("px",""))));
+                //var test = (parseInt($(img_div).css("left").replace("px",""))) - (width - total_width);
+                //console.dir(-(center.x -(parseInt($(img_div).css("left").replace("px",""))) * scale));
+                //console.dir(img_div.y);
+                
+                var diff_width = total_width - width;
+                var diff_height = total_height - height; 
+                //console.log( -(parseInt($(img_div).css("left").replace("px","")) + diff_width));
                 
                 if(sect ==="pinchin"){
                     // -(left위치-(맵프리뷰 WIDTH / 2))
                     //map_left_value =  (parseInt($(img_div).css("left").replace("px",""))) - (center.x); //+ ((total_width - width) * scale);
                     // -(top위치-(맵프리뷰 HEIGHT / 2))
                     //map_top_value =  (parseInt($(img_div).css("top").replace("px",""))) - (center.y);// + ((total_height - height) * scale);
-                    map_left_value = -(center.x + img_div.x * scale) / total_width;
-                    map_top_value = (center.y + img_div.y * scale) / total_height;
+                    //map_left_value = -(center.x + img_div.x * scale) / total_width;
+                    //map_top_value = (center.y + img_div.y * scale) / total_height;
+                    map_left_value = parseInt($(img_div).css("left").replace("px","")) + (diff_width * 1);
+                    map_top_value = parseInt($(img_div).css("top").replace("px","")) + (diff_height * 1);
                 }else{
                     // -(left위치-(맵프리뷰 WIDTH / 2))
                     //map_left_value =  (parseInt($(img_div).css("left").replace("px",""))) + (center.x);// + ((total_width - width) * scale);
                     // -(top위치-(맵프리뷰 HEIGHT / 2))
                     //map_top_value =  (parseInt($(img_div).css("top").replace("px",""))) + (center.y);// + ((total_height - height) * scale);
-                    map_left_value = -(center.x + img_div.x * scale) / total_width;
-                    map_top_value = (center.y + img_div.y * scale) / total_height;
+                    //map_left_value = -(center.x + img_div.x * scale) / total_width;
+                    //map_top_value = (center.y + img_div.y * scale) / total_height;
+                    map_left_value = parseInt($(img_div).css("left").replace("px","")) + (diff_width * 1);
+                    map_top_value = parseInt($(img_div).css("top").replace("px","")) + (diff_height * 1);
                 }
-/*
+                //map_left_value = parseInt($(img_div).css("left").replace("px","")) + diff_width;
+                //map_top_value = (center.y * scale);
+                /*
+                console.log(parseInt($(img_div).css("left").replace("px","")))
+                console.log("1");
+                console.log(diff_width);
+                console.log("2");
                 console.log(map_left_value);
-                console.log(map_top_value);
-  */      
-                $(img_div).css(
+                console.log("3");
+                console.log($(img_div).css("left"));
+
+                //console.log(parseInt($(img_div).css("left").replace("px","")))
+                //console.log(map_top_value);
+
+                //img_div.style.left = map_left_value + "px";
+
+                $(img_div).css( 
+
                     {
-                    top:map_top_value + "px",
-                    left:map_left_value + "px"
+
+                    left:map_left_value + "px",
+                    top:map_top_value + "px"
+
                 });
+                console.log($(img_div).css("left"));
+                */
              
         
                 ret_obj = {
@@ -2803,6 +3267,192 @@
         }
 
     };
+
+    function setClickMapZoom(pinch_objs){
+
+        var el = pinch_objs.map_div;
+
+        var left = pinch_objs.left;
+        var top = pinch_objs.top;
+        var arr_stores = pinch_objs.arr_stores;
+        var store_popup_obj = pinch_objs.store_popup_obj;
+        var kiosk_popup_obj = pinch_objs.kiosk_popup_obj;
+        var map_div = pinch_objs.map_div;
+        var target_btn = $(pinch_objs.target_btn);
+        var sect = pinch_objs.sect;
+        var store_id = pinch_objs.store_id;
+        
+        
+        
+        var stores_div = el.childNodes[1];
+        var img_div = el.childNodes[3];
+        
+        $(target_btn).on('click',function(e){
+
+            if(sect ==="plus"){
+                scale = 1.1;
+            }else if(sect === "minus"){
+                scale = 0.9;
+            }
+            
+            var width = parseInt($(img_div).css("width").replace("px",""));
+            var height = parseInt($(img_div).css("height").replace("px",""));
+
+            if(width === 0){
+                width = pinch_objs.width;
+            }
+
+            if(height === 0){
+                height = pinch_objs.height;
+            }
+
+            if(scale * width <= (gl_map_width + 800) && scale * width >= (gl_map_width - 1000)){
+
+                $(img_div).css("width",Math.round((scale * width)) + 'px');
+                $(img_div).css("height",Math.round((scale * height)) + 'px');
+
+                //img_div.style.marginLeft = (img_div.style.left.replace("px","") - (event.center.x * scales)) + 'px';
+                //img_div.style.marginTop = (img_div.style.top.replace("px","") - (event.center.y * scales)) + 'px';
+                //img_div.style.marginLeft = 0 + 'px';
+                //img_div.style.marginTop  = 0 + 'px';
+                //console.log((img_div.style.left.replace("px","") - (total_width - width)));
+
+                for (var index = 0; index < arr_stores.length; index++) {
+                    var element = arr_stores[index];
+
+                    var tmp_top = Math.round(parseInt($(element).css('top').replace("px","")) * scale) + "px";
+                    var tmp_left =  Math.round(parseInt($(element).css('left').replace("px","")) * scale) + "px";
+                    var tmp_font_size;
+                    
+                    if($(element).data("store_id") === store_id){
+  
+                        setStorePopupPosition(tmp_top,tmp_left,"");
+          
+                        //$(element).css("border","solid 3px red");
+                        
+                    }
+                    
+
+                    if(sect ==="plus"){
+                        tmp_font_size = parseInt($(element).css('font-size')) + (scale + 1.5);
+                    }else{
+                        tmp_font_size = parseInt($(element).css('font-size')) - (scale + 1.5);
+                    }
+                
+                    if(tmp_font_size <= 14){
+                        tmp_font_size = 14;
+                    }
+
+                    if(tmp_font_size >= 40){
+                        tmp_font_size = 40;
+                    }
+
+                    $(element).css( 
+
+                        {'font-size': tmp_font_size,
+                        top:tmp_top,
+                        left:tmp_left
+
+                    });
+
+                }
+
+                var store_popup_top = Math.round(parseInt($(store_popup_obj).css('top').replace("px","")) * scale) + "px";
+                var store_popup_left =  Math.round(parseInt($(store_popup_obj).css('left').replace("px","")) * scale) + "px";
+                var store_pop_width = Math.round(parseInt($(store_popup_obj).css('width').replace("px","")) * scale) + "px";;
+                var store_pop_height = Math.round(parseInt($(store_popup_obj).css('height').replace("px","")) * scale) + "px";
+
+                if(sect ==="plus"){
+                    store_pop_width = parseInt($(store_popup_obj).css('width').replace("px","")) + (scale + 1);
+                    store_pop_height = parseInt($(store_popup_obj).css('height').replace("px","")) + (scale + 1);
+                }else{
+                    store_pop_width = parseInt($(store_popup_obj).css('width').replace("px","")) - (scale + 1);
+                    store_pop_height = parseInt($(store_popup_obj).css('height').replace("px","")) - (scale + 1);
+                }
+
+                if(store_pop_width <= 25){
+                    store_pop_width = 25;
+                }
+                if(store_pop_height <= 50){
+                    store_pop_height = 50;
+                }
+
+                if(store_pop_width >= 65){
+                    store_pop_width = 65;
+                }
+                if(store_pop_height >= 80){
+                    store_pop_height = 80;
+                }
+
+                store_pop_width += "px";
+                store_pop_height += "px";
+
+                /*
+                $(store_popup_obj).css( 
+
+                    {
+                    top:store_popup_top,
+                    left:store_popup_left
+
+                });
+
+                $(store_popup_obj).css("width",store_pop_width);
+                $(store_popup_obj).css("height",store_pop_height);
+                */
+
+                var kiosk_popup_top = Math.round(parseInt($(kiosk_popup_obj).css('top').replace("px","")) * scale) + "px";
+                var kiosk_popup_left =  Math.round(parseInt($(kiosk_popup_obj).css('left').replace("px","")) * scale) + "px";
+                var kiosk_pop_width = Math.round(parseInt($(kiosk_popup_obj).css('width').replace("px","")) * scale) + "px";;
+                var kiosk_pop_height = Math.round(parseInt($(kiosk_popup_obj).css('height').replace("px","")) * scale) + "px";
+
+                if(sect ==="plus"){
+                    kiosk_pop_width = parseInt($(kiosk_popup_obj).css('width').replace("px","")) + (scale + 1);
+                    kiosk_pop_height = parseInt($(kiosk_popup_obj).css('height').replace("px","")) + (scale + 1);
+                }else{
+                    kiosk_pop_width = parseInt($(kiosk_popup_obj).css('width').replace("px","")) - (scale + 1);
+                    kiosk_pop_height = parseInt($(kiosk_popup_obj).css('height').replace("px","")) - (scale + 1);
+                }
+
+                if(kiosk_pop_width <= 34){
+                    kiosk_pop_width = 34;
+                }
+                if(kiosk_pop_height <= 53){
+                    kiosk_pop_height = 53;
+                }
+
+                if(kiosk_pop_width >= 65){
+                    kiosk_pop_width = 65;
+                }
+                if(kiosk_pop_height >= 80){
+                    kiosk_pop_height = 80;
+                }
+
+                kiosk_pop_width += "px";
+                kiosk_pop_height += "px";
+
+                $(kiosk_popup_obj).css( 
+
+                    {
+                    top:kiosk_popup_top,
+                    left:kiosk_popup_left
+
+                });
+
+                $(kiosk_popup_obj).css("width",kiosk_pop_width);
+                $(kiosk_popup_obj).css("height",kiosk_pop_height);
+
+
+                var map_preview_div_width = parseInt($(map_div).css("width").replace("px",""));
+                var map_preview_div_height = parseInt($(map_div).css("height").replace("px",""));
+
+                var center = event.center;
+
+                var map_left_value;
+                var map_top_value;        
+
+            }
+        })        
+    }
     //맵 줌 기능 설정 끝
 
     //네비게이션 페이지 이동 기능 시작
@@ -2815,32 +3465,52 @@
             $(element).on("click",function(e){
                 
                 var menu = $(this).data("menu");
-
                 if(menu === "main"){
-                    setHideNotUsePage('vertical_kiosk_main');
-                    $('.main_bot_brand').css("display","none");
-                    $('.main_bot_div').css("display","block");
-                    setRightNavColor($(this));
-                }else if(menu === "event"){
-                    setHideNotUsePage('vertical_kiosk_event');
-                    setRightNavColor($(this));
-                }else if(menu === "brand"){
-                    setHideNotUsePage('vertical_kiosk_main');
-                    $('.main_bot_brand').css("display","block");
-                    $('.main_bot_div').css("display","none");
-                    setRightNavColor($(this));
-                }else if(menu === "coupon"){
-                    setHideNotUsePage('vertical_kiosk_coupon');
-                    setRightNavColor($(this));
-                }else if(menu === "screen"){
-                    setHideNotUsePage('vertical_kiosk_screen');
-                }else if(menu === "navigation"){
-                    setHideNotUsePage('vertical_kiosk_navigation');
+                    document.location.href = "vertical_kiosk_main.html?page=main";
+                    return;
                 }
+
+                setPageMenu(menu);
 
             });            
         }
 
+    }
+
+    function setPageMenu(menu){
+
+        if(menu === "main"){
+            setHideNotUsePage('vertical_kiosk_main');
+            $('.main_bot_brand').css("display","none");
+            $('.main_bot_div').css("display","block");
+            setRightNavColor($('#id_nav_right_btn_main'));
+            $('.main_bg').css("display","none");
+            $('.banner_image').css("display","");
+            $('.brand_image').css("display","none");
+        }else if(menu === "event"){
+            setHideNotUsePage('vertical_kiosk_event');
+            setRightNavColor($('#id_nav_right_btn_event'));
+            $('.store_popup').css("display","none");
+        }else if(menu === "brand"){
+            setHideNotUsePage('vertical_kiosk_main');
+            $('.main_bot_brand').css("display","block");
+            $('.main_bot_div').css("display","none");
+            setRightNavColor($('#id_nav_right_btn_brand'));
+            $('.store_popup').css("display","none");
+            $('.brand_image').css("display","");
+            $('.banner_image').css("display","none");
+        }else if(menu === "coupon"){
+            setHideNotUsePage('vertical_kiosk_coupon');
+            setRightNavColor($('#id_nav_right_btn_coupon'));
+            $('.store_popup').css("display","none");
+        }else if(menu === "screen"){
+            setHideNotUsePage('vertical_kiosk_screen');
+            document.location.href = "vertical_kiosk_screen.html";
+            $('.store_popup').css("display","none");
+        }else if(menu === "navigation"){
+            setHideNotUsePage('vertical_kiosk_navigation');
+            $('.store_popup').css("display","none");
+        }
     }
     //네비게이션 페이지 이동 기능 끝
 
@@ -2855,72 +3525,82 @@
             var element = arr_event_button[index];
             
             $(element).on('click',function(e){       
+
                 var data = $(this).parent().parent().data();
+
+                setInitImageButtonColor(arr_event_button);
+
+                //var tmp_information = data.text_information;
+                var tmp_information = "";
+
+                tmp_information += "기간 : ";
+                //tmp_information += data.start_date;
+                //tmp_information += " ~ ";
+                tmp_information += data.end_date;
+                tmp_information += "<br>";
+                tmp_information += data.text_information;
                 
-                $('.event_popup_top_text').text(data.event_name);
                 $('.event_popup_top_image').attr("src",data.img_url);
-                $('.event_popup_middle_top').text(data.position_name);
-                $('#id_information_data_normal_price').text(data.normal_price);
-                $('#id_information_data_special_price').text(data.special_price);
-                $('#id_information_data_start_date').text(data.start_date);
-                $('#id_information_data_end_date').text(data.end_date);
-                $('.event_popup_bot_left').text(data.floor);
-                $('.event_popup_bot_right').data("top",data.top);
-                $('.event_popup_bot_right').data("left",data.left);
+                $('.event_popup_middle_title').html(data.event_name);
+                $('.event_popup_middle_price_normal_number').text(data.normal_price);
+                $('.event_popup_middle_price_special_number').text(data.event_price);
+                $('.event_popup_middle_information_text').html(tmp_information);
                 $('.event_popup_bot').data("store_id",data.store_id);
                 $('.event_popup_bot').data("floor",data.floor);
                 $('.event_popup_bot').data("map_url",data.map_url);
 
+                $('.event_popup_middle_price_normal_number').css("display","none");
+                $('.event_popup_middle_price_normal_text').css("display","none");
+
                 $('.vertical_kiosk_event_popup').css( 
                     {display:"block"
                 });
+
+                $(this).data("menu","on");
+                setChangeImageButtonColor(arr_event_button,"on");
+                //setInitImageButtonColor(arr_event_button);
 
             });
         }
     }
 
     //이벤트 상점 위치 찾기 설정
-    function setEventPopMoveToStore(){
-        $('.event_popup_bot').on('click',function(e){
 
-            //메인 화면 돌아가기
-            setHideNotUsePage('vertical_kiosk_main');
+    function setEventPopMoveToStore(store_id,floor,map_url){
 
-            var store_id = $(this).data("store_id");
-            var floor = $(this).data("floor");
-            var map_url = $(this).data("map_url");
+        //메인 화면 돌아가기
+        setHideNotUsePage('vertical_kiosk_main');
 
-            var map_store_obj = $('.map_store');
-            var store_popup_obj = $('.store_popup');
-            var map_stores_obj = $('.map_stores');
-            var map_image_obj = $('#id_map_image');
+        var map_store_obj = $('.map_store');
+        var store_popup_obj = $('.store_popup');
+        var map_stores_obj = $('.map_stores');
+        var map_image_obj = $('#id_map_image');
 
 
-            var movemap_objs = {
-                                map_store_obj:map_store_obj,
-                                store_popup_obj:store_popup_obj,
-                                map_stores_obj:map_stores_obj,
-                                map_image_obj:map_image_obj,
-                                store_id:store_id,
-                                floor:floor,
-                                map_url:map_url
-                                }
+        var movemap_objs = {
+                            map_store_obj:map_store_obj,
+                            store_popup_obj:store_popup_obj,
+                            map_stores_obj:map_stores_obj,
+                            map_image_obj:map_image_obj,
+                            store_id:store_id,
+                            floor:floor,
+                            map_url:map_url
+                            }
 
-            $('.vertical_kiosk_event_popup').css( 
-                {display:"none"
-            });
+        $('.vertical_kiosk_event_popup').css( 
+            {display:"none"
+        });
 
-            $('.main_bot_brand').css("display","none");
-            $('.main_bot_div').css("display","block");
+        $('.main_bot_brand').css("display","none");
+        $('.main_bot_div').css("display","block");
 
-            moveMapToStore(movemap_objs);
+        moveMapToStore(movemap_objs);
 
-            //네비게이션 메인으로 이동
-            var main_icon = $('#id_nav_right_btn_main');
-            setHideNotUsePage('vertical_kiosk_main');
-            setRightNavColor($(main_icon));
+        //네비게이션 메인으로 이동
+        var main_icon = $('#id_nav_right_btn_main');
+        setHideNotUsePage('vertical_kiosk_main');
+        setRightNavColor($(main_icon));
 
-        })
     }
     
 
@@ -2954,18 +3634,17 @@
         */
 
         var arr_data = [
-                        {event_name:"Only Price 미네랄 워터",event_id:"1",floor:"B1F",event_price:"25,000",img_url:"http://192.168.0.113:8031/stadmin/lotte_test/image/product/detail_01.jpg",position_name:"19번스낵류,음료수 매대",normal_price:"1,153.300원",special_price:"1,152.200",start_date:"2019.06.19",end_date:"2019.06.26",store_id:"1",map_url:"http://192.168.0.113:8031/stadmin/lotte_test/map/B1F.png"},
-                        {event_name:"트레비 (라임)",event_id:"2",floor:"B1F",event_price:"8,800",img_url:"http://192.168.0.113:8031/stadmin/lotte_test/image/product/detail_02.jpg",position_name:"19번스낵류,음료수 매대",normal_price:"1,153.300원",special_price:"1,152.200",start_date:"2019.06.19",end_date:"2019.06.26",store_id:"2",map_url:"http://192.168.0.113:8031/stadmin/lotte_test/map/B1F.png"},
-                        {event_name:"농심 신라면 큰사발",event_id:"3",floor:"2F",event_price:"950",img_url:"http://192.168.0.113:8031/stadmin/lotte_test/image/product/detail_03.jpg",position_name:"19번스낵류,음료수 매대",normal_price:"1,153.300원",special_price:"1,152.200",start_date:"2019.06.19",end_date:"2019.06.26",store_id:"3",map_url:"http://192.168.0.113:8031/stadmin/lotte_test/map/2F.png"},
-                        {event_name:"프리미엄 스위티오 바나나",event_id:"4",floor:"2F",event_price:"3,900",img_url:"http://192.168.0.113:8031/stadmin/lotte_test/image/product/detail_04.jpg",position_name:"19번스낵류,음료수 매대",normal_price:"1,153.300원",special_price:"1,152.200",start_date:"2019.06.19",end_date:"2019.06.26",store_id:"4",map_url:"http://192.168.0.113:8031/stadmin/lotte_test/map/2F.png"},
-                        {event_name:"서울 흰우유",event_id:"5",floor:"B1F",event_price:"5,950",img_url:"http://192.168.0.113:8031/stadmin/lotte_test/image/product/detail_05.jpg",position_name:"19번스낵류,음료수 매대",normal_price:"1,153.300원",special_price:"1,152.200",start_date:"2019.06.19",end_date:"2019.06.26",store_id:"1",map_url:"http://192.168.0.113:8031/stadmin/lotte_test/map/B1F.png"},
-                        {event_name:"맥심 모카믹스 카카오 기획",event_id:"6",floor:"B1F",event_price:"22,970",img_url:"http://192.168.0.113:8031/stadmin/lotte_test/image/product/detail_06.jpg",position_name:"19번스낵류,음료수 매대",normal_price:"1,153.300원",special_price:"1,152.200",start_date:"2019.06.19",end_date:"2019.06.26",store_id:"2",map_url:"http://192.168.0.113:8031/stadmin/lotte_test/map/B1F.png"},
-                        {event_name:"인기 수입맥주35종 맥주8캔 골라담기",event_id:"7",floor:"2F",event_price:"25,000",img_url:"http://192.168.0.113:8031/stadmin/lotte_test/image/product/detail_07.jpg",position_name:"19번스낵류,음료수 매대",normal_price:"1,153.300원",special_price:"1,152.200",start_date:"2019.06.19",end_date:"2019.06.26",store_id:"3",map_url:"http://192.168.0.113:8031/stadmin/lotte_test/map/2F.png"},
-                        {event_name:"오뚜기 스낵면",event_id:"8",floor:"2F",event_price:"2,000",img_url:"http://192.168.0.113:8031/stadmin/lotte_test/image/product/detail_08.jpg",position_name:"19번스낵류,음료수 매대",normal_price:"1,153.300원",special_price:"1,152.200",start_date:"2019.06.19",end_date:"2019.06.26",store_id:"4",map_url:"http://192.168.0.113:8031/stadmin/lotte_test/map/2F.png"}
+                        {event_name:"국내산 돼지고기 삼겹살<br>(100g/냉장/국내산)",event_id:"1",event_price:"1,480",img_url:"http://192.168.0.113:8031/stadmin/lotte_test/image/product/detail_01.jpg",normal_price:"1,153.300원",special_price:"1,152.200",start_date:"2019.06.19",end_date:"2019.9.4(수)까지",store_id:"6",floor:"B1",map_url:"http://192.168.0.113:8031/stadmin/lotte_test/map/B1.png",text_information:"※조기 품절될 수 있습니다."},
+                        {event_name:"행복생생란<br>(30入/대란/국산)",event_id:"2",event_price:"2,980",img_url:"http://192.168.0.113:8031/stadmin/lotte_test/image/product/detail_02.jpg",normal_price:"1,153.300원",special_price:"1,152.200",start_date:"2019.06.19",end_date:"2019.9.4(수)까지",store_id:"3",floor:"B1",map_url:"http://192.168.0.113:8031/stadmin/lotte_test/map/B1.png",text_information:""},
+                        {event_name:"생물오징어<br>(1마리/냉장/국산)",event_id:"3",event_price:"2,500",img_url:"http://192.168.0.113:8031/stadmin/lotte_test/image/product/detail_03.jpg",normal_price:"1,153.300원",special_price:"1,152.200",start_date:"2019.06.19",end_date:"2019.9.4(수)까지",store_id:"7",floor:"B1",map_url:"http://192.168.0.113:8031/stadmin/lotte_test/map/B1.png",text_information:"※생물상품의 경우 상황에 따라 미입고 될수도 있습니다."},
+                        {event_name:"오뚜기 브리또 1+1 <br>(각 375g)<br>(페페로니 니트리플 <br>치즈/베이컨 마카로니)",event_id:"4",event_price:"7,980",img_url:"http://192.168.0.113:8031/stadmin/lotte_test/image/product/detail_04.jpg",normal_price:"1,153.300원",special_price:"1,152.200",start_date:"2019.06.19",end_date:"2019.9.4(수)까지",store_id:"1",floor:"B1",map_url:"http://192.168.0.113:8031/stadmin/lotte_test/map/B1.png",text_information:""},
+                        {event_name:"해표 식용유 1+1 (1.5L)",event_id:"5",event_price:"5,950",img_url:"http://192.168.0.113:8031/stadmin/lotte_test/image/product/detail_05.jpg",normal_price:"1,153.300원",special_price:"1,152.200",start_date:"2019.06.19",end_date:"2019.9.4(수)까지",store_id:"2",floor:"B1",map_url:"http://192.168.0.113:8031/stadmin/lotte_test/map/B1.png",text_information:""},
+                        {event_name:"제주 삼다수(2L)<br>1병/6병이상/12병이상",event_id:"6",event_price:"980/930/880",img_url:"http://192.168.0.113:8031/stadmin/lotte_test/image/product/detail_06.jpg",normal_price:"1,153.300원",special_price:"1,152.200",start_date:"2019.06.19",end_date:"2019.9.4(수)까지",store_id:"5",floor:"B1",map_url:"http://192.168.0.113:8031/stadmin/lotte_test/map/B1.png",text_information:""},
+                        {event_name:"나무야나무야 내추럴 <br>3겹 화장지<br>(35m x 30롤)",event_id:"7",event_price:"9,900",img_url:"http://192.168.0.113:8031/stadmin/lotte_test/image/product/detail_07.jpg",normal_price:"1,153.300원",special_price:"1,152.200",start_date:"2019.06.19",end_date:"2019.9.4(수)까지",store_id:"9",floor:"B1",map_url:"http://192.168.0.113:8031/stadmin/lotte_test/map/B1.png",text_information:""},
+                        {event_name:"퍼실 파워젤<br>(2.7L+2.2L, 일반/드럼)",event_id:"8",event_price:"18,900",img_url:"http://192.168.0.113:8031/stadmin/lotte_test/image/product/detail_08.jpg",normal_price:"1,153.300원",special_price:"1,152.200",start_date:"2019.06.19",end_date:"2019.9.4(수)까지",store_id:"8",floor:"B1",map_url:"http://192.168.0.113:8031/stadmin/lotte_test/map/B1.png",text_information:""}
                         ];
 
         return arr_data;
-
 
     }
 
@@ -2991,15 +3670,15 @@
             var str_append = "<div class=\"middle_event_product\" id=\"id_event_" + index + "\"";
                 str_append += "data-event_name=\"" + tmp_json.event_name + "\"";
                 str_append += "data-event_id=\"" + tmp_json.event_id + "\"";
-                str_append += "data-floor=\"" + tmp_json.floor + "\"";
-                str_append += "data-position_name=\"" + tmp_json.position_name + "\"";
                 str_append += "data-event_price=\"" + tmp_json.event_price + "\"";
                 str_append += "data-normal_price=\"" + tmp_json.normal_price + "\"";
                 str_append += "data-special_price=\"" + tmp_json.special_price + "\"";
-                str_append += "data-start_date=\"" + tmp_json.start_date + "\"";
                 str_append += "data-img_url=\"" + tmp_json.img_url + "\"";
                 str_append += "data-map_url=\"" + tmp_json.map_url + "\"";
                 str_append += "data-store_id=\"" + tmp_json.store_id + "\"";
+                str_append += "data-floor=\"" + tmp_json.floor + "\"";
+                str_append += "data-text_information=\"" + tmp_json.text_information + "\"";
+                str_append += "data-start_date=\"" + tmp_json.start_date + "\"";
                 str_append += "data-end_date=\"" + tmp_json.end_date + "\">";
 
                 str_append += "  <img class=\"middle_event_product_left\" src=\"http://192.168.0.113:8031/stadmin/lotte_test/image/product/detail_0" + (index + 1) + ".jpg\"/>";
@@ -3011,10 +3690,7 @@
                 str_append += "      <div class=\"middle_event_product_right_middle_number\">" + tmp_json.event_price + "</div>";
                 str_append += "      <div class=\"middle_event_product_right_middle_text\">원</div>";
                 str_append += "    </div>";
-                str_append += "    <div class=\"middle_event_product_right_bot\">";
-                str_append += "      <img class=\"middle_event_product_right_bot_icon\" src=\"http://192.168.0.113:8031/stadmin/lotte_test/image/main_ic_01.png\"/>";
-                str_append += "      <div class=\"middle_event_product_right_bot_text\">상품 위치안내</div>";
-                str_append += "    </div>";
+                str_append += "    <img class=\"middle_event_product_right_bot\" src=\"http://192.168.0.113:8031/stadmin/lotte_test/image/product_bt_wayfinding.png\"/>";
                 str_append += "  <div>";
 
                 str_append += "</div>";
@@ -3025,6 +3701,8 @@
 
     $('.event_popup_close').on('click',function(e){
         $('.vertical_kiosk_event_popup').css("display","none");
+        var arr_event_button = $('.middle_event_product_right_bot');
+        setInitImageButtonColor(arr_event_button);
     })
     //이벤트 페이지 끝
 
@@ -3059,14 +3737,14 @@
         */
 
         var arr_data = [
-                        {brand_name:"Only Price 미네랄 워터",brand_id:"1",floor:"B1F",event_price:"25,000",img_url:"http://192.168.0.113:8031/stadmin/lotte_test/image/product/detail_01.jpg",store_id:"1",main_img:"http://192.168.0.113:8031/stadmin/lotte_test/image/product/detail_01.jpg",map_url:"http://192.168.0.113:8031/stadmin/lotte_test/map/B1F.png"},
-                        {brand_name:"트레비 (라임)",brand_id:"2",floor:"B1F",event_price:"8,800",img_url:"http://192.168.0.113:8031/stadmin/lotte_test/image/product/detail_02.jpg",store_id:"2",main_img:"http://192.168.0.113:8031/stadmin/lotte_test/image/product/detail_02.jpg",map_url:"http://192.168.0.113:8031/stadmin/lotte_test/map/B1F.png"},
-                        {brand_name:"농심 신라면 큰사발",brand_id:"3",floor:"2F",event_price:"950",img_url:"http://192.168.0.113:8031/stadmin/lotte_test/image/product/detail_03.jpg",store_id:"3",main_img:"http://192.168.0.113:8031/stadmin/lotte_test/image/product/detail_03.jpg",map_url:"http://192.168.0.113:8031/stadmin/lotte_test/map/2F.png"},
-                        {brand_name:"프리미엄 스위티오 바나나",brand_id:"4",floor:"2F",event_price:"3,900",img_url:"http://192.168.0.113:8031/stadmin/lotte_test/image/product/detail_04.jpg",store_id:"4",main_img:"http://192.168.0.113:8031/stadmin/lotte_test/image/product/detail_04.jpg",map_url:"http://192.168.0.113:8031/stadmin/lotte_test/map/2F.png"},
-                        {brand_name:"서울 흰우유",brand_id:"5",floor:"B1F",event_price:"5,950",img_url:"http://192.168.0.113:8031/stadmin/lotte_test/image/product/detail_05.jpg",store_id:"1",main_img:"http://192.168.0.113:8031/stadmin/lotte_test/image/product/detail_05.jpg",map_url:"http://192.168.0.113:8031/stadmin/lotte_test/map/B1F.png"},
-                        {brand_name:"맥심 모카믹스 카카오 기획",brand_id:"6",floor:"B1F",event_price:"22,970",img_url:"http://192.168.0.113:8031/stadmin/lotte_test/image/product/detail_06.jpg",store_id:"2",main_img:"http://192.168.0.113:8031/stadmin/lotte_test/image/product/detail_06.jpg",map_url:"http://192.168.0.113:8031/stadmin/lotte_test/map/B1F.png"},
-                        {brand_name:"인기 수입맥주35종 맥주8캔 골라담기",brand_id:"7",floor:"2F",event_price:"25,000",img_url:"http://192.168.0.113:8031/stadmin/lotte_test/image/product/detail_07.jpg",store_id:"3",main_img:"http://192.168.0.113:8031/stadmin/lotte_test/image/product/detail_07.jpg",map_url:"http://192.168.0.113:8031/stadmin/lotte_test/map/2F.png"},
-                        {brand_name:"오뚜기 스낵면",brand_id:"8",floor:"2F",event_price:"2,000",img_url:"http://192.168.0.113:8031/stadmin/lotte_test/image/product/detail_08.jpg",store_id:"4",main_img:"http://192.168.0.113:8031/stadmin/lotte_test/image/product/detail_08.jpg",map_url:"http://192.168.0.113:8031/stadmin/lotte_test/map/2F.png"}
+                        {brand_id:1,img_url:"http://192.168.0.113:8031/stadmin/lotte_test/image/brand/brand_bt_thum_01.png"},
+                        {brand_id:2,img_url:"http://192.168.0.113:8031/stadmin/lotte_test/image/brand/brand_bt_thum_02.png"},
+                        {brand_id:3,img_url:"http://192.168.0.113:8031/stadmin/lotte_test/image/brand/brand_bt_thum_03.png"},
+                        {brand_id:4,img_url:"http://192.168.0.113:8031/stadmin/lotte_test/image/brand/brand_bt_thum_04.png"},
+                        {brand_id:5,img_url:"http://192.168.0.113:8031/stadmin/lotte_test/image/brand/brand_bt_thum_05.png"},
+                        {brand_id:6,img_url:"http://192.168.0.113:8031/stadmin/lotte_test/image/brand/brand_bt_thum_06.png"},
+                        {brand_id:7,img_url:"http://192.168.0.113:8031/stadmin/lotte_test/image/brand/brand_bt_thum_07.png"},
+                        {brand_id:8,img_url:"http://192.168.0.113:8031/stadmin/lotte_test/image/brand/brand_bt_thum_08.png"}
                         ];
 
         return arr_data;
@@ -3094,8 +3772,7 @@
             var tmp_json = arr_data[index];
             
             var str_append = "<img class=\"main_bot_brand_list_brand\" id=\"id_brand_" + index + "\"";
-                str_append += "data-brand_name=\"" + tmp_json.brand_name + "\"";
-                str_append += "data-main_img=\"" + tmp_json.main_img + "\"";
+                str_append += "data-brand_id=\"" + tmp_json.brand_id + "\"";
                 str_append += "src=\"" + tmp_json.img_url + "\" />";
                 
             
@@ -3106,10 +3783,15 @@
 
     function setMoveBrandInfoPage(){
         $('.main_bot_brand_list_brand').on('click',function(e){
-            var img_url = $(this).data("main_img");
+            //var arr_img_url = $(this).data("main_img").split("\,");
+            var brand_id = $(this).data("brand_id");
 
-            $('.vertical_kiosk_brand_img').attr("src",img_url);
+            //console.log(arr_img_url);
+            //setBrandImageList(arr_img_url);
+
+            //$('.vertical_kiosk_brand_img').attr("src",img_url);
             setHideNotUsePage('vertical_kiosk_brand');
+            document.location.href = "vertical_kiosk_brand.html?brand_id=" + brand_id + "";
 
         })
     };
@@ -3143,6 +3825,30 @@
     $('.brand_popup_close').on('click',function(e){
         $('.vertical_kiosk_brand_popup').css("display","none");
     })
+
+    //브랜드 이미지 슬라이드 기능 설정
+    function setBrandImageList(arr_image){
+
+        // 브랜드 이미지 슬라이드 기능 시작
+        var image_obj = $("#id_brand_image");
+        var button_obj = $(".brand_image_btn");
+        var video_obj = document.getElementById('id_brand_video');
+        var slide_time = 5000;
+        var arr_image = getBrandImageList();
+
+        image_obj.attr("src",arr_image[0]);  
+
+        var image_objs = {
+                            image_obj:image_obj,
+                            button_obj:button_obj,
+                            video_obj:video_obj,
+                            arr_image:arr_image,
+                            slide_time:slide_time
+                        };
+
+        setSlideImage(image_objs);
+
+    }
     
     //브랜드 페이지 끝
     
@@ -3157,8 +3863,11 @@
         var map_img = $('#id_map_image');
         setFloorButton(gl_arr_map_image,map_img,gl_kiosk_floor);
 
-        //데이터 받아 온 후 슬라이드 이미지 기능 시작
+        //데이터 받아 온 후 메인 슬라이드 이미지 기능 시작
         setBannerImageList();
+
+        //데이터 받아 온 후 브랜드 슬라이드 이미지 기능 시작
+        setBrandImageList();
 
         //지도 드래그 기능 설정 시작
         var map_image_obj = $('#id_map_image');
@@ -3175,9 +3884,11 @@
 
         setMapDrag(image_objs);
         
-        
+        //키오스크 현재 위치 설정
+        setKioskPopupPosition(gl_kiosk_pos[1] - 35,gl_kiosk_pos[0] - 20);
         //상점 지도에 그리는 기능 시작
         setStoreDrawingToMap();
+        
 
         //지도에 그린 상점 중 해당 층이 아닌 상점 숨기기
         setHideAnotherFloorStore(gl_kiosk_floor);
@@ -3226,14 +3937,78 @@
 
         setPinch(pinch_objs);        
 
+        //맵 줌 기능 설정
+        map_div = document.querySelector(".map");
+        arr_stores = document.querySelectorAll('.map_store');
+        store_popup_obj = $('.store_popup');
+        var target_btn = $('.map_zoom_plus');
+        var store_id = parseInt(getQuerystring('store_id'));
+        var kiosk_popup_obj = $('.kiosk_popup');
+        
+        var click_objs = {
+            map_div:map_div,
+            width:gl_map_width,
+            height:gl_map_height,
+            left:0,
+                        top:0,
+                        arr_stores:arr_stores,
+                        store_popup_obj:store_popup_obj,
+                        kiosk_popup_obj:kiosk_popup_obj,
+                        target_btn:target_btn,
+                        sect:"plus",
+                        store_id:store_id
+                    };
+                    
+        setClickMapZoom(click_objs);     
+        
+        target_btn = $('.map_zoom_minus');
+
+        click_objs = {
+                        map_div:map_div,
+                        width:gl_map_width,
+                        height:gl_map_height,
+                        left:0,
+                        top:0,
+                        arr_stores:arr_stores,
+                        store_popup_obj:store_popup_obj,
+                        kiosk_popup_obj:kiosk_popup_obj,
+                        target_btn:target_btn,
+                        sect:"minus",
+                        store_id:store_id
+                        };                        
+
+        setClickMapZoom(click_objs);     
+        
+        //줌 버튼 터치시 색상 변경 설정
+        var arr_zoom_btn = $('.map_zoom_btn');
+        setChangeImageButtonColor(arr_zoom_btn,"on");
+
+        var gl_btn_timer;
+
+        
+        $('.map_zoom_btn').on('touchstart',function(e){
+
+            $(this).data("menu","on");
+            setChangeImageButtonColor(arr_zoom_btn,"on")
+
+        });
+
+        $('.map_zoom_btn').on('touchend',function(e){
+
+            setInitImageButtonColor(arr_zoom_btn);
+
+        })
+
         //브랜드 팝업 페이지 설정
-        var arr_floor_button = $(".search_information_all_floor");
+        var arr_floor_button = $(".all_floor_btn");
     
         var json_objs = {
                         arr_floor_button:arr_floor_button
                         };
 
         setAllFloorPopup(json_objs);   
+
+        
 
     }
 
@@ -3287,8 +4062,16 @@
         setPopupEvent(json_objs);       
         
         //이벤트 상품 길찾기 설정
-        setEventPopMoveToStore()
+        $('.event_popup_bot').on('click',function(e){
+            var store_id = $(this).data("store_id");
+            var floor = $(this).data("floor");
+            var map_url = $(this).data("map_url");
+            console.log($(this).data());
 
+            reloadMainPage(store_id);
+            //setEventPopMoveToStore(store_id,floor,map_url);
+
+        })
     }
 
     function setInit(){
@@ -3307,13 +4090,136 @@
         setInitEvent();
         setInitBrand();
         //setInitCoupon();
-
-        setHideNotUsePage('vertical_kiosk_navigation');
+        
+        //파라미터로 받은 페이지 설정 값으로 첫 페이지 설정
+        setFirstPage();
 
     }
     setInit();
 
     /* 페이지 별 초기화 끝 */
 
+    function setFirstPage(){
+
+        //파라미터 받으면 해당 페이지를 첫페이지로 사용
+        var first_page = getQuerystring('page');
+        var store_id = parseInt(getQuerystring('store_id'));
+        
+        //상점 아이디가 있다면 상점 검색 후 지도 이동
+        if(store_id !== ""){
+            
+            var tmp_json = getSearchStoreInfo(store_id);
+            
+            var floor = tmp_json.floor;
+            var map_url = tmp_json.map_url;
+            
+            setEventPopMoveToStore(store_id,floor,map_url);
+            
+        }
+        
+        if(first_page === ""){
+            first_page = "navigation";
+        }
+        
+        setPageMenu(first_page);
+        
+    }
+
+    function reloadMainPage(store_id){
+        document.location.href = "vertical_kiosk_main.html?page=" + "main" + "&store_id=" + store_id;
+    }
+
+    function reloadEventPage(store_id){
+        document.location.href = "vertical_kiosk_main.html?page=" + "event";
+    }
+
+    function reloadBrandPage(store_id){
+        document.location.href = "vertical_kiosk_main.html?page=" + "brand";
+    }
+
+    function reloadCouponPage(store_id){
+        document.location.href = "vertical_kiosk_main.html?page=" + "coupon";
+    }
+
+    function getSearchStoreInfo(store_id){
+        /*
+        $.ajax({
+            url : "frame_action_ajax.jsp",
+            method : "GET",
+            dataType : "text",
+            data : {'mode':'DELETE_GROUP','intro_group_name':$va,'group_id':$g_id},
+            success : function(data){
+                if($.trim(data)!= '' && $.trim(data) != 'FAIL'){
+                    $group_id = $.trim(data);
+                    console.log($group_id);
+                    alert('Complete');
+                    $('#id_intro_change').modal('hide');
+                    $('.midDropper').each(function(){
+                        if($(this).attr('group_id') == $g_id){
+                            $(this).fadeOut();
+                            $(this).next().fadeOut();
+                            setKioskUpd($g_id,'');
+                        }
+                    });
+                }
+            },
+            error:function(e){
+                alert('Fail.');
+            }
+        });
+        */
+       
+
+        var tmp_json = {floor:"2F",map_url:"http://192.168.0.113:8031/stadmin/lotte_test/map/B1.png"};
+        
+        var floor = "B1";
+        var map_url = "http://192.168.0.113:8031/stadmin/lotte_test/map/B1.png";
+
+        return {floor:floor,map_url:map_url};
+    }
+
+    //$(".cover_loading_main").fadeOut(500);
+
+    $(document).bind('keydown',function(e){
+        if(gl_kiosk_touch_time >= 1){
+            return;
+        }
+        
+        if ( e.keyCode == 17 ) {// ctrl //메인화면
+            e.preventDefault();
+            e.returnValue = false;
+            //alert("ctrl");
+            document.location.href = "index.html?mode=ON";
+        }
+
+        if ( e.keyCode == 18 ) { //alt //스크린화면
+            e.preventDefault();
+            e.returnValue = false;
+            //alert("alt");
+            document.location.href = "index.html?mode=OFF";
+        }
+        
+    });
+
+    //키오스크 터치 타이머 설정 터치 없을시 10초후 스크린세이버로 이동
+    $('body').on('click',function(e){
+        gl_kiosk_touch_time = 15;
+        clearInterval(gl_kiosk_touch_timer_id);
+        gl_kiosk_touch_timer_id = setInterval(function() {
+                                    setCheckScreenTimer();
+                                  }, 1000);
+    })
+
+    function setCheckScreenTimer(){
+        if(gl_kiosk_touch_time <= 1){
+            document.location.href = "vertical_kiosk_main.html?page=navigation";
+        }
+        gl_kiosk_touch_time = gl_kiosk_touch_time - 1;
+        console.log(gl_kiosk_touch_time);
+    }
+
+    gl_kiosk_touch_timer_id = setInterval(function() {
+                                setCheckScreenTimer();
+                              }, 1000);
 
 </script>
