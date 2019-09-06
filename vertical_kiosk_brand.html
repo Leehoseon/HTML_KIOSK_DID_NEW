@@ -163,6 +163,29 @@
                     padding:0px;
                     margin:0px;
                 }
+
+                #id_brand_image_left_btn{
+                    width:51px;
+                    height:51px;
+                    top:55%;
+                    left:3%;
+                    display: block;
+                    position: absolute;
+                    float:left;
+                    z-index: 1;
+                }
+        
+                #id_brand_image_right_btn{
+                    width:51px;
+                    height:51px;
+                    top:55%;
+                    left:92%;
+                    display: block;
+                    position: absolute;
+                    float:right;
+                    z-index: 1;
+                }
+
                 /* 브랜드 끝 */
         
                 /*
@@ -309,6 +332,7 @@
                     margin-left:3%;
                     border:"solid 3px white";
                 }
+                
         
         
         
@@ -381,11 +405,13 @@
     <!-- 세로형 안내 키오스크 브랜드 시작 -->
     <div class="vertical_kiosk_brand vertical_pages">
         <img id="id_brand_image"/>
+        <img class="brand_image_btn" data-direction="left" id="id_brand_image_left_btn" src="http://192.168.0.113:8031/stadmin/lotte_test/image/brand_popup_arrow_pre.png" height="60" width="60">
         <img id="id_brand_video_image"/>
         <video class="brand_video" id="id_brand_video" muted="muted" oncontextmenu="false" autoplay>
-            <!--<source id="id_brand_video"  type="video/mp4">
+                <!--<source id="id_brand_video"  type="video/mp4">
                 -->
         </video>
+        <img class="brand_image_btn" data-direction="right" id="id_brand_image_right_btn" src="http://192.168.0.113:8031/stadmin/lotte_test/image/brand_popup_arrow_next.png" height="60" width="60">
     </div>
     <!-- 세로형 안내 키오스크 브랜드 끝 -->    
 
@@ -424,6 +450,12 @@
 
 <script>
 
+    var gl_kiosk_code = getQuerystring('kiosk_code');
+    var gl_brand_id = getQuerystring('brand_id');
+
+    var gl_kiosk_touch_time = 30;
+    var gl_kiosk_touch_timer_id;
+
     function getQuerystring(paramName){
         try{
             var _tempUrl = window.location.search.substring(1);
@@ -443,9 +475,8 @@
         
     }
 
-    var gl_brand_id = getQuerystring('brand_id');
    
-    // 상단 이미지 슬라이드 기능 시작
+    //이미지 슬라이드 기능 시작
     function setSlideImage(json_obj){
 
         var button_obj = json_obj.button_obj;
@@ -453,6 +484,7 @@
         var video_obj = json_obj.video_obj;
         var arr_image = json_obj.arr_image;
         var slide_time = json_obj.slide_time;
+        var image_div = json_obj.image_div;
 
         var img_timer_id;
         var init_timer_id;
@@ -460,6 +492,207 @@
         //첫번째 이미지로 초기화
         $(image_obj).attr("src",arr_image[0]);
         $(video_obj).attr("src",arr_image[0]);
+
+
+        //드래그로 다음 컨텐츠 표출
+        function setImageDrag(arr_image){
+
+            var first_moveTouchY;
+            var first_moveTouchX;
+
+            var first_moveTouchY_left;
+            var first_moveTouchX_left;
+
+            var first_moveTouchY_right;
+            var first_moveTouchX_right;
+
+            var target_div;
+
+            var target_div_left;
+            var target_div_right;
+
+            var target_btn_check;
+            var target_tag_name;
+
+            
+            $(image_div).bind('touchstart', function(e) {       
+                
+                var arr_preview = $('.banner_preview');
+
+                for (var index = 0; index < arr_preview.length; index++) {
+                    var element = arr_preview[index];
+
+                    $(element).css("display","none");
+                        
+                }
+
+                target_div = $(e.target);
+                target_tag_name = target_div.prop('tagName');
+                target_btn_check = $(target_div).hasClass("image_move_btn");
+
+                if(target_tag_name === "IMG"){
+                    $(video_obj).css("display","none");
+                }else if(target_tag_name === "VIDEO"){
+                    $(image_obj).css("display","none");
+                }
+
+                $(target_div).css("display","block");
+
+                //전역 변수에 현재 클릭 위치에서 현재 이미지 left 위치, top 위치를 뺀 값을 저장
+                first_moveTouchX = event.targetTouches[0].pageX - parseInt($(target_div).css("left").replace("px","")); 
+                first_moveTouchY = event.targetTouches[0].pageY - parseInt($(target_div).css("top").replace("px","")); 
+
+                /*
+                target_div_left = target_div.prev().prev();
+                target_div_right = target_div.next().next();
+
+
+                $(target_div_left).css("display","block");
+                $(target_div_right).css("display","block");
+
+                var target_left_uri = getNextImageUri(target_div,"left",arr_image);
+                var target_right_uri = getNextImageUri(target_div,"right",arr_image);
+
+                target_div_left.attr("src",target_left_uri);
+                target_div_right.attr("src",target_right_uri);
+
+                first_moveTouchX_left = event.targetTouches[0].pageX - parseInt($(target_div_left).css("left").replace("px","")); 
+                first_moveTouchY_left = event.targetTouches[0].pageY - parseInt($(target_div_left).css("top").replace("px","")); 
+
+                first_moveTouchX_right = event.targetTouches[0].pageX - parseInt($(target_div_right).css("left").replace("px","")); 
+                first_moveTouchY_right = event.targetTouches[0].pageY - parseInt($(target_div_right).css("top").replace("px","")); 
+                */
+
+            });
+
+            $(image_div).bind('touchmove', function(e) {
+
+                if(!target_btn_check){
+
+                    target_div = $(e.target);
+
+                    e.preventDefault();
+
+                    var event = e.originalEvent;    
+
+                    var moveTouchX = event.targetTouches[0].pageX; 
+                    var moveTouchY = event.targetTouches[0].pageY; 
+                    
+                    //y축이동 방지
+                    if(first_moveTouchY > moveTouchY || first_moveTouchY < moveTouchY){
+                        moveTouchY = first_moveTouchY;
+                    }
+
+                    $(target_div).css(
+
+                        //터치를 시작한 x,y위치에서 드래그 하며 움직이는 x,y 값을 뺀 위치를 top,left 값으로 지정
+                        {top:moveTouchY - first_moveTouchY,
+                        left:moveTouchX - first_moveTouchX
+
+                    });
+                    
+                    /*
+                    $(image_obj).css(
+
+                        //터치를 시작한 x,y위치에서 드래그 하며 움직이는 x,y 값을 뺀 위치를 top,left 값으로 지정
+                        {top:moveTouchY - first_moveTouchY,
+                        left:moveTouchX - first_moveTouchX
+
+                    });
+
+                    $(video_obj).css(
+
+                        //터치를 시작한 x,y위치에서 드래그 하며 움직이는 x,y 값을 뺀 위치를 top,left 값으로 지정
+                        {top:moveTouchY - first_moveTouchY,
+                        left:moveTouchX - first_moveTouchX
+
+                    });
+                    $(target_div_left).css(
+
+                        //터치를 시작한 x,y위치에서 드래그 하며 움직이는 x,y 값을 뺀 위치를 top,left 값으로 지정
+                        {top:moveTouchY - first_moveTouchY_left,
+                        left:moveTouchX - first_moveTouchX_left
+
+                    });
+
+                    $(target_div_right).css(
+
+                        //터치를 시작한 x,y위치에서 드래그 하며 움직이는 x,y 값을 뺀 위치를 top,left 값으로 지정
+                        {top:moveTouchY - first_moveTouchY_right,
+                        left:moveTouchX - first_moveTouchX_right
+
+                    });
+        */
+                    if(first_moveTouchX - 50 < moveTouchX && first_moveTouchX - 30 > moveTouchX){ //오른쪽으로 드래그
+
+                        /*
+                        resetImagePosition(target_div,"center");
+                        resetImagePosition(target_div_left,"left");
+                        resetImagePosition(target_div_right,"right");
+                        */
+                        resetImagePosition(target_div,"center");
+                        resetImagePosition(video_obj,"center");
+                        resetImagePosition(image_obj,"center");
+                        slideNextImage("right");
+                        return;
+                        
+                    }
+
+                    if(first_moveTouchX + 50 > moveTouchX && first_moveTouchX + 30 < moveTouchX){ //왼쪽으로 드래그
+                        
+                        /*
+                        resetImagePosition(target_div,"center");
+                        resetImagePosition(target_div_left,"left");
+                        resetImagePosition(target_div_right,"right");
+                        */
+                        resetImagePosition(target_div,"center");
+                        resetImagePosition(video_obj,"center");
+                        resetImagePosition(image_obj,"center");
+                        
+                        
+                        slideNextImage("left");
+                        return;
+                    }
+                }
+                
+
+            });
+
+            $(image_div).bind('touchend', function(e) {
+                if(!target_btn_check){
+                
+                    resetImagePosition(target_div,"center");
+                    resetImagePosition(video_obj,"center");
+                    resetImagePosition(image_obj,"center");
+                }
+            });
+
+        }
+        //setImageDrag(arr_image);
+
+        function resetImagePosition(image_obj,sect){
+
+            var top;
+            var left;
+
+            if(sect === "center"){
+                top = "0px";
+                left = "0px";
+            }else if(sect === "left"){
+                top = "0px";
+                left = "-1080px";
+            }else if(sect === "right"){
+                top = "0px";
+                left = "1080px";
+            }
+
+            $(image_obj).css(
+
+                {top:top,
+                left:left
+
+            });
+        }
 
         function setInitSlide(){
 
@@ -472,19 +705,19 @@
                 target_slide_time = 1000 * (Math.floor(video_duration))
             }
 
-             //동영상이 아니면
-             if(isNaN(video_duration)){
+            //동영상이 아니면
+            if(isNaN(video_duration)){
                 //console.log("1");
                 img_timer_id = setTimeout(function() {
                     
-                    slideTopImage("right");                    
+                    slideNextImage("right");                    
                 }, target_slide_time);
                 
             }else{
                 //console.log("2");
                 img_timer_id = setTimeout(function() {
                     
-                    slideTopImage("right");
+                    slideNextImage("right");
                     
                 }, target_slide_time);   
             }
@@ -494,21 +727,20 @@
             setInitSlide();
         },1500);
 
-        
-    
-        function slideTopImage(direction){
+
+
+        function slideNextImage(direction){
 
             var target_image = $(image_obj);
             var target_video = $(video_obj);
             
             var video_duration = video_obj.duration;
-            var target_uri = getNextImageUri(direction,arr_image);
+            var target_uri = getNextImageUri(image_obj,direction,arr_image);
 
             var arr_target = target_uri.split("\/");
             var file_name = arr_target[arr_target.length-1];
             var target_ext = file_name.split("\.");
             var target_slide_time = 5;
-
 
             if(target_ext[1] === "jpg" || target_ext[1] === "png"){
 
@@ -517,12 +749,7 @@
                 target_video.css("display","none");
                 target_image.css("display","block");
 
-                $('#id_brand_video_image').css("display","none");
-
             }else{
-
-                $('#id_brand_video_image').attr("src",target_image.attr("src"));
-                $('#id_brand_video_image').css("display","block");
 
                 target_video.attr("src",target_uri);
                 target_image.attr("src",target_uri);  
@@ -536,21 +763,21 @@
                 clearTimeout(img_timer_id); //타이머 클리어
                 
                 setInitSlide();
-            },1500);           
+            },1000);           
 
         };
 
+        //클릭으로 다음 컨텐츠 표출
         $(button_obj).on("click",function(e){
 
             var direction = $(this).data("direction");
-            slideTopImage(direction);   
+            slideNextImage(direction);
 
         });
 
-        function getNextImageUri(direction,arr_image){
+        function getNextImageUri(image_obj,direction,arr_image){
 
             var target = $(image_obj);
-            var video_target = $(video_obj);
 
             var current_arr_src = target.attr("src").split("/");
             var ret_str = "";            
@@ -578,8 +805,8 @@
                 }
             }
         }
-    }    
-    // 상단 이미지 슬라이드 기능 끝
+    }   
+    //이미지 슬라이드 기능 끝
 
     //ajax로 스크린 이미지 데이터 받아오기
     function getBrandImageList(){
@@ -797,6 +1024,7 @@
         $('.brand_popup_top_img').attr("src",arr_image[0]);
         $('.brand_popup_bot_img').attr("src",brand_json.logo_img);
         $('.brand_popup_middle').data("store_id",brand_json.arr_store_id[0]);
+        $('.brand_popup_middle').data("brand_id",gl_brand_id);
 
         $('.brand_popup_bot_images').text("");
 
@@ -805,7 +1033,7 @@
         for (var index = 0; index < arr_image.length; index++) {
             var element = arr_image[index];
 
-            tmp_str +="<img class=\"brand_popup_bot_image\" src=\"" + element + "\"/ data-img_url=\"" + element + "\" data-store_id=\"" + brand_json.arr_store_id[index] + "\">";
+            tmp_str +="<img class=\"brand_popup_bot_image\" src=\"" + element + "\"/ data-brand_pop_number=\"" + (index + 1) + "\" data-brand_id=\"" + gl_brand_id + "\" data-img_url=\"" + element + "\" data-store_id=\"" + brand_json.arr_store_id[index] + "\">";
             
         }
         
@@ -814,14 +1042,14 @@
         var arr_image = $('.brand_popup_bot_image');
         var first_image = arr_image[0];
         $(first_image).css("border","solid 3px red");
-        setChangeMainImage();
+        setChangeClickMainImage();
 
     }
 
     setBrandPopup();
 
     //하단 이미지 클릭시 상단 이미지 변경 설정
-    function setChangeMainImage(){
+    function setChangeClickMainImage(){
         var arr_image = $('.brand_popup_bot_image');
 
         for (var index = 0; index < arr_image.length; index++) {
@@ -832,10 +1060,31 @@
                 $(this).css("border","solid 3px red");
                 $('.brand_popup_top_img').attr("src",$(this).data("img_url"));
                 $('.brand_popup_middle').data("store_id",$(this).data("store_id"));
+                $('.brand_popup_middle').data("brand_id",$(this).data("brand_id"));
+                $('.brand_popup_middle').data("brand_pop_number",$(this).data("brand_pop_number"));
             })
         }
     }
-    setChangeMainImage();
+
+
+    //브랜드 대표상품 찾기 후 메인페이지에서 뒤로가기 버튼으로 이동했을때 전 페이지에서 선택한 대표상품 활성화 설정
+    function setChangeInitMainImage(brand_pop_number){
+        var arr_image = $('.brand_popup_bot_image');
+
+        for (var index = 0; index < arr_image.length; index++) {
+            var element = arr_image[index];
+            
+            var target_number = parseInt($(element).data("brand_pop_number"));
+            if(target_number === brand_pop_number){
+                setInitImageBorder();
+                $(element).css("border","solid 3px red");
+                $('.brand_popup_top_img').attr("src",$(element).data("img_url"));
+                $('.brand_popup_middle').data("store_id",$(element).data("store_id"));
+                $('.brand_popup_middle').data("brand_id",$(element).data("brand_id"));
+                $('.brand_popup_middle').data("brand_pop_number",$(element).data("brand_pop_number"));
+            }
+        }
+    }
     
     //하단 이미지 보더 색 초기화
     function setInitImageBorder(){
@@ -853,7 +1102,9 @@
     function setFindStore(){
         $('.brand_popup_middle').on('click',function(e){            
             var store_id = $(this).data("store_id");
-            document.location.href = "vertical_kiosk_main.html?page=" + "main" + "&" + "store_id=" + store_id + "";
+            var brand_id = $(this).data("brand_id");
+            var brand_pop_number = $(this).data("brand_pop_number");
+            document.location.href = "vertical_kiosk_main.html?page=" + "main" + "&store_id=" + store_id + "&kiosk_code=" + gl_kiosk_code + "&pre_page=" + "brand" + "&brand_id=" + brand_id + "&brand_pop_number=" + brand_pop_number + "";
         })
     }
     setFindStore();
@@ -868,6 +1119,7 @@
         var video_obj = document.getElementById('id_brand_video');
         var slide_time = 5000;
         var arr_image = getBrandImageList();
+        var image_div = $('.vertical_kiosk_brand');
 
         image_obj.attr("src",arr_image[0]);  
 
@@ -876,7 +1128,8 @@
                             button_obj:button_obj,
                             video_obj:video_obj,
                             arr_image:arr_image,
-                            slide_time:slide_time
+                            slide_time:slide_time,
+                            image_div:image_div
                         };
 
         setSlideImage(image_objs);
@@ -887,7 +1140,7 @@
     setBrandImageList();
 
     $('#id_nav_right_btn_main').on('click',function(e){
-        document.location.href = "vertical_kiosk_main.html?page=" + "brand" + "";
+        document.location.href = "vertical_kiosk_main.html?page=" + "brand" + "&kiosk_code=" + gl_kiosk_code + "";
     })
 
     $('#id_nav_right_btn_popup').on('click',function(e){
@@ -906,5 +1159,107 @@
         $('#id_nav_right_btn_popup_text').css("display","none");
         
     }
+
+    function setChangeImageButtonColor(arr,menu){
+
+        for (var index = 0; index < arr.length; index++) {
+            var element = arr[index];
+            var tmp_menu = $(element).data("menu");
+            var tmp_src = $(element).attr("src");
+            var arr_src = tmp_src.split("\/");
+            var target_src = arr_src[arr_src.length-1];
+            target_src = target_src.split("\.");
+            var remove_src = target_src[0].replace("_o","");
+
+            if(menu === tmp_menu){
+                target_src = tmp_src.replace(target_src[0],remove_src + "_o");
+                $(element).attr("src",target_src);
+            }else{
+                target_src = tmp_src.replace(target_src[0],remove_src + "");
+                $(element).attr("src",target_src);
+            }
+        }
+    }
+
+    function setInitImageButtonColor(arr){
+        //초기화
+        for (var index = 0; index < arr.length; index++) {
+            
+            var element = arr[index];
+            var tmp_menu = $(element).data("menu");
+            var tmp_src = $(element).attr("src");
+            var arr_src = tmp_src.split("\/");
+            var target_src = arr_src[arr_src.length-1];
+            target_src = target_src.split("\.");
+            var remove_src = target_src[0].replace("_o","");
+            
+            $(element).data("menu","off");
+
+            target_src = tmp_src.replace(target_src[0],remove_src + "");
+            $(element).attr("src",target_src);
+        }
+    }
+
+    //광고 좌,우 버튼 터치시 색상 변경 설정
+    var arr_brand_btn = $('.brand_image_btn');
+    setChangeImageButtonColor(arr_brand_btn,"on");
+
+    $('.brand_image_btn').on('touchstart',function(e){
+        
+        $(this).data("menu","on");
+        setChangeImageButtonColor(arr_brand_btn,"on")
+        
+    });
+    
+    $('.brand_image_btn').on('touchend',function(e){
+        
+        setInitImageButtonColor(arr_brand_btn);
+        
+    })
+
+    //키오스크 터치 타이머 설정 터치 없을시 30초후 스크린세이버로 이동
+    $('body').on('click',function(e){
+        gl_kiosk_touch_time = 30;
+        clearInterval(gl_kiosk_touch_timer_id);
+        gl_kiosk_touch_timer_id = setInterval(function() {
+                                    setCheckScreenTimer();
+                                  }, 1000);
+    })
+
+    function setCheckScreenTimer(){
+
+        if(gl_kiosk_touch_time <= 1){
+            if(gl_kiosk_code !== ""){
+                document.location.href = "vertical_kiosk_screen.html?kiosk_code=" + gl_kiosk_code + "";
+            }else{
+                document.location.href = "vertical_kiosk_screen.html?kiosk_code=" + "K1" + "";
+            }
+        }
+        gl_kiosk_touch_time = gl_kiosk_touch_time - 1;
+        
+    }
+
+    gl_kiosk_touch_timer_id = setInterval(function() {
+                                setCheckScreenTimer();
+                              }, 1000);
+
+
+    //전 화면에서 돌아 온 화면인지 처음 띄운 화면 인지 체크 후 팝업 설정
+    function setPopupOnOff(){
+
+        var popup_status = getQuerystring('popup');
+        var brand_pop_number = parseInt(getQuerystring('brand_pop_number'));
+
+        if(popup_status === "on"){
+            setBrandPopup();
+            setChangeInitMainImage(brand_pop_number);
+            $('.vertical_kiosk_brand_popup').css( 
+                {display:"block"
+            });
+        }else{
+
+        }
+    }
+    setPopupOnOff();
 
 </script>
