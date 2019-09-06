@@ -556,7 +556,7 @@
                     width:80%;
                     height:1px;
                     float:left;
-                    background-color:#5f6773;
+                    background-color:#e1e1e1;
                     top:52%;
                     left:10%;
                 }
@@ -589,7 +589,7 @@
                     width:80%;
                     height:34%;
                     float:left;
-                    border:1px solid #5f6773;
+                    border:1px solid #e1e1e1;
         
                 }
         
@@ -652,13 +652,13 @@
         
                 .store_popup{
                     position: absolute;
-                    width:45px;
-                    height:70px;
+                    width:36px;
+                    height:55px;
                     border: 1px;
                     display: none;
                     z-index: 1;
-                    margin-left:-22px;
-                    margin-top:-70px;
+                    margin-left:-20px;
+                    margin-top:-50px;
                     
                 }
         
@@ -670,11 +670,18 @@
         
                 .kiosk_popup{
                     position: absolute;
-                    width:34px;
-                    height:53px;
+                    width:80px;
+                    height:77px;
                     display: none;
                     z-index: 1;
+                    margin-left:-40px;
+                    margin-top:-45px;
                     
+                }
+
+                .kiosk_popup img{
+                    width:80px;
+                    height:77px;
                 }
         
                 .kiosk_popup_text{
@@ -686,11 +693,7 @@
                     
                 }
         
-                .kiosk_popup img{
-                    width:100%;
-                    height:100%;
-                    
-                }
+                
         
             
         
@@ -1574,15 +1577,13 @@
 
                     <!-- 상점 팝업 시작 -->
                     <div class="store_popup">
-                        <img src="http://192.168.0.113:8031/stadmin/lotte_test/image/main_ic_destination.png">
+                        <img src="http://192.168.0.113:8031/stadmin/lotte_test/image/main_ic_destination_s.png">
                     </div>
                     <!-- 상점 팝업 끝 -->
 
                     <!-- 키오스크 위치 팝업 시작 -->
                     <div class="kiosk_popup">
-                        <!--
-                        <img src="http://192.168.0.113:8031/stadmin/lotte_test/image/main_ic_departure.png">
-                        -->
+                        <img src="http://192.168.0.113:8031/stadmin/lotte_test/image/main_ic_departure_s.png">
                     </div>
                     <!--
                     <img class="kiosk_popup_text" src="http://192.168.0.113:8031/stadmin/lotte_test/image/main_ic_location.png">
@@ -1830,9 +1831,8 @@
     //CONFIG
     var gl_map_width = 1760;
     var gl_map_height = 1320;
-    var gl_map_scale = 0.5;
+    var gl_map_scale = 0.45;
     var gl_kiosk_floor = "B1";
-    var gl_kiosk_pos = [505,829];
 
     var gl_kiosk_touch_time = 30;
     var gl_kiosk_touch_timer_id;
@@ -1980,14 +1980,22 @@
             var element = floor_btn[index];
             
             $(element).on('click',function(e){    
+
+                //지도,키오스크 현위치, 상점위치 초기화
+                setInitMap();
                 
                 $(map_img).attr("src",$(this).data("map_url"));
                 setHideAnotherFloorStore($(this).data("floor"));
                 setFloorButtonColor($(this).data("floor"));
 
+                $('.kiosk_popup').css("display","none");
                 $('.store_popup').css("display","none");
-
-                setInitMap();
+                
+                if(kiosk_floor === $(this).data("floor")){
+                    $('.kiosk_popup').css("display","block");
+                    //$('.store_popup').css("display","block");
+                }
+                
 
             })
         }
@@ -1997,13 +2005,21 @@
 
     function setInitMap(){
 
+        
         $('#id_map_image').css("width",gl_map_width * gl_map_scale + "px");
         $('#id_map_image').css("height",gl_map_height * gl_map_scale + "px");
         $('#id_map_image').css("top","0px");
         $('#id_map_image').css("left","0px");
-
+        
         $('.map_stores').css("top","0px");
         $('.map_stores').css("left","0px");
+        $('.map_stores').css("width",gl_map_width * gl_map_scale + "px");
+        $('.map_stores').css("height",gl_map_height * gl_map_scale + "px");
+        
+        //상점 지도에 그리는 기능 시작
+        setStoreDrawingToMap();
+        //키오스크 현재 위치 설정
+        setKioskPopupPosition(gl_kiosk_code);
 
     }
     
@@ -2878,14 +2894,56 @@
         }
     }
 
-    function setKioskPopupPosition(top,left){
+    function getKioskPopupPosition(kiosk_code){
+
+        var ret_arr;
+
         /*
-        $('.kiosk_popup').css( 
-            {display:"block",
-            top:parseInt(top),
-            left:parseInt(left)
+        $.ajax({
+            url : "frame_action_ajax.jsp",
+            method : "GET",
+            dataType : "text",
+            data : {'mode':'DELETE_GROUP','intro_group_name':$va,'group_id':$g_id},
+            success : function(data){
+                if($.trim(data)!= '' && $.trim(data) != 'FAIL'){
+                    $group_id = $.trim(data);
+                    console.log($group_id);
+                    alert('Complete');
+                    $('#id_intro_change').modal('hide');
+                    $('.midDropper').each(function(){
+                        if($(this).attr('group_id') == $g_id){
+                            $(this).fadeOut();
+                            $(this).next().fadeOut();
+                            setKioskUpd($g_id,'');
+                        }
+                    });
+                }
+            },
+            error:function(e){
+                alert('Fail.');
+            }
         });
         */
+
+        if(kiosk_code === "K1"){
+            ret_arr = [505,840];
+        }else if(kiosk_code === "K2"){
+            ret_arr = [1156,500];
+        }
+        return ret_arr;
+    }
+
+    //현재 키오스크 위치 설정
+    function setKioskPopupPosition(kiosk_code){
+
+        var arr_kiosk_pos = getKioskPopupPosition(kiosk_code);        
+        
+        $('.kiosk_popup').css( 
+            {display:"block",
+            top:parseInt(Math.round(arr_kiosk_pos[1] * gl_map_scale)),
+            left:parseInt(Math.round(arr_kiosk_pos[0] * gl_map_scale))
+        });
+        
         /*
         $('.kiosk_popup_text').css( 
             {display:"block",
@@ -2940,7 +2998,7 @@
                 if(map_top_value < -2000){
                     map_top_value = -(map_image_height - 500);
                 }
-                
+                /*
                 $(map_image_obj).css(
                     {
                     top:map_top_value,
@@ -2952,6 +3010,7 @@
                     top:map_top_value,
                     left:map_left_value
                 });
+                */
                 
 
             }
@@ -4078,10 +4137,10 @@
 
         setMapDrag(image_objs);
         
-        //키오스크 현재 위치 설정
-        setKioskPopupPosition(gl_kiosk_pos[1] - 35,gl_kiosk_pos[0] - 20);
         //상점 지도에 그리는 기능 시작
         setStoreDrawingToMap();
+        //키오스크 현재 위치 설정
+        setKioskPopupPosition(gl_kiosk_code);
         
 
         //지도에 그린 상점 중 해당 층이 아닌 상점 숨기기
