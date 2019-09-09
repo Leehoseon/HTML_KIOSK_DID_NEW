@@ -2016,6 +2016,9 @@
         $('.map_stores').css("width",gl_map_width * gl_map_scale + "px");
         $('.map_stores').css("height",gl_map_height * gl_map_scale + "px");
         
+
+        map_image.style.transform = "translate3d(" + 0 + "px, " + 0 + "px, 0) scale(" + 1 + ")";
+        
         //상점 지도에 그리는 기능 시작
         setStoreDrawingToMap();
         //키오스크 현재 위치 설정
@@ -2345,7 +2348,6 @@
                     
                     slideNextImage("right");                    
                 }, target_slide_time);
-                
             }else{
                 //console.log("2");
                 img_timer_id = setTimeout(function() {
@@ -2354,7 +2356,7 @@
                     
                 }, target_slide_time);   
             }
-        }  
+        }
 
         window.setTimeout(function(t){
             setInitSlide();
@@ -3265,14 +3267,14 @@
 
         var stores_div = el.childNodes[1];
         var img_div = el.childNodes[3];
+        
 
 
         ham.get('pinch').set({ enable: true });
 
         
         ham.on( "pinchstart", function( e ) {
-            first_width = parseInt($(img_div).css("width").replace("px",""));
-            console.log(first_width);
+
         });
         
 
@@ -3301,7 +3303,7 @@
 
             target_scale = 0.99;
             var sect = "pinchout";
-           // var ret_obj = setPinchMapZoom(el,arr_stores,target_scale,width,height,gl_map_height,gl_map_width,sect,e);
+            //var ret_obj = setPinchMapZoom(el,arr_stores,target_scale,width,height,gl_map_height,gl_map_width,sect,e);
 
             width = ret_obj.width;
             height = ret_obj.height;
@@ -3324,10 +3326,9 @@
             var total_height = height * scale;
             var ret_obj;
 
-            if(scale * width <= (gl_map_width + 300) && scale * width >= (gl_map_width - 300)){
+            if(scale * width <= (gl_map_width + 800) && scale * width >= (gl_map_width - 1000)){
 
-                img_div.style.width = (total_width) + 'px';
-                img_div.style.height = (total_height) + 'px';
+
 /*
                 $(img_div).css({
                 '-webkit-transform' : 'scale(' + event.scale + ')',
@@ -3338,12 +3339,59 @@
                 '-webkit-transform-origin' : 'center center'
                 });
 */
-            
-                //img_div.style.marginLeft = (img_div.style.left.replace("px","") - (event.center.x * scales)) + 'px';
-                //img_div.style.marginTop = (img_div.style.top.replace("px","") - (event.center.y * scales)) + 'px';
-                //img_div.style.marginLeft = 0 + 'px';
-                //img_div.style.marginTop  = 0 + 'px';
-                //console.log((img_div.style.left.replace("px","") - (total_width - width)));
+                
+                var map_container_offset = $(el).offset();
+
+                /*
+                img_div.style.marginLeft = (img_div.style.left.replace("px","") - (event.center.x * scale)) + 'px';
+                img_div.style.marginTop = (img_div.style.top.replace("px","") - (event.center.y * scale)) + 'px';
+                img_div.style.marginLeft = 0 + 'px';
+                img_div.style.marginTop  = 0 + 'px';
+                */
+
+               
+               var image_final_left = Math.round(parseInt($(img_div).css('left').replace("px","")));
+               var image_final_top = Math.round(parseInt($(img_div).css('top').replace("px","")));
+               
+               var current_pinch_x = event.center.x - map_container_offset.left;
+               var current_pinch_y = event.center.y - map_container_offset.top;
+               
+               console.log("current_pinch_x:" +current_pinch_x);
+               console.log("current_pinch_y:" +current_pinch_y);
+               console.log("image_final_left:" +image_final_left);
+               console.log("image_final_top:" +image_final_top);
+               
+               if(image_final_left >= 0){
+                   image_final_left = current_pinch_x - (image_final_left);
+                }else{
+                    image_final_left = current_pinch_x - (image_final_left);
+                }
+                
+                if(image_final_top >= 0){
+                    image_final_top = current_pinch_y - (image_final_top);
+                }else{
+                    image_final_top = current_pinch_y - (image_final_top);
+                }
+                
+                image_final_left = image_final_left;
+                image_final_top = image_final_top;
+                
+                img_div.style.transform = "translate3d(" + total_width + "px, " + total_height + "px, 0) scale(" + scale + ")";
+                console.log(image_final_left);
+                console.log(image_final_top);
+                
+/*
+                $(img_div).css( 
+
+                    {
+
+                    left:(image_final_left * scale) + "px",
+                    top:(image_final_top * scale) + "px"
+
+                });
+*/
+                //img_div.style.width = (total_width) + 'px';
+                //img_div.style.height = (total_height) + 'px';
 
                 for (var index = 0; index < arr_stores.length; index++) {
                     var element = arr_stores[index];
@@ -4188,7 +4236,7 @@
                         store_popup_obj:store_popup_obj
                         };
 
-        setPinch(pinch_objs);        
+        //setPinch(pinch_objs);        
 
         //맵 줌 기능 설정
         map_div = document.querySelector(".map");
@@ -4491,7 +4539,7 @@
 
     //키오스크 터치 타이머 설정 터치 없을시 30초후 스크린세이버로 이동
     $('body').on('click',function(e){
-        gl_kiosk_touch_time = 30;
+        gl_kiosk_touch_time = 3000000000;
         clearInterval(gl_kiosk_touch_timer_id);
         gl_kiosk_touch_timer_id = setInterval(function() {
                                     setCheckScreenTimer();
@@ -4514,5 +4562,194 @@
     gl_kiosk_touch_timer_id = setInterval(function() {
                                 setCheckScreenTimer();
                               }, 1000);
+
+    
+
+    //PINCH 줌 확대,축소 설정 시작
+    var map_image = document.querySelector("#id_map_image");
+    var map_stores = document.querySelector(".map_stores");
+    var floor_btn = document.querySelector(".floor_btn");
+    var pinch_objs = {
+                      map_image:map_image,
+                      map_stores:map_stores,
+                      floor_btn:floor_btn
+                     }
+    setNewMapPinchZoom(pinch_objs);
+
+    function setNewMapPinchZoom(json){
+
+        var map_image = json.map_image;
+        var map_stores = json.map_stores;
+
+        var hammer = new Hammer(map_image, {});
+
+        hammer.get('pinch').set({ enable: true });
+        hammer.get('pan').set({ threshold: 0 });
+
+        var pinchStart = { x: undefined, y: undefined }
+        
+        var originalSize = {
+            width: gl_map_width * gl_map_scale,
+            height: gl_map_height * gl_map_scale
+        }
+
+        var current = {
+            x: 0,
+            y: 0,
+            z: 1,
+            zooming: false,
+            width: originalSize.width * 1,
+            height: originalSize.height * 1,
+        }
+
+        var last = {
+            x: current.x,
+            y: current.y,
+            z: current.z
+        }
+
+        function getRelativePosition(element, point, originalSize, scale) {
+            var domCoords = getCoords(element); //절대 좌표 반환 값
+
+            var elementX = point.x - domCoords.x; // 현재 핀치 하고 있는 손가락 위치의 가운데 X 좌표
+            var elementY = point.y - domCoords.y; // 현재 핀치 하고 있는 손가락 위치의 가운데 Y 좌표
+
+            var relativeX = elementX / (originalSize.width * scale / 2) - 1;
+            var relativeY = elementY / (originalSize.height * scale / 2) - 1;
+
+            return { x: relativeX, y: relativeY } // 현재 핀치 위치와 스케일을 계산한 값의 비율 반환
+        }
+
+        function getCoords(elem) { // crossbrowser version
+            var box = elem.getBoundingClientRect();
+
+            var body = document.body;
+            var docEl = document.documentElement;
+
+            var scrollTop = window.pageYOffset || docEl.scrollTop || body.scrollTop;
+            var scrollLeft = window.pageXOffset || docEl.scrollLeft || body.scrollLeft;
+
+            var clientTop = docEl.clientTop || body.clientTop || 0;
+            var clientLeft = docEl.clientLeft || body.clientLeft || 0;
+
+            var top  = box.top +  scrollTop - clientTop;
+            var left = box.left + scrollLeft - clientLeft;
+            
+            return { x: Math.round(left), y: Math.round(top) }; //body와 element 위치 비교 하여 절대 좌표 반환
+        }
+
+        function scaleFrom(zoomOrigin, currentScale, newScale) {
+            var currentShift = getCoordinateShiftDueToScale(originalSize, currentScale);
+            var newShift = getCoordinateShiftDueToScale(originalSize, newScale);//스케일한 값을 위치 계산
+
+            var zoomDistance = newScale - currentScale;
+            
+            var shift = {
+                x: currentShift.x - newShift.x,
+                y: currentShift.y - newShift.y,
+            }
+
+            var output = {
+                x: zoomOrigin.x * shift.x,
+                y: zoomOrigin.y * shift.y,
+                z: zoomDistance
+            }
+            return output;
+        }
+
+        function getCoordinateShiftDueToScale(size, scale){
+            var newWidth = scale * size.width;
+            var newHeight = scale * size.height;
+            var dx = (newWidth - size.width) / 2
+            var dy = (newHeight - size.height) / 2
+            return {
+                x: dx,
+                y: dy
+            }
+        }
+
+        /*
+        hammer.on('doubletap', function(e) {
+            var scaleFactor = 1;
+            if (current.zooming === false) {
+                current.zooming = true;
+            } else {
+                current.zooming = false;
+                scaleFactor = -scaleFactor;
+            }
+
+            element.style.transition = "0.3s";
+            setTimeout(function() {
+                element.style.transition = "none";
+            }, 300)
+
+            var zoomOrigin = getRelativePosition(element, { x: e.center.x, y: e.center.y }, originalSize, current.z);
+            var d = scaleFrom(zoomOrigin, current.z, current.z + scaleFactor)
+            current.x += d.x;
+            current.y += d.y;
+            current.z += d.z;
+
+            last.x = current.x;
+            last.y = current.y;
+            last.z = current.z;
+
+            update();
+        })
+        */
+
+        hammer.on('pinch', function(e) {
+            var d = scaleFrom(pinchZoomOrigin, last.z, last.z * e.scale); //기존 크기에서 변경 된 사이즈 반환
+            current.x = d.x + last.x + e.deltaX; // 현재 핀치 위치와 변경 된 사이즈 계산하여 총 이동 거리 설정
+            current.y = d.y + last.y + e.deltaY;
+            current.z = d.z + last.z;
+            update();
+        })
+
+        var pinchZoomOrigin = undefined;
+        hammer.on('pinchstart', function(e) {
+            pinchStart.x = e.center.x;
+            pinchStart.y = e.center.y;
+            pinchZoomOrigin = getRelativePosition(map_image, { x: pinchStart.x, y: pinchStart.y }, originalSize, current.z);
+        })
+
+        hammer.on('pinchend', function(e) {
+            last.x = current.x;
+            last.y = current.y;
+            last.z = current.z;
+        })
+
+        function update() {
+            current.height = originalSize.height * current.z;
+            current.width = originalSize.width * current.z;
+            if(current.height <= originalSize.height){
+                current.height = originalSize.height;
+                return;
+            }
+            if(current.width <= originalSize.width){
+                current.width = originalSize.width;
+                return;
+            }
+
+            if(current.height >= originalSize.height + 1000){
+                current.height = originalSize.height + 1000;
+                return;
+            }
+            if(current.width >= originalSize.width + 1000){
+                current.width = originalSize.width + 1000;
+                return;
+            }
+
+            map_image.style.transform = "translate3d(" + current.x + "px, " + current.y + "px, 0) scale(" + current.z + ")";
+            map_stores.style.transform = "translate3d(" + current.x + "px, " + current.y + "px, 0) scale(" + current.z + ")";
+        }
+
+        $(floor_btn).on('click',function(e){ //층 변환 버튼 클릭 시 마지막 x,y,z 초기화
+            last.x = 0;
+            last.y = 0;
+            last.z = 1;
+        })
+    }
+    //PINCH 줌 확대,축소 설정 끝
+    
 
 </script>
