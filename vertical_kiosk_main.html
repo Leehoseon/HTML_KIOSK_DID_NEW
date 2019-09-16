@@ -542,6 +542,7 @@
                     padding:0px;
                     width:100%;
                     height:55%;
+                    
                 }
         
                 .map_information{
@@ -639,6 +640,7 @@
                     width:100%;
                     height:100%;
                     position: absolute;
+                    transform-style: flat;
                 }
                 .map_store{
                     position: absolute;
@@ -1574,19 +1576,19 @@
             <div class="map">
 
                 <div class="map_stores">
-
+                    
                     <!-- 상점 팝업 시작 -->
                     <div class="store_popup">
                         <img src="http://192.168.0.113:8031/stadmin/lotte_test/image/main_ic_destination_s.png">
                     </div>
                     <!-- 상점 팝업 끝 -->
-
+                    
                     <!-- 키오스크 위치 팝업 시작 -->
                     <div class="kiosk_popup">
                         <img src="http://192.168.0.113:8031/stadmin/lotte_test/image/main_ic_departure_s.png">
                     </div>
                     <!--
-                    <img class="kiosk_popup_text" src="http://192.168.0.113:8031/stadmin/lotte_test/image/main_ic_location.png">
+                        <img class="kiosk_popup_text" src="http://192.168.0.113:8031/stadmin/lotte_test/image/main_ic_location.png">
                     -->
                     <!-- 키오스크 위치 팝업 끝 -->
                 </div>
@@ -2005,6 +2007,11 @@
 
     function setInitMap(){
 
+        var map_stores = document.querySelector('.map_stores');
+        var map_image = document.querySelector('#id_map_image');
+
+        var kiosk_popup = document.querySelector('.kiosk_popup');
+        var store_popup = document.querySelector('.store_popup');
         
         $('#id_map_image').css("width",gl_map_width * gl_map_scale + "px");
         $('#id_map_image').css("height",gl_map_height * gl_map_scale + "px");
@@ -2015,14 +2022,33 @@
         $('.map_stores').css("left","0px");
         $('.map_stores').css("width",gl_map_width * gl_map_scale + "px");
         $('.map_stores').css("height",gl_map_height * gl_map_scale + "px");
-        
 
-        map_image.style.transform = "translate3d(" + 0 + "px, " + 0 + "px, 0) scale(" + 1 + ")";
+        
+        map_stores.style.transform = "translate(" + 0 + "px, " + 0 + "px) scale(" + 1 + ") ";
+        map_image.style.transform = "translate(" + 0 + "px, " + 0 + "px) scale(" + 1 + ") ";
+        kiosk_popup.style.transform = "translate(" + 0 + "px, " + 0 + "px) scale(" + 1 + ") ";
+        store_popup.style.transform = "translate(" + 0 + "px, " + 0 + "px) scale(" + 1 + ") ";
+
+        map_image.style.zIndex=1;
+        map_stores.style.zIndex=2;   
+        
+        /*
+        
+        */
+        /*
+        map_image.style.transform = "translate3d(" + 0 + "px, " + 0 + "px, 0) scale(" + 1 + ") preserve-3d";
+        map_stores.style.transform = "translate3d(" + 0 + "px, " + 0 + "px, 0) scale(" + 1 + ") preserve-3d";
+        kiosk_popup.style.transform = "translate3d(" + 0 + "px, " + 0 + "px, 0) scale(" + 1 + ")";
+        store_popup.style.transform = "translate3d(" + 0 + "px, " + 0 + "px, 0) scale(" + 1 + ")";
+        */
+        
         
         //상점 지도에 그리는 기능 시작
         setStoreDrawingToMap();
         //키오스크 현재 위치 설정
         setKioskPopupPosition(gl_kiosk_code);
+
+        
 
     }
     
@@ -2635,6 +2661,8 @@
 
         $('#id_map_image').css("width",Math.round(gl_map_width * gl_map_scale));
         $('#id_map_image').css("height",Math.round(gl_map_height * gl_map_scale));
+        $('.map_stores').css("width",Math.round(gl_map_width * gl_map_scale));
+        $('.map_stores').css("height",Math.round(gl_map_height * gl_map_scale));
        
         //setStorePopup();
     };
@@ -2945,6 +2973,8 @@
             top:parseInt(Math.round(arr_kiosk_pos[1] * gl_map_scale)),
             left:parseInt(Math.round(arr_kiosk_pos[0] * gl_map_scale))
         });
+
+        var kiosk_popup = document.querySelector('.kiosk_popup');
         
         /*
         $('.kiosk_popup_text').css( 
@@ -4160,6 +4190,9 @@
         //시계 기능 시작
         //showClock();
 
+        //지도 초기화
+        setInitMap();
+
         //지도 데이터 가져온 후 버튼 설정
         var map_img = $('#id_map_image');
         setFloorButton(gl_arr_map_image,map_img,gl_kiosk_floor);
@@ -4569,10 +4602,15 @@
     var map_image = document.querySelector("#id_map_image");
     var map_stores = document.querySelector(".map_stores");
     var floor_btn = document.querySelector(".floor_btn");
+    var kiosk_popup = document.querySelector(".kiosk_popup");
+    var store_popup = document.querySelector(".store_popup");
+
     var pinch_objs = {
                       map_image:map_image,
                       map_stores:map_stores,
-                      floor_btn:floor_btn
+                      floor_btn:floor_btn,
+                      kiosk_popup:kiosk_popup,
+                      store_popup:store_popup
                      }
     setNewMapPinchZoom(pinch_objs);
 
@@ -4581,7 +4619,7 @@
         var map_image = json.map_image;
         var map_stores = json.map_stores;
 
-        var hammer = new Hammer(map_image, {});
+        var hammer = new Hammer(map_stores, {});
 
         hammer.get('pinch').set({ enable: true });
         hammer.get('pan').set({ threshold: 0 });
@@ -4709,7 +4747,7 @@
         hammer.on('pinchstart', function(e) {
             pinchStart.x = e.center.x;
             pinchStart.y = e.center.y;
-            pinchZoomOrigin = getRelativePosition(map_image, { x: pinchStart.x, y: pinchStart.y }, originalSize, current.z);
+            pinchZoomOrigin = getRelativePosition(map_stores, { x: pinchStart.x, y: pinchStart.y }, originalSize, current.z);
         })
 
         hammer.on('pinchend', function(e) {
@@ -4719,8 +4757,10 @@
         })
 
         function update() {
+            
             current.height = originalSize.height * current.z;
             current.width = originalSize.width * current.z;
+
             if(current.height <= originalSize.height){
                 current.height = originalSize.height;
                 return;
@@ -4739,8 +4779,36 @@
                 return;
             }
 
-            map_image.style.transform = "translate3d(" + current.x + "px, " + current.y + "px, 0) scale(" + current.z + ")";
-            map_stores.style.transform = "translate3d(" + current.x + "px, " + current.y + "px, 0) scale(" + current.z + ")";
+            /*
+            map_image.style.transform = "translate3d(" + current.x + "px, " + current.y + "px, 0) scale(" + current.z + ") ";
+            map_stores.style.transform = "translate3d(" + current.x + "px, " + current.y + "px, 0) scale(" + current.z + ") preserve-3d";
+            kiosk_popup.style.transform = "translate3d(" + 0 + "px, " + 0 + "px, 0) scale(" + 1 + ") ";
+            store_popup.style.transform = "translate3d(" + 50 + "px, " + 50 + "px, 0) scale(" + 1 + ") ";
+            */
+
+            map_image.style.transform = "translate(" + current.x + "px, " + current.y + "px) scale(" + current.z + ") ";
+            map_stores.style.transform = "translate(" + current.x + "px, " + current.y + "px) scale(" + current.z + ") ";
+            map_image.style.zIndex=1;
+            map_stores.style.zIndex=2;   
+
+      
+        
+
+            /*
+            kiosk_popup.style.transform="translate(" + 0 + "px, " + 0 + "px) scale(" + 1 + ") ";
+            store_popup.style.transform="translate(" + 50 + "px, " + 50 + "px) scale(" + 1 + ") ";
+
+            kiosk_popup.style.display="block";
+            store_popup.style.display="block";
+
+            kiosk_popup.style.zIndex="10px";
+            store_popup.style.zIndex="10px";   
+                $(kiosk_popup).css("zIndex","100px");
+            $(store_popup).css("zIndex","100px");
+            kiosk_popup.style.zIndex="10px";
+            store_popup.style.zIndex="10px"; 
+*/
+            
         }
 
         $(floor_btn).on('click',function(e){ //층 변환 버튼 클릭 시 마지막 x,y,z 초기화
