@@ -723,7 +723,8 @@
                     }
                 }
             }else{ //오늘 스케줄 표출 상태가 N이라면
-                return undefined;
+                //return undefined;
+                continue;
             }
         }
     }
@@ -790,7 +791,7 @@
 
     //통계 보내는 설정
     function setSendStatis(json_obj){
-        
+
         var start_time = json_obj.start_time;
         var end_time = getCurrentTime();
         var play_time = json_obj.play_time;
