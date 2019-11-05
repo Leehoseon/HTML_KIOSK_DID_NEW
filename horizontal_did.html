@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <title>Page Title</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <script src="../include/js/jquery.js"></script><!--j쿼리-->
+    <script src="js/jquery.js"></script><!--j쿼리-->
 
 
     <style>
@@ -269,6 +269,9 @@
         var special_slide_time = 5000;
         var template_slide_time = 5000;
 
+        var statis_start_time = getCurrentTime();
+        var current_display_type = getCurrentDisplayType();
+
         var img_timer_id;
         var init_timer_id;
 
@@ -300,16 +303,40 @@
              //동영상이 아니면
              if(isNaN(video_duration)){
                 //console.log("1");
+                statis_start_time = getCurrentTime(); // 통계 시작 시간을 먼저 전역변수에 담은 후 타이머 시간이 지난 후 호출 할때 넘겨 준다
+                current_display_type = getCurrentDisplayType(); //현재 표출되고 있는 화면 타입 비교 하여 통계 전송 여부 확인
                 img_timer_id = setTimeout(function() {
                     
-                    slideNextImage("right");                    
-                }, target_slide_time);
+                    var ret_arr = slideNextImage("right");
+                    var statis_obj = {
+                                        "start_time":statis_start_time,
+                                        "end_time":"",
+                                        "play_time":ret_arr[0],
+                                        "con_id":ret_arr[1],
+                                        "sect":sect
+                                     }
+                    if(sect === current_display_type){ //현재 화면 타입과 타이머의 타입이 같으면 통계 전송
+                        setSendStatis(statis_obj);
+                    }
+                    
+                }, target_slide_time);   
                 
             }else{
                 //console.log("2");
+                statis_start_time = getCurrentTime(); // 통계 시작 시간을 먼저 전역변수에 담은 후 타이머 시간이 지난 후 호출 할때 넘겨 준다
+                current_display_type = getCurrentDisplayType(); //현재 표출되고 있는 화면 타입 비교 하여 통계 전송 여부 확인
                 img_timer_id = setTimeout(function() {
-                    
-                    slideNextImage("right");
+                    var ret_arr = slideNextImage("right");
+                    var statis_obj = {
+                                        "start_time":statis_start_time,
+                                        "end_time":"",
+                                        "play_time":ret_arr[0],
+                                        "con_id":ret_arr[1],
+                                        "sect":sect
+                                     }
+                    if(sect === current_display_type){ //현재 화면 타입과 타이머의 타입이 같으면 통계 전송
+                        setSendStatis(statis_obj);
+                    }
                     
                 }, target_slide_time);   
             }
@@ -317,27 +344,28 @@
 
         window.setTimeout(function(t){
             setInitSlide();
-        },1500);
+        },1000);//동영상 재생 시간을 구하기 위해 1초 딜레이 줘야함
 
-        
     
         function slideNextImage(direction){
-
+          
             //이미지가 다음으로 넘어갈때 현재 스페셜 상태인지 체크 후 화면 전환
             if(sect === "special"){
                 var special_arr = getCurrentSpecialSchedule(gl_arr_special_schedule,sect);
                 if(special_arr !== undefined){
                     arr_image = special_arr.speciale_contents_arr;
+                   
                     setChangeDisplayType("special");
                 }else{
                     setChangeDisplayType("normal");
+                   
                 }
             }else if(sect === "normal"){
                 
             }else if(sect === "template"){
                 
             }
-
+ 
             var target_image = $(image_obj);
             var target_video = $(video_obj);
             
@@ -347,6 +375,9 @@
             var target_uri = next_data[0];
             var target_seq = next_data[1];
 
+            var current_ptime = next_data[2] * 1000;
+            var current_con_id = next_data[3];
+
             if(sect === "special"){
                 special_slide_time = next_data[2] * 1000;
             }else if(sect === "normal"){
@@ -354,6 +385,7 @@
             }else if(sect === "template"){
                 template_slide_time = next_data[2] * 1000;
             }
+            
 
             var arr_target = target_uri.split("\/");
             var file_name = arr_target[arr_target.length-1];
@@ -385,14 +417,16 @@
                 clearTimeout(img_timer_id); //타이머 클리어
                 
                 setInitSlide();
-            },1500);           
+            },1000);//동영상 재생 시간을 구하기 위해 1초 딜레이 줘야함
+           
+           return [current_ptime,current_con_id];
 
         };
 
         $(button_obj).on("click",function(e){
 
             var direction = $(this).data("direction");
-            slideNextImage(direction);   
+            var ret_arr = slideNextImage(direction);   
 
         });
 
@@ -406,6 +440,7 @@
             var ret_str = "";     
             var ret_seq = 0;       
             var ret_ptime = 5000;
+            var ret_con_id = 0;
            
             for (var index = 0; index < arr_image.length; index++) {
                 /*
@@ -442,24 +477,28 @@
                             ret_str = arr_image[arr_image.length - 1].contents_url;
                             ret_seq = arr_image[arr_image.length - 1].seq;
                             ret_ptime = arr_image[arr_image.length - 1].ptime;
+                            ret_con_id = arr_image[arr_image.length - 1].con_id;
                         }else{
                             ret_str = arr_image[index - 1].contents_url;
                             ret_seq = arr_image[index - 1].seq;
                             ret_ptime = arr_image[index - 1].ptime;
+                            ret_con_id = arr_image[index - 1].con_id;
                         }
                     }else if(direction === "right"){
                         if(index  + 1 >= arr_image.length){
                             ret_str = arr_image[0].contents_url;
                             ret_seq = arr_image[0].seq;
                             ret_ptime = arr_image[0].ptime;
+                            ret_con_id = arr_image[0].con_id;
                         }else{
                             ret_str = arr_image[index + 1].contents_url;
                             ret_seq = arr_image[index + 1].seq;
                             ret_ptime = arr_image[index + 1].ptime;
+                            ret_con_id = arr_image[index + 1].con_id;
                         }
                     }
                                         
-                    return [ret_str,ret_seq,ret_ptime];
+                    return [ret_str,ret_seq,ret_ptime,ret_con_id];
                 }
             }
         }
@@ -504,8 +543,8 @@
                         special_etime:"2130",
                         special_sect:"special",
                         speciale_contents_arr:[
-                                               {contents_url:"./contents/screen/screen_1.mp4",seq:1,ptime:5},
-                                               {contents_url:"./contents/screen/screen_2.png",seq:2,ptime:5}]
+                                               {contents_url:"./contents/screen/screen_1.mp4",seq:1,ptime:5,con_id:1},
+                                               {contents_url:"./contents/screen/screen_2.png",seq:2,ptime:5,con_id:2}]
                         },
 
                         {special_week:"Y,Y,Y,Y,Y,Y,Y",
@@ -513,16 +552,16 @@
                         special_etime:"1340",
                         special_sect:"template",
                         speciale_contents_arr:[
-                                               {contents_url:"./contents/screen/그로서런트메뉴판_2.jpg",seq:1,ptime:5},
-                                               {contents_url:"./contents/screen/그로서런트메뉴판_3.jpg",seq:2,ptime:5}],
+                                               {contents_url:"./contents/screen/그로서런트메뉴판_2.jpg",seq:1,ptime:5,con_id:1},
+                                               {contents_url:"./contents/screen/그로서런트메뉴판_3.jpg",seq:2,ptime:5,con_id:2}],
                         },
                         {special_week:"N,N,N,N,N,N,N",
                         special_stime:"1300",
                         special_etime:"1600",
                         special_sect:"special",
                         speciale_contents_arr:[
-                                               {contents_url:"./contents/screen/그로서런트메뉴판_3.jpg",seq:1,ptime:5},
-                                               {contents_url:"./contents/screen/그로서런트메뉴판_1.jpg",seq:2,ptime:5}]
+                                               {contents_url:"./contents/screen/그로서런트메뉴판_3.jpg",seq:1,ptime:5,con_id:1},
+                                               {contents_url:"./contents/screen/그로서런트메뉴판_1.jpg",seq:2,ptime:5,con_id:2}]
                         }
                        ]
 
@@ -535,12 +574,12 @@
 
         if(sect === "normal"){
             ret_arr = [
-                       {contents_url:"./contents/screen/그로서런트메뉴판_1.jpg",seq:1,ptime:2},
-                       {contents_url:"./contents/screen/screen_22.png",seq:2,ptime:5},
-                       {contents_url:"./contents/screen/그로서런트메뉴판_2.jpg",seq:3,ptime:3},
-                       {contents_url:"./contents/screen/screen_23.png",seq:4,ptime:5},
-                       {contents_url:"./contents/screen/그로서런트메뉴판_3.jpg",seq:5,ptime:1},
-                       {contents_url:"./contents/screen/screen_24.png",seq:6,ptime:5}
+                       {contents_url:"./contents/screen/그로서런트메뉴판_1.jpg",seq:1,ptime:2,con_id:1},
+                       {contents_url:"./contents/screen/screen_22.png",seq:2,ptime:5,con_id:2},
+                       {contents_url:"./contents/screen/그로서런트메뉴판_2.jpg",seq:3,ptime:3,con_id:3},
+                       {contents_url:"./contents/screen/screen_23.png",seq:4,ptime:5,con_id:4},
+                       {contents_url:"./contents/screen/그로서런트메뉴판_3.jpg",seq:5,ptime:1,con_id:5},
+                       {contents_url:"./contents/screen/screen_24.png",seq:6,ptime:5,con_id:6}
                       ];
         }else if(sect === "special"){
             ret_arr = ret_arr;
@@ -700,6 +739,77 @@
             $('.did_display').css("display","block");
             $('.special_display').css("display","none");
         }
-    }    
+    }
+
+    function getCurrentDisplayType(){
+        var did_status = $('.did_display').css("display");
+        var special_status = $('.special_display').css("display");
+        var template_status = $('.template_display').css("display");
+
+        if(did_status === "block"){
+            return "normal";
+        }else if(special_status === "block"){
+            return "special";
+        }else if(template_status === "block"){
+            return "template";
+        }
+    }
+
+    //현재 날짜 구하는 기능
+    function getCurrentTime(){
+
+        // 한자리수일 경우 0을 채워준다. 
+        function setChangeNumber(target){
+            if(target.length == 1){ 
+                target = "0" + target; 
+            }else{
+                target = target;
+            }
+            return target;
+        }
+
+        var date = new Date(); 
+        var year = new String(date.getFullYear()); 
+        var month = new String(date.getMonth()+1); 
+        var day = new String(date.getDate()); 
+        var hours = new String(date.getHours());
+        var minutes = new String(date.getMinutes());
+        var seconds = new String(date.getSeconds());
+
+        
+        
+        month = setChangeNumber(month);
+        day = setChangeNumber(day);
+        hours = setChangeNumber(hours);
+        minutes = setChangeNumber(minutes);
+        seconds = setChangeNumber(seconds);        
+
+        return year + month + day + hours + minutes + seconds + "";
+    } 
+
+
+    //통계 보내는 설정
+    function setSendStatis(json_obj){
+        
+        var start_time = json_obj.start_time;
+        var end_time = getCurrentTime();
+        var play_time = json_obj.play_time;
+        var con_id = json_obj.con_id;
+        var sect = json_obj.sect;
+
+        $.ajax({
+            url : "http://192.168.0.113:8031/user/xml/did_statis.jsp",
+            method : "GET",
+            dataType : "text",
+            data : {'start_time':start_time,'end_time':end_time,'play_time':play_time,'con_id':con_id,'kiosk_code':gl_kiosk_code},
+            success : function(data){
+                //console.log(data);
+            },
+            error:function(e){
+                //alert('Fail.');
+            }
+        });   
+        
+    }
 
 </script>
