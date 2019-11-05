@@ -976,6 +976,13 @@
                     height:54%;
                     width:84%;
                     margin-left:8%;
+
+                    /*
+					margin-top:40%;
+					text-align:center;
+					font-weight: 600;
+                    font-size:60px;
+					*/
                     
                 }
         
@@ -1424,10 +1431,10 @@
 
     <!-- 우측 중앙 네비게이션 바 시작 -->
     <div class="right_navigation">
-        <img class="nav_move_btn nav_right_btn" id="id_nav_right_btn_main" data-menu="main" src="http://192.168.0.113:8031/stadmin/lotte_test/image/navigation_bt_01.png"/>
-        <img class="nav_move_btn nav_right_btn" id="id_nav_right_btn_event" data-menu="event" src="http://192.168.0.113:8031/stadmin/lotte_test/image/navigation_bt_02.png"/>
-        <img class="nav_move_btn nav_right_btn" id="id_nav_right_btn_brand" data-menu="brand" src="http://192.168.0.113:8031/stadmin/lotte_test/image/navigation_bt_03.png"/>
-        <img class="nav_move_btn nav_right_btn nav_right_btn_long" id="id_nav_right_btn_coupon" data-menu="coupon" src="http://192.168.0.113:8031/stadmin/lotte_test/image/navigation_bt_04.png"/>
+        <img class="nav_move_btn nav_right_btn statis_menu" data-statis_menu="main" id="id_nav_right_btn_main" data-menu="main" src="./image/navigation_bt_01.png"/>
+        <img class="nav_move_btn nav_right_btn statis_menu" data-statis_menu="event" id="id_nav_right_btn_event" data-menu="event" src="./image/navigation_bt_02.png"/>
+        <img class="nav_move_btn nav_right_btn statis_menu" data-statis_menu="brand" id="id_nav_right_btn_brand" data-menu="brand" src="./image/navigation_bt_03.png"/>
+        <img class="nav_move_btn nav_right_btn nav_right_btn_long statis_menu" data-statis_menu="coupon" id="id_nav_right_btn_coupon" data-menu="coupon" src="./image/navigation_bt_04.png"/>
     </div>
     <!-- 우측 중앙 네비게이션 바 끝 -->
 
@@ -1439,23 +1446,23 @@
 
         <!-- 상단 메인 광고 이미지 시작 -->
         <div class="banner_image">
-            <img class="banner_image_btn image_move_btn" data-direction="left" id="id_banner_image_left_btn" src="http://192.168.0.113:8031/stadmin/lotte_test/image/brand_popup_arrow_pre.png" height="51" width="51">
-            <img class="banner_preview" id="id_banner_image_left" src="http://192.168.0.113:8031/stadmin/lotte_test/image/banner/1_같이가요(가로).jpg"/>
+            <img class="banner_image_btn image_move_btn" data-direction="left" id="id_banner_image_left_btn" src="./image/brand_popup_arrow_pre.png" height="51" width="51">
+            <img class="banner_preview" id="id_banner_image_left" src="./contents/banner/1_같이가요(가로).jpg"/>
             <video class="banner_video banner_preview" id="id_banner_video_left" muted="muted" oncontextmenu="false" autoplay></video>
             <img id="id_banner_image"/>
             <video class="banner_video" id="id_banner_video" muted="muted" oncontextmenu="false" autoplay></video>
-            <img class="banner_preview" id="id_banner_image_right" src="http://192.168.0.113:8031/stadmin/lotte_test/image/banner/1_같이가요(가로).jpg" />
+            <img class="banner_preview" id="id_banner_image_right" src="./contents/banner/1_같이가요(가로).jpg" />
             <video class="banner_video banner_preview" id="id_banner_video_right" muted="muted" oncontextmenu="false" autoplay></video>
-            <img class="banner_image_btn image_move_btn" data-direction="right" id="id_banner_image_right_btn" src="http://192.168.0.113:8031/stadmin/lotte_test/image/brand_popup_arrow_next.png" height="51" width="51">
+            <img class="banner_image_btn image_move_btn" data-direction="right" id="id_banner_image_right_btn" src="./image/brand_popup_arrow_next.png" height="51" width="51">
         </div>
         <!-- 상단 메인 광고 이미지 끝 -->
 
         <!-- 상단 브랜드 광고 이미지 시작 -->
         <div class="brand_image">
-            <img class="brand_image_btn image_move_btn" data-direction="left" id="id_brand_image_left_btn" src="http://192.168.0.113:8031/stadmin/lotte_test/image/brand_popup_arrow_pre.png" height="51" width="51">
+            <img class="brand_image_btn image_move_btn" data-direction="left" id="id_brand_image_left_btn" src="./image/brand_popup_arrow_pre.png" height="51" width="51">
             <img id="id_brand_image"/>
             <video class="brand_video" id="id_brand_video" muted="muted" oncontextmenu="false" autoplay></video>
-            <img class="brand_image_btn image_move_btn" data-direction="right" id="id_brand_image_right_btn" src="http://192.168.0.113:8031/stadmin/lotte_test/image/brand_popup_arrow_next.png" height="51" width="51">
+            <img class="brand_image_btn image_move_btn" data-direction="right" id="id_brand_image_right_btn" src="./image/brand_popup_arrow_next.png" height="51" width="51">
         </div>
         <!-- 상단 브랜드 광고 이미지 끝 -->
         
@@ -1471,7 +1478,7 @@
                 <div class="search_information_text_top">위치찾기</div>
                 <div class="search_information_text_bot">찾고자 하는 층을 눌러주세요</div>
             </div>
-            <div class="search_information_current_floor"><img class="search_information_current_floor_img" src="http://192.168.0.113:8031/stadmin/lotte_test/image/main_ic_current.png">현재위치</div>
+            <div class="search_information_current_floor"><img class="search_information_current_floor_img" src="./image/main_ic_current.png">현재위치</div>
             <div class="search_information_button">
                 <!--
                 <div>B1</div>
@@ -1486,11 +1493,11 @@
         <div class="map_information_line"></div>
         <div class="map_information">
             <div class="map_information_public">
-                <img src="http://192.168.0.113:8031/stadmin/lotte_test/image/main_img_public.png" />
+                <img src="./image/main_img_public.png" />
             </div>
             <div class="map_information_zoom_btn">
-                <img class="map_zoom_plus map_zoom_btn" src="http://192.168.0.113:8031/stadmin/lotte_test/image/main_bt_map_plus.png" />
-                <img class="map_zoom_minus map_zoom_btn" src="http://192.168.0.113:8031/stadmin/lotte_test/image/main_bt_map_minus.png"  id="id_btn_img01" />
+                <img class="map_zoom_plus map_zoom_btn" src="./image/main_bt_map_plus.png" />
+                <img class="map_zoom_minus map_zoom_btn" src="./image/main_bt_map_minus.png"  id="id_btn_img01" />
             </div>
         </div>
         <!--공용시설 안내, 맵확대,축소 버튼 끝-->
@@ -1579,20 +1586,20 @@
                     
                     <!-- 상점 팝업 시작 -->
                     <div class="store_popup">
-                        <img src="http://192.168.0.113:8031/stadmin/lotte_test/image/main_ic_destination_s.png">
+                        <img src="./image/main_ic_destination_s.png">
                     </div>
                     <!-- 상점 팝업 끝 -->
                     
                     <!-- 키오스크 위치 팝업 시작 -->
                     <div class="kiosk_popup">
-                        <img src="http://192.168.0.113:8031/stadmin/lotte_test/image/main_ic_departure_s.png">
+                        <img src="./image/main_ic_departure_s.png">
                     </div>
                     <!--
-                        <img class="kiosk_popup_text" src="http://192.168.0.113:8031/stadmin/lotte_test/image/main_ic_location.png">
+                        <img class="kiosk_popup_text" src="./image/main_ic_location.png">
                     -->
                     <!-- 키오스크 위치 팝업 끝 -->
                 </div>
-                <img id="id_map_image" src="http://192.168.0.113:8031/stadmin/lotte_test/map/1F.png"/>
+                <img id="id_map_image" src="./map/1F.png"/>
                 
             </div>
 
@@ -1602,10 +1609,10 @@
         <!-- 하단 여백 -->
         <div class="bot_foot">
             <!--
-            <img src="http://192.168.0.113:8031/stadmin/lotte_test/image/main_bg.png"/>
+            <img src="./image/main_bg.png"/>
             -->
             <div class="bot_foot_text">* 점포사정에 따라 일부 상품위치가 상이 할 수 있습니다.</div>
-            <img class="main_pre_btn" src="http://192.168.0.113:8031/stadmin/lotte_test/image/main_bt_pre.png"/>
+            <img class="main_pre_btn" src="./image/main_bt_pre.png"/>
             
         </div>
         <!-- 하단 여백 -->
@@ -1646,16 +1653,16 @@
 
         <!-- 상단 안내 텍스트 시작 -->
         <div class="nav_top">
-            <img src="http://192.168.0.113:8031/stadmin/lotte_test/image/main_img_title.png" />
+            <img src="./image/main_img_title.png" />
         </div>
         <!-- 상단 안내 텍스트 끝 -->
 
         <!-- 중단 메뉴 리스트 시작 -->
         <div class="nav_middle">
 
-            <div class="nav_middle_menu">
+            <div class="nav_middle_menu statis_menu" data-statis_menu="main">
                 <div class="nav_middle_menu_img">
-                    <img id="id_nav_menu_image1" class="nav_move_btn" data-menu="main" src="http://192.168.0.113:8031/stadmin/lotte_test/image/main_bt_01.png">
+                    <img id="id_nav_menu_image1" class="nav_move_btn" data-menu="main" src="./image/main_bt_01.png">
                 </div>
                 <div class="nav_middle_menu_text ">
                     위치찾기
@@ -1665,9 +1672,9 @@
                 </div>
             </div>
 
-            <div class="nav_middle_menu">
+            <div class="nav_middle_menu statis_menu" data-statis_menu="event">
                 <div class="nav_middle_menu_img">
-                    <img id="id_nav_menu_image2" class="nav_move_btn" data-menu="event" src="http://192.168.0.113:8031/stadmin/lotte_test/image/main_bt_02.png">
+                    <img id="id_nav_menu_image2" class="nav_move_btn" data-menu="event" src="./image/main_bt_02.png">
                 </div>
                 <div class="nav_middle_menu_text ">
                     금주의행사상품
@@ -1678,9 +1685,9 @@
 
             </div>
 
-            <div class="nav_middle_menu">
+            <div class="nav_middle_menu statis_menu" data-statis_menu="brand">
                 <div class="nav_middle_menu_img">
-                    <img id="id_nav_menu_image3" class="nav_move_btn" data-menu="brand" src="http://192.168.0.113:8031/stadmin/lotte_test/image/main_bt_03.png">
+                    <img id="id_nav_menu_image3" class="nav_move_btn" data-menu="brand" src="./image/main_bt_03.png">
                 </div>
 
                 <div class="nav_middle_menu_text ">
@@ -1692,9 +1699,9 @@
 
             </div>
 
-            <div class="nav_middle_menu">
+            <div class="nav_middle_menu statis_menu" data-statis_menu="coupon">
                 <div class="nav_middle_menu_img">
-                    <img id="id_nav_menu_image4" class="nav_move_btn" data-menu="coupon" src="http://192.168.0.113:8031/stadmin/lotte_test/image/main_bt_04.png">
+                    <img id="id_nav_menu_image4" class="nav_move_btn" data-menu="coupon" src="./image/main_bt_04.png">
                 </div>
 
                 <div class="nav_middle_menu_text ">
@@ -1711,7 +1718,7 @@
         <!-- 하단 시작-->
         <div class="nav_foot">
             <!--
-            <img src="http://192.168.0.113:8031/stadmin/lotte_test/image/main_bg_text.png"/>
+            <img src="./image/main_bg_text.png"/>
             -->
         </div>
         <!-- 하단 끝-->
@@ -1722,10 +1729,10 @@
     <!-- 세로형 안내 키오스크 행사 시작 -->
     <div class="vertical_kiosk_event vertical_pages">
 
-        <img class="top_event_image" src="http://192.168.0.113:8031/stadmin/lotte_test/image/product_img_topsample.png" />
+        <img class="top_event_image" src="./image/product_img_topsample.png" />
 
         <div class="top_event_information">
-            <img src="http://192.168.0.113:8031/stadmin/lotte_test/image/product_img_text.png" />
+            <img src="./image/product_img_text.png" />
             <!--
             <div class="top_event_information_left">
                 <div></div>
@@ -1743,7 +1750,7 @@
             <!--
 
             <div class="middle_event_product">
-                <img class="middle_event_product_left" src="http://192.168.0.113:8031/stadmin/lotte_test/image/product/detail_01.jpg"/>
+                <img class="middle_event_product_left" src="./image/product/detail_01.jpg"/>
                 <div class="middle_event_product_right">
                     <div class="middle_event_product_right_top">
                         Only Price 미네랄 워터
@@ -1753,7 +1760,7 @@
                         <div class="middle_event_product_right_middle_text">원</div>
                     </div>
                     <div class="middle_event_product_right_bot">
-                        <img class="middle_event_product_right_bot_icon" src="http://192.168.0.113:8031/stadmin/lotte_test/image/main_ic_01.png"/>
+                        <img class="middle_event_product_right_bot_icon" src="./image/main_ic_01.png"/>
                         <div class="middle_event_product_right_bot_text">상품 위치안내</div>
                     </div>
                 </div>
@@ -1763,7 +1770,7 @@
         </div>
 
         <div class="event_foot">
-            <img src="http://192.168.0.113:8031/stadmin/lotte_test/image/product_img_bg_acc.png"/>
+            <img src="./image/product_img_bg_acc.png"/>
         </div>
 
     </div>
@@ -1771,7 +1778,7 @@
 
     <!-- 세로형 안내 키오스크 쿠폰 시작 -->
     <div class="vertical_kiosk_coupon vertical_pages">
-        <img src="http://192.168.0.113:8031/stadmin/lotte_test/image/mcoupon.jpg"/> 
+        <img src="./image/mcoupon.jpg"/> 
     </div>
     <!-- 세로형 안내 키오스크 쿠폰 끝 -->
 
@@ -1779,7 +1786,7 @@
     <div class="vertical_kiosk_event_popup">
         <div class="event_popup">
             <div class="event_popup_top">
-                <img class="event_popup_top_image" src="http://192.168.0.113:8031/stadmin/lotte_test/image/product/detail_01.jpg"/>
+                <img class="event_popup_top_image" src="./contents/product/detail_01.jpg"/>
             </div>
             <div class="event_popup_middle">
 
@@ -1787,7 +1794,7 @@
                 </div>
                 <div class="event_popup_middle_price">
                     <!--
-                    <img class="lpoint_img" src="http://192.168.0.113:8031/stadmin/lotte_test/image/product_ic_LPOINT.png" />
+                    <img class="lpoint_img" src="./image/product_ic_LPOINT.png" />
                     -->
                     <div class="event_popup_middle_price_normal">
                         <div class="event_popup_middle_price_normal_text">점포매가</div>
@@ -1805,20 +1812,20 @@
                 </div>
             </div>
             <div class="event_popup_bot">
-                <img src="http://192.168.0.113:8031/stadmin/lotte_test/image/main_bt_wayfinding.png"/>
+                <img src="./image/main_bt_wayfinding.png"/>
             </div>
             
         </div>
-        <img class="event_popup_close" src="http://192.168.0.113:8031/stadmin/lotte_test/image/main_bt_x.png">
+        <img class="event_popup_close" src="./image/main_bt_x.png">
     </div>
     <!-- 세로형 안내 키오스크 행사 팝업 끝 -->
 
     <!-- 세로형 안내 키오스크 전층안내 팝업 시작 -->
     <div class="vertical_kiosk_floor_popup">
         <div class="floor_popup">
-            <img src="http://192.168.0.113:8031/stadmin/lotte_test/image/main_img_popup.png">
+            <img src="./image/main_img_popup.png">
         </div>
-        <img class="floor_popup_close" src="http://192.168.0.113:8031/stadmin/lotte_test/image/main_bt_x.png">
+        <img class="floor_popup_close" src="./image/main_bt_x.png">
     </div>
     <!-- 세로형 안내 키오스크 전층안내 팝업 끝 -->
 
@@ -1941,7 +1948,7 @@
             if(kiosk_floor === arr_split[0]){
 
                 $('.search_information_current_floor').html(arr_split[0] + "");
-                $('.search_information_current_floor').append("<img class=\"search_information_current_floor_img\" src=\"http://192.168.0.113:8031/stadmin/lotte_test/image/main_ic_current.png\"><div>현재위치</div>");
+                $('.search_information_current_floor').append("<img class=\"search_information_current_floor_img\" src=\"./image/main_ic_current.png\"><div>현재위치</div>");
             }
             
             tmp_str += "<div class=\"floor_btn\"";
@@ -2584,14 +2591,14 @@
         */
 
         var arr_data = [
-                        {store_name:"상점1",store_id:"1",left:746,top:744,font_size:"20",floor:"B1"},
-                        {store_name:"상점2",store_id:"2",left:788,top:625,font_size:"20",floor:"B1"},
-                        {store_name:"상점3",store_id:"3",left:1042,top:953,font_size:"20",floor:"B1"},
-                        {store_name:"상점4",store_id:"4",left:1435,top:298,font_size:"20",floor:"B1"},
-                        {store_name:"상점5",store_id:"5",left:1379,top:634,font_size:"20",floor:"B1"},
-                        {store_name:"상점6",store_id:"6",left:412,top:904,font_size:"20",floor:"B1"},
-                        {store_name:"상점7",store_id:"7",left:535,top:956,font_size:"20",floor:"B1"},
-                        {store_name:"상점8",store_id:"8",left:1489,top:681,font_size:"20",floor:"B1"},
+                        {store_name:"상점1",store_id:"1",left:1039,top:872,font_size:"20",floor:"B1"},
+                        {store_name:"상점2",store_id:"2",left:1489,top:744,font_size:"20",floor:"B1"},
+                        {store_name:"상점3",store_id:"3",left:1291,top:227,font_size:"20",floor:"B1"},
+                        {store_name:"상점4",store_id:"4",left:915,top:732,font_size:"20",floor:"B1"},
+                        {store_name:"상점5",store_id:"5",left:916,top:563,font_size:"20",floor:"B1"},
+                        {store_name:"상점6",store_id:"6",left:865,top:687,font_size:"20",floor:"B1"},
+                        {store_name:"상점7",store_id:"7",left:1065,top:772,font_size:"20",floor:"B1"},
+                        {store_name:"상점8",store_id:"8",left:535,top:954,font_size:"20",floor:"B1"},
 
                         {store_name:"상점9",store_id:"9",left:545,top:973,font_size:"20",floor:"B1"},
                         {store_name:"상점10",store_id:"10",left:1047,top:709,font_size:"20",floor:"B1"},
@@ -2867,11 +2874,11 @@
             });
             */
 
-            var json_data = {store_id:"2",floor:"B1",map_url:"http://192.168.0.113:8031/stadmin/lotte_test/map/B1.png"};
+            var json_data = {store_id:"2",floor:"B1",map_url:"./map/B1.png"};
 
             var store_id = 2;
             var floor = "B1";
-            var map_url = "http://192.168.0.113:8031/stadmin/lotte_test/map/B1.png";
+            var map_url = "./map/B1.png";
 
             var map_store_obj = $('.map_store');
             var store_popup_obj = $('.store_popup');
@@ -3145,14 +3152,14 @@
         */
 
         arr_banner_image = [
-                            "http://192.168.0.113:8031/stadmin/lotte_test/image/banner/banner1.mp4",
-                            "http://192.168.0.113:8031/stadmin/lotte_test/image/banner/banner2.mp4",
-                            "http://192.168.0.113:8031/stadmin/lotte_test/image/banner/banner3.jpg",
-                            "http://192.168.0.113:8031/stadmin/lotte_test/image/banner/banner4.jpg",
-                            "http://192.168.0.113:8031/stadmin/lotte_test/image/banner/1_같이가요(가로).jpg",
-                            "http://192.168.0.113:8031/stadmin/lotte_test/image/banner/2_같이가요(가로).jpg",
-                            "http://192.168.0.113:8031/stadmin/lotte_test/image/banner/3_같이가요(가로).jpg",
-                            "http://192.168.0.113:8031/stadmin/lotte_test/image/banner/M쿠폰.jpg"
+                            "./contents/banner/banner1.mp4",
+                            "./contents/banner/banner2.mp4",
+                            "./contents/banner/banner3.jpg",
+                            "./contents/banner/banner4.jpg",
+                            "./contents/banner/1_같이가요(가로).jpg",
+                            "./contents/banner/2_같이가요(가로).jpg",
+                            "./contents/banner/3_같이가요(가로).jpg",
+                            "./contents/banner/M쿠폰.jpg"
                             ];
 
         return arr_banner_image;
@@ -3219,14 +3226,14 @@
         */
 
         arr_banner_image = [
-                            "http://192.168.0.113:8031/stadmin/lotte_test/image/banner/1_PB브랜드_룸바이홈(가로).jpg",
-                            "http://192.168.0.113:8031/stadmin/lotte_test/image/banner/2_PB브랜드_온리프라이스(가로).jpg",
-                            "http://192.168.0.113:8031/stadmin/lotte_test/image/banner/3_PB브랜드_초이스엘(가로).jpg",
-                            "http://192.168.0.113:8031/stadmin/lotte_test/image/banner/4_PB브랜드_산지뚝심_가자미(가로).jpg",
-                            "http://192.168.0.113:8031/stadmin/lotte_test/image/banner/5_PB브랜드_황금당도(가로).jpg",
-                            "http://192.168.0.113:8031/stadmin/lotte_test/image/banner/6_PB브랜드_요리하다(가로).jpg",
-                            "http://192.168.0.113:8031/stadmin/lotte_test/image/banner/7_PB브랜드_스위허그(가로).jpg",
-                            "http://192.168.0.113:8031/stadmin/lotte_test/image/banner/8_PB브랜드_해빗(가로).jpg"
+                            "./contents/banner/1_PB브랜드_룸바이홈(가로).jpg",
+                            "./contents/banner/2_PB브랜드_온리프라이스(가로).jpg",
+                            "./contents/banner/3_PB브랜드_초이스엘(가로).jpg",
+                            "./contents/banner/4_PB브랜드_산지뚝심_가자미(가로).jpg",
+                            "./contents/banner/5_PB브랜드_황금당도(가로).jpg",
+                            "./contents/banner/6_PB브랜드_요리하다(가로).jpg",
+                            "./contents/banner/7_PB브랜드_스위허그(가로).jpg",
+                            "./contents/banner/8_PB브랜드_해빗(가로).jpg"
                             ];
 
         return arr_banner_image;
@@ -3265,9 +3272,9 @@
         */
 
         arr_map_image = [
-                        "http://192.168.0.113:8031/stadmin/lotte_test/map/B1.png",
-                        "http://192.168.0.113:8031/stadmin/lotte_test/map/1F.png",
-                        "http://192.168.0.113:8031/stadmin/lotte_test/map/2F.png"];
+                        "./map/B1.png",
+                        "./map/1F.png",
+                        "./map/2F.png"];
 
 
         return arr_map_image;
@@ -3870,7 +3877,7 @@
                 $('.event_popup_middle_price_special_text').text(str_point);
                 $('.event_popup_middle_price_normal_number').text(data.normal_price);
                 $('.event_popup_middle_price_special_number').text(data.event_price);
-                $('.event_popup_middle_information_text').html(tmp_information);
+                //$('.event_popup_middle_information_text').html(tmp_information);
                 $('.event_popup_bot').data("store_id",data.store_id);
                 $('.event_popup_bot').data("floor",data.floor);
                 $('.event_popup_bot').data("map_url",data.map_url);
@@ -3961,14 +3968,15 @@
         */
 
         var arr_data = [
-                        {event_name:"유명산지<br> 거봉/CA 거봉<br> (각 2kg/1박스/국산)",event_id:"3",event_price:"11,900",img_url:"http://192.168.0.113:8031/stadmin/lotte_test/image/product/detail_01.jpg",normal_price:"1,153.300원",special_price:"1,152.200",start_date:"2019.06.19",end_date:"2019.9.15(일)까지",store_id:"3",floor:"B1",map_url:"http://192.168.0.113:8031/stadmin/lotte_test/map/B1.png",text_information:"※점별 운영상품 상이 ※조기 품절될 수 있습니다",point_sect:"normal"},
-                        {event_name:"서해안 햇 꽃게<br> (100g/냉장/국산)",event_id:"4",event_price:"1,280",img_url:"http://192.168.0.113:8031/stadmin/lotte_test/image/product/detail_02.jpg",normal_price:"1,153.300원",special_price:"1,152.200",start_date:"2019.06.19",end_date:"2019.9.15(일)까지",store_id:"4",floor:"B1",map_url:"http://192.168.0.113:8031/stadmin/lotte_test/map/B1.png",text_information:"",point_sect:"normal"},
-                        {event_name:"엄산한 1등급 돼지고기<br> 삼겹살/목심<br> (각 100g/냉장/국내산)",event_id:"5",event_price:"2,480",img_url:"http://192.168.0.113:8031/stadmin/lotte_test/image/product/detail_03.jpg",normal_price:"1,153.300원",special_price:"1,152.200",start_date:"2019.06.19",end_date:"2019.9.15(일)까지",store_id:"5",floor:"B1",map_url:"http://192.168.0.113:8031/stadmin/lotte_test/map/B1.png",text_information:"",point_sect:"normal"},
-                        {event_name:"친환경 한우 1++등급<br> 한우 불고기/국거리<br> (각 100g/냉장/국내산 한우고기)",event_id:"8",event_price:"6,000/4,500",img_url:"http://192.168.0.113:8031/stadmin/lotte_test/image/product/detail_04.jpg",normal_price:"1,153.300원",special_price:"1,152.200",start_date:"2019.06.19",end_date:"2019.9.15(일)까지",store_id:"8",floor:"B1",map_url:"http://192.168.0.113:8031/stadmin/lotte_test/map/B1.png",text_information:"",point_sect:"point"},
-                        {event_name:"해표 식용유 (1.5L)",event_id:"1",event_price:"5,950",img_url:"http://192.168.0.113:8031/stadmin/lotte_test/image/product/detail_05.jpg",normal_price:"1,153.300원",special_price:"1,152.200",start_date:"2019.06.19",end_date:"2019.9.15(일)까지",store_id:"1",floor:"B1",map_url:"http://192.168.0.113:8031/stadmin/lotte_test/map/B1.png",text_information:"",point_sect:"normal"},
-                        {event_name:"백설 쌀국수/팟타이/<br>마라탕면 소스 (315g/340g/300g)",event_id:"2",event_price:"4,680",img_url:"http://192.168.0.113:8031/stadmin/lotte_test/image/product/detail_06.jpg",normal_price:"1,153.300원",special_price:"1,152.200",start_date:"2019.06.19",end_date:"2019.9.15(일)까지",store_id:"2",floor:"B1",map_url:"http://192.168.0.113:8031/stadmin/lotte_test/map/B1.png",text_information:"",point_sect:"normal"},
-                        {event_name:"테크 안티더스트<br> 액체세제 <br>(각 3L, 일반/드럼)",event_id:"6",event_price:"6,900",img_url:"http://192.168.0.113:8031/stadmin/lotte_test/image/product/detail_07.jpg",normal_price:"1,153.300원",special_price:"1,152.200",start_date:"2019.06.19",end_date:"2019.9.15(일)까지",store_id:"6",floor:"B1",map_url:"http://192.168.0.113:8031/stadmin/lotte_test/map/B1.png",text_information:"",point_sect:"normal"},
-                        {event_name:"나무야나무야 내추럴 <br>3겹 화장지<br>(35m x 30롤)",event_id:"7",event_price:"9,900",img_url:"http://192.168.0.113:8031/stadmin/lotte_test/image/product/detail_08.jpg",normal_price:"1,153.300원",special_price:"1,152.200",start_date:"2019.06.19",end_date:"2019.9.15(일)까지",store_id:"7",floor:"B1",map_url:"http://192.168.0.113:8031/stadmin/lotte_test/map/B1.png",text_information:"",point_sect:"normal"}
+                        {event_name:"제주 GAP 하우스 감귤(1.2kg/1팩/국산)",event_id:"1",event_price:"9,980",img_url:"./contents/product/detail_01.jpg",normal_price:"1,153.300원",special_price:"1,152.200",start_date:"2019.06.19",end_date:"2019.10.1(화)까지",store_id:"1",floor:"B1",map_url:"./map/B1.png",text_information:"※점별 운영상품 상이 ※조기 품절될 수 있습니다",point_sect:"normal"},
+                        {event_name:"미국산 소 척아이롤(100g/냉장)",event_id:"2",event_price:"1,750",img_url:"./contents/product/detail_02.jpg",normal_price:"1,153.300원",special_price:"1,152.200",start_date:"2019.06.19",end_date:"2019.10.1(화)까지",store_id:"2",floor:"B1",map_url:"./map/B1.png",text_information:"",point_sect:"point"},
+                        {event_name:"통큰치킨 (1마리, 계육: 냉장/국내산)",event_id:"3",event_price:"5,000",img_url:"./contents/product/detail_03.jpg",normal_price:"1,153.300원",special_price:"1,152.200",start_date:"2019.06.19",end_date:"2019.10.1(화)까지",store_id:"3",floor:"B1",map_url:"./map/B1.png",text_information:"",point_sect:"normal"},
+                        {event_name:"씨제이 비비고 군교자 2종(고기 360g*2/해물파전 315g*2)",event_id:"4",event_price:"8,480",img_url:"./contents/product/detail_04.jpg",normal_price:"1,153.300원",special_price:"1,152.200",start_date:"2019.06.19",end_date:"2019.10.1(화)까지",store_id:"4",floor:"B1",map_url:"./map/B1.png",text_information:"",point_sect:"normal"},
+                        {event_name:"롯데푸드 리퀴진 미니돈까스(380g)",event_id:"5",event_price:"4,980",img_url:"./contents/product/detail_05.jpg",normal_price:"1,153.300원",special_price:"1,152.200",start_date:"2019.06.19",end_date:"2019.10.1(화)까지",store_id:"5",floor:"B1",map_url:"./map/B1.png",text_information:"",point_sect:"normal"},
+                        {event_name:"씨제이 고메 핫도그 2종(480g/425g)",event_id:"6",event_price:"6,980",img_url:"./contents/product/detail_06.jpg",normal_price:"1,153.300원",special_price:"1,152.200",start_date:"2019.06.19",end_date:"2019.10.1(화)까지",store_id:"6",floor:"B1",map_url:"./map/B1.png",text_information:"",point_sect:"normal"},
+                        {event_name:"온리프라이스 우유(930ml*2)",event_id:"7",event_price:"3,000",img_url:"./contents/product/detail_07.jpg",normal_price:"1,153.300원",special_price:"1,152.200",start_date:"2019.06.19",end_date:"2019.10.1(화)까지",store_id:"7",floor:"B1",map_url:"./map/B1.png",text_information:"",point_sect:"normal"},
+                        {event_name:"잘풀리는집 더도톰한 3겹 화장지(30m*30롤)",event_id:"8",event_price:"13,900",img_url:"./contents/product/detail_08.jpg",normal_price:"1,153.300원",special_price:"1,152.200",start_date:"2019.06.19",end_date:"2019.10.1(화)까지",store_id:"8",floor:"B1",map_url:"./map/B1.png",text_information:"",point_sect:"normal"}
+						
                         ];
 
         return arr_data;
@@ -4010,7 +4018,7 @@
                 str_append += "data-end_date=\"" + tmp_json.end_date + "\">";
                 
 
-                str_append += "  <img class=\"middle_event_product_left\" src=\"http://192.168.0.113:8031/stadmin/lotte_test/image/product/detail_0" + (index + 1) + ".jpg\"/>";
+                str_append += "  <img class=\"middle_event_product_left\" src=\"./contents/product/detail_0" + (index + 1) + ".jpg\"/>";
                 str_append += "  <div class=\"middle_event_product_right\">";
                 str_append += "    <div class=\"middle_event_product_right_top\">";
                 str_append += "      " + tmp_json.event_name;
@@ -4019,7 +4027,7 @@
                 str_append += "      <div class=\"middle_event_product_right_middle_number\">" + tmp_json.event_price + "</div>";
                 str_append += "      <div class=\"middle_event_product_right_middle_text\">원</div>";
                 str_append += "    </div>";
-                str_append += "    <img class=\"middle_event_product_right_bot\" src=\"http://192.168.0.113:8031/stadmin/lotte_test/image/product_bt_wayfinding.png\"/>";
+                str_append += "    <img class=\"middle_event_product_right_bot\" src=\"./image/product_bt_wayfinding.png\"/>";
                 str_append += "  <div>";
 
                 str_append += "</div>";
@@ -4066,14 +4074,14 @@
         */
 
         var arr_data = [
-                        {brand_id:1,img_url:"http://192.168.0.113:8031/stadmin/lotte_test/image/brand/brand_bt_thum_01.png"},
-                        {brand_id:2,img_url:"http://192.168.0.113:8031/stadmin/lotte_test/image/brand/brand_bt_thum_02.png"},
-                        {brand_id:3,img_url:"http://192.168.0.113:8031/stadmin/lotte_test/image/brand/brand_bt_thum_03.png"},
-                        {brand_id:4,img_url:"http://192.168.0.113:8031/stadmin/lotte_test/image/brand/brand_bt_thum_04.png"},
-                        {brand_id:5,img_url:"http://192.168.0.113:8031/stadmin/lotte_test/image/brand/brand_bt_thum_05.png"},
-                        {brand_id:6,img_url:"http://192.168.0.113:8031/stadmin/lotte_test/image/brand/brand_bt_thum_06.png"},
-                        {brand_id:7,img_url:"http://192.168.0.113:8031/stadmin/lotte_test/image/brand/brand_bt_thum_07.png"},
-                        {brand_id:8,img_url:"http://192.168.0.113:8031/stadmin/lotte_test/image/brand/brand_bt_thum_08.png"}
+                        {brand_id:1,img_url:"./contents/brand/brand_bt_thum_01.png"},
+                        {brand_id:2,img_url:"./contents/brand/brand_bt_thum_02.png"},
+                        {brand_id:3,img_url:"./contents/brand/brand_bt_thum_03.png"},
+                        {brand_id:4,img_url:"./contents/brand/brand_bt_thum_04.png"},
+                        {brand_id:5,img_url:"./contents/brand/brand_bt_thum_05.png"},
+                        {brand_id:6,img_url:"./contents/brand/brand_bt_thum_06.png"},
+                        {brand_id:7,img_url:"./contents/brand/brand_bt_thum_07.png"},
+                        {brand_id:8,img_url:"./contents/brand/brand_bt_thum_08.png"}
                         ];
 
         return arr_data;
@@ -4394,6 +4402,9 @@
                         };
 
         setAllFloorPopup(json_objs);   
+        
+        //메뉴 이동 버튼 클릭시 통계 보내는 기능 설정
+        setSendStatis();
 
     }
 
@@ -4560,10 +4571,10 @@
         */
        
 
-        var tmp_json = {floor:"2F",map_url:"http://192.168.0.113:8031/stadmin/lotte_test/map/B1.png"};
+        var tmp_json = {floor:"2F",map_url:"./map/B1.png"};
         
         var floor = "B1";
-        var map_url = "http://192.168.0.113:8031/stadmin/lotte_test/map/B1.png";
+        var map_url = "./map/B1.png";
 
         return {floor:floor,map_url:map_url};
     }
@@ -4612,7 +4623,7 @@
                       kiosk_popup:kiosk_popup,
                       store_popup:store_popup
                      }
-    setNewMapPinchZoom(pinch_objs);
+    //setNewMapPinchZoom(pinch_objs);
 
     function setNewMapPinchZoom(json){
 
@@ -4803,11 +4814,11 @@
 
             kiosk_popup.style.zIndex="10px";
             store_popup.style.zIndex="10px";   
-                $(kiosk_popup).css("zIndex","100px");
+            $(kiosk_popup).css("zIndex","100px");
             $(store_popup).css("zIndex","100px");
             kiosk_popup.style.zIndex="10px";
             store_popup.style.zIndex="10px"; 
-*/
+            */
             
         }
 
@@ -4818,6 +4829,27 @@
         })
     }
     //PINCH 줌 확대,축소 설정 끝
+
+
+    //통계 보내는 설정
+    function setSendStatis(){
+        $('.statis_menu').on('click',function(e){
+            var menu = $(this).data("statis_menu");
+                 
+            $.ajax({
+                url : "http://192.168.0.113:8031/user/xml/html_status.jsp",
+                method : "GET",
+                dataType : "text",
+                data : {'menu':menu,'kiosk_code':gl_kiosk_code},
+                success : function(data){
+                    console.log(data);
+                },
+                error:function(e){
+                    //alert('Fail.');
+                }
+            });
+        })
+    }
     
 
 </script>

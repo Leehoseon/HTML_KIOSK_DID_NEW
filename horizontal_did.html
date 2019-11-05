@@ -1,0 +1,705 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="../include/js/jquery.js"></script><!--j쿼리-->
+
+
+    <style>
+        
+            html,body{
+                margin:0px;
+                padding:0px;
+                width:100%;
+                height:100%;
+                overflow: hidden;
+                touch-action: none;
+                
+            }
+            /*
+            .cover_loading_main{position:fixed;width:100%;height:100%;left:0;right:0;top:0;bottom:0;background:#ffffff;z-index:100000;}
+            */
+            
+        
+        /*
+            @media all and(min-width:1080px){
+                background-color: 
+            }
+        */
+        
+        
+            /*
+            ##Device = Desktops
+            ##Screen = 1281px to higher resolution desktops
+            ##Device = 데스크탑
+            ##Screen = 1281px 이상 해상도 데스크탑
+            */
+        
+            @media (min-width: 1281px) {
+                /* DID 일반 재생 영역 시작 */
+        
+                .did_display{
+                    margin:0px;
+                    padding:0px;
+                    width:100%;
+                    height:100%;
+                }
+        
+                .touch_div{
+                    top:50%;
+                    left:50%;
+                    width:20%;
+                    height:20%;
+                    position: absolute;
+                    font-size:30px;
+                    color:red;
+                    display: none;
+                }
+        
+                #id_did_image{
+                    width:100%;
+                    position:absolute;
+                }
+        
+                #id_did_video{
+                    width:100% !important;
+                    position:absolute;
+                    float:left;
+                    padding:0px;
+                    margin:0px;
+                }
+                /* DID 일반 재생 영역 끝 */
+
+                /* DID 스페셜 재생 영역 시작 */
+        
+                .special_display{
+                    margin:0px;
+                    padding:0px;
+                    width:100%;
+                    height:100%;
+                }
+        
+                .touch_div{
+                    top:50%;
+                    left:50%;
+                    width:20%;
+                    height:20%;
+                    position: absolute;
+                    font-size:30px;
+                    color:red;
+                    display: none;
+                }
+        
+                #id_special_image{
+                    width:100%;
+                    position:absolute;
+                }
+        
+                #id_special_video{
+                    width:100% !important;
+                    position:absolute;
+                    float:left;
+                    padding:0px;
+                    margin:0px;
+                }
+                /* DID 스페셜 재생 영역 끝 */
+               
+            }
+        
+            /*
+            ##Device = Laptops, Desktops
+            ##Screen = B/w 1025px to 1280px
+            ##Device = 랩탑, 데스크탑
+            ##Screen = 1025px에서 1280px 사이
+            */
+        
+            @media (min-width: 1025px) and (max-width: 1280px) {
+        
+                
+        
+                /* DID 일반 재생 영역 시작 */
+        
+                .did_display{
+                    margin:0px;
+                    padding:0px;
+                    width:100%;
+                    height:100%;
+                }
+        
+                .touch_div{
+                    top:50%;
+                    left:50%;
+                    width:20%;
+                    height:20%;
+                    position: absolute;
+                    font-size:30px;
+                    color:red;
+                    display: none;
+                }
+        
+                #id_did_image{
+                    width:100%;
+                    position:absolute;
+                }
+        
+                #id_did_video{
+                    width:100% !important;
+                    position:absolute;
+                    float:left;
+                    padding:0px;
+                    margin:0px;
+                }
+                /* DID 일반 재생 영역 끝 */
+        
+            }
+        
+            /*
+            ##Device = Tablets, Ipads (portrait),
+            ##Screen = B/w 768px to 1024px
+            ##Device = 태블릿, 아이패드(세로),
+            ##Screen = 768px에서 1024px 사이
+            */
+        
+            @media (min-width: 768px) and (max-width: 1024px) {
+        
+            }
+        
+            /*
+            ##Device = Tablets, Ipads (landscape)
+            ##Screen = B/w 768px to 1024px
+            ##Device = 태블릿, 아이패드(가로)
+            ##Screen = 768px에서 1024px 사이
+            */
+        
+            @media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
+        
+            }
+        
+            /*
+            ##Device = Low Resolution Tablets, Mobiles (Landscape)
+            ##Screen = B/w 481px to 767px
+            ##Device = 저해상도 태블릿, 모바일(가로)
+            ##Screen = 481px에서 767px 사이
+            */
+        
+            @media (min-width: 481px) and (max-width: 767px) {
+        
+            }
+        
+            /*
+            ##Device = Most of the Smartphones Mobiles (Portrait)
+            ##Screen = B/w 320px to 479px
+            ##Device = 대부분의 스마트폰 모바일 기기(세로)
+            ##Screen = 320px에서 479px 사이
+            */
+        
+            @media (min-width: 320px) and (max-width: 480px) {
+               
+            }
+        
+        </style>
+    
+</head>
+<!--
+<body oncontextmenu="return false">
+    -->
+<body>
+    <!--
+    <div class="cover_loading_main"></div>
+    -->
+    <!-- DID 일반 재생 영역 시작 -->
+    <div class="did_display">
+        <img id="id_did_image"/>
+        <video class="did_video" id="id_did_video" muted="muted" oncontextmenu="false" autoplay>
+        </video>
+    </div>
+    <!-- DID 일반 재생 영역 끝 -->        
+
+    <!-- DID 스페셜 재생 영역 시작 -->
+    <div class="special_display">
+        <img id="id_special_image"/>
+        <video class="special_video" id="id_special_video" muted="muted" oncontextmenu="false" autoplay>
+        </video>
+    </div>
+    <!-- DID 스페셜 재생 영역 끝 -->        
+
+</body>
+</html>
+
+
+
+<script>
+
+    var gl_kiosk_code = getQuerystring('kiosk_code');
+    
+    var gl_arr_special_schedule = [];
+
+    //파라미터 파싱
+    function getQuerystring(paramName){
+        try{
+            var _tempUrl = window.location.search.substring(1);
+            //url에서 처음부터 '?'까지 삭제 
+            var _tempArray = _tempUrl.split('&'); 
+            // '&'을 기준으로 분리하기 
+            for(var i = 0; _tempArray.length; i++) {
+                var _keyValuePair = _tempArray[i].split('='); // '=' 을 기준으로 분리하기 
+                if(_keyValuePair[0] == paramName){ // _keyValuePair[0] : 파라미터 명 
+                    // _keyValuePair[1] : 파라미터 값 
+                    return _keyValuePair[1]; 
+                } 
+            } 
+        }catch{
+            return "";
+        }
+    }   
+   
+    // 상단 이미지 슬라이드 기능 시작
+    function setSlideImage(json_obj){
+
+        var button_obj = json_obj.button_obj;
+        var image_obj = json_obj.image_obj;
+        var video_obj = json_obj.video_obj;
+        var arr_image = json_obj.arr_image;
+        var slide_time = json_obj.slide_time;
+        var sect = json_obj.sect;
+
+        var normal_slide_time = 5000;
+        var special_slide_time = 5000;
+        var template_slide_time = 5000;
+
+        var img_timer_id;
+        var init_timer_id;
+
+        //첫번째 이미지로 초기화
+        $(image_obj).attr("src",arr_image[0].contents_url);
+        $(video_obj).attr("src",arr_image[0].contents_url);
+        $(image_obj).data("seq",1);
+        $(video_obj).data("seq",1);
+
+        function setInitSlide(){
+
+            var video_duration = video_obj.duration;
+            //video_duration = 1000 * Math.floor(video_duration);
+
+            if(isNaN(video_duration)){
+                
+                if(sect === "special"){
+                    target_slide_time = special_slide_time;
+                }else if(sect === "normal"){
+                    target_slide_time = normal_slide_time;
+                }else if(sect === "template"){
+                
+                }
+
+            }else{
+                target_slide_time = 1000 * (Math.floor(video_duration))
+            }
+
+             //동영상이 아니면
+             if(isNaN(video_duration)){
+                //console.log("1");
+                img_timer_id = setTimeout(function() {
+                    
+                    slideNextImage("right");                    
+                }, target_slide_time);
+                
+            }else{
+                //console.log("2");
+                img_timer_id = setTimeout(function() {
+                    
+                    slideNextImage("right");
+                    
+                }, target_slide_time);   
+            }
+        }  
+
+        window.setTimeout(function(t){
+            setInitSlide();
+        },1500);
+
+        
+    
+        function slideNextImage(direction){
+
+            //이미지가 다음으로 넘어갈때 현재 스페셜 상태인지 체크 후 화면 전환
+            if(sect === "special"){
+                var special_arr = getCurrentSpecialSchedule(gl_arr_special_schedule,sect);
+                if(special_arr !== undefined){
+                    arr_image = special_arr.speciale_contents_arr;
+                    setChangeDisplayType("special");
+                }else{
+                    setChangeDisplayType("normal");
+                }
+            }else if(sect === "normal"){
+                
+            }else if(sect === "template"){
+                
+            }
+
+            var target_image = $(image_obj);
+            var target_video = $(video_obj);
+            
+            var video_duration = video_obj.duration;
+            var next_data = getNextImageUri(direction,arr_image);
+            
+            var target_uri = next_data[0];
+            var target_seq = next_data[1];
+
+            if(sect === "special"){
+                special_slide_time = next_data[2] * 1000;
+            }else if(sect === "normal"){
+                normal_slide_time = next_data[2] * 1000;
+            }else if(sect === "template"){
+                template_slide_time = next_data[2] * 1000;
+            }
+
+            var arr_target = target_uri.split("\/");
+            var file_name = arr_target[arr_target.length-1];
+            var target_ext = file_name.split("\.");
+            //var target_slide_time = 5;
+
+            if(target_ext[1] === "jpg" || target_ext[1] === "png"){
+
+                target_image.attr("src",target_uri);  
+                target_video.attr("src",target_uri);
+                target_video.css("display","none");
+                target_image.css("display","block");
+                target_image.data("seq",target_seq);
+                target_video.data("seq",target_seq);
+
+            }else{
+
+                target_video.attr("src",target_uri);
+                target_image.attr("src",target_uri);  
+                target_image.css("display","none");
+                target_video.css("display","block");
+                target_image.data("seq",target_seq);
+                target_video.data("seq",target_seq);
+
+            }
+
+            clearTimeout(init_timer_id); //타이머 클리어
+            init_timer_id = setTimeout(function(t){
+                clearTimeout(img_timer_id); //타이머 클리어
+                
+                setInitSlide();
+            },1500);           
+
+        };
+
+        $(button_obj).on("click",function(e){
+
+            var direction = $(this).data("direction");
+            slideNextImage(direction);   
+
+        });
+
+        function getNextImageUri(direction,arr_image){
+
+            var target = $(image_obj);
+            var video_target = $(video_obj);
+
+            var current_arr_src = target.attr("src").split("/");
+            var current_seq = target.data("seq");
+            var ret_str = "";     
+            var ret_seq = 0;       
+            var ret_ptime = 5000;
+           
+            for (var index = 0; index < arr_image.length; index++) {
+                /*
+                var target_arr_src = arr_image[index].contents_url.split("/");
+                if(current_arr_src[current_arr_src.length - 1] === target_arr_src[target_arr_src.length - 1]){ // 이미지 이름이 같으면
+                    
+                    if(direction === "left"){
+                        if(index - 1 === -1){
+                            ret_str = arr_image[arr_image.length - 1];
+                        }else{
+                            ret_str = arr_image[index - 1];
+                        }
+                    }else if(direction === "right"){
+                        if(index  + 1 >= arr_image.length){
+                            ret_str = arr_image[0];
+                        }else{
+                            ret_str = arr_image[index + 1];
+                        }
+                    }
+                    
+                    return [ret_str];
+                }
+                */
+
+                if(current_seq >= arr_image[index].length){ // 현재 SEQ가 컨텐츠 총 수량 보다 크다면 1번으로 리셋
+                    current_seq = 1;
+                }
+
+                if(current_seq === arr_image[index].seq){ // 이미지 SEQ가 같으면
+
+                    
+                    if(direction === "left"){
+                        if(index - 1 === -1){
+                            ret_str = arr_image[arr_image.length - 1].contents_url;
+                            ret_seq = arr_image[arr_image.length - 1].seq;
+                            ret_ptime = arr_image[arr_image.length - 1].ptime;
+                        }else{
+                            ret_str = arr_image[index - 1].contents_url;
+                            ret_seq = arr_image[index - 1].seq;
+                            ret_ptime = arr_image[index - 1].ptime;
+                        }
+                    }else if(direction === "right"){
+                        if(index  + 1 >= arr_image.length){
+                            ret_str = arr_image[0].contents_url;
+                            ret_seq = arr_image[0].seq;
+                            ret_ptime = arr_image[0].ptime;
+                        }else{
+                            ret_str = arr_image[index + 1].contents_url;
+                            ret_seq = arr_image[index + 1].seq;
+                            ret_ptime = arr_image[index + 1].ptime;
+                        }
+                    }
+                                        
+                    return [ret_str,ret_seq,ret_ptime];
+                }
+            }
+        }
+    }    
+    // 상단 이미지 슬라이드 기능 끝
+
+    //ajax로 스크린 이미지 데이터 받아오기
+    function getDidScheduleList(sect,kiosk_code){
+
+        var ret_arr = [];
+
+        /*
+        $.ajax({
+            url : "frame_action_ajax.jsp",
+            method : "GET",
+            dataType : "text",
+            data : {'mode':'DELETE_GROUP','intro_group_name':$va,'group_id':$g_id},
+            success : function(data){
+                if($.trim(data)!= '' && $.trim(data) != 'FAIL'){
+                    $group_id = $.trim(data);
+                    console.log($group_id);
+                    alert('Complete');
+                    $('#id_intro_change').modal('hide');
+                    $('.midDropper').each(function(){
+                        if($(this).attr('group_id') == $g_id){
+                            $(this).fadeOut();
+                            $(this).next().fadeOut();
+                            setKioskUpd($g_id,'');
+                        }
+                    });
+                }
+            },
+            error:function(e){
+                alert('Fail.');
+            }
+        });
+        */
+
+        ret_arr = [
+                        {special_week:"Y,Y,Y,Y,Y,Y,Y",
+                        special_stime:"1411",
+                        special_etime:"2130",
+                        special_sect:"special",
+                        speciale_contents_arr:[
+                                               {contents_url:"./contents/screen/screen_1.mp4",seq:1,ptime:5},
+                                               {contents_url:"./contents/screen/screen_2.png",seq:2,ptime:5}]
+                        },
+
+                        {special_week:"Y,Y,Y,Y,Y,Y,Y",
+                        special_stime:"1340",
+                        special_etime:"1340",
+                        special_sect:"template",
+                        speciale_contents_arr:[
+                                               {contents_url:"./contents/screen/그로서런트메뉴판_2.jpg",seq:1,ptime:5},
+                                               {contents_url:"./contents/screen/그로서런트메뉴판_3.jpg",seq:2,ptime:5}],
+                        },
+                        {special_week:"N,N,N,N,N,N,N",
+                        special_stime:"1300",
+                        special_etime:"1600",
+                        special_sect:"special",
+                        speciale_contents_arr:[
+                                               {contents_url:"./contents/screen/그로서런트메뉴판_3.jpg",seq:1,ptime:5},
+                                               {contents_url:"./contents/screen/그로서런트메뉴판_1.jpg",seq:2,ptime:5}]
+                        }
+                       ]
+
+        /*
+        for (var index = 0; index < arr_schedule.length; index++) {
+            gl_arr_special_schedule[index] = arr_schedule[index];
+            
+        } 
+        */      
+
+        if(sect === "normal"){
+            ret_arr = [
+                       {contents_url:"./contents/screen/그로서런트메뉴판_1.jpg",seq:1,ptime:2},
+                       {contents_url:"./contents/screen/screen_22.png",seq:2,ptime:5},
+                       {contents_url:"./contents/screen/그로서런트메뉴판_2.jpg",seq:3,ptime:3},
+                       {contents_url:"./contents/screen/screen_23.png",seq:4,ptime:5},
+                       {contents_url:"./contents/screen/그로서런트메뉴판_3.jpg",seq:5,ptime:1},
+                       {contents_url:"./contents/screen/screen_24.png",seq:6,ptime:5}
+                      ];
+        }else if(sect === "special"){
+            ret_arr = ret_arr;
+        }
+
+        return ret_arr;
+
+    }
+
+    ////DID 슬라이드 기능 설정
+    function setDidPlayer(sect){
+
+        //스페셜 스케줄 가져온 후 세팅 후 전역 변수 담기
+        gl_arr_special_schedule = getDidScheduleList("special",gl_kiosk_code);
+
+        if(sect === "normal"){
+            // DID 슬라이드 기능 시작
+            var image_obj = $("#id_did_image");
+            var button_obj = $(".banner_image_btn");
+            var video_obj = document.getElementById('id_did_video');
+            var slide_time = 5000;
+            var arr_image = getDidScheduleList("normal",gl_kiosk_code);
+            var image_div = $('.did_display');
+
+            image_obj.attr("src",arr_image[0]);  
+
+            var image_objs = {
+                                image_obj:image_obj,
+                                button_obj:button_obj,
+                                video_obj:video_obj,
+                                arr_image:arr_image,
+                                slide_time:slide_time,
+                                image_div:image_div,
+                                sect:"normal"
+                            };
+            
+            setSlideImage(image_objs);
+
+        }else if(sect === "special"){           
+
+            // DID 슬라이드 기능 시작
+            var image_obj = $("#id_special_image");
+            var button_obj = $(".banner_image_btn");
+            var video_obj = document.getElementById('id_special_video');
+            var slide_time = 5000;
+            var arr_image = getCurrentSpecialSchedule(gl_arr_special_schedule,"special");
+            if(arr_image === undefined){
+                //스케줄을 가져온 후 스페셜 스케줄이 없다면 기본 스케줄로 세팅
+                arr_image = getDidScheduleList("normal",gl_kiosk_code);
+            }else{
+                arr_image = arr_image.speciale_contents_arr;
+            }
+            
+            //arr_image = arr_image.speciale_contents_arr;
+            var image_div = $('.special_display');
+                            
+            image_obj.attr("src",arr_image[0]);
+              
+
+            var image_objs = {
+                                image_obj:image_obj,
+                                button_obj:button_obj,
+                                video_obj:video_obj,
+                                arr_image:arr_image,
+                                slide_time:slide_time,
+                                image_div:image_div,
+                                sect:"special"
+                            };
+
+            setSlideImage(image_objs);
+        }
+    }
+
+    //데이터 받아 온 후 슬라이드 이미지 기능 시작
+    setDidPlayer("normal");
+    setDidPlayer("special");
+
+    //스페셜 스케줄 체크 기능 시작
+    function getCurrentSpecialSchedule(arr_special_schedule,sect){
+
+        var date = new Date();
+        var today = date.getDay();
+        //today = //0,1,2,3,4,5,6 // 일,월,화,수,목,금,토
+        var hours = date.getHours();
+        var minutes = date.getMinutes();
+        var seconds = date.getSeconds();
+
+        var special_stime = "";
+        var special_etime = "";
+        var special_week = "";
+        var special_sect = "";
+        var speciale_contents_arr = [];
+        var today_special_status = "";
+        var ret_obj = undefined;
+
+        for (var index = 0; index < arr_special_schedule.length; index++) {
+            special_stime = arr_special_schedule[index].special_stime;
+            special_etime = arr_special_schedule[index].special_etime;
+            special_week = arr_special_schedule[index].special_week;
+            special_sect = arr_special_schedule[index].special_sect;
+            var arr_special_week = special_week.split(",");
+            today_special_status = arr_special_week[today];
+            speciale_contents_arr = arr_special_schedule[index].speciale_contents_arr;
+
+            if(special_sect !== sect){ // 목표 스케줄 타입과 현재 스케줄 타입이 같지 않으면 스킵
+                continue;
+            }
+            
+            if(today_special_status === "Y"){ //오늘 스케줄 표출 상태가 Y라면
+                
+                if(hours >= parseInt(special_stime.substring(0,2)) && hours <= parseInt(special_etime.substring(0,2))){ //시작 시간 보다 크고 종료 시간 보다 작으면 표출
+                    
+                    if(hours === parseInt(special_stime.substring(0,2)) && hours === parseInt(special_etime.substring(0,2))){ // 시작 시간과 종료 시간이 같고, 현재 시간도 같으면 표출
+                        if(minutes >= parseInt(special_stime.substring(2,4))){ //시작 분 보다 현재 분이 크면 표출
+                            if(minutes <= parseInt(special_etime.substring(2,4))){ //종료 분 보다 현재 분이 작으면 표출
+                                
+                                ret_obj = arr_special_schedule[index];
+                                return ret_obj;
+                            }
+                        }
+                    }else{
+                        if(hours === parseInt(special_etime.substring(0,2))){ //종료 시간과 현재 시간이 같으면 표출
+                            if(minutes <= 59 
+                                && minutes <= parseInt(special_etime.substring(2,4))){ //종료 분 보다 현재 분이 작으면 표출
+                                    
+                                    ret_obj = arr_special_schedule[index];
+                                    return ret_obj;
+                            }
+                        }else if(hours === parseInt(special_stime.substring(0,2))){ //시작 시간과 현재 시간이 같으면 표출
+                            if(minutes <= 59 
+                                && minutes >= parseInt(special_stime.substring(2,4))){ //시작 분 보다 현재 분이 크면 표출
+                                    
+                                    ret_obj = arr_special_schedule[index];
+                                    return ret_obj;
+                            }
+                        }else{ // 시작 시간과 종료 시간 사이에 있지만 종료시간,시작시간과 같지 않아서 체크 없이 표출
+                            
+                            ret_obj = arr_special_schedule[index];
+                            return ret_obj;
+                        }
+                    }
+                }
+            }else{ //오늘 스케줄 표출 상태가 N이라면
+                return undefined;
+            }
+        }
+    }
+
+    //스케줄 타입에 따라 화면 전환
+    function setChangeDisplayType(special_sect){
+        if(special_sect === "special"){
+            $('.did_display').css("display","none");
+            $('.special_display').css("display","block");
+        }else if(special_sect === "template"){
+            
+        }else if(special_sect === "normal"){
+            $('.did_display').css("display","block");
+            $('.special_display').css("display","none");
+        }
+    }    
+
+</script>
