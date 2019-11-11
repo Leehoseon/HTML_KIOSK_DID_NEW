@@ -233,8 +233,9 @@
 <script>
 
     var gl_kiosk_code = getQuerystring('kiosk_code');
-    
     var gl_arr_special_schedule = [];
+
+    var gl_ws_timer_id;
 
     //파라미터 파싱
     function getQuerystring(paramName){
@@ -301,7 +302,7 @@
             }
 
              //동영상이 아니면
-             if(isNaN(video_duration)){
+            if(isNaN(video_duration)){
                 //console.log("1");
                 statis_start_time = getCurrentTime(); // 통계 시작 시간을 먼저 전역변수에 담은 후 타이머 시간이 지난 후 호출 할때 넘겨 준다
                 current_display_type = getCurrentDisplayType(); //현재 표출되고 있는 화면 타입 비교 하여 통계 전송 여부 확인
@@ -431,7 +432,7 @@
         });
 
         function getNextImageUri(direction,arr_image){
-
+        
             var target = $(image_obj);
             var video_target = $(video_obj);
 
@@ -465,12 +466,11 @@
                 }
                 */
 
-                if(current_seq >= arr_image[index].length){ // 현재 SEQ가 컨텐츠 총 수량 보다 크다면 1번으로 리셋
+                if(current_seq >= arr_image.length + 1){ // 현재 SEQ가 컨텐츠 총 수량 보다 크다면 1번으로 리셋
                     current_seq = 1;
                 }
 
                 if(current_seq === arr_image[index].seq){ // 이미지 SEQ가 같으면
-
                     
                     if(direction === "left"){
                         if(index - 1 === -1){
@@ -537,28 +537,71 @@
         });
         */
 
-        ret_arr = [
+        ret_arr = [ 
+
+
                         {special_week:"Y,Y,Y,Y,Y,Y,Y",
-                        special_stime:"1411",
-                        special_etime:"2130",
+                        special_stime:"1425",
+                        special_etime:"1429",
                         special_sect:"special",
                         speciale_contents_arr:[
                                                {contents_url:"./contents/screen/screen_1.mp4",seq:1,ptime:5,con_id:1},
-                                               {contents_url:"./contents/screen/screen_2.png",seq:2,ptime:5,con_id:2}]
+                                               {contents_url:"./contents/screen/screen_2.png",seq:2,ptime:5,con_id:2},
+                                               {contents_url:"./contents/screen/그로서런트메뉴판_2.jpg",seq:3,ptime:5,con_id:3}]
                         },
 
                         {special_week:"Y,Y,Y,Y,Y,Y,Y",
-                        special_stime:"1340",
-                        special_etime:"1340",
-                        special_sect:"template",
+                        special_stime:"1626",
+                        special_etime:"1650",
+                        special_sect:"special",
+                        speciale_contents_arr:[
+                                               {contents_url:"./contents/screen/screen_1.mp4",seq:1,ptime:5,con_id:1},
+                                               {contents_url:"./contents/screen/screen_2.png",seq:2,ptime:5,con_id:2},
+                                               {contents_url:"./contents/screen/그로서런트메뉴판_2.jpg",seq:3,ptime:5,con_id:3}]
+                        },
+
+                        {special_week:"Y,Y,Y,Y,Y,Y,Y",
+                        special_stime:"1705",
+                        special_etime:"1832",
+                        special_sect:"special",
                         speciale_contents_arr:[
                                                {contents_url:"./contents/screen/그로서런트메뉴판_2.jpg",seq:1,ptime:5,con_id:1},
                                                {contents_url:"./contents/screen/그로서런트메뉴판_3.jpg",seq:2,ptime:5,con_id:2}],
                         },
+
+                        {special_week:"Y,Y,Y,Y,Y,Y,Y",
+                        special_stime:"1840",
+                        special_etime:"1855",
+                        special_sect:"special",
+                        speciale_contents_arr:[
+                                               {contents_url:"./contents/screen/screen_1.mp4",seq:1,ptime:5,con_id:1},
+                                               {contents_url:"./contents/screen/screen_2.png",seq:2,ptime:5,con_id:2},
+                                               {contents_url:"./contents/screen/그로서런트메뉴판_2.jpg",seq:3,ptime:5,con_id:3}]
+                        },
+
+                        {special_week:"Y,Y,Y,Y,Y,Y,Y",
+                        special_stime:"1901",
+                        special_etime:"1905",
+                        special_sect:"special",
+                        speciale_contents_arr:[
+                                               {contents_url:"./contents/screen/screen_1.mp4",seq:1,ptime:5,con_id:1},
+                                               {contents_url:"./contents/screen/screen_2.png",seq:2,ptime:5,con_id:2},
+                                               {contents_url:"./contents/screen/그로서런트메뉴판_2.jpg",seq:3,ptime:5,con_id:3}]
+                        },
+
+                        {special_week:"Y,Y,Y,Y,Y,Y,Y",
+                        special_stime:"1916",
+                        special_etime:"2047",
+                        special_sect:"special",
+                        speciale_contents_arr:[
+                                               {contents_url:"./contents/screen/그로서런트메뉴판_2.jpg",seq:1,ptime:5,con_id:1},
+                                               {contents_url:"./contents/screen/그로서런트메뉴판_3.jpg",seq:2,ptime:5,con_id:2}],
+                        },
+
                         {special_week:"N,N,N,N,N,N,N",
                         special_stime:"1300",
                         special_etime:"1600",
-                        special_sect:"special",
+                        special_sect:"template",
                         speciale_contents_arr:[
                                                {contents_url:"./contents/screen/그로서런트메뉴판_3.jpg",seq:1,ptime:5,con_id:1},
                                                {contents_url:"./contents/screen/그로서런트메뉴판_1.jpg",seq:2,ptime:5,con_id:2}]
@@ -604,7 +647,7 @@
             var arr_image = getDidScheduleList("normal",gl_kiosk_code);
             var image_div = $('.did_display');
 
-            image_obj.attr("src",arr_image[0]);  
+           //image_obj.attr("src",arr_image[0]);  
 
             var image_objs = {
                                 image_obj:image_obj,
@@ -636,7 +679,7 @@
             //arr_image = arr_image.speciale_contents_arr;
             var image_div = $('.special_display');
                             
-            image_obj.attr("src",arr_image[0]);
+            //image_obj.attr("src",arr_image[0]);
               
 
             var image_objs = {
@@ -694,7 +737,7 @@
                     
                     if(hours === parseInt(special_stime.substring(0,2)) && hours === parseInt(special_etime.substring(0,2))){ // 시작 시간과 종료 시간이 같고, 현재 시간도 같으면 표출
                         if(minutes >= parseInt(special_stime.substring(2,4))){ //시작 분 보다 현재 분이 크면 표출
-                            if(minutes <= parseInt(special_etime.substring(2,4))){ //종료 분 보다 현재 분이 작으면 표출
+                            if(minutes < parseInt(special_etime.substring(2,4))){ //종료 분 보다 현재 분이 작으면 표출
                                 
                                 ret_obj = arr_special_schedule[index];
                                 return ret_obj;
@@ -703,7 +746,7 @@
                     }else{
                         if(hours === parseInt(special_etime.substring(0,2))){ //종료 시간과 현재 시간이 같으면 표출
                             if(minutes <= 59 
-                                && minutes <= parseInt(special_etime.substring(2,4))){ //종료 분 보다 현재 분이 작으면 표출
+                                && minutes < parseInt(special_etime.substring(2,4))){ //종료 분 보다 현재 분이 작으면 표출
                                     
                                     ret_obj = arr_special_schedule[index];
                                     return ret_obj;
@@ -776,9 +819,7 @@
         var hours = new String(date.getHours());
         var minutes = new String(date.getMinutes());
         var seconds = new String(date.getSeconds());
-
-        
-        
+ 
         month = setChangeNumber(month);
         day = setChangeNumber(day);
         hours = setChangeNumber(hours);
@@ -802,7 +843,7 @@
             url : "http://192.168.0.113:8031/user/xml/did_statis.jsp",
             method : "GET",
             dataType : "text",
-            data : {'start_time':start_time,'end_time':end_time,'play_time':play_time,'con_id':con_id,'kiosk_code':gl_kiosk_code},
+            data : {'start_time':start_time,'end_time':end_time,'play_time':play_time,'con_id':con_id,'kiosk_code':gl_kiosk_code,'con_sect':sect},
             success : function(data){
                 //console.log(data);
             },
@@ -812,5 +853,36 @@
         });   
         
     }
+
+    function setWSconnect(){
+        var wsUri = "ws://localhost:8008/echo";
+        var webSocket = new WebSocket(wsUri);    
+
+        webSocket.onopen = function(evt){
+            console.log("open");
+            gl_ws_timer_id = setInterval(function(t){                
+                send("STATUS");
+            },20000);  
+        }
+
+        webSocket.onclose = function(evt){
+            console.log("close");
+        }
+
+        webSocket.onerror = function(evt){
+            console.log("error");
+        }
+
+        webSocket.onmessage = function(evt){
+            console.log(evt);
+        }
+
+        function send(msg){
+            webSocket.send(msg);
+        }
+        
+        
+
+    }setWSconnect();
 
 </script>

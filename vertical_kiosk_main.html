@@ -707,7 +707,7 @@
                     position: absolute;
                     background-color:#2b2a26;
                     z-index: 3;
-                    display:none;
+                    
                 }
         
                 .searchbar{
@@ -1847,6 +1847,8 @@
     var gl_kiosk_touch_timer_id;
 
     var gl_kiosk_code = getQuerystring('kiosk_code');
+
+    var gl_ws_timer_id;
 
     //파라미터 파싱
     function getQuerystring(paramName){
@@ -4850,6 +4852,37 @@
             });
         })
     }
+
+    function setWSconnect(){
+        var wsUri = "ws://localhost:8008/echo";
+        var webSocket = new WebSocket(wsUri);    
+
+        webSocket.onopen = function(evt){
+            console.log("open");
+            gl_ws_timer_id = setInterval(function(t){                
+                send("STATUS");
+            },20000);  
+        }
+
+        webSocket.onclose = function(evt){
+            console.log("close");
+        }
+
+        webSocket.onerror = function(evt){
+            console.log("error");
+        }
+
+        webSocket.onmessage = function(evt){
+            console.log(evt);
+        }
+
+        function send(msg){
+            webSocket.send(msg);
+        }
+        
+        
+
+    }setWSconnect();
     
 
 </script>

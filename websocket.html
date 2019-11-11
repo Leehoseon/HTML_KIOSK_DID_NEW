@@ -9,11 +9,17 @@
 
 </head>
 <body>
-    
+    <input id="id_test"
+       type="button"
+       value="소켓 전송">
 </body>
 </html>
 
 <script>
+
+    var gl_ws_timer_id;
+
+    gl_ws_timer_id = setInterval(setWSconnect, 20000);
 
     function getQuerystring(paramName){
         try{
@@ -40,6 +46,40 @@
     }else if(mode === "OFF"){
         document.location.href = "vertical_kiosk_screen.html";
     }
+
+    function setWSconnect(){
+        var wsUri = "ws://127.0.0.1:8008/echo";
+        var webSocket = new WebSocket(wsUri);    
+
+        webSocket.onopen = function(evt){
+            console.log("open");
+        }
+
+        webSocket.onclose = function(evt){
+            console.log("close");
+        }
+
+        webSocket.onerror = function(evt){
+            console.log("error");
+        }
+
+        webSocket.onmessage = function(evt){
+            console.log(evt);
+        }
+
+        function send(msg){
+            webSocket.send(msg);
+        }
+        
+        document.querySelector("#id_test").addEventListener("click",function(e){
+            send("발신");
+        })
+    }
+
+    
+
+    
+    
 
 
 </script>
