@@ -5,7 +5,8 @@
     <title>Page Title</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <script src="js/jquery.js"></script><!--j쿼리-->
-
+    <script src="js/qrcode.min.js"></script><!--j쿼리-->
+    <link rel="stylesheet" href="css/fontawesome-free-5.11.2-web/css/all.min.css"> <!-- font awesome -->
 
     <style>
         
@@ -105,6 +106,1024 @@
                     margin:0px;
                 }
                 /* DID 스페셜 재생 영역 끝 */
+
+                /* DID 템플릿1 재생 영역 시작 */
+        
+                .template1_display{
+                    margin:0px;
+                    padding:0px;
+                    top:0;
+                    left:0;
+                    position:absolute;
+                    width:100%;
+                    height:100%;
+                    z-index: 200;
+                    display: none;
+                    
+                }
+
+                .template1_top1{
+                    background-color:red;
+                    width:640px;
+                    height:110px;
+                    position:absolute;
+                    font-size:36px;
+                    font-weight: 600;
+                    text-align:left;
+                    line-height:110px;
+                    color:white;
+                }
+
+                .template1_top1_text{
+                    font-size:36px;
+                    font-weight: 600;
+                    text-align:left;
+                    line-height:110px;
+                    color:white;
+                    margin-left:15px;
+                }
+
+                .template1_top2{
+                    left:640px;
+                    background-color:red;
+                    width:640px;
+                    height:110px;
+                    position:absolute;
+
+                }
+
+                .template1_top2_text{
+                    font-size:36px;
+                    font-weight: 600;
+                    text-align:right;
+                    line-height:110px;
+                    color:white;
+                    margin-right:15px;
+                }
+
+                .template1_left{
+                    top:110px;
+                    height:970px;
+                    width:1280px;
+                    position:absolute;
+
+                }
+
+                .template1_left_img{
+                    width:1280px;
+                    height:720px;
+                    top:110px;
+                    position: absolute;
+                }
+
+                .template1_left_text1{
+                    width:100%;
+                    height:110px;
+                    position: absolute;
+                    background-color: #bfb8b8;
+                    
+                }
+
+                .template1_left_text1_text{
+                    margin-left:15px;
+                    font-size:36px;
+                    font-weight: 400;
+                    text-align:left;
+                    line-height:110px;
+                }
+
+                .template1_left_text2{
+                    top:130px;
+                    width:35%;
+                    height:100px;
+                    background-color: white;
+                    position: absolute;
+                }
+
+                .template1_left_text2_text{
+                    margin-left:15px;
+                    font-size:36px;
+                    font-weight: 400;
+                    text-align:left;
+                    line-height:100px;
+                }
+
+                .template1_left_text3{
+                    top:130px;
+                    left:65%;
+                    width:35%;
+                    height:100px;
+                    background-color: white;
+                    position: absolute;
+                }
+
+                .template1_left_text3_text{
+                    margin-right:15px;
+                    font-size:36px;
+                    font-weight: 400;
+                    text-align:right;
+                    line-height:100px;
+                }
+
+                .template1_left_text4{
+                    top:700px;
+                    left:20%;
+                    width:15%;
+                    height:100px;
+                    background-color: white;
+                    position: absolute;
+                }
+
+                .template1_left_text4_text{
+                    font-size:24px;
+                    font-weight: 400;
+                    text-align:center;
+                    line-height:100px;
+                }
+
+                .template1_left_text5{
+                    top:700px;
+                    left:65%;
+                    width:35%;
+                    height:100px;
+                    background-color: white;
+                    position: absolute;
+                }
+
+                .template1_left_text5_text{
+                    margin-right:15px;
+                    font-size:36px;
+                    font-weight: 400;
+                    text-align:right;
+                    line-height:100px;
+                }
+
+                .template1_left_text6{
+                    top:830px;
+                    width:100%;
+                    height:140px;
+                    position: absolute;
+                    
+                }
+
+                .template1_left_text6 div{
+                    float:right;
+                }
+
+                .template1_left_text6_text{
+                    font-size:36px;
+                    font-weight: 400;
+                    text-align:right;
+                    line-height:140px;
+                    margin-right:15px;
+                    height:140px;
+                }
+
+                .template1_left_text6_price{
+                    font-size: 46px;
+                    font-weight: 600;
+                }
+
+                .template1_left_qr_div{
+                    top:600px;
+                    left:30px;
+                    width:200px;
+                    height:200px;
+                    background-color: white;
+                    position: absolute;
+                }
+
+                .template1_left_qr{
+                    margin:10px;
+                }
+
+                .template1_right{
+                    left:1280px;
+                    width:640px;
+                    height:1080px;
+                    position:absolute;
+                }
+
+                .template1_right_div1{
+                    width:640px;
+                    height:110px;
+                    position:absolute;
+                    background-color: red;
+                }
+
+                .template1_right_div1_text{
+                    margin-left:15px;
+                    font-size:36px;
+                    font-weight: 600;
+                    text-align:left;
+                    line-height:110px;
+                    color:white;
+                }
+
+                .template1_right_div2{
+                    top:110px;
+                    width:640px;
+                    height:350px;
+                    position:absolute;
+                    
+                }
+
+                .template1_right_div2_div1{
+                    width:50%;
+                    height:100%; 
+                    float:left;
+                }
+
+                .template1_right_div2_div1_text{
+                    font-size:150px;
+                    font-weight: 600;
+                    text-align:center;
+                    line-height:350px;
+
+                }
+
+                .template1_right_div2_div2{
+                    width:50%;
+                    height:120px; 
+                    float:left;
+                }
+
+                .template1_right_div2_div2_text{
+                    font-size:36px;
+                    font-weight: 600;
+                    text-align:center;
+                    line-height:120px;
+
+                }
+
+                .template1_right_div2_div3{
+                    width:50%;
+                    height:120px; 
+                    float:left;
+                }
+
+                .template1_right_div2_div3_text{
+                    font-size:24px;
+                    font-weight: 600;
+                    text-align:center;
+                    line-height:120px;
+
+                }
+
+                .template1_right_div2_div4{
+                    width:50%;
+                    height:120px; 
+                    float:left;
+                }
+
+                .template1_right_div2_div4_number{
+                    color:red;
+                    font-size:24px;
+                    font-weight: 600;
+                    text-align:center;
+                    line-height:120px;
+                }
+
+                .template1_right_div2_div4_text{
+                    font-size:24px;
+                    font-weight: 600;
+                    text-align:center;
+                    line-height:120px;
+
+                }
+
+                .template1_right_div3{
+                    top:460px;
+                    width:640px;
+                    height:110px;
+                    background-color: red;
+                    position:absolute;
+                }
+
+                .template1_right_div3_text{
+                    margin-left:15px;
+                    font-size:36px;
+                    font-weight: 600;
+                    text-align:left;
+                    line-height:110px;
+                    color:white;
+                }
+
+                .template1_right_div4{
+                    top:570px;
+                    width:640px;
+                    height:500px;
+                    position:absolute;
+                }
+
+                .template1_right_div4_text1{
+                    width:100%;
+                    height:33%;
+                }
+
+
+                .template1_right_div4_text1_text{
+                    margin-left:15px;
+                    font-size:36px;
+                    font-weight: 600;
+                    text-align:left;
+                    line-height:110px;
+                    color:white;
+                    
+                }
+
+                .template1_right_div4_text2{
+                    width:100%;
+                    height:33%;
+                }
+
+
+                .template1_right_div4_text2_text{
+                    margin-left:15px;
+                    font-size:36px;
+                    font-weight: 600;
+                    text-align:left;
+                    line-height:110px;
+                    color:white;
+                    
+                }
+
+                .template1_right_div4_text3{
+                    width:100%;
+                    height:33%;
+                }
+
+
+                .template1_right_div4_text3_text{
+                    margin-left:15px;
+                    font-size:36px;
+                    font-weight: 600;
+                    text-align:left;
+                    line-height:110px;
+                    color:white;
+                    
+                }
+
+
+                .fa-star {
+                    color:#ebe88f;
+                }
+
+                .fa-star-half-alt{
+                    color:#ebe88f;
+                }
+                
+                /* DID 템플릿1 재생 영역 끝 */
+
+                /* DID 템플릿2 재생 영역 시작 */
+
+                .template2_display{
+                    margin:0px;
+                    padding:0px;
+                    top:0;
+                    left:0;
+                    position:absolute;
+                    width:100%;
+                    height:100%;
+                    z-index: 200;
+                    display: none;
+                    
+                }
+
+                .template2_top1{
+                    background-color:red;
+                    width:640px;
+                    height:110px;
+                    position:absolute;
+                    font-size:36px;
+                    font-weight: 600;
+                    text-align:left;
+                    line-height:110px;
+                    color:white;
+                }
+
+                .template2_top1_text{
+                    font-size:36px;
+                    font-weight: 600;
+                    text-align:left;
+                    line-height:110px;
+                    color:white;
+                    margin-left:15px;
+                }
+
+                .template2_top2{
+                    left:640px;
+                    background-color:red;
+                    width:640px;
+                    height:110px;
+                    position:absolute;
+
+                }
+
+                .template2_top2_text{
+                    font-size:36px;
+                    font-weight: 600;
+                    text-align:right;
+                    line-height:110px;
+                    color:white;
+                    margin-right:15px;
+                }
+
+                .template2_left{
+                    top:110px;
+                    height:970px;
+                    width:1280px;
+                    position:absolute;
+
+                }
+
+                .template2_left_img{
+                    width:1280px;
+                    height:720px;
+                    top:110px;
+                    position: absolute;
+                }
+
+                .template2_left_text1{
+                    width:100%;
+                    height:110px;
+                    position: absolute;
+                    background-color: gray;
+                    
+                }
+
+                .template2_left_text1_text{
+                    margin-left:15px;
+                    font-size:36px;
+                    font-weight: 400;
+                    text-align:left;
+                    line-height:110px;
+                }
+
+                .template2_left_text2{
+                    top:130px;
+                    width:35%;
+                    height:100px;
+                    background-color: white;
+                    position: absolute;
+                }
+
+                .template2_left_text2_text{
+                    margin-left:15px;
+                    font-size:36px;
+                    font-weight: 400;
+                    text-align:left;
+                    line-height:100px;
+                }
+
+                .template2_left_text3{
+                    top:130px;
+                    left:65%;
+                    width:35%;
+                    height:100px;
+                    background-color: white;
+                    position: absolute;
+                }
+
+                .template2_left_text3_text{
+                    margin-right:15px;
+                    font-size:36px;
+                    font-weight: 400;
+                    text-align:right;
+                    line-height:100px;
+                }
+
+                .template2_left_text4{
+                    top:700px;
+                    left:20%;
+                    width:15%;
+                    height:100px;
+                    background-color: white;
+                    position: absolute;
+                }
+
+                .template2_left_text4_text{
+                    font-size:24px;
+                    font-weight: 400;
+                    text-align:center;
+                    line-height:100px;
+                }
+
+                .template2_left_text5{
+                    top:700px;
+                    left:65%;
+                    width:35%;
+                    height:100px;
+                    background-color: white;
+                    position: absolute;
+                }
+
+                .template2_left_text5_text{
+                    margin-right:15px;
+                    font-size:36px;
+                    font-weight: 400;
+                    text-align:right;
+                    line-height:100px;
+                }
+
+                .template2_left_text6{
+                    top:830px;
+                    width:100%;
+                    height:140px;
+                    position: absolute;
+                    
+                }
+
+                .template2_left_text6 div{
+                    float:right;
+                }
+
+                .template2_left_text6_text{
+                    font-size:36px;
+                    font-weight: 400;
+                    text-align:right;
+                    line-height:140px;
+                    margin-right:15px;
+                    height:140px;
+                }
+
+                .template2_left_text6_price{
+                    font-size: 46px;
+                    font-weight: 600;
+                }
+
+                .template2_left_qr_div{
+                    top:600px;
+                    left:30px;
+                    width:200px;
+                    height:200px;
+                    background-color: white;
+                    position: absolute;
+                }
+
+                .template2_left_qr{
+                    margin:10px;
+                }
+
+                .template2_right{
+                    left:1280px;
+                    width:640px;
+                    height:1080px;
+                    position:absolute;
+                }
+
+                .template2_right_div1{
+                    width:640px;
+                    height:110px;
+                    position:absolute;
+                    background-color: red;
+                }
+
+                .template2_right_div1_text{
+                    margin-left:15px;
+                    font-size:36px;
+                    font-weight: 600;
+                    text-align:left;
+                    line-height:110px;
+                    color:white;
+                }
+
+                .template2_right_div2{
+                    top:110px;
+                    width:640px;
+                    height:360px;
+                    position:absolute;
+                    
+                }
+
+                .template2_right_div2_video{
+                    width:100% !important;
+                    padding:0px;
+                    margin:0px;
+                }
+
+              
+
+                .template2_right_div3{
+                    top:470px;
+                    width:640px;
+                    height:330px;
+                    position:absolute;
+                }
+
+                .template2_right_div3_text{
+                    margin-top:20%;
+                    font-size:80px;
+                    font-weight: 400;
+                    text-align:center;
+                    line-height:110px;
+                }
+
+                .template2_right_div4{
+                    top:800px;
+                    width:640px;
+                    height:280px;
+                    position:absolute;
+                }
+
+                .template2_right_div4_text{
+                    font-size:80px;
+                    font-weight: 400;
+                    text-align:center;
+                    line-height:110px;
+                }
+
+
+                    /*
+                    border: 1px solid red;
+                    */
+            
+                /* DID 템플릿2 재생 영역 끝 */
+
+                /* DID 템플릿3 재생 영역 시작 */
+                .template3_display{
+                    margin:0px;
+                    padding:0px;
+                    top:0;
+                    left:0;
+                    position:absolute;
+                    width:100%;
+                    height:100%;
+                    z-index: 200;
+                    display: none;
+                    
+                }
+
+                .template3_top1{
+                    background-color:red;
+                    width:1280px;
+                    height:110px;
+                    position:absolute;
+                    font-size:36px;
+                    font-weight: 600;
+                    text-align:left;
+                    line-height:110px;
+                    color:white;
+                }
+
+                .template3_top1_text{
+                    font-size:36px;
+                    font-weight: 600;
+                    text-align:left;
+                    line-height:110px;
+                    color:white;
+                    margin-left:15px;
+                }
+
+                .template3_left{
+                    top:110px;
+                    height:970px;
+                    width:1280px;
+                    position:absolute;
+
+                }
+
+                .template3_left_img{
+                    width:1280px;
+                    height:720px;
+                    top:110px;
+                    position: absolute;
+                }
+
+                .template3_left_text1{
+                    width:100%;
+                    height:110px;
+                    position: absolute;
+                    background-color: #bfb8b8;
+                    
+                }
+
+                .template3_left_text1_text{
+                    margin-left:15px;
+                    font-size:36px;
+                    font-weight: 400;
+                    text-align:left;
+                    line-height:110px;
+                }
+
+                .template3_left_text2{
+                    top:130px;
+                    width:35%;
+                    height:100px;
+                    background-color: white;
+                    position: absolute;
+                }
+
+                .template3_left_text2_text{
+                    margin-left:15px;
+                    font-size:36px;
+                    font-weight: 400;
+                    text-align:left;
+                    line-height:100px;
+                }
+
+                .template3_left_text3{
+                    top:130px;
+                    left:65%;
+                    width:35%;
+                    height:100px;
+                    background-color: white;
+                    position: absolute;
+                }
+
+                .template3_left_text3_text{
+                    margin-right:15px;
+                    font-size:36px;
+                    font-weight: 400;
+                    text-align:right;
+                    line-height:100px;
+                }
+
+                .template3_left_text4{
+                    top:700px;
+                    left:20%;
+                    width:15%;
+                    height:100px;
+                    background-color: white;
+                    position: absolute;
+                }
+
+                .template3_left_text4_text{
+                    font-size:24px;
+                    font-weight: 400;
+                    text-align:center;
+                    line-height:100px;
+                }
+
+                .template3_left_text5{
+                    top:700px;
+                    left:65%;
+                    width:35%;
+                    height:100px;
+                    background-color: white;
+                    position: absolute;
+                }
+
+                .template3_left_text5_text{
+                    margin-right:15px;
+                    font-size:36px;
+                    font-weight: 400;
+                    text-align:right;
+                    line-height:100px;
+                }
+
+                .template3_left_text6{
+                    top:830px;
+                    width:100%;
+                    height:140px;
+                    position: absolute;
+                    
+                }
+
+                .template3_left_text6 div{
+                    float:right;
+                }
+
+                .template3_left_text6_text{
+                    font-size:36px;
+                    font-weight: 400;
+                    text-align:right;
+                    line-height:140px;
+                    margin-right:15px;
+                    height:140px;
+                }
+
+                .template3_left_text6_price{
+                    font-size: 46px;
+                    font-weight: 600;
+                }
+                
+                .template3_left_qr_div{
+                    top:600px;
+                    left:30px;
+                    width:200px;
+                    height:200px;
+                    background-color: white;
+                    position: absolute;
+                }
+
+                .template3_left_qr{
+                    margin:10px;
+                }
+
+                .template3_right{
+                    left:1280px;
+                    width:640px;
+                    height:1080px;
+                    position:absolute;
+                }
+
+                .template3_right_div1{
+                    width:640px;
+                    height:110px;
+                    position:absolute;
+                    background-color: red;
+                }
+
+                .template3_right_div1_text{
+                    margin-left:15px;
+                    font-size:36px;
+                    font-weight: 600;
+                    text-align:left;
+                    line-height:110px;
+                    color:white;
+                }
+
+                .template3_right_div2{
+                    top:110px;
+                    width:640px;
+                    height:430px;
+                    position:absolute;
+                    
+                }
+
+                .template3_right_div2_div1{
+                    width:640px;
+                    height:110px;
+                    background-color: #bfb8b8;
+                }
+
+                .template3_right_div2_div1_text{
+                    margin-left:15px;
+                    font-size:36px;
+                    font-weight: 400;
+                    text-align:left;
+                    line-height:110px;
+                }
+
+                .template3_right_div2_div2{
+                    top:110px;
+                    width:320px;
+                    height:320px;
+                    float:left;
+                }
+
+                .template3_right_div2_div2_text1{
+                    margin-top:70px;
+                    padding-right:15px;
+                    font-size:20px;
+                    font-weight: 400;
+                    text-align:right;
+                    line-height:50px;
+                    height:50px;
+                }
+
+                .template3_right_div2_div2_text2{
+                    padding-right:15px;
+                    font-size:20px;
+                    font-weight: 400;
+                    text-align:right;
+                    line-height:50px;
+                    height:50px;
+                }
+
+                .template3_right_div2_div2_text3{
+                    padding-right:15px;
+                    font-size:20px;
+                    font-weight: 400;
+                    text-align:right;
+                    line-height:50px;
+                    height:50px;
+                }
+
+                .template3_right_div2_div2_text4{
+                    padding-right:15px;
+                    font-size:24px;
+                    font-weight: 400;
+                    text-align:center;
+                    line-height:100px;
+                    height:100px;
+                    
+                }
+
+                .template3_right_div2_div2_text4_number{
+                    font-size:36px;
+                    font-weight: 600;
+                }
+
+                .template3_right_div2_div3{
+                    top:110px;
+                    width:320px;
+                    height:320px;
+                    float:left;
+                }
+
+                .template3_right_div2_div3_image{
+                    width:320px;
+                    height:320px;
+                    padding:0px;
+                    margin:0px;
+                }
+
+          
+                .template3_right_div3{
+                    top:540px;
+                    width:640px;
+                    height:110px;
+                    background-color: red;
+                    position:absolute;
+                }
+
+                .template3_right_div3_text{
+                    margin-left:15px;
+                    font-size:36px;
+                    font-weight: 600;
+                    text-align:left;
+                    line-height:110px;
+                    color:white;
+                }
+
+                .template3_right_div4{
+                    top:650px;
+                    width:640px;
+                    height:430px;
+                    position:absolute;
+                }
+
+                .template3_right_div4_div1{
+                    width:640px;
+                    height:110px;
+                    background-color: #bfb8b8;
+                }
+
+                .template3_right_div4_div1_text{
+                    margin-left:15px;
+                    font-size:36px;
+                    font-weight: 400;
+                    text-align:left;
+                    line-height:110px;
+                }
+
+                .template3_right_div4_div2{
+                    top:110px;
+                    width:320px;
+                    height:320px;
+                    float:left;
+                }
+
+                .template3_right_div4_div2_text1{
+                    margin-top:70px;
+                    padding-right:15px;
+                    font-size:20px;
+                    font-weight: 400;
+                    text-align:right;
+                    line-height:50px;
+                    height:50px;
+                }
+
+                .template3_right_div4_div2_text2{
+                    padding-right:15px;
+                    font-size:20px;
+                    font-weight: 400;
+                    text-align:right;
+                    line-height:50px;
+                    height:50px;
+                }
+
+                .template3_right_div4_div2_text3{
+                    padding-right:15px;
+                    font-size:20px;
+                    font-weight: 400;
+                    text-align:right;
+                    line-height:50px;
+                    height:50px;
+                }
+
+                .template3_right_div4_div2_text4{
+                    padding-right:15px;
+                    font-size:24px;
+                    font-weight: 400;
+                    text-align:center;
+                    line-height:100px;
+                    height:100px;
+                    
+                }
+
+                .template3_right_div4_div2_text4_number{
+                    font-size:36px;
+                    font-weight: 600;
+                }
+
+                .template3_right_div4_div3{
+                    top:110px;
+                    width:320px;
+                    height:320px;
+                    float:left;
+                }
+
+                .template3_right_div4_div3_image{
+                    width:320px;
+                    height:320px;
+                    padding:0px;
+                    margin:0px;
+                }
+
+                /* DID 템플릿3 재생 영역 끝 */
                
             }
         
@@ -225,6 +1244,121 @@
     </div>
     <!-- DID 스페셜 재생 영역 끝 -->        
 
+    <!-- DID 템플릿1 재생 영역 시작 -->
+    <div class="template template1_display">
+        <div class="template1_top1"><div class="template1_top1_text"></div></div>
+        <div class="template1_top2"><div class="template1_top2_text"></div></div>
+        <div class="template1_left">
+            <img class="template1_left_img" src="./contents/did/template_left_img.png">
+            <div class="template1_left_text1"><div class="template1_left_text1_text"></div></div>
+            <div class="template1_left_text2"><div class="template1_left_text2_text"></div></div>
+            <div class="template1_left_text3"><div class="template1_left_text3_text"></div></div>
+            <div class="template1_left_text4"><div class="template1_left_text4_text"></div></div>
+            <div class="template1_left_text5"><div class="template1_left_text5_text"></div></div>
+            <div class="template1_left_text6"><div class="template1_left_text6_text"></div></div>
+            <div class="template1_left_qr_div">
+                <div class="template1_left_qr"></div>
+            </div>
+        </div>
+        <div class="template1_right">
+                <div class="template1_right_div1"><div class="template1_right_div1_text"></div></div>
+                <div class="template1_right_div2">
+                    <div class="template1_right_div2_div1"><div class="template1_right_div2_div1_text"></div></div>
+                    <div class="template1_right_div2_div2"><div class="template1_right_div2_div2_text"></div></div>
+                    <div class="template1_right_div2_div3"><div class="template1_right_div2_div3_text"></div></div>
+                    <div class="template1_right_div2_div4"><div class="template1_right_div2_div4_text"></div></div>
+                </div>
+                <div class="template1_right_div3"><div class="template1_right_div3_text"></div></div>
+                <div class="template1_right_div4">
+                    <div class="template1_right_div4_text1"><div class="template1_right_div4_text1_text"></div></div>
+                    <div class="template1_right_div4_text2"><div class="template1_right_div4_text2_text"></div></div>
+                    <div class="template1_right_div4_text3"><div class="template1_right_div4_text3_text"></div></div>
+                </div>
+        </div>
+    </div>
+    <!-- DID 템플릿1 재생 영역 끝 -->        
+    
+    <!-- DID 템플릿2 재생 영역 시작 -->
+    <div class="template template2_display">
+      
+    </div>
+    <!-- DID 템플릿2 재생 영역 끝 -->    
+
+    <div class="template template2_display">
+        <div class="template2_top1"><div class="template2_top1_text"></div></div>
+        <div class="template2_top2"><div class="template2_top2_text"></div></div>
+        <div class="template2_left">
+            <img class="template2_left_img" src="./contents/did/template_left_img.png">
+            <div class="template2_left_text1"><div class="template2_left_text1_text"></div></div>
+            <div class="template2_left_text2"><div class="template2_left_text2_text"></div></div>
+            <div class="template2_left_text3"><div class="template2_left_text3_text"></div></div>
+            <div class="template2_left_text4"><div class="template2_left_text4_text"></div></div>
+            <div class="template2_left_text5"><div class="template2_left_text5_text"></div></div>
+            <div class="template2_left_text6"><div class="template2_left_text6_text"></div></div>
+            <div class="template2_left_qr_div">
+                <div class="template2_left_qr"></div>
+            </div>
+        </div>
+        <div class="template2_right">
+                <div class="template2_right_div1"><div class="template2_right_div1_text"></div></div>
+                <div class="template2_right_div2">
+                    <video class="template2_right_div2_video" muted="muted" oncontextmenu="false" autoplay></video>
+                </div>
+                <div class="template2_right_div3">
+                    <div class="template2_right_div3_text"></div>
+                </div>
+                <div class="template2_right_div4">
+                    <div class="template2_right_div4_text"></div>
+                </div>
+        </div>
+    </div>
+
+    <!-- DID 템플릿3 재생 영역 시작 -->
+    <div class="template template3_display">
+        <div class="template3_top1"><div class="template3_top1_text"></div></div>
+        <div class="template3_left">
+            <img class="template3_left_img" src="./contents/did/template_left_img.png">
+            <div class="template3_left_text1"><div class="template3_left_text1_text"></div></div>
+            <div class="template3_left_text2"><div class="template3_left_text2_text"></div></div>
+            <div class="template3_left_text3"><div class="template3_left_text3_text"></div></div>
+            <div class="template3_left_text4"><div class="template3_left_text4_text"></div></div>
+            <div class="template3_left_text5"><div class="template3_left_text5_text"></div></div>
+            <div class="template3_left_text6"><div class="template3_left_text6_text"></div></div>
+            <div class="template3_left_qr_div">
+                <div class="template3_left_qr"></div>
+            </div>
+        </div>
+        <div class="template3_right">
+            <div class="template3_right_div1"><div class="template3_right_div1_text"></div></div>
+            <div class="template3_right_div2">
+                <div class="template3_right_div2_div1"><div class="template3_right_div2_div1_text"></div></div>
+                <div class="template3_right_div2_div2">
+                    <div class="template3_right_div2_div2_text1"></div>
+                    <div class="template3_right_div2_div2_text2"></div>
+                    <div class="template3_right_div2_div2_text3"></div>
+                    <div class="template3_right_div2_div2_text4"></div>
+                </div>
+                <div class="template3_right_div2_div3">
+                    <img class="template3_right_div2_div3_image"/>
+                </div>
+            </div>
+            <div class="template3_right_div3"><div class="template3_right_div3_text"></div></div>
+            <div class="template3_right_div4">
+                <div class="template3_right_div4_div1"><div class="template3_right_div4_div1_text"></div></div>
+                <div class="template3_right_div4_div2">
+                    <div class="template3_right_div4_div2_text1"></div>
+                    <div class="template3_right_div4_div2_text2"></div>
+                    <div class="template3_right_div4_div2_text3"></div>
+                    <div class="template3_right_div4_div2_text4"></div>
+                </div>
+                <div class="template3_right_div4_div3">
+                    <img class="template3_right_div4_div3_image"/>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- DID 템플릿3 재생 영역 끝 -->    
+
 </body>
 </html>
 
@@ -268,7 +1402,6 @@
 
         var normal_slide_time = 5000;
         var special_slide_time = 5000;
-        var template_slide_time = 5000;
 
         var statis_start_time = getCurrentTime();
         var current_display_type = getCurrentDisplayType();
@@ -277,8 +1410,8 @@
         var init_timer_id;
 
         //첫번째 이미지로 초기화
-        $(image_obj).attr("src",arr_image[0].contents_url);
-        $(video_obj).attr("src",arr_image[0].contents_url);
+        $(image_obj).attr("src",arr_image[0].contents_url[0]);
+        $(video_obj).attr("src",arr_image[0].contents_url[0]);
         $(image_obj).data("seq",1);
         $(video_obj).data("seq",1);
 
@@ -293,8 +1426,6 @@
                     target_slide_time = special_slide_time;
                 }else if(sect === "normal"){
                     target_slide_time = normal_slide_time;
-                }else if(sect === "template"){
-                
                 }
 
             }else{
@@ -327,7 +1458,7 @@
                                         "sect":sect
                                      }
                     if(statis_send_status){
-                        setSendStatis(statis_obj);
+                        //setSendStatis(statis_obj);
                     }         
                 }, target_slide_time);   
                 
@@ -356,7 +1487,7 @@
                                         "sect":sect
                                      }
                     if(statis_send_status){
-                        setSendStatis(statis_obj);
+                        //setSendStatis(statis_obj);
                     }
                 }, target_slide_time);   
             }
@@ -366,6 +1497,122 @@
             setInitSlide();
         },1000);//동영상 재생 시간을 구하기 위해 1초 딜레이 줘야함
 
+        function setTemplateDisplay(sect,template_json_obj){
+
+            setChangeTemplateType(sect);
+            
+            if(sect === "normal"){
+                return;
+            }else if(sect === "template1"){
+
+                $('.template1_top1_text').text(template_json_obj.template1_top1);
+                $('.template1_top2_text').text(template_json_obj.template1_top2);
+                $('.template1_left_text1_text').text(template_json_obj.template1_left_text1);
+                $('.template1_left_text2_text').text(template_json_obj.template1_left_text2);
+                $('.template1_left_text3_text').text(template_json_obj.template1_left_text3);
+                $('.template1_left_text4_text').text(template_json_obj.template1_left_text4);
+                $('.template1_left_text5_text').text(template_json_obj.template1_left_text5);
+                $('.template1_left_text6_text').html(template_json_obj.template1_left_text6);
+                $('.template1_left_qr').text("");
+                setQrCode(".template1_left_qr",template_json_obj.template1_left_qr);
+                $('.template1_left_img').attr("src",template_json_obj.template1_left_img);
+
+                $('.template1_right_div1_text').text(template_json_obj.template1_right_div1_text);
+                $('.template1_right_div2_div1_text').text(template_json_obj.template1_right_div2_div1);
+                $('.template1_right_div2_div2_text').text(template_json_obj.template1_right_div2_div2);
+                var str_template1_right_div2_div3 = template_json_obj.template1_right_div2_div3;
+                str_template1_right_div2_div3 += getStart(template_json_obj.template1_right_div2_div1);
+                $('.template1_right_div2_div3_text').html(str_template1_right_div2_div3);
+                $('.template1_right_div2_div4_text').html(template_json_obj.template1_right_div2_div4);
+                $('.template1_right_div3_text').text(template_json_obj.template1_right_div3_text);
+                
+
+            }else if(sect === "template2"){
+
+                $('.template2_top1_text').text(template_json_obj.template2_top1);
+                $('.template2_top2_text').text(template_json_obj.template2_top2);
+                $('.template2_left_text1_text').text(template_json_obj.template2_left_text1);
+                $('.template2_left_text2_text').text(template_json_obj.template2_left_text2);
+                $('.template2_left_text3_text').text(template_json_obj.template2_left_text3);
+                $('.template2_left_text4_text').text(template_json_obj.template2_left_text4);
+                $('.template2_left_text5_text').text(template_json_obj.template2_left_text5);
+                $('.template2_left_text6_text').html(template_json_obj.template2_left_text6);
+                $('.template2_left_qr').text("");
+                setQrCode(".template2_left_qr",template_json_obj.template2_left_qr);
+                $('.template2_left_img').attr("src",template_json_obj.template2_left_img);
+
+                $('.template2_right_div2_video').attr("src",template_json_obj.template2_right_div2_video);
+                $('.template2_right_div3_text').html(template_json_obj.template2_right_div3_text);
+                $('.template2_right_div4_text').html(template_json_obj.template2_right_div4_text);
+                
+
+                
+
+
+            }else if(sect === "template3"){
+
+                $('.template3_top1_text').text(template_json_obj.template3_top1);
+                $('.template3_left_text1_text').text(template_json_obj.template3_left_text1);
+                $('.template3_left_text2_text').text(template_json_obj.template3_left_text2);
+                $('.template3_left_text3_text').text(template_json_obj.template3_left_text3);
+                $('.template3_left_text4_text').text(template_json_obj.template3_left_text4);
+                $('.template3_left_text5_text').text(template_json_obj.template3_left_text5);
+                $('.template3_left_text6_text').html(template_json_obj.template3_left_text6);
+                $('.template3_left_qr').text("");
+                setQrCode(".template3_left_qr",template_json_obj.template3_left_qr);
+                $('.template3_left_img').attr("src",template_json_obj.template3_left_img);
+
+                $('.template3_right_div1_text').text(template_json_obj.template3_right_div1_text);
+                $('.template3_right_div2_div1_text').text(template_json_obj.template3_right_div2_div1_text);
+                $('.template3_right_div2_div2_text1').text(template_json_obj.template3_right_div2_div2_text1);
+                $('.template3_right_div2_div2_text2').text(template_json_obj.template3_right_div2_div2_text2);
+                $('.template3_right_div2_div2_text3').text(template_json_obj.template3_right_div2_div2_text3);
+                $('.template3_right_div2_div2_text4').html(template_json_obj.template3_right_div2_div2_text4);
+                $('.template3_right_div2_div3_image').attr("src",template_json_obj.template3_right_div2_div3_image);
+                $('.template3_right_div3_text').text(template_json_obj.template3_right_div3_text);
+                $('.template3_right_div4_div1_text').text(template_json_obj.template3_right_div4_div1_text);
+                $('.template3_right_div4_div2_text1').text(template_json_obj.template3_right_div4_div2_text1);
+                $('.template3_right_div4_div2_text2').text(template_json_obj.template3_right_div4_div2_text2);
+                $('.template3_right_div4_div2_text3').text(template_json_obj.template3_right_div4_div2_text3);
+                $('.template3_right_div4_div2_text4').html(template_json_obj.template3_right_div4_div2_text4);
+                $('.template3_right_div4_div3_image').attr("src",template_json_obj.template3_right_div4_div3_image);
+                
+
+            }
+        }
+
+        function getStart(point){
+            
+            var arr_point = String(point).split("\.");
+            var ret_str = "";
+
+            var first_number = parseInt(arr_point[0]);
+            var second_number = parseInt(arr_point[1]);
+            
+            for (var index = 1; index <= first_number; index++) {
+                if(index % 2 === 0){ //짝수이면 별1개 추가
+                    ret_str += "<i class=\"fas fa-star fa-lg\"></i>";
+                }
+
+                if(index === first_number){ //마지막 평점 체크
+                    if(index % 2 !== 0){ // 홀수이면 
+                        if(second_number >= 5){ //두번째 자리 숫자 체크 후 반올림 하거나 반내림 
+                            ret_str += "<i class=\"fas fa-star fa-lg\"></i>";
+                        }else{
+                            ret_str += "<i class=\"fas fa-star-half-alt fa-lg\"></i>";
+                        }
+                    }else{ // 짝수이면 두번째 자리 숫자 체크 후 반올림 하여 하프별 추가
+                        if(second_number >= 5){
+                            ret_str += "<i class=\"fas fa-star-half-alt fa-lg\"></i>";
+                        }else{
+                            
+                        }
+                    }
+                }
+            }
+
+            return ret_str;
+        }
     
         function slideNextImage(direction){
           
@@ -381,9 +1628,7 @@
                    
                 }
             }else if(sect === "normal"){
-                
-            }else if(sect === "template"){
-                
+                //normal은 처음 로딩시 목록 받아와 계속 재생 중이기 때문에 스페셜에서만 체크 해서 화면 전환
             }
  
             var target_image = $(image_obj);
@@ -402,11 +1647,15 @@
                 special_slide_time = next_data[2] * 1000;
             }else if(sect === "normal"){
                 normal_slide_time = next_data[2] * 1000;
-            }else if(sect === "template"){
-                template_slide_time = next_data[2] * 1000;
             }
-            
 
+
+            var current_display_type = getCurrentDisplayType(); //현재 표출되고 있는 화면 타입 비교 하여 템플릿 화면 전환
+
+            if(current_display_type === sect){
+                setTemplateDisplay(next_data[4],next_data[5]);
+            }             
+            
             var arr_target = target_uri.split("\/");
             var file_name = arr_target[arr_target.length-1];
             var target_ext = file_name.split("\.");
@@ -475,12 +1724,12 @@
                 if(current_seq === arr_image[index].seq){ // 이미지 SEQ가 같으면
                   
                     if(index - 1 === -1){
-                        ret_str = arr_image[arr_image.length - 1].contents_url;
+                        ret_str = arr_image[arr_image.length - 1].contents_url[0];
                         ret_seq = arr_image[arr_image.length - 1].seq;
                         ret_ptime = arr_image[arr_image.length - 1].ptime;
                         ret_con_id = arr_image[arr_image.length - 1].con_id;
                     }else{
-                        ret_str = arr_image[index - 1].contents_url;
+                        ret_str = arr_image[index - 1].contents_url[0];
                         ret_seq = arr_image[index - 1].seq;
                         ret_ptime = arr_image[index - 1].ptime;
                         ret_con_id = arr_image[index - 1].con_id;
@@ -503,6 +1752,8 @@
             var ret_seq = 0;       
             var ret_ptime = 5000;
             var ret_con_id = 0;
+            var ret_con_sect = "";
+            var ret_template_data = undefined;
            
             for (var index = 0; index < arr_image.length; index++) {
                 /*
@@ -535,31 +1786,47 @@
                     
                     if(direction === "left"){
                         if(index - 1 === -1){
-                            ret_str = arr_image[arr_image.length - 1].contents_url;
+                            ret_str = arr_image[arr_image.length - 1].contents_url[0];
                             ret_seq = arr_image[arr_image.length - 1].seq;
                             ret_ptime = arr_image[arr_image.length - 1].ptime;
-                           ret_con_id = arr_image[arr_image.length - 1].con_id;
+                            ret_con_id = arr_image[arr_image.length - 1].con_id;
+                            ret_con_sect = arr_image[arr_image.length - 1].con_sect;
+                            if(ret_con_sect !== "normal"){
+                                ret_template_data = arr_image[arr_image.length - 1].template_data;
+                            }
                         }else{
-                            ret_str = arr_image[index - 1].contents_url;
+                            ret_str = arr_image[index - 1].contents_url[0];
                             ret_seq = arr_image[index - 1].seq;
                             ret_ptime = arr_image[index - 1].ptime;
                             ret_con_id = arr_image[index - 1].con_id;
+                            ret_con_sect = arr_image[index - 1].con_sect;
+                            if(ret_con_sect !== "normal"){
+                                ret_template_data = arr_image[index - 1].template_data;
+                            }
                         }
                     }else if(direction === "right"){
                         if(index  + 1 >= arr_image.length){
-                            ret_str = arr_image[0].contents_url;
+                            ret_str = arr_image[0].contents_url[0];
                             ret_seq = arr_image[0].seq;
                             ret_ptime = arr_image[0].ptime;
                             ret_con_id = arr_image[0].con_id;
+                            ret_con_sect = arr_image[0].con_sect;
+                            if(ret_con_sect !== "normal"){
+                                ret_template_data = arr_image[0].template_data;
+                            }
                         }else{
-                            ret_str = arr_image[index + 1].contents_url;
+                            ret_str = arr_image[index + 1].contents_url[0];
                             ret_seq = arr_image[index + 1].seq;
                             ret_ptime = arr_image[index + 1].ptime;
                             ret_con_id = arr_image[index + 1].con_id;
+                            ret_con_sect = arr_image[index + 1].con_sect;
+                            if(ret_con_sect !== "normal"){
+                                ret_template_data = arr_image[index + 1].template_data;
+                            }
                         }
                     }
                                         
-                    return [ret_str,ret_seq,ret_ptime,ret_con_id];
+                    return [ret_str,ret_seq,ret_ptime,ret_con_id,ret_con_sect,ret_template_data];
                 }
             }
         }
@@ -602,23 +1869,31 @@
 
 
                         {special_week:"Y,Y,Y,Y,Y,Y,Y",
-                        special_stime:"1406",
-                        special_etime:"1430",
+                        special_stime:"1006",
+                        special_etime:"1030",
                         special_sect:"special",
                         speciale_contents_arr:[
-                                               {contents_url:"./contents/screen/screen_1.mp4",seq:1,ptime:5,con_id:1},
-                                               {contents_url:"./contents/screen/screen_2.png",seq:2,ptime:5,con_id:2},
-                                               {contents_url:"./contents/screen/그로서런트메뉴판_2.jpg",seq:3,ptime:5,con_id:3}]
+                                               {contents_url:["./contents/did/noimage.png"],seq:1,ptime:5,con_id:2,con_sect:"template3",
+                                                template_data:{left2_contents_url:"./contents/did/template_left_img.png",
+                                                                left3_text1:"line1",left3_text2:"line2",left3_text3:"line3",left3_text4:"line4",left3_text5:"line5",left3_text6:"line6",left3_text7:"line7",
+                                                                right1_text1:"한우 사골 (1.5KG)",right1_text2:"각",right1_text3:"8,250",right1_text4:"원",
+                                                                right1_contents_url:"./contents/did/template_left_img.png",
+                                                                right2_text1:"농심 너구리 얼큰한맛(5개)",right2_text2:"각",right2_text3:"3,650",right2_text4:"원",
+                                                                right2_contents_url:"./contents/did/template_left_img.png"
+                                                                }
+                                                },
+                                               {contents_url:["./contents/screen/screen_2.png"],seq:2,ptime:5,con_id:2,con_sect:"normal"},
+                                               {contents_url:["./contents/screen/그로서런트메뉴판_2.jpg"],seq:3,ptime:5,con_id:3,con_sect:"normal"}]
                         },
-
+/*
                         {special_week:"Y,Y,Y,Y,Y,Y,Y",
                         special_stime:"1626",
                         special_etime:"1650",
                         special_sect:"special",
                         speciale_contents_arr:[
-                                               {contents_url:"./contents/screen/screen_1.mp4",seq:1,ptime:5,con_id:1},
-                                               {contents_url:"./contents/screen/screen_2.png",seq:2,ptime:5,con_id:2},
-                                               {contents_url:"./contents/screen/그로서런트메뉴판_2.jpg",seq:3,ptime:5,con_id:3}]
+                                               {contents_url:["./contents/screen/screen_1.mp4"],seq:1,ptime:5,con_id:1,con_sect:"normal"},
+                                               {contents_url:["./contents/screen/screen_2.png"],seq:2,ptime:5,con_id:2,con_sect:"normal"},
+                                               {contents_url:["./contents/screen/그로서런트메뉴판_2.jpg"],seq:3,ptime:5,con_id:3,con_sect:"normal"}]
                         },
 
                         {special_week:"Y,Y,Y,Y,Y,Y,Y",
@@ -626,8 +1901,8 @@
                         special_etime:"1832",
                         special_sect:"special",
                         speciale_contents_arr:[
-                                               {contents_url:"./contents/screen/그로서런트메뉴판_2.jpg",seq:1,ptime:5,con_id:1},
-                                               {contents_url:"./contents/screen/그로서런트메뉴판_3.jpg",seq:2,ptime:3,con_id:2}],
+                                               {contents_url:["./contents/screen/그로서런트메뉴판_2.jpg"],seq:1,ptime:5,con_id:1,con_sect:"normal"},
+                                               {contents_url:["./contents/screen/그로서런트메뉴판_3.jpg"],seq:2,ptime:3,con_id:2,con_sect:"normal"}],
                         },
 
                         {special_week:"Y,Y,Y,Y,Y,Y,Y",
@@ -635,9 +1910,9 @@
                         special_etime:"1855",
                         special_sect:"special",
                         speciale_contents_arr:[
-                                               {contents_url:"./contents/screen/screen_1.mp4",seq:1,ptime:5,con_id:1},
-                                               {contents_url:"./contents/screen/screen_2.png",seq:2,ptime:5,con_id:2},
-                                               {contents_url:"./contents/screen/그로서런트메뉴판_2.jpg",seq:3,ptime:5,con_id:3}]
+                                               {contents_url:["./contents/screen/screen_1.mp4"],seq:1,ptime:5,con_id:1,con_sect:"normal"},
+                                               {contents_url:["./contents/screen/screen_2.png"],seq:2,ptime:5,con_id:2,con_sect:"normal"},
+                                               {contents_url:["./contents/screen/그로서런트메뉴판_2.jpg"],seq:3,ptime:5,con_id:3,con_sect:"normal"}]
                         },
 
                         {special_week:"Y,Y,Y,Y,Y,Y,Y",
@@ -645,9 +1920,9 @@
                         special_etime:"1905",
                         special_sect:"special",
                         speciale_contents_arr:[
-                                               {contents_url:"./contents/screen/screen_1.mp4",seq:1,ptime:5,con_id:1},
-                                               {contents_url:"./contents/screen/screen_2.png",seq:2,ptime:5,con_id:2},
-                                               {contents_url:"./contents/screen/그로서런트메뉴판_2.jpg",seq:3,ptime:5,con_id:3}]
+                                               {contents_url:["./contents/screen/screen_1.mp4"],seq:1,ptime:5,con_id:1,con_sect:"normal"},
+                                               {contents_url:["./contents/screen/screen_2.png"],seq:2,ptime:5,con_id:2,con_sect:"normal"},
+                                               {contents_url:["./contents/screen/그로서런트메뉴판_2.jpg"],seq:3,ptime:5,con_id:3,con_sect:"normal"}]
                         },
 
                         {special_week:"Y,Y,Y,Y,Y,Y,Y",
@@ -655,8 +1930,8 @@
                         special_etime:"2047",
                         special_sect:"special",
                         speciale_contents_arr:[
-                                               {contents_url:"./contents/screen/그로서런트메뉴판_2.jpg",seq:1,ptime:5,con_id:1},
-                                               {contents_url:"./contents/screen/그로서런트메뉴판_3.jpg",seq:2,ptime:5,con_id:2}],
+                                               {contents_url:["./contents/screen/그로서런트메뉴판_2.jpg"],seq:1,ptime:5,con_id:1,con_sect:"normal"},
+                                               {contents_url:["./contents/screen/그로서런트메뉴판_3.jpg"],seq:2,ptime:5,con_id:2,con_sect:"normal"}],
                         },
 
                         {special_week:"N,N,N,N,N,N,N",
@@ -664,9 +1939,10 @@
                         special_etime:"1600",
                         special_sect:"template",
                         speciale_contents_arr:[
-                                               {contents_url:"./contents/screen/그로서런트메뉴판_3.jpg",seq:1,ptime:5,con_id:1},
-                                               {contents_url:"./contents/screen/그로서런트메뉴판_1.jpg",seq:2,ptime:5,con_id:2}]
+                                               {contents_url:["./contents/screen/그로서런트메뉴판_3.jpg"],seq:1,ptime:5,con_id:1,con_sect:"normal"},
+                                               {contents_url:["./contents/screen/그로서런트메뉴판_1.jpg"],seq:2,ptime:5,con_id:2,con_sect:"normal"}]
                         }
+                        */
                        ]
 
         /*
@@ -678,12 +1954,45 @@
 
         if(sect === "normal"){
             ret_arr = [
-                       {contents_url:"./contents/screen/그로서런트메뉴판_1.jpg",seq:1,ptime:2,con_id:1},
-                       {contents_url:"./contents/screen/screen_22.png",seq:2,ptime:5,con_id:2},
-                       {contents_url:"./contents/screen/그로서런트메뉴판_2.jpg",seq:3,ptime:3,con_id:3},
-                       {contents_url:"./contents/screen/screen_23.png",seq:4,ptime:5,con_id:4},
-                       {contents_url:"./contents/screen/그로서런트메뉴판_3.jpg",seq:5,ptime:1,con_id:5},
-                       {contents_url:"./contents/screen/screen_24.png",seq:6,ptime:5,con_id:6}
+                       
+                       {contents_url:["./contents/did/noimage.png"],seq:1,ptime:5,con_id:4,con_sect:"template1",
+                       template_data:{template1_top1:"해당카드 10%할인",template1_top2:"NH농협/국민/롯데/신한카드 결제시",template1_left_text1:"씨없는 적포도(100G)",
+                       template1_left_text2:"미국산",template1_left_text3:"100g",template1_left_text4:"11/7 ~ 11~18",template1_left_text5:"100g당 590원",
+                       template1_left_text6:"<span>(정상가) </span> <span class=\"template1_left_text6_price\">650</span><span>원 | (카드 적용가) </span><span class=\"template1_left_text6_price\">590</span><span>원</span>",
+                       template1_left_qr:"http://192.168.0.113/stadmin",template1_left_img:"./contents/did/template_left_img.png",
+                       template1_right_div1_text:"고객평점",template1_right_div2_div1:9.4,template1_right_div2_div2:"TOTAL 총 평점",template1_right_div2_div3:"평균만족도",template1_right_div2_div4:"전체상품평 <span class=\"template1_right_div2_div4_number\">56,962</span>건",
+                       template1_right_div3_text:"상품평"
+                                     }
+                       },
+                       {contents_url:["./contents/did/noimage.png"],seq:2,ptime:5,con_id:4,con_sect:"template2",
+                       template_data:{template2_top1:"L.POINT 회원 35% 할인",template2_top2:"",template2_left_text1:"호주산 곡물비육 척아이롤(구이용)(500G)",
+                       template2_left_text2:"호주산",template2_left_text3:"500g",template2_left_text4:"11/7 ~ 11~18",template2_left_text5:"100g당 가격 : 1,690원",
+                       template2_left_text6:"<span>(비회원가) </span> <span class=\"template2_left_text6_price\">13,000</span><span>원 | (회원가) </span><span class=\"template2_left_text6_price\">8,450</span><span>원</span>",
+                       template2_left_qr:"http://192.168.0.113/stadmin",template2_left_img:"./contents/did/template_left_img.png",
+                       template2_right_div2_video:"./contents/did/did_mp4.mp4",template2_right_div3_text:"B1층",template2_right_div4_text:"(영역명/대분류)"
+                                     }
+                       },
+                       
+                       {contents_url:["./contents/did/noimage.png"],seq:3,ptime:5,con_id:4,con_sect:"template3",
+                       template_data:{template3_top1:"1위. 호주산 곡물 비육 척아이롤(구이용)(500G)",template3_top2:"",template3_left_text1:"L.POINT 회원 35% 할인",
+                       template3_left_text2:"호주산",template3_left_text3:"500g",template3_left_text4:"11/7 ~ 11~18",template3_left_text5:"100g당 가격 : 1,690원",
+                       template3_left_text6:"<span>(비회원가) </span> <span class=\"template3_left_text6_price\">13,000</span><span>원 | (회원가) </span><span class=\"template3_left_text6_price\">8,450</span><span>원</span>",
+                       template3_left_qr:"http://192.168.0.113/stadmin",template3_left_img:"./contents/did/template_left_img.png",
+                       template3_right_div1_text:"2위. 고기2",template3_right_div2_div1_text:"국민카드 6% 할인",template3_right_div2_div2_text1:"호주산",template3_right_div2_div2_text2:"500G",template3_right_div2_div2_text3:"100g당 가격 : 1,690원",template3_right_div2_div2_text4:"(회원가)<span class=\"template3_right_div2_div2_text4_number\">8,450</span>원",
+                       template3_right_div2_div3_image:"./contents/did/template_left_img.png",
+                       template3_right_div3_text:"3위. 고기3",template3_right_div4_div1_text:"포인트 적립 2배",template3_right_div4_div2_text1:"호주산",template3_right_div4_div2_text2:"500G",template3_right_div4_div2_text3:"100g당 가격 : 1,690원",template3_right_div4_div2_text4:"(회원가)<span class=\"template3_right_div4_div2_text4_number\">8,450</span>원",
+                       template3_right_div4_div3_image:"./contents/did/template_left_img.png",
+
+                       
+                                     }
+                       },
+                       {contents_url:["./contents/screen/그로서런트메뉴판_2.jpg"],seq:4,ptime:1,con_id:5,con_sect:"normal"},
+                       /*
+                       {contents_url:["./contents/screen/그로서런트메뉴판_2.jpg"],seq:5,ptime:1,con_id:5,con_sect:"normal"},
+                       {contents_url:["./contents/screen/screen_23.png"],seq:4,ptime:5,con_id:4,con_sect:"normal"},
+                       {contents_url:["./contents/screen/그로서런트메뉴판_3.jpg"],seq:5,ptime:1,con_id:5,con_sect:"normal"},
+                       {contents_url:["./contents/screen/screen_24.png"],seq:6,ptime:5,con_id:6,con_sect:"normal"}
+                       */
                       ];
         }else if(sect === "special"){
             ret_arr = ret_arr;
@@ -838,25 +2147,32 @@
         if(special_sect === "special"){
             $('.did_display').css("display","none");
             $('.special_display').css("display","block");
-        }else if(special_sect === "template"){
-            
         }else if(special_sect === "normal"){
             $('.did_display').css("display","block");
             $('.special_display').css("display","none");
         }
     }
 
+    //스케줄 타입에 따라 화면 전환
+    function setChangeTemplateType(sect){
+
+        $('.template').each(function (index, item) {	
+			$(this).css("display","none");
+		});	
+
+        var target = "." + sect + "_display";
+        $(target).css("display","block");
+       
+    }
+
     function getCurrentDisplayType(){
         var did_status = $('.did_display').css("display");
         var special_status = $('.special_display').css("display");
-        var template_status = $('.template_display').css("display");
 
         if(did_status === "block"){
             return "normal";
         }else if(special_status === "block"){
             return "special";
-        }else if(template_status === "block"){
-            return "template";
         }
     }
 
@@ -899,7 +2215,8 @@
         var play_time = json_obj.play_time;
         var con_id = json_obj.con_id;
         var sect = json_obj.sect;
-
+  
+        
         $.ajax({
             url : "http://192.168.0.113:8031/user/xml/did_statis.jsp",
             method : "GET",
@@ -912,6 +2229,7 @@
                 //alert('Fail.');
             }
         });   
+        
         
     }
 
@@ -941,9 +2259,21 @@
         function send(msg){
             webSocket.send(msg);
         }
-        
-        
+ 
+    }
+    //setWSconnect();
 
-    }setWSconnect();
+
+    //qr code 생성 
+    function setQrCode(target,url){
+        var qrcode = new QRCode(document.querySelector(target), {
+            text: url,
+            width: 180,
+            height: 180,
+            colorDark : "#000000",
+            colorLight : "#ffffff",
+            correctLevel : QRCode.CorrectLevel.H
+        });
+    }    
 
 </script>
