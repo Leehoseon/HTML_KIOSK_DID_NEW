@@ -701,13 +701,40 @@
         
                 /* 키보드 시작 */
                 .keyboard{
-                    margin-top:11%;
+                    margin-top:12%;
                     width:100%;
                     height:18%;
                     position: absolute;
                     background-color:#2b2a26;
-                    z-index: 3;
+                    z-index: 12;
                     
+                }
+
+                .searchbar_preview{
+                    top:-450px;
+                    width:66%;
+                    height:auto;
+                    border: 1px solid #bcbcbc;
+                    margin-left:10%;
+                    padding:2%;
+                    position:absolute;
+                    z-index: -10;
+                    border-radius: 40px;
+                    background-color:white;
+                    display: none;
+                }
+
+                .searchbar_preview_div{
+                    width:94%;
+                    height:40px;
+                    /*
+                    border: 1px solid #bcbcbc;
+                    */
+                    margin-left:20px;
+                    text-align: center;
+                    font-size: 32px;
+                    line-height: 40px;
+                    margin-top:5px;
                 }
         
                 .searchbar{
@@ -717,13 +744,14 @@
                     background-color:#2b2a26;
                     z-index: 3;
                     padding-top:2%;
-                    display:none;
+                    z-index: 12;
                 }
         
                 .searchbar_text{
                     width:70%;
                     height:40%;
                     background-color: white;
+                    border: 1px solid #bcbcbc;
                     margin-left:10%;
                     margin-top:2%;
                     text-align: center;
@@ -731,10 +759,9 @@
                     border-top-left-radius:40px;
                     border-bottom-left-radius:40px;
                     float:left;
-                    padding-top:1%;
-                    
-                    
+                    padding-top:1%;                    
                 }
+
         
                 .searchbar_icon{
                     width:10%;
@@ -759,6 +786,7 @@
                     color: white;
                     float:left;
                     margin-top:14px;
+                    margin-left:100px;
                 }
         
                 .keyboard_line{
@@ -1507,10 +1535,13 @@
         <div class="map_outer_line"></div>
         <div class="map_preview">
 
-            
-
             <!-- 서치바 시작 -->
             <div class="searchbar">
+                <!-- 검색어 자동 완성 미리 보기-->
+                <div class="searchbar_preview">
+
+                </div>
+
                 <div class="searchbar_text">검색어를 입력하세요</div>
                 <div class="searchbar_icon">검색</div>
                 <div class="searchbar_close">닫기</div>
@@ -1536,42 +1567,42 @@
 
                 <div class="keyboard_line">
                     
-                    <div class="keyboard_key" data-eng="q" data-kor="ㅂ" data-eng-shift="Q" data-kor-shift="ㅃ">q</div>
-                    <div class="keyboard_key" data-eng="w" data-kor="ㅈ" data-eng-shift="W" data-kor-shift="ㅉ">w</div>
-                    <div class="keyboard_key" data-eng="e" data-kor="ㄷ" data-eng-shift="E" data-kor-shift="ㄸ">e</div>
-                    <div class="keyboard_key" data-eng="r" data-kor="ㄱ" data-eng-shift="R" data-kor-shift="ㄲ">r</div>
-                    <div class="keyboard_key" data-eng="t" data-kor="ㅅ" data-eng-shift="T" data-kor-shift="ㅆ">t</div>
-                    <div class="keyboard_key" data-eng="y" data-kor="ㅛ" data-eng-shift="Y" data-kor-shift="ㅛ">y</div>
-                    <div class="keyboard_key" data-eng="u" data-kor="ㅕ" data-eng-shift="U" data-kor-shift="ㅕ">u</div>
-                    <div class="keyboard_key" data-eng="i" data-kor="ㅑ" data-eng-shift="I" data-kor-shift="ㅑ">i</div>
-                    <div class="keyboard_key" data-eng="o" data-kor="ㅐ" data-eng-shift="O" data-kor-shift="ㅒ">o</div>
-                    <div class="keyboard_key" data-eng="p" data-kor="ㅔ" data-eng-shift="P" data-kor-shift="ㅖ">p</div>         
+                    <div class="keyboard_key" data-eng="q" data-kor="ㅂ" data-eng-shift="Q" data-kor-shift="ㅃ">ㅂ</div>
+                    <div class="keyboard_key" data-eng="w" data-kor="ㅈ" data-eng-shift="W" data-kor-shift="ㅉ">ㅈ</div>
+                    <div class="keyboard_key" data-eng="e" data-kor="ㄷ" data-eng-shift="E" data-kor-shift="ㄸ">ㄷ</div>
+                    <div class="keyboard_key" data-eng="r" data-kor="ㄱ" data-eng-shift="R" data-kor-shift="ㄲ">ㄱ</div>
+                    <div class="keyboard_key" data-eng="t" data-kor="ㅅ" data-eng-shift="T" data-kor-shift="ㅆ">ㅅ</div>
+                    <div class="keyboard_key" data-eng="y" data-kor="ㅛ" data-eng-shift="Y" data-kor-shift="ㅛ">ㅛ</div>
+                    <div class="keyboard_key" data-eng="u" data-kor="ㅕ" data-eng-shift="U" data-kor-shift="ㅕ">ㅕ</div>
+                    <div class="keyboard_key" data-eng="i" data-kor="ㅑ" data-eng-shift="I" data-kor-shift="ㅑ">ㅑ</div>
+                    <div class="keyboard_key" data-eng="o" data-kor="ㅐ" data-eng-shift="O" data-kor-shift="ㅒ">ㅐ</div>
+                    <div class="keyboard_key" data-eng="p" data-kor="ㅔ" data-eng-shift="P" data-kor-shift="ㅖ">ㅔ</div>         
                                 
                 </div>
 
                 <div class="keyboard_line">
                     
-                    <div class="keyboard_key" data-eng="a" data-kor="ㅁ" data-eng-shift="A" data-kor-shift="ㅁ">a</div>
-                    <div class="keyboard_key" data-eng="s" data-kor="ㄴ" data-eng-shift="S" data-kor-shift="ㄴ">s</div>
-                    <div class="keyboard_key" data-eng="d" data-kor="ㅇ" data-eng-shift="D" data-kor-shift="ㅇ">d</div>
-                    <div class="keyboard_key" data-eng="f" data-kor="ㄹ" data-eng-shift="F" data-kor-shift="ㄹ">f</div>
-                    <div class="keyboard_key" data-eng="g" data-kor="ㅎ" data-eng-shift="G" data-kor-shift="ㅎ">g</div>
-                    <div class="keyboard_key" data-eng="h" data-kor="ㅗ" data-eng-shift="H" data-kor-shift="ㅗ">h</div>
-                    <div class="keyboard_key" data-eng="j" data-kor="ㅓ" data-eng-shift="J" data-kor-shift="ㅓ">j</div>
-                    <div class="keyboard_key" data-eng="k" data-kor="ㅏ" data-eng-shift="K" data-kor-shift="ㅏ">k</div>
-                    <div class="keyboard_key" data-eng="l" data-kor="ㅣ" data-eng-shift="L" data-kor-shift="ㅣ">l</div>
+                    <div class="keyboard_key" data-eng="a" data-kor="ㅁ" data-eng-shift="A" data-kor-shift="ㅁ">ㅁ</div>
+                    <div class="keyboard_key" data-eng="s" data-kor="ㄴ" data-eng-shift="S" data-kor-shift="ㄴ">ㄴ</div>
+                    <div class="keyboard_key" data-eng="d" data-kor="ㅇ" data-eng-shift="D" data-kor-shift="ㅇ">ㅇ</div>
+                    <div class="keyboard_key" data-eng="f" data-kor="ㄹ" data-eng-shift="F" data-kor-shift="ㄹ">ㄹ</div>
+                    <div class="keyboard_key" data-eng="g" data-kor="ㅎ" data-eng-shift="G" data-kor-shift="ㅎ">ㅎ</div>
+                    <div class="keyboard_key" data-eng="h" data-kor="ㅗ" data-eng-shift="H" data-kor-shift="ㅗ">ㅗ</div>
+                    <div class="keyboard_key" data-eng="j" data-kor="ㅓ" data-eng-shift="J" data-kor-shift="ㅓ">ㅓ</div>
+                    <div class="keyboard_key" data-eng="k" data-kor="ㅏ" data-eng-shift="K" data-kor-shift="ㅏ">ㅏ</div>
+                    <div class="keyboard_key" data-eng="l" data-kor="ㅣ" data-eng-shift="L" data-kor-shift="ㅣ">ㅣ</div>
                     <div class="keyboard_key function_key_middle keyboard_black" data-eng="shift" data-kor="shift">shift</div>
                 </div>
 
                 <div class="keyboard_line">
                     <div class="keyboard_key function_key_short keyboard_black" data-eng="change" data-kor="change">한영</div>
-                    <div class="keyboard_key" data-eng="z" data-kor="ㅋ" data-eng-shift="Z" data-kor-shift="ㅋ">z</div>
-                    <div class="keyboard_key" data-eng="x" data-kor="ㅌ" data-eng-shift="X" data-kor-shift="ㅌ">x</div>
-                    <div class="keyboard_key" data-eng="c" data-kor="ㅊ" data-eng-shift="C" data-kor-shift="ㅊ">c</div>
-                    <div class="keyboard_key" data-eng="v" data-kor="ㅍ" data-eng-shift="V" data-kor-shift="ㅍ">v</div>
-                    <div class="keyboard_key" data-eng="b" data-kor="ㅠ" data-eng-shift="B" data-kor-shift="ㅠ">b</div>
-                    <div class="keyboard_key" data-eng="n" data-kor="ㅜ" data-eng-shift="N" data-kor-shift="ㅜ">n</div>
-                    <div class="keyboard_key" data-eng="m" data-kor="ㅡ" data-eng-shift="M" data-kor-shift="ㅡ">m</div>
+                    <div class="keyboard_key" data-eng="z" data-kor="ㅋ" data-eng-shift="Z" data-kor-shift="ㅋ">ㅋ</div>
+                    <div class="keyboard_key" data-eng="x" data-kor="ㅌ" data-eng-shift="X" data-kor-shift="ㅌ">ㅌ</div>
+                    <div class="keyboard_key" data-eng="c" data-kor="ㅊ" data-eng-shift="C" data-kor-shift="ㅊ">ㅊ</div>
+                    <div class="keyboard_key" data-eng="v" data-kor="ㅍ" data-eng-shift="V" data-kor-shift="ㅍ">ㅍ</div>
+                    <div class="keyboard_key" data-eng="b" data-kor="ㅠ" data-eng-shift="B" data-kor-shift="ㅠ">ㅠ</div>
+                    <div class="keyboard_key" data-eng="n" data-kor="ㅜ" data-eng-shift="N" data-kor-shift="ㅜ">ㅜ</div>
+                    <div class="keyboard_key" data-eng="m" data-kor="ㅡ" data-eng-shift="M" data-kor-shift="ㅡ">ㅡ</div>
                     <div class="keyboard_key function_key_long keyboard_white" data-eng="space" data-kor="space">space</div>
                 </div>
 
@@ -2705,7 +2736,7 @@
     function setKeyboard(json_obj){
 
         var gl_check_shift = "off";
-        var gl_check_lang = "eng";
+        var gl_check_lang = "kor";
         
         var keyboard_key_obj = json_obj.keyboard_key_obj;
         var searchbar_text_obj = json_obj.searchbar_text_obj;
@@ -2726,11 +2757,91 @@
 
                 var final_text = getLastKeyboardText(tmp_word,$(searchbar_text_obj));
                 $(searchbar_text_obj).text(Hangul.assemble(final_text));
+                var arr_text = getTop10KeyWord(Hangul.assemble(final_text));
+                setSerchbarPreviewList(arr_text);
                             
             });
 
         }
         setClickKeyboardKey();
+
+        function getTop10KeyWord(target_text){
+            var ret_arr;
+
+             /*
+            $.ajax({
+                url : "frame_action_ajax.jsp",
+                method : "GET",
+                dataType : "text",
+                data : {'mode':'DELETE_GROUP','intro_group_name':$va,'group_id':$g_id},
+                success : function(data){
+                    if($.trim(data)!= '' && $.trim(data) != 'FAIL'){
+                        $group_id = $.trim(data);
+                        console.log($group_id);
+                        alert('Complete');
+                        $('#id_intro_change').modal('hide');
+                        $('.midDropper').each(function(){
+                            if($(this).attr('group_id') == $g_id){
+                                $(this).fadeOut();
+                                $(this).next().fadeOut();
+                                setKioskUpd($g_id,'');
+                            }
+                        });
+                    }
+                },
+                error:function(e){
+                    alert('Fail.');
+                }
+            });
+            */
+
+            if(target_text === ""){
+                return ret_arr;
+            }else if(target_text === "테"){
+                ret_arr = [target_text,target_text,target_text,target_text,target_text,
+                       target_text,target_text,target_text,target_text,target_text,
+                       target_text,target_text,target_text,target_text,target_text
+                      ];
+            }else if(target_text === "테스"){
+                ret_arr = [target_text,target_text,target_text,target_text,target_text,
+                       target_text,target_text
+                      ];
+            }else if(target_text === "테스트"){
+                ret_arr = [target_text,target_text,target_text,target_text
+                      ];
+            }else{
+                ret_arr = [target_text
+                      ];
+            }
+
+            return ret_arr;
+        }
+
+        function setSelectPreviewText(){
+            $('.searchbar_preview_div').on('click',function(e){
+                $(searchbar_text_obj).text($(this).text());
+                $('.searchbar_preview').css("display","none");
+                setSearchProduct($(this).text());
+            });
+        }
+        
+        function setSerchbarPreviewList(arr_text){
+
+            var ret_str = "";
+            if(arr_text === undefined || arr_text.length < 1){
+                $('.searchbar_preview').css("display","none");
+                return;
+            }
+
+            for (var index = 0; index < arr_text.length; index++) {
+                ret_str += "<div class=\"searchbar_preview_div\">" + arr_text[index] + "</div>";   
+            }
+            $('.searchbar_preview').html(ret_str);
+            $('.searchbar_preview').css("top",-(arr_text.length * 45) + "px");
+            $('.searchbar_preview').css("height","auto");
+            $('.searchbar_preview').css("display","block");
+            setSelectPreviewText();
+        }
 
         function getCurrentWord(obj){
 
@@ -2848,6 +2959,15 @@
         //상품 검색 기능
         $(searchbar_icon_obj).on('click',function(e){
             var search_text = $(searchbar_text_obj).text();
+            setSearchProduct(search_text);
+        });
+
+        function setSearchProduct(search_text){
+            
+
+            var store_id = undefined;
+            var floor = undefined;
+            var map_url = undefined;
 
             /*
             $.ajax({
@@ -2875,12 +2995,14 @@
                 }
             });
             */
-
-            var json_data = {store_id:"2",floor:"B1",map_url:"./map/B1.png"};
-
-            var store_id = 2;
-            var floor = "B1";
-            var map_url = "./map/B1.png";
+     
+            store_id = 2;
+            floor = "B1";
+            map_url = "./map/B1.png";
+            
+            if(store_id === undefined){
+                return;
+            }
 
             var map_store_obj = $('.map_store');
             var store_popup_obj = $('.store_popup');
@@ -2898,11 +3020,11 @@
                                 map_url:map_url
                                 }
             
-            moveMapToStore(json_obj);
+            moveMapToStore(movemap_objs);
 
             
             hideKeyboard();
-        })
+        }
 
         $(searchbar_close_obj).on('click',function(e){
             hideKeyboard();
@@ -3039,7 +3161,7 @@
                 if(map_top_value < -2000){
                     map_top_value = -(map_image_height - 500);
                 }
-                /*
+                
                 $(map_image_obj).css(
                     {
                     top:map_top_value,
@@ -3051,7 +3173,7 @@
                     top:map_top_value,
                     left:map_left_value
                 });
-                */
+                
                 
 
             }
@@ -4467,7 +4589,7 @@
             var event_id = $(this).data("event_id");
 
             reloadMainPage(store_id,"event",event_id);
-            //setEventPopMoveToStore(store_id,floor,map_url);
+            setEventPopMoveToStore(store_id,floor,map_url);
 
         })
     }
@@ -4882,7 +5004,7 @@
         
         
 
-    }setWSconnect();
+    }//setWSconnect();
     
 
 </script>
