@@ -2754,7 +2754,6 @@
             $(keyboard_key_obj).on('click',function(e){
                 
                 var tmp_word = getCurrentWord($(this));
-
                 var final_text = getLastKeyboardText(tmp_word,$(searchbar_text_obj));
                 $(searchbar_text_obj).text(Hangul.assemble(final_text));
                 var arr_text = getTop10KeyWord(Hangul.assemble(final_text));
@@ -2959,7 +2958,7 @@
         //상품 검색 기능
         $(searchbar_icon_obj).on('click',function(e){
             var search_text = $(searchbar_text_obj).text();
-            setSearchProduct(search_text);
+            //setSearchProduct(search_text);
         });
 
         function setSearchProduct(search_text){
