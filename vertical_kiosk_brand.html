@@ -951,54 +951,54 @@
         });
         */
 
-        var arr_store_id;
+        var arr_prod_id;
         var str_main_img = "";
         var str_logo_img = "";
 
         if(gl_brand_id === "4"){ //초이스엘
-            arr_store_id = ["27","20","21"];
+            arr_prod_id = ["1000291882","1000390987","1000291882"];
             str_main_img = "./contents/brand/brand_product/초이스엘_01_detail.jpg,";
             str_main_img += "./contents/brand/brand_product/초이스엘_02_detail.jpg,";
             str_main_img += "./contents/brand/brand_product/초이스엘_03_detail.jpg";
             str_logo_img = "./contents/brand/brand_logo/초이스엘_logo.png";
         }else if(gl_brand_id === "7"){ //온리프라이스
-            arr_store_id = ["19","23","24"];
+            arr_prod_id = ["1000291882","1000390987","1000291882"];
             str_main_img = "./contents/brand/brand_product/온리프라이스_01_detail.jpg,";
             str_main_img += "./contents/brand/brand_product/온리프라이스_02_detail.jpg,";
             str_main_img += "./contents/brand/brand_product/온리프라이스_03_detail.jpg";
             str_logo_img = "./contents/brand/brand_logo/온리프라이스_logo.png";
         }else if(gl_brand_id === "2"){ //황금당도
-            arr_store_id = ["","",""];
+            arr_prod_id = ["","",""];
             str_main_img = "./contents/brand/brand_product/황금당도_01_detail.jpg,";
             str_main_img += "./contents/brand/brand_product/황금당도_02_detail.jpg,";
             str_main_img += "./contents/brand/brand_product/황금당도_03_detail.jpg";
             str_logo_img = "./contents/brand/brand_logo/황금당도_logo.png";
         }else if(gl_brand_id === "1"){ //산지뚝심
-            arr_store_id = ["","",""];
+            arr_prod_id = ["","",""];
             str_main_img = "./contents/brand/brand_product/산지뚝심_01_detail.jpg,";
             str_main_img += "./contents/brand/brand_product/산지뚝심_02_detail.jpg,";
             str_main_img += "./contents/brand/brand_product/산지뚝심_03_detail.jpg";
             str_logo_img = "./contents/brand/brand_logo/산지뚝심_logo.png";
         }else if(gl_brand_id === "3"){ //해빗
-            arr_store_id = ["13","14","15"];
+            arr_prod_id = ["1000291882","1000390987","1000291882"];
             str_main_img = "./contents/brand/brand_product/해빗_01_detail.jpg,";
             str_main_img += "./contents/brand/brand_product/해빗_02_detail.jpg,";
             str_main_img += "./contents/brand/brand_product/해빗_03_detail.jpg";
             str_logo_img = "./contents/brand/brand_logo/해빗_logo.png";
         }else if(gl_brand_id === "5"){ //요리하다
-            arr_store_id = ["22","25","26"];
+            arr_prod_id = ["1000291882","1000390987","1000291882"];
             str_main_img = "./contents/brand/brand_product/요리하다_01_detail.jpg,";
             str_main_img += "./contents/brand/brand_product/요리하다_02_detail.jpg,";
             str_main_img += "./contents/brand/brand_product/요리하다_03_detail.jpg";
             str_logo_img = "./contents/brand/brand_logo/요리하다_logo.png";
         }else if(gl_brand_id === "6"){ //스윗허그
-            arr_store_id = ["10","11","12"];
+            arr_prod_id = ["1000291882","1000390987","1000291882"];
             str_main_img = "./contents/brand/brand_product/스윗허그_01_detail.jpg,";
             str_main_img += "./contents/brand/brand_product/스윗허그_02_detail.jpg,";
             str_main_img += "./contents/brand/brand_product/스윗허그_03_detail.jpg";
             str_logo_img = "./contents/brand/brand_logo/스윗허그_logo.png";
         }else if(gl_brand_id === "8"){ //룸바이홈
-            arr_store_id = ["16","17","18"];
+            arr_prod_id = ["1000291882","1000390987","1000291882"];
             str_main_img = "./contents/brand/brand_product/룸바이홈_01_detail.jpg,";
             str_main_img += "./contents/brand/brand_product/룸바이홈_02_detail.jpg,";
             str_main_img += "./contents/brand/brand_product/룸바이홈_03_detail.jpg";
@@ -1006,7 +1006,7 @@
         }
 
         var json_data = {
-                        arr_store_id:arr_store_id,
+                        arr_prod_id:arr_prod_id,
                         main_img:str_main_img,
                         logo_img:str_logo_img
                         }
@@ -1024,7 +1024,7 @@
 
         $('.brand_popup_top_img').attr("src",arr_image[0]);
         $('.brand_popup_bot_img').attr("src",brand_json.logo_img);
-        $('.brand_popup_middle').data("store_id",brand_json.arr_store_id[0]);
+        $('.brand_popup_middle').data("prod_id",brand_json.arr_prod_id[0]);
         $('.brand_popup_middle').data("brand_id",gl_brand_id);
 
         $('.brand_popup_bot_images').text("");
@@ -1034,7 +1034,7 @@
         for (var index = 0; index < arr_image.length; index++) {
             var element = arr_image[index];
 
-            tmp_str +="<img class=\"brand_popup_bot_image\" src=\"" + element + "\"/ data-brand_pop_number=\"" + (index + 1) + "\" data-brand_id=\"" + gl_brand_id + "\" data-img_url=\"" + element + "\" data-store_id=\"" + brand_json.arr_store_id[index] + "\">";
+            tmp_str +="<img class=\"brand_popup_bot_image\" src=\"" + element + "\"/ data-brand_pop_number=\"" + (index + 1) + "\" data-brand_id=\"" + gl_brand_id + "\" data-img_url=\"" + element + "\" data-prod_id=\"" + brand_json.arr_prod_id[index] + "\">";
             
         }
         
@@ -1060,7 +1060,7 @@
                 setInitImageBorder();
                 $(this).css("border","solid 3px red");
                 $('.brand_popup_top_img').attr("src",$(this).data("img_url"));
-                $('.brand_popup_middle').data("store_id",$(this).data("store_id"));
+                $('.brand_popup_middle').data("prod_id",$(this).data("prod_id"));
                 $('.brand_popup_middle').data("brand_id",$(this).data("brand_id"));
                 $('.brand_popup_middle').data("brand_pop_number",$(this).data("brand_pop_number"));
             })
@@ -1080,7 +1080,7 @@
                 setInitImageBorder();
                 $(element).css("border","solid 3px red");
                 $('.brand_popup_top_img').attr("src",$(element).data("img_url"));
-                $('.brand_popup_middle').data("store_id",$(element).data("store_id"));
+                $('.brand_popup_middle').data("prod_id",$(element).data("prod_id"));
                 $('.brand_popup_middle').data("brand_id",$(element).data("brand_id"));
                 $('.brand_popup_middle').data("brand_pop_number",$(element).data("brand_pop_number"));
             }
@@ -1102,10 +1102,10 @@
     //상품 찾기 기능 설정
     function setFindStore(){
         $('.brand_popup_middle').on('click',function(e){            
-            var store_id = $(this).data("store_id");
+            var prod_id = $(this).data("prod_id");
             var brand_id = $(this).data("brand_id");
             var brand_pop_number = $(this).data("brand_pop_number");
-            document.location.href = "vertical_kiosk_main.html?page=" + "main" + "&store_id=" + store_id + "&kiosk_code=" + gl_kiosk_code + "&pre_page=" + "brand" + "&brand_id=" + brand_id + "&brand_pop_number=" + brand_pop_number + "";
+            document.location.href = "vertical_kiosk_main.html?page=" + "main" + "&prod_id=" + prod_id + "&kiosk_code=" + gl_kiosk_code + "&pre_page=" + "brand" + "&brand_id=" + brand_id + "&brand_pop_number=" + brand_pop_number + "";
         })
     }
     setFindStore();

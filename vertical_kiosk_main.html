@@ -433,6 +433,58 @@
                 .search_information_top{
                     width:100%;
                     height:40%;
+                    display: none;
+                }
+
+                .search_information_top2{
+                    width:100%;
+                    height:40%;
+                }
+
+                .search_information_top2_left{
+                    
+                    width:40%;
+                    height:100%;
+                    float:left;
+                    padding-left:5%;
+                    
+                }
+
+                .search_information_top2_left_left{
+                    text-align: center;
+                    font-size:56px;
+                    padding-top:38px;
+                    padding-left:68px;
+                    font-weight: 800;
+                    width:50%;
+                    height:100%;
+                    float:left;
+                }
+
+                .search_information_top2_left_right{
+                    font-size:20px;
+                    padding-top:10px;
+                    padding-left:66px;
+                    font-weight: 600;
+                    width:44%;
+                    height:100%;
+                    margin-left:54%;
+                    margin-top:8%;
+                }
+
+                .search_information_top2_right{
+                    float:left;
+                    width:271px;
+                    height:76px;
+                    margin-left:14%;
+                    margin-top:3.6%;                    
+                }
+
+                .search_information_top2_right img{
+                    float:right;                  
+                    width:271px;
+                    height:68px;
+                    margin-top:4px;
                 }
         
                 .search_information_current_floor{
@@ -695,33 +747,29 @@
                     
                 }
         
-                
-        
-            
-        
                 /* 키보드 시작 */
                 .keyboard{
-                    margin-top:12%;
+                    margin-top:2%;
                     width:100%;
                     height:18%;
                     position: absolute;
                     background-color:#2b2a26;
                     z-index: 12;
-                    
+                    display:none;                    
                 }
 
                 .searchbar_preview{
                     top:-450px;
-                    width:66%;
+                    width:74%;
                     height:auto;
-                    border: 1px solid #bcbcbc;
+                    border: 2px solid #2b2a26;
                     margin-left:10%;
                     padding:2%;
                     position:absolute;
                     z-index: -10;
-                    border-radius: 40px;
                     background-color:white;
-                    display: none;
+                    display:none;
+                    
                 }
 
                 .searchbar_preview_div{
@@ -745,48 +793,45 @@
                     z-index: 3;
                     padding-top:2%;
                     z-index: 12;
+                    display:none;
+                    margin-top:-8%;
+
                 }
         
                 .searchbar_text{
-                    width:70%;
+                    width:78%;
                     height:40%;
+                    padding: 0px;
+                    margin:0px;
+                    border:0px;
                     background-color: white;
-                    border: 1px solid #bcbcbc;
                     margin-left:10%;
                     margin-top:2%;
                     text-align: center;
                     font-size: 32px;
+                    border:2px solid #2b2a26;
+                    /*
                     border-top-left-radius:40px;
                     border-bottom-left-radius:40px;
+                    */
                     float:left;
                     padding-top:1%;                    
                 }
 
-        
-                .searchbar_icon{
-                    width:10%;
-                    height:40%;
-                    background-color: brown;
-                    margin-top:2%;
-                    text-align: center;
-                    font-size: 32px;
-                    border-top-right-radius:40px;
-                    border-bottom-right-radius:40px;
-                    color:white;
-                    float:left;
-                    padding-top:1%;
-                    
+                .searchbar_icon_img{
+                    float:right;             
+                    margin-right:4%;
                 }
                 
                 .searchbar_close{
-                    width:10%;
-                    height:60%;
+                    width:35px;
+                    height:57px;
                     border-radius:30px;
                     text-align: center;
                     color: white;
-                    float:left;
-                    margin-top:14px;
-                    margin-left:100px;
+                    float:right;
+                    margin-top:30px;
+                    margin-right:70px;
                 }
         
                 .keyboard_line{
@@ -977,7 +1022,6 @@
                 /* 네비게이션 끝 */
         
                 /* 이벤트 시작 */
-        
                 .vertical_kiosk_event{
                     margin:0px;
                     padding:0px;
@@ -997,7 +1041,6 @@
                     margin-left:29%;
                     margin-top:7%;
                     margin-bottom: -3%;
-                    
                 }
         
                 .middle_event{
@@ -1506,6 +1549,15 @@
                 <div class="search_information_text_top">위치찾기</div>
                 <div class="search_information_text_bot">찾고자 하는 층을 눌러주세요</div>
             </div>
+            <div class="search_information_top2">  
+                <div class="search_information_top2_left">
+                    <div class="search_information_top2_left_left">위치찾기</div>
+                    <div class="search_information_top2_left_right">찾고자 하는 층과<br> 상품을 검색해 주세요</div>
+                </div>  
+                <div class="search_information_top2_right">
+                    <img src="./image/main_bt_search.png"/>
+                </div>  
+            </div>
             <div class="search_information_current_floor"><img class="search_information_current_floor_img" src="./image/main_ic_current.png">현재위치</div>
             <div class="search_information_button">
                 <!--
@@ -1542,14 +1594,19 @@
 
                 </div>
 
-                <div class="searchbar_text">검색어를 입력하세요</div>
-                <div class="searchbar_icon">검색</div>
-                <div class="searchbar_close">닫기</div>
+                <div class="searchbar_text">검색어를 입력하세요 <img class="searchbar_icon_img" src="./image/main_ic_searchbar.png" /></div>
+                <!--
+                <div class="searchbar_icon"><img class="searchbar_icon_img" src="./image/main_ic_searchbar.png" /></div>
+                -->
             </div>
             <!-- 서치바 끝 -->
 
             <!-- 키보드 시작 -->
             <div class="keyboard">
+
+                <div class="searchbar_close">
+                    <img src="./image/main_bt_x_popup.png"/>
+                </div>
 
                 <div class="keyboard_line">
                     <div class="keyboard_key" data-eng="1" data-kor="1" data-eng-shift="1" data-kor-shift="1">1</div>
@@ -2084,7 +2141,7 @@
         
         
         //상점 지도에 그리는 기능 시작
-        setStoreDrawingToMap();
+        //setStoreDrawingToMap();
         //키오스크 현재 위치 설정
         setKioskPopupPosition(gl_kiosk_code);
 
@@ -2624,34 +2681,34 @@
         */
 
         var arr_data = [
-                        {store_name:"상점1",store_id:"1",left:1039,top:872,font_size:"20",floor:"B1"},
-                        {store_name:"상점2",store_id:"2",left:1489,top:744,font_size:"20",floor:"B1"},
-                        {store_name:"상점3",store_id:"3",left:1291,top:227,font_size:"20",floor:"B1"},
-                        {store_name:"상점4",store_id:"4",left:915,top:732,font_size:"20",floor:"B1"},
-                        {store_name:"상점5",store_id:"5",left:916,top:563,font_size:"20",floor:"B1"},
-                        {store_name:"상점6",store_id:"6",left:865,top:687,font_size:"20",floor:"B1"},
-                        {store_name:"상점7",store_id:"7",left:1065,top:772,font_size:"20",floor:"B1"},
-                        {store_name:"상점8",store_id:"8",left:535,top:954,font_size:"20",floor:"B1"},
+                        {store_name:"상점1",prod_id:"1",left:1039,top:872,font_size:"20",floor:"B1"},
+                        {store_name:"상점2",prod_id:"2",left:1489,top:744,font_size:"20",floor:"B1"},
+                        {store_name:"상점3",prod_id:"3",left:1291,top:227,font_size:"20",floor:"B1"},
+                        {store_name:"상점4",prod_id:"4",left:915,top:732,font_size:"20",floor:"B1"},
+                        {store_name:"상점5",prod_id:"5",left:916,top:563,font_size:"20",floor:"B1"},
+                        {store_name:"상점6",prod_id:"6",left:865,top:687,font_size:"20",floor:"B1"},
+                        {store_name:"상점7",prod_id:"7",left:1065,top:772,font_size:"20",floor:"B1"},
+                        {store_name:"상점8",prod_id:"8",left:535,top:954,font_size:"20",floor:"B1"},
 
-                        {store_name:"상점9",store_id:"9",left:545,top:973,font_size:"20",floor:"B1"},
-                        {store_name:"상점10",store_id:"10",left:1047,top:709,font_size:"20",floor:"B1"},
-                        {store_name:"상점11",store_id:"11",left:1048,top:579,font_size:"20",floor:"B1"},
-                        {store_name:"상점12",store_id:"12",left:377,top:534,font_size:"20",floor:"B1"},
-                        {store_name:"상점13",store_id:"13",left:1065,top:677,font_size:"20",floor:"B1"},
-                        {store_name:"상점14",store_id:"14",left:923,top:939,font_size:"20",floor:"B1"},
-                        {store_name:"상점15",store_id:"15",left:923,top:921,font_size:"20",floor:"B1"},
-                        {store_name:"상점16",store_id:"16",left:429,top:293,font_size:"20",floor:"B1"},
-                        {store_name:"상점17",store_id:"17",left:247,top:432,font_size:"20",floor:"B1"},
-                        {store_name:"상점18",store_id:"18",left:1064,top:771,font_size:"20",floor:"B1"},
-                        {store_name:"상점19",store_id:"19",left:1064,top:771,font_size:"20",floor:"B1"},
-                        {store_name:"상점20",store_id:"20",left:788,top:213,font_size:"20",floor:"B1"},
-                        {store_name:"상점21",store_id:"21",left:1344,top:755,font_size:"20",floor:"B1"},
-                        {store_name:"상점22",store_id:"22",left:865,top:562,font_size:"20",floor:"B1"},
-                        {store_name:"상점23",store_id:"23",left:375,top:744,font_size:"20",floor:"B1"},
-                        {store_name:"상점24",store_id:"24",left:375,top:744,font_size:"20",floor:"B1"},
-                        {store_name:"상점25",store_id:"25",left:934,top:746,font_size:"20",floor:"B1"},
-                        {store_name:"상점26",store_id:"26",left:932,top:748,font_size:"20",floor:"B1"},
-                        {store_name:"상점27",store_id:"27",left:847,top:355,font_size:"20",floor:"B1"}
+                        {store_name:"상점9",prod_id:"9",left:545,top:973,font_size:"20",floor:"B1"},
+                        {store_name:"상점10",prod_id:"10",left:1047,top:709,font_size:"20",floor:"B1"},
+                        {store_name:"상점11",prod_id:"11",left:1048,top:579,font_size:"20",floor:"B1"},
+                        {store_name:"상점12",prod_id:"12",left:377,top:534,font_size:"20",floor:"B1"},
+                        {store_name:"상점13",prod_id:"13",left:1065,top:677,font_size:"20",floor:"B1"},
+                        {store_name:"상점14",prod_id:"14",left:923,top:939,font_size:"20",floor:"B1"},
+                        {store_name:"상점15",prod_id:"15",left:923,top:921,font_size:"20",floor:"B1"},
+                        {store_name:"상점16",prod_id:"16",left:429,top:293,font_size:"20",floor:"B1"},
+                        {store_name:"상점17",prod_id:"17",left:247,top:432,font_size:"20",floor:"B1"},
+                        {store_name:"상점18",prod_id:"18",left:1064,top:771,font_size:"20",floor:"B1"},
+                        {store_name:"상점19",prod_id:"19",left:1064,top:771,font_size:"20",floor:"B1"},
+                        {store_name:"상점20",prod_id:"20",left:788,top:213,font_size:"20",floor:"B1"},
+                        {store_name:"상점21",prod_id:"21",left:1344,top:755,font_size:"20",floor:"B1"},
+                        {store_name:"상점22",prod_id:"22",left:865,top:562,font_size:"20",floor:"B1"},
+                        {store_name:"상점23",prod_id:"23",left:375,top:744,font_size:"20",floor:"B1"},
+                        {store_name:"상점24",prod_id:"24",left:375,top:744,font_size:"20",floor:"B1"},
+                        {store_name:"상점25",prod_id:"25",left:934,top:746,font_size:"20",floor:"B1"},
+                        {store_name:"상점26",prod_id:"26",left:932,top:748,font_size:"20",floor:"B1"},
+                        {store_name:"상점27",prod_id:"27",left:847,top:355,font_size:"20",floor:"B1"}
                         ];
 
         return arr_data;
@@ -2677,7 +2734,7 @@
             var str_append = "<div class=\"map_store\" id=\"id_store_" + index + "\"";
                 str_append += "data-floor=\"" + tmp_json.floor + "\"";
                 str_append += "data-store_name=\"" + tmp_json.store_name + "\"";
-                str_append += "data-store_id=\"" + tmp_json.store_id + "\"";
+                str_append += "data-prod_id=\"" + tmp_json.prod_id + "\"";
                 str_append += "data-left=\"" + tmp_json.left + "\"";
                 str_append += "data-top=\"" + tmp_json.top + "\"";
                 str_append += ">";
@@ -2755,45 +2812,35 @@
                 
                 var tmp_word = getCurrentWord($(this));
                 var final_text = getLastKeyboardText(tmp_word,$(searchbar_text_obj));
-                $(searchbar_text_obj).text(Hangul.assemble(final_text));
-                var arr_text = getTop10KeyWord(Hangul.assemble(final_text));
-                setSerchbarPreviewList(arr_text);
-                            
+                $(searchbar_text_obj).html(Hangul.assemble(final_text) + "<img class=\"searchbar_icon_img\" src=\"./image/main_ic_searchbar.png\" />");                      
+                getTop10KeyWord(Hangul.assemble(final_text));
             });
 
         }
         setClickKeyboardKey();
 
         function getTop10KeyWord(target_text){
-            var ret_arr;
 
-             /*
+            var ret_arr;
             $.ajax({
-                url : "frame_action_ajax.jsp",
+                url : "../lotte_json/search_preview_prd_json.jsp",
                 method : "GET",
                 dataType : "text",
-                data : {'mode':'DELETE_GROUP','intro_group_name':$va,'group_id':$g_id},
+                data : {'prod_name':target_text},
+                contentType: "application/x-www-form-urlencoded; charset=UTF-8",
                 success : function(data){
-                    if($.trim(data)!= '' && $.trim(data) != 'FAIL'){
-                        $group_id = $.trim(data);
-                        console.log($group_id);
-                        alert('Complete');
-                        $('#id_intro_change').modal('hide');
-                        $('.midDropper').each(function(){
-                            if($(this).attr('group_id') == $g_id){
-                                $(this).fadeOut();
-                                $(this).next().fadeOut();
-                                setKioskUpd($g_id,'');
-                            }
-                        });
+                    ret_arr = data.split("\,");
+                    if(target_text === "" || ret_arr.length === 0){
+                        ret_arr = undefined;
                     }
+                    setSerchbarPreviewList(ret_arr);
                 },
                 error:function(e){
                     alert('Fail.');
                 }
             });
-            */
-
+            
+            /*
             if(target_text === ""){
                 return ret_arr;
             }else if(target_text === "테"){
@@ -2812,20 +2859,19 @@
                 ret_arr = [target_text
                       ];
             }
-
-            return ret_arr;
+            */
         }
 
         function setSelectPreviewText(){
             $('.searchbar_preview_div').on('click',function(e){
-                $(searchbar_text_obj).text($(this).text());
+                $(searchbar_text_obj).html($(this).text() + "<img class=\"searchbar_icon_img\" src=\"./image/main_ic_searchbar.png\" />");
                 $('.searchbar_preview').css("display","none");
-                setSearchProduct($(this).text());
+                setSearchProduct('name',$(this).text());
             });
         }
         
         function setSerchbarPreviewList(arr_text){
-
+            
             var ret_str = "";
             if(arr_text === undefined || arr_text.length < 1){
                 $('.searchbar_preview').css("display","none");
@@ -2871,8 +2917,7 @@
         function getLastKeyboardText(word,obj){
 
             var check_str = $(obj).text();
-
-            if(check_str === "검색어를 입력하세요"){
+            if(check_str === "검색어를 입력하세요 "){
                 $(searchbar_text_obj).text("");
                 check_str = "";
             }
@@ -2950,9 +2995,7 @@
                         $(element).text($(element).data("kor-shift"));
                     }
                 }
-                
             }
-            
         }
 
         //상품 검색 기능
@@ -2961,81 +3004,109 @@
             //setSearchProduct(search_text);
         });
 
-        function setSearchProduct(search_text){
-            
-
-            var store_id = undefined;
-            var floor = undefined;
-            var map_url = undefined;
-
-            /*
-            $.ajax({
-                url : "frame_action_ajax.jsp",
-                method : "GET",
-                dataType : "text",
-                data : {'mode':'DELETE_GROUP','intro_group_name':$va,'group_id':$g_id},
-                success : function(data){
-                    if($.trim(data)!= '' && $.trim(data) != 'FAIL'){
-                        $group_id = $.trim(data);
-                        console.log($group_id);
-                        alert('Complete');
-                        $('#id_intro_change').modal('hide');
-                        $('.midDropper').each(function(){
-                            if($(this).attr('group_id') == $g_id){
-                                $(this).fadeOut();
-                                $(this).next().fadeOut();
-                                setKioskUpd($g_id,'');
-                            }
-                        });
-                    }
-                },
-                error:function(e){
-                    alert('Fail.');
-                }
-            });
-            */
-     
-            store_id = 2;
-            floor = "B1";
-            map_url = "./map/B1.png";
-            
-            if(store_id === undefined){
-                return;
-            }
-
-            var map_store_obj = $('.map_store');
-            var store_popup_obj = $('.store_popup');
-            var map_stores_obj = $('.map_stores');
-            var map_image_obj = $('#id_map_image');
-
-
-            var movemap_objs = {
-                                map_store_obj:map_store_obj,
-                                store_popup_obj:store_popup_obj,
-                                map_stores_obj:map_stores_obj,
-                                map_image_obj:map_image_obj,
-                                store_id:store_id,
-                                floor:floor,
-                                map_url:map_url
-                                }
-            
-            moveMapToStore(movemap_objs);
-
-            
-            hideKeyboard();
-        }
-
         $(searchbar_close_obj).on('click',function(e){
             hideKeyboard();
+            //$(searchbar_text_obj).text("");
         });
 
-        function hideKeyboard(){
-            $(keyboard_obj).css("display","none");
-            $(searchbar_obj).css("display","none");
-        }
+        //상단 서치바 터치시 상단 UI변경 후 키보드 화면에 표시
+        $('.search_information_top2_right').on('click',function(e){
+            //$(searchbar_text_obj).text("");
+            showKeyboard();
+        });
 
     }
+
+    function hideKeyboard(){
+        $('.keyboard').css("display","none");
+        $('.searchbar').css("display","none");
+        $('.searchbar_preview').css("display","none");
+        $('.search_information_top2').css("display","block");
+        $('.search_information_top').css("display","none");
+
+    }
+
+    function showKeyboard(){
+        $('.keyboard').css("display","block");
+        $('.searchbar').css("display","block");
+        $('.searchbar_preview').css("display","none");
+        $('.search_information_top2').css("display","none");
+        $('.search_information_top').css("display","block");
+    }
+
     //키보드 검색 기능 끝  
+
+    function setSearchProduct(search_sect,search_text){
+  
+        var floor = undefined;
+        var map_url = undefined;
+        var api_map_width = undefined;
+        var api_map_height = undefined;
+        var api_prod_x = undefined;
+        var api_prod_y = undefined;
+
+        var req_data = undefined;
+
+        var position_obj = undefined;
+
+        if(search_sect === "name" && search_text === ""){
+            return;
+        }else if(search_sect === "id" && isNaN(search_text)){
+            return;
+        }
+        if(search_sect === 'name'){
+            req_data = {'mode':'name','prod_name':search_text};
+        }else if(search_sect === 'id'){
+            req_data = {'mode':'id','prod_id':search_text};
+        }
+
+        $.ajax({
+            url : "../lotte_json/search_prd_json.jsp",
+            method : "GET",
+            dataType : "text",
+            data : req_data,
+            contentType: "application/x-www-form-urlencoded; charset=UTF-8",
+            success : function(data){
+                var json_obj = JSON.parse(data);
+                floor = json_obj[0].floor;
+                map_url = json_obj[0].map_url;
+                position_obj = {
+                    kiosk_map_width:gl_map_width,
+                    kiosk_map_height:gl_map_height,
+                    api_map_width:json_obj[0].map_width,
+                    api_map_height:json_obj[0].map_height,
+                    api_prod_x:json_obj[0].prod_x,
+                    api_prod_y:json_obj[0].prod_y
+                }
+                setMoveMap(position_obj,map_url,floor);
+            },
+            error:function(e){
+                alert('Fail.');
+            }
+        });
+        hideKeyboard();
+    }
+    function setMoveMap(position_obj,map_url,floor){
+        var current_x_y = getMapXYRealSize(position_obj,gl_map_scale);
+
+        var map_store_obj = $('.map_store');
+        var store_popup_obj = $('.store_popup');
+        var map_stores_obj = $('.map_stores');
+        var map_image_obj = $('#id_map_image');
+
+
+        var movemap_objs = {
+                            map_store_obj:map_store_obj,
+                            store_popup_obj:store_popup_obj,
+                            map_stores_obj:map_stores_obj,
+                            map_image_obj:map_image_obj,
+                            floor:floor,
+                            map_url:map_url,
+                            current_x_y:current_x_y
+                            }
+
+        moveMapToProd(movemap_objs);
+    }
 
     function setStorePopupPosition(top,left,sect){
         
@@ -3115,68 +3186,76 @@
         */
     }
 
+    function getMapXYRealSize(json_obj,map_scale){
+        var kiosk_map_width = json_obj.kiosk_map_width;
+        var kiosk_map_height = json_obj.kiosk_map_height;
+        var api_map_width = json_obj.api_map_width;
+        var api_map_height = json_obj.api_map_height;
+
+        var x_scale = kiosk_map_width / api_map_width;
+        var y_scale = kiosk_map_height / api_map_height;
+
+        var change_x = json_obj.api_prod_x * x_scale;
+        var change_y = json_obj.api_prod_y * y_scale;
+
+        return {
+                prod_x:change_x * map_scale,
+                prod_y:change_y * map_scale
+               }
+    }
+
     //해당 상점으로 줌 이동 기능 시작
-    function moveMapToStore(json_obj){
+    function moveMapToProd(json_obj){
 
         var map_store_obj = json_obj.map_store_obj;
         var store_popup_obj = json_obj.store_popup_obj;
         var map_stores_obj = json_obj.map_stores_obj;
         var map_image_obj = json_obj.map_image_obj;
-        var store_id = json_obj.store_id;
         var floor = json_obj.floor;
         var map_url = json_obj.map_url;
-
+        var current_x_y = json_obj.current_x_y;
         var arr_stores = $(map_store_obj);
 
-        for (index = 0; index < arr_stores.length; index++) {
-            var element = arr_stores[index];
+        setStorePopupPosition(parseInt(current_x_y.prod_y),parseInt(current_x_y.prod_x),"block");
+        
+        var map_preview_div_width = parseInt($(map_stores_obj).css("width").replace("px",""));
+        var map_preview_div_height = parseInt($(map_stores_obj).css("height").replace("px",""));
 
-            if(store_id === $(element).data("store_id")){
-
-                setStorePopupPosition(parseInt($(element).css("top").replace("px","")),parseInt($(element).css("left").replace("px","")),"block");
-                
-                var map_preview_div_width = parseInt($(map_stores_obj).css("width").replace("px",""));
-                var map_preview_div_height = parseInt($(map_stores_obj).css("height").replace("px",""));
-
-                var map_image_width = parseInt($(map_image_obj).css("width").replace("px",""));
-                var map_image_height = parseInt($(map_image_obj).css("height").replace("px",""));
-                
-                // -(left위치-(맵프리뷰 WIDTH / 2))
-                var map_left_value = -( parseInt($(element).css("left").replace("px","")) - (map_preview_div_width / 2) );
-                // -(top위치-(맵프리뷰 HEIGHT / 2))
-                var map_top_value = -( parseInt($(element).css("top").replace("px","")) - (map_preview_div_height / 2) );
-                
-                //테두리측 상점 좌표 제한
-                if(map_left_value > 0){
-                    map_left_value = 0;
-                }
-                if(map_top_value > 0){
-                    map_top_value = 0;
-                }
-
-                if(map_left_value < -2000){
-                    map_left_value = -(map_image_width - 900);
-                }
-                if(map_top_value < -2000){
-                    map_top_value = -(map_image_height - 500);
-                }
-                
-                $(map_image_obj).css(
-                    {
-                    top:map_top_value,
-                    left:map_left_value
-                });
-
-                $(map_stores_obj).css( 
-                    {
-                    top:map_top_value,
-                    left:map_left_value
-                });
-                
-                
-
-            }
+        var map_image_width = parseInt($(map_image_obj).css("width").replace("px",""));
+        var map_image_height = parseInt($(map_image_obj).css("height").replace("px",""));
+        
+        // -(left위치-(맵프리뷰 WIDTH / 2))
+        var map_left_value = -( parseInt(current_x_y.prod_x) - (map_preview_div_width / 2) );
+        // -(top위치-(맵프리뷰 HEIGHT / 2))
+        var map_top_value = -( parseInt(current_x_y.prod_y) - (map_preview_div_height / 2) );
+        
+        //테두리측 상점 좌표 제한
+        if(map_left_value > 0){
+            map_left_value = 0;
         }
+        if(map_top_value > 0){
+            map_top_value = 0;
+        }
+
+        if(map_left_value < -2000){
+            map_left_value = -(map_image_width - 900);
+        }
+        if(map_top_value < -2000){
+            map_top_value = -(map_image_height - 500);
+        }
+        
+        $(map_image_obj).css(
+            {
+            top:map_top_value,
+            left:map_left_value
+        });
+
+        $(map_stores_obj).css( 
+            {
+            top:map_top_value,
+            left:map_left_value
+        });
+       
         setHideAnotherFloorStore(floor);
         setFloorButtonColor(floor);
         $(map_image_obj).attr("src",map_url);
@@ -3728,12 +3807,13 @@
         var map_div = pinch_objs.map_div;
         var target_btn = $(pinch_objs.target_btn);
         var sect = pinch_objs.sect;
-        var store_id = pinch_objs.store_id;
-        
-        
+        var prod_id = pinch_objs.prod_id;        
         
         var stores_div = el.childNodes[1];
         var img_div = el.childNodes[3];
+
+        var kiosk_popup = document.querySelector(".kiosk_popup");
+        var store_popup = document.querySelector(".store_popup");
         
         $(target_btn).on('click',function(e){
 
@@ -3759,12 +3839,6 @@
                 $(img_div).css("width",Math.round((scale * width)) + 'px');
                 $(img_div).css("height",Math.round((scale * height)) + 'px');
 
-                //img_div.style.marginLeft = (img_div.style.left.replace("px","") - (event.center.x * scales)) + 'px';
-                //img_div.style.marginTop = (img_div.style.top.replace("px","") - (event.center.y * scales)) + 'px';
-                //img_div.style.marginLeft = 0 + 'px';
-                //img_div.style.marginTop  = 0 + 'px';
-                //console.log((img_div.style.left.replace("px","") - (total_width - width)));
-
                 for (var index = 0; index < arr_stores.length; index++) {
                     var element = arr_stores[index];
 
@@ -3772,37 +3846,12 @@
                     var tmp_left =  Math.round(parseInt($(element).css('left').replace("px","")) * scale) + "px";
                     var tmp_font_size;
                     
-                    if($(element).data("store_id") === store_id){
+                    if($(element).data("prod_id") === prod_id){
   
                         setStorePopupPosition(tmp_top,tmp_left,"");
-          
-                        //$(element).css("border","solid 3px red");
-                        
+  
                     }
-                    
-
-                    if(sect ==="plus"){
-                        tmp_font_size = parseInt($(element).css('font-size')) + (scale + 1.5);
-                    }else{
-                        tmp_font_size = parseInt($(element).css('font-size')) - (scale + 1.5);
-                    }
-                
-                    if(tmp_font_size <= 14){
-                        tmp_font_size = 14;
-                    }
-
-                    if(tmp_font_size >= 40){
-                        tmp_font_size = 40;
-                    }
-
-                    $(element).css( 
-
-                        {'font-size': tmp_font_size,
-                        top:tmp_top,
-                        left:tmp_left
-
-                    });
-
+ 
                 }
 
                 var store_popup_top = Math.round(parseInt($(store_popup_obj).css('top').replace("px","")) * scale) + "px";
@@ -3811,13 +3860,15 @@
                 var store_pop_height = Math.round(parseInt($(store_popup_obj).css('height').replace("px","")) * scale) + "px";
 
                 if(sect ==="plus"){
-                    store_pop_width = parseInt($(store_popup_obj).css('width').replace("px","")) + (scale + 1);
-                    store_pop_height = parseInt($(store_popup_obj).css('height').replace("px","")) + (scale + 1);
+                    store_pop_width = parseInt($(store_popup_obj).css('width').replace("px","")) * (scale);
+                    store_pop_height = parseInt($(store_popup_obj).css('height').replace("px","")) * (scale);
                 }else{
-                    store_pop_width = parseInt($(store_popup_obj).css('width').replace("px","")) - (scale + 1);
-                    store_pop_height = parseInt($(store_popup_obj).css('height').replace("px","")) - (scale + 1);
+                    store_pop_width = parseInt($(store_popup_obj).css('width').replace("px","")) * (scale);
+                    store_pop_height = parseInt($(store_popup_obj).css('height').replace("px","")) * (scale);
                 }
 
+
+                /*
                 if(store_pop_width <= 25){
                     store_pop_width = 25;
                 }
@@ -3831,11 +3882,28 @@
                 if(store_pop_height >= 80){
                     store_pop_height = 80;
                 }
-
+                
                 store_pop_width += "px";
                 store_pop_height += "px";
+                
+                */
 
-                /*
+                var transform_value = kiosk_popup.style.transform;
+                var arr_transform_scale = transform_value = transform_value.split("scale");
+                transform_value = arr_transform_scale[1];
+                transform_value = transform_value.replace("(","");
+                transform_value = transform_value.replace(")","");
+
+                if(sect ==="plus"){
+                    transform_value = parseFloat(transform_value) + 0.1;
+                }else if(sect ==="minus"){
+                    transform_value = parseFloat(transform_value) - 0.1;
+                }
+                
+                
+                kiosk_popup.style.transform = "scale(" + transform_value + ") ";
+                store_popup.style.transform = "scale(" + transform_value + ") ";
+                
                 $(store_popup_obj).css( 
 
                     {
@@ -3844,23 +3912,24 @@
 
                 });
 
-                $(store_popup_obj).css("width",store_pop_width);
-                $(store_popup_obj).css("height",store_pop_height);
-                */
+                //$(store_popup_obj).css("width",store_pop_width);
+                //$(store_popup_obj).css("height",store_pop_height);
+                
 
                 var kiosk_popup_top = Math.round(parseInt($(kiosk_popup_obj).css('top').replace("px","")) * scale) + "px";
                 var kiosk_popup_left =  Math.round(parseInt($(kiosk_popup_obj).css('left').replace("px","")) * scale) + "px";
                 var kiosk_pop_width = Math.round(parseInt($(kiosk_popup_obj).css('width').replace("px","")) * scale) + "px";;
                 var kiosk_pop_height = Math.round(parseInt($(kiosk_popup_obj).css('height').replace("px","")) * scale) + "px";
-
+                
+                /*
                 if(sect ==="plus"){
-                    kiosk_pop_width = parseInt($(kiosk_popup_obj).css('width').replace("px","")) + (scale + 1);
-                    kiosk_pop_height = parseInt($(kiosk_popup_obj).css('height').replace("px","")) + (scale + 1);
+                    kiosk_pop_width = parseInt($(kiosk_popup_obj).css('width').replace("px","")) * (scale);
+                    kiosk_pop_height = parseInt($(kiosk_popup_obj).css('height').replace("px","")) * (scale);
                 }else{
-                    kiosk_pop_width = parseInt($(kiosk_popup_obj).css('width').replace("px","")) - (scale + 1);
-                    kiosk_pop_height = parseInt($(kiosk_popup_obj).css('height').replace("px","")) - (scale + 1);
+                    kiosk_pop_width = parseInt($(kiosk_popup_obj).css('width').replace("px","")) * (scale);
+                    kiosk_pop_height = parseInt($(kiosk_popup_obj).css('height').replace("px","")) * (scale);
                 }
-
+                
                 if(kiosk_pop_width <= 34){
                     kiosk_pop_width = 34;
                 }
@@ -3874,9 +3943,10 @@
                 if(kiosk_pop_height >= 80){
                     kiosk_pop_height = 80;
                 }
-
+                
                 kiosk_pop_width += "px";
                 kiosk_pop_height += "px";
+                */
 
                 $(kiosk_popup_obj).css( 
 
@@ -3886,8 +3956,8 @@
 
                 });
 
-                $(kiosk_popup_obj).css("width",kiosk_pop_width);
-                $(kiosk_popup_obj).css("height",kiosk_pop_height);
+                //$(kiosk_popup_obj).css("width",kiosk_pop_width);
+                //$(kiosk_popup_obj).css("height",kiosk_pop_height);
 
 
                 var map_preview_div_width = parseInt($(map_div).css("width").replace("px",""));
@@ -3996,16 +4066,12 @@
                 }
                 
                 $('.event_popup_top_image').attr("src",data.img_url);
-                $('.event_popup_middle_title').html(data.event_name);
+                $('.event_popup_middle_title').html(data.prod_name);
                 $('.event_popup_middle_price_special_text').text(str_point);
-                $('.event_popup_middle_price_normal_number').text(data.normal_price);
-                $('.event_popup_middle_price_special_number').text(data.event_price);
+                $('.event_popup_middle_price_normal_number').text(data.prod_price);
+                $('.event_popup_middle_price_special_number').text(data.prod_price);
                 //$('.event_popup_middle_information_text').html(tmp_information);
-                $('.event_popup_bot').data("store_id",data.store_id);
-                $('.event_popup_bot').data("floor",data.floor);
-                $('.event_popup_bot').data("map_url",data.map_url);
-                $('.event_popup_bot').data("event_id",data.event_id);
-
+                $('.event_popup_bot').data("prod_id",data.prod_id);
                 $('.event_popup_middle_price_normal_number').css("display","none");
                 $('.event_popup_middle_price_normal_text').css("display","none");
 
@@ -4021,95 +4087,57 @@
         }
     }
 
-    //이벤트 상점 위치 찾기 설정
-
-    function setEventPopMoveToStore(store_id,floor,map_url){
-
-        //메인 화면 돌아가기
-        setHideNotUsePage('vertical_kiosk_main');
-
-        var map_store_obj = $('.map_store');
-        var store_popup_obj = $('.store_popup');
-        var map_stores_obj = $('.map_stores');
-        var map_image_obj = $('#id_map_image');
-
-
-        var movemap_objs = {
-                            map_store_obj:map_store_obj,
-                            store_popup_obj:store_popup_obj,
-                            map_stores_obj:map_stores_obj,
-                            map_image_obj:map_image_obj,
-                            store_id:store_id,
-                            floor:floor,
-                            map_url:map_url
-                            }
-
-        $('.vertical_kiosk_event_popup').css( 
-            {display:"none"
-        });
-
-        $('.main_bot_brand').css("display","none");
-        $('.main_bot_div').css("display","block");
-
-        moveMapToStore(movemap_objs);
-
-        //네비게이션 메인으로 이동
-        var main_icon = $('#id_nav_right_btn_main');
-        setHideNotUsePage('vertical_kiosk_main');
-        setRightNavColor($(main_icon));
-
-    }
-    
-
-    function getEventList(){
-
-        /*
+    function getProdInformation(prod_id){
         $.ajax({
-            url : "frame_action_ajax.jsp",
+            url : "../lotte_json/search_prd_json.jsp",
             method : "GET",
             dataType : "text",
-            data : {'mode':'DELETE_GROUP','intro_group_name':$va,'group_id':$g_id},
+            data : {'mode':'id','prod_name':search_text},
+            contentType: "application/x-www-form-urlencoded; charset=UTF-8",
             success : function(data){
-                if($.trim(data)!= '' && $.trim(data) != 'FAIL'){
-                    $group_id = $.trim(data);
-                    console.log($group_id);
-                    alert('Complete');
-                    $('#id_intro_change').modal('hide');
-                    $('.midDropper').each(function(){
-                        if($(this).attr('group_id') == $g_id){
-                            $(this).fadeOut();
-                            $(this).next().fadeOut();
-                            setKioskUpd($g_id,'');
-                        }
-                    });
-                }
+                var json_obj = JSON.parse(data);
+                floor = json_obj.floor;
+                map_url = json_obj.map_url;
+                api_map_width = json_obj.map_width;
+                api_map_height = json_obj.map_height;
+                api_prod_x = json_obj.prod_x;
+                api_prod_y = json_obj.prod_y;
             },
             error:function(e){
                 alert('Fail.');
             }
         });
-        */
+    }
 
-        var arr_data = [
-                        {event_name:"제주 GAP 하우스 감귤(1.2kg/1팩/국산)",event_id:"1",event_price:"9,980",img_url:"./contents/product/detail_01.jpg",normal_price:"1,153.300원",special_price:"1,152.200",start_date:"2019.06.19",end_date:"2019.10.1(화)까지",store_id:"1",floor:"B1",map_url:"./map/B1.png",text_information:"※점별 운영상품 상이 ※조기 품절될 수 있습니다",point_sect:"normal"},
-                        {event_name:"미국산 소 척아이롤(100g/냉장)",event_id:"2",event_price:"1,750",img_url:"./contents/product/detail_02.jpg",normal_price:"1,153.300원",special_price:"1,152.200",start_date:"2019.06.19",end_date:"2019.10.1(화)까지",store_id:"2",floor:"B1",map_url:"./map/B1.png",text_information:"",point_sect:"point"},
-                        {event_name:"통큰치킨 (1마리, 계육: 냉장/국내산)",event_id:"3",event_price:"5,000",img_url:"./contents/product/detail_03.jpg",normal_price:"1,153.300원",special_price:"1,152.200",start_date:"2019.06.19",end_date:"2019.10.1(화)까지",store_id:"3",floor:"B1",map_url:"./map/B1.png",text_information:"",point_sect:"normal"},
-                        {event_name:"씨제이 비비고 군교자 2종(고기 360g*2/해물파전 315g*2)",event_id:"4",event_price:"8,480",img_url:"./contents/product/detail_04.jpg",normal_price:"1,153.300원",special_price:"1,152.200",start_date:"2019.06.19",end_date:"2019.10.1(화)까지",store_id:"4",floor:"B1",map_url:"./map/B1.png",text_information:"",point_sect:"normal"},
-                        {event_name:"롯데푸드 리퀴진 미니돈까스(380g)",event_id:"5",event_price:"4,980",img_url:"./contents/product/detail_05.jpg",normal_price:"1,153.300원",special_price:"1,152.200",start_date:"2019.06.19",end_date:"2019.10.1(화)까지",store_id:"5",floor:"B1",map_url:"./map/B1.png",text_information:"",point_sect:"normal"},
-                        {event_name:"씨제이 고메 핫도그 2종(480g/425g)",event_id:"6",event_price:"6,980",img_url:"./contents/product/detail_06.jpg",normal_price:"1,153.300원",special_price:"1,152.200",start_date:"2019.06.19",end_date:"2019.10.1(화)까지",store_id:"6",floor:"B1",map_url:"./map/B1.png",text_information:"",point_sect:"normal"},
-                        {event_name:"온리프라이스 우유(930ml*2)",event_id:"7",event_price:"3,000",img_url:"./contents/product/detail_07.jpg",normal_price:"1,153.300원",special_price:"1,152.200",start_date:"2019.06.19",end_date:"2019.10.1(화)까지",store_id:"7",floor:"B1",map_url:"./map/B1.png",text_information:"",point_sect:"normal"},
-                        {event_name:"잘풀리는집 더도톰한 3겹 화장지(30m*30롤)",event_id:"8",event_price:"13,900",img_url:"./contents/product/detail_08.jpg",normal_price:"1,153.300원",special_price:"1,152.200",start_date:"2019.06.19",end_date:"2019.10.1(화)까지",store_id:"8",floor:"B1",map_url:"./map/B1.png",text_information:"",point_sect:"normal"}
-						
-                        ];
+    function getEventList(){
 
-        return arr_data;
+        var arr_data = undefined;
+
+        $.ajax({
+            url : "../lotte_json/event_prd_json.jsp",
+            method : "GET",
+            dataType : "text",
+            contentType: "application/x-www-form-urlencoded; charset=UTF-8",
+            success : function(data){
+                var json_obj = JSON.parse(data);
+                arr_data = json_obj;
+                setEventList(arr_data);
+                //팝업 이벤트 설정 시작
+                var arr_event_button = $(".middle_event_product_right_bot");
+                var json_objs = {
+                                arr_event_button:arr_event_button
+                                };
+
+                setPopupEvent(json_objs);       
+            },
+            error:function(e){
+                alert('Fail.');
+            }
+        });      
 
     }
 
     function setEventList(arr_data){
-
-        var arr_data = getEventList();
-
 
         //현재 리스트 초기화 
         var tmp_list = $('.middle_event_product');
@@ -4126,28 +4154,22 @@
             var tmp_json = arr_data[index];
             
             var str_append = "<div class=\"middle_event_product\" id=\"id_event_" + index + "\"";
-                str_append += "data-event_name=\"" + tmp_json.event_name + "\"";
-                str_append += "data-event_id=\"" + tmp_json.event_id + "\"";
-                str_append += "data-event_price=\"" + tmp_json.event_price + "\"";
-                str_append += "data-normal_price=\"" + tmp_json.normal_price + "\"";
-                str_append += "data-special_price=\"" + tmp_json.special_price + "\"";
+                str_append += "data-prod_name=\"" + tmp_json.prod_name + "\"";
+                str_append += "data-prod_id=\"" + tmp_json.prod_id + "\"";
+                str_append += "data-prod_price=\"" + tmp_json.prod_price + "\"";
                 str_append += "data-img_url=\"" + tmp_json.img_url + "\"";
-                str_append += "data-map_url=\"" + tmp_json.map_url + "\"";
-                str_append += "data-store_id=\"" + tmp_json.store_id + "\"";
-                str_append += "data-floor=\"" + tmp_json.floor + "\"";
                 str_append += "data-text_information=\"" + tmp_json.text_information + "\"";
                 str_append += "data-point_sect=\"" + tmp_json.point_sect + "\"";
                 str_append += "data-start_date=\"" + tmp_json.start_date + "\"";
-                str_append += "data-end_date=\"" + tmp_json.end_date + "\">";
-                
+                str_append += "data-end_date=\"" + tmp_json.end_date + "\">";              
 
-                str_append += "  <img class=\"middle_event_product_left\" src=\"./contents/product/detail_0" + (index + 1) + ".jpg\"/>";
+                str_append += "  <img class=\"middle_event_product_left\" src=\"" + tmp_json.img_url + "\"/>";
                 str_append += "  <div class=\"middle_event_product_right\">";
                 str_append += "    <div class=\"middle_event_product_right_top\">";
-                str_append += "      " + tmp_json.event_name;
+                str_append += "      " + tmp_json.prod_name;
                 str_append += "    </div>";
                 str_append += "    <div class=\"middle_event_product_right_middle\">";
-                str_append += "      <div class=\"middle_event_product_right_middle_number\">" + tmp_json.event_price + "</div>";
+                str_append += "      <div class=\"middle_event_product_right_middle_number\">" + tmp_json.prod_price + "</div>";
                 str_append += "      <div class=\"middle_event_product_right_middle_text\">원</div>";
                 str_append += "    </div>";
                 str_append += "    <img class=\"middle_event_product_right_bot\" src=\"./image/product_bt_wayfinding.png\"/>";
@@ -4350,7 +4372,7 @@
         setMapDrag(image_objs);
         
         //상점 지도에 그리는 기능 시작
-        setStoreDrawingToMap();
+        //setStoreDrawingToMap();
         //키오스크 현재 위치 설정
         setKioskPopupPosition(gl_kiosk_code);
         
@@ -4407,7 +4429,7 @@
         arr_stores = document.querySelectorAll('.map_store');
         store_popup_obj = $('.store_popup');
         var target_btn = $('.map_zoom_plus');
-        var store_id = parseInt(getQuerystring('store_id'));
+        var prod_id = parseInt(getQuerystring('prod_id'));
         var kiosk_popup_obj = $('.kiosk_popup');
         
         var click_objs = {
@@ -4421,7 +4443,7 @@
                         kiosk_popup_obj:kiosk_popup_obj,
                         target_btn:target_btn,
                         sect:"plus",
-                        store_id:store_id
+                        prod_id:prod_id
                     };
                     
         setClickMapZoom(click_objs);     
@@ -4439,7 +4461,7 @@
                         kiosk_popup_obj:kiosk_popup_obj,
                         target_btn:target_btn,
                         sect:"minus",
-                        store_id:store_id
+                        prod_id:prod_id
                         };                        
 
         setClickMapZoom(click_objs);     
@@ -4500,14 +4522,14 @@
         $('.main_pre_btn').on('touchend',function(e){
             setInitImageButtonColor(arr_main_pre_btn);
 
-            var event_id = getQuerystring('event_id');
+            var prod_id = getQuerystring('prod_id');
             var brand_id = getQuerystring('brand_id');
             var pre_page = getQuerystring('pre_page');
             var brand_pop_number = getQuerystring('brand_pop_number');
 
             if(pre_page === "event"){
-                if(event_id !== ""){
-                    reloadEventPage(event_id);
+                if(prod_id !== ""){
+                    reloadEventPage(prod_id);
                 }
             }else if(pre_page === "brand"){
                 if(brand_id !== ""){
@@ -4569,27 +4591,12 @@
     function setInitEvent(){
 
         //이벤트 리스트 설정
-        setEventList();
-
-        //팝업 이벤트 설정 시작
-        var arr_event_button = $(".middle_event_product_right_bot");
-    
-        var json_objs = {
-                        arr_event_button:arr_event_button
-                        };
-
-        setPopupEvent(json_objs);       
+        getEventList();
         
         //이벤트 상품 길찾기 설정
         $('.event_popup_bot').on('click',function(e){
-            var store_id = $(this).data("store_id");
-            var floor = $(this).data("floor");
-            var map_url = $(this).data("map_url");
-            var event_id = $(this).data("event_id");
-
-            reloadMainPage(store_id,"event",event_id);
-            setEventPopMoveToStore(store_id,floor,map_url);
-
+            var prod_id = $(this).data("prod_id");
+            reloadMainPage(prod_id,"event");
         })
     }
 
@@ -4622,28 +4629,19 @@
 
         //파라미터 받으면 해당 페이지를 첫페이지로 사용
         var first_page = getQuerystring('page');
-        var store_id = parseInt(getQuerystring('store_id'));
-
-        var event_id = getQuerystring('event_id');
+        var prod_id = parseInt(getQuerystring('prod_id'));
         var brand_id = getQuerystring('brand_id');
-        
-        //상점 아이디가 있다면 상점 검색 후 지도 이동
-        if(store_id !== ""){
-            
-            var tmp_json = getSearchStoreInfo(store_id);
-            
-            var floor = tmp_json.floor;
-            var map_url = tmp_json.map_url;
-            
-            setEventPopMoveToStore(store_id,floor,map_url);
-            
+
+        //상품 아이디가 있다면 상품 검색 후 지도 이동
+        if(prod_id !== ""){
+            setSearchProduct('id',prod_id);
         }
         
         if(first_page === ""){
             first_page = "navigation";
         }
 
-        if(event_id !== "" || brand_id !== ""){
+        if(!isNaN(prod_id) || brand_id !== ""){
             $('.main_pre_btn').css("display","block");
         }else{
             $('.main_pre_btn').css("display","none");
@@ -4653,56 +4651,17 @@
         
     }
 
-    function reloadMainPage(store_id,pre_page,event_id){
-        document.location.href = "vertical_kiosk_main.html?page=" + "main" + "&store_id=" + store_id + "&kiosk_code=" + gl_kiosk_code + "&pre_page=" + "event" + "&event_id=" + event_id + "";
+    function reloadMainPage(prod_id,pre_page){
+        document.location.href = "vertical_kiosk_main.html?page=" + "main" + "&prod_id=" + prod_id + "&kiosk_code=" + gl_kiosk_code + "&pre_page=" + "event";
     }
 
-    function reloadEventPage(event_id){
-        document.location.href = "vertical_kiosk_main.html?page=" + "event" + "&kiosk_code=" + gl_kiosk_code + "&event_id=" + event_id + "";
+    function reloadEventPage(prod_id){
+        document.location.href = "vertical_kiosk_main.html?page=" + "event" + "&kiosk_code=" + gl_kiosk_code + "&prod_id=" + prod_id;
     }
 
     function reloadBrandPage(brand_id,brand_pop_number){
         document.location.href = "vertical_kiosk_brand.html?" + "kiosk_code=" + gl_kiosk_code + "&brand_id=" + brand_id + "&popup=" + "on" + "&brand_pop_number=" + brand_pop_number + "";
     }
-
-    function getSearchStoreInfo(store_id){
-        /*
-        $.ajax({
-            url : "frame_action_ajax.jsp",
-            method : "GET",
-            dataType : "text",
-            data : {'mode':'DELETE_GROUP','intro_group_name':$va,'group_id':$g_id},
-            success : function(data){
-                if($.trim(data)!= '' && $.trim(data) != 'FAIL'){
-                    $group_id = $.trim(data);
-                    console.log($group_id);
-                    alert('Complete');
-                    $('#id_intro_change').modal('hide');
-                    $('.midDropper').each(function(){
-                        if($(this).attr('group_id') == $g_id){
-                            $(this).fadeOut();
-                            $(this).next().fadeOut();
-                            setKioskUpd($g_id,'');
-                        }
-                    });
-                }
-            },
-            error:function(e){
-                alert('Fail.');
-            }
-        });
-        */
-       
-
-        var tmp_json = {floor:"2F",map_url:"./map/B1.png"};
-        
-        var floor = "B1";
-        var map_url = "./map/B1.png";
-
-        return {floor:floor,map_url:map_url};
-    }
-
-    //$(".cover_loading_main").fadeOut(500);
 
     //키오스크 터치 타이머 설정 터치 없을시 30초후 스크린세이버로 이동
     $('body').on('click',function(e){
@@ -4711,7 +4670,7 @@
         gl_kiosk_touch_timer_id = setInterval(function() {
                                     setCheckScreenTimer();
                                   }, 1000);
-    })
+    });
 
     function setCheckScreenTimer(){
 
@@ -4746,7 +4705,7 @@
                       kiosk_popup:kiosk_popup,
                       store_popup:store_popup
                      }
-    //setNewMapPinchZoom(pinch_objs);
+    setNewMapPinchZoom(pinch_objs);
 
     function setNewMapPinchZoom(json){
 
@@ -5000,10 +4959,6 @@
         function send(msg){
             webSocket.send(msg);
         }
-        
-        
-
     }//setWSconnect();
-    
 
 </script>
